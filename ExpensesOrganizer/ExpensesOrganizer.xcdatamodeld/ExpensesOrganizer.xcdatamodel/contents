@@ -33,10 +33,10 @@
         <attribute name="walletID" attributeType="UUID" usesScalarValueType="NO"/>
     </entity>
     <elements>
-        <element name="Wallet" positionX="-63" positionY="-18" width="128" height="118"/>
         <element name="Goal" positionX="153.6805419921875" positionY="-194.7109985351562" width="128" height="133"/>
-        <element name="Template" positionX="-36" positionY="72" width="128" height="103"/>
         <element name="Item" positionX="-18" positionY="81" width="128" height="88"/>
+        <element name="Template" positionX="-36" positionY="72" width="128" height="103"/>
         <element name="Transaction" positionX="0" positionY="99" width="128" height="103"/>
+        <element name="Wallet" positionX="-63" positionY="-18" width="128" height="118"/>
     </elements>
 </model>

@@ -7,11 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		16652A19271E0A690015BAA3 /* Goal+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16652A0F271E0A690015BAA3 /* Goal+CoreDataClass.swift */; };
-		16652A1B271E0A690015BAA3 /* Template+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16652A11271E0A690015BAA3 /* Template+CoreDataClass.swift */; };
-		16652A1D271E0A690015BAA3 /* Transaction+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16652A13271E0A690015BAA3 /* Transaction+CoreDataClass.swift */; };
-		16652A1F271E0A690015BAA3 /* Item+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16652A15271E0A690015BAA3 /* Item+CoreDataClass.swift */; };
-		16652A21271E0A690015BAA3 /* Wallet+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16652A17271E0A690015BAA3 /* Wallet+CoreDataClass.swift */; };
 		16655627271A0E0000DE83F4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16655626271A0E0000DE83F4 /* AppDelegate.swift */; };
 		16655629271A0E0000DE83F4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16655628271A0E0000DE83F4 /* SceneDelegate.swift */; };
 		1665562B271A0E0000DE83F4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1665562A271A0E0000DE83F4 /* ViewController.swift */; };
@@ -20,14 +15,14 @@
 		16655633271A0E0400DE83F4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 16655632271A0E0400DE83F4 /* Assets.xcassets */; };
 		16655636271A0E0400DE83F4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 16655634271A0E0400DE83F4 /* LaunchScreen.storyboard */; };
 		16655641271A0ECA00DE83F4 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 16655643271A0ECA00DE83F4 /* Localizable.strings */; };
+		16B2D713271E0EA800E7BB84 /* Goal+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16B2D709271E0EA800E7BB84 /* Goal+CoreDataClass.swift */; };
+		16B2D715271E0EA800E7BB84 /* Transaction+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16B2D70B271E0EA800E7BB84 /* Transaction+CoreDataClass.swift */; };
+		16B2D717271E0EA800E7BB84 /* Item+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16B2D70D271E0EA800E7BB84 /* Item+CoreDataClass.swift */; };
+		16B2D719271E0EA800E7BB84 /* Wallet+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16B2D70F271E0EA800E7BB84 /* Wallet+CoreDataClass.swift */; };
+		16B2D71B271E0EA800E7BB84 /* Template+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16B2D711271E0EA800E7BB84 /* Template+CoreDataClass.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		16652A0F271E0A690015BAA3 /* Goal+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Goal+CoreDataClass.swift"; sourceTree = "<group>"; };
-		16652A11271E0A690015BAA3 /* Template+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Template+CoreDataClass.swift"; sourceTree = "<group>"; };
-		16652A13271E0A690015BAA3 /* Transaction+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Transaction+CoreDataClass.swift"; sourceTree = "<group>"; };
-		16652A15271E0A690015BAA3 /* Item+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Item+CoreDataClass.swift"; sourceTree = "<group>"; };
-		16652A17271E0A690015BAA3 /* Wallet+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Wallet+CoreDataClass.swift"; sourceTree = "<group>"; };
 		16655623271A0E0000DE83F4 /* ExpensesOrganizer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExpensesOrganizer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		16655626271A0E0000DE83F4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		16655628271A0E0000DE83F4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -41,6 +36,11 @@
 		1665563E271A0E6500DE83F4 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		16655642271A0ECA00DE83F4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		16655644271A0ECC00DE83F4 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		16B2D709271E0EA800E7BB84 /* Goal+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Goal+CoreDataClass.swift"; sourceTree = "<group>"; };
+		16B2D70B271E0EA800E7BB84 /* Transaction+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Transaction+CoreDataClass.swift"; sourceTree = "<group>"; };
+		16B2D70D271E0EA800E7BB84 /* Item+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Item+CoreDataClass.swift"; sourceTree = "<group>"; };
+		16B2D70F271E0EA800E7BB84 /* Wallet+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Wallet+CoreDataClass.swift"; sourceTree = "<group>"; };
+		16B2D711271E0EA800E7BB84 /* Template+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Template+CoreDataClass.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,11 +57,11 @@
 		1665561A271A0E0000DE83F4 = {
 			isa = PBXGroup;
 			children = (
-				16652A0F271E0A690015BAA3 /* Goal+CoreDataClass.swift */,
-				16652A11271E0A690015BAA3 /* Template+CoreDataClass.swift */,
-				16652A13271E0A690015BAA3 /* Transaction+CoreDataClass.swift */,
-				16652A15271E0A690015BAA3 /* Item+CoreDataClass.swift */,
-				16652A17271E0A690015BAA3 /* Wallet+CoreDataClass.swift */,
+				16B2D709271E0EA800E7BB84 /* Goal+CoreDataClass.swift */,
+				16B2D70B271E0EA800E7BB84 /* Transaction+CoreDataClass.swift */,
+				16B2D70D271E0EA800E7BB84 /* Item+CoreDataClass.swift */,
+				16B2D70F271E0EA800E7BB84 /* Wallet+CoreDataClass.swift */,
+				16B2D711271E0EA800E7BB84 /* Template+CoreDataClass.swift */,
 				16655625271A0E0000DE83F4 /* ExpensesOrganizer */,
 				16655624271A0E0000DE83F4 /* Products */,
 			);
@@ -186,15 +186,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				16652A21271E0A690015BAA3 /* Wallet+CoreDataClass.swift in Sources */,
-				16652A19271E0A690015BAA3 /* Goal+CoreDataClass.swift in Sources */,
+				16B2D713271E0EA800E7BB84 /* Goal+CoreDataClass.swift in Sources */,
 				1665562B271A0E0000DE83F4 /* ViewController.swift in Sources */,
-				16652A1F271E0A690015BAA3 /* Item+CoreDataClass.swift in Sources */,
-				16652A1D271E0A690015BAA3 /* Transaction+CoreDataClass.swift in Sources */,
+				16B2D71B271E0EA800E7BB84 /* Template+CoreDataClass.swift in Sources */,
+				16B2D717271E0EA800E7BB84 /* Item+CoreDataClass.swift in Sources */,
+				16B2D715271E0EA800E7BB84 /* Transaction+CoreDataClass.swift in Sources */,
 				16655627271A0E0000DE83F4 /* AppDelegate.swift in Sources */,
 				16655631271A0E0000DE83F4 /* ExpensesOrganizer.xcdatamodeld in Sources */,
+				16B2D719271E0EA800E7BB84 /* Wallet+CoreDataClass.swift in Sources */,
 				16655629271A0E0000DE83F4 /* SceneDelegate.swift in Sources */,
-				16652A1B271E0A690015BAA3 /* Template+CoreDataClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
