@@ -12,12 +12,13 @@
         <attribute name="name" attributeType="String"/>
         <attribute name="recurrence" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="value" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <relationship name="template" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Template" inverseName="items" inverseEntity="Template"/>
     </entity>
     <entity name="Template" representedClassName=".Template" syncable="YES" codeGenerationType="category">
         <attribute name="name" attributeType="String"/>
         <attribute name="templateDescription" optional="YES" attributeType="String"/>
         <attribute name="templateID" attributeType="UUID" usesScalarValueType="NO"/>
-        <relationship name="items" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Item"/>
+        <relationship name="items" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Item" inverseName="template" inverseEntity="Item"/>
     </entity>
     <entity name="Transaction" representedClassName=".Transaction" syncable="YES" codeGenerationType="category">
         <attribute name="destination" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
@@ -34,8 +35,8 @@
     </entity>
     <elements>
         <element name="Goal" positionX="153.6805419921875" positionY="-194.7109985351562" width="128" height="133"/>
-        <element name="Item" positionX="-18" positionY="81" width="128" height="88"/>
-        <element name="Template" positionX="-36" positionY="72" width="128" height="103"/>
+        <element name="Item" positionX="-18" positionY="81" width="128" height="89"/>
+        <element name="Template" positionX="-36" positionY="72" width="128" height="89"/>
         <element name="Transaction" positionX="0" positionY="99" width="128" height="103"/>
         <element name="Wallet" positionX="-63" positionY="-18" width="128" height="118"/>
     </elements>
