@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="19206" systemVersion="20G165" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="Goal" representedClassName="Goal" syncable="YES" codeGenerationType="category">
+    <entity name="Goal" representedClassName=".Goal" syncable="YES" codeGenerationType="category">
         <attribute name="endDate" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="goalDescription" optional="YES" attributeType="String"/>
         <attribute name="goalID" attributeType="UUID" usesScalarValueType="NO"/>
@@ -8,24 +8,24 @@
         <attribute name="startDate" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="value" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
     </entity>
-    <entity name="Item" representedClassName="Item" syncable="YES" codeGenerationType="category">
+    <entity name="Item" representedClassName=".Item" syncable="YES" codeGenerationType="category">
         <attribute name="name" attributeType="String"/>
         <attribute name="recurrence" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="value" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
     </entity>
-    <entity name="Template" representedClassName="Template" syncable="YES" codeGenerationType="category">
+    <entity name="Template" representedClassName=".Template" syncable="YES" codeGenerationType="category">
         <attribute name="name" attributeType="String"/>
         <attribute name="templateDescription" optional="YES" attributeType="String"/>
         <attribute name="templateID" attributeType="UUID" usesScalarValueType="NO"/>
         <relationship name="items" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Item"/>
     </entity>
-    <entity name="Transaction" representedClassName="Transaction" syncable="YES" codeGenerationType="category">
+    <entity name="Transaction" representedClassName=".Transaction" syncable="YES" codeGenerationType="category">
         <attribute name="destination" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="origem" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="transactionDate" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="value" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
     </entity>
-    <entity name="Wallet" representedClassName="Wallet" syncable="YES" codeGenerationType="category">
+    <entity name="Wallet" representedClassName=".Wallet" syncable="YES" codeGenerationType="category">
         <attribute name="name" attributeType="String"/>
         <attribute name="recurrence" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="value" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
@@ -33,10 +33,10 @@
         <attribute name="walletID" attributeType="UUID" usesScalarValueType="NO"/>
     </entity>
     <elements>
-        <element name="Wallet" positionX="-63" positionY="-18" width="128" height="104"/>
-        <element name="Goal" positionX="-54" positionY="27" width="128" height="119"/>
-        <element name="Template" positionX="-36" positionY="72" width="128" height="89"/>
-        <element name="Item" positionX="-18" positionY="81" width="128" height="74"/>
-        <element name="Transaction" positionX="0" positionY="99" width="128" height="89"/>
+        <element name="Wallet" positionX="-63" positionY="-18" width="128" height="118"/>
+        <element name="Goal" positionX="153.6805419921875" positionY="-194.7109985351562" width="128" height="133"/>
+        <element name="Template" positionX="-36" positionY="72" width="128" height="103"/>
+        <element name="Item" positionX="-18" positionY="81" width="128" height="88"/>
+        <element name="Transaction" positionX="0" positionY="99" width="128" height="103"/>
     </elements>
 </model>

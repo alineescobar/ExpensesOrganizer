@@ -7,16 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		166529F1271E06870015BAA3 /* Item+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166529E7271E06870015BAA3 /* Item+CoreDataClass.swift */; };
-		166529F2271E06870015BAA3 /* Item+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166529E8271E06870015BAA3 /* Item+CoreDataProperties.swift */; };
-		166529F3271E06870015BAA3 /* Wallet+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166529E9271E06870015BAA3 /* Wallet+CoreDataClass.swift */; };
-		166529F4271E06870015BAA3 /* Wallet+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166529EA271E06870015BAA3 /* Wallet+CoreDataProperties.swift */; };
-		166529F5271E06870015BAA3 /* Template+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166529EB271E06870015BAA3 /* Template+CoreDataClass.swift */; };
-		166529F6271E06870015BAA3 /* Template+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166529EC271E06870015BAA3 /* Template+CoreDataProperties.swift */; };
-		166529F7271E06870015BAA3 /* Goal+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166529ED271E06870015BAA3 /* Goal+CoreDataClass.swift */; };
-		166529F8271E06870015BAA3 /* Goal+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166529EE271E06870015BAA3 /* Goal+CoreDataProperties.swift */; };
-		166529F9271E06870015BAA3 /* Transaction+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166529EF271E06870015BAA3 /* Transaction+CoreDataClass.swift */; };
-		166529FA271E06870015BAA3 /* Transaction+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166529F0271E06870015BAA3 /* Transaction+CoreDataProperties.swift */; };
+		16652A19271E0A690015BAA3 /* Goal+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16652A0F271E0A690015BAA3 /* Goal+CoreDataClass.swift */; };
+		16652A1B271E0A690015BAA3 /* Template+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16652A11271E0A690015BAA3 /* Template+CoreDataClass.swift */; };
+		16652A1D271E0A690015BAA3 /* Transaction+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16652A13271E0A690015BAA3 /* Transaction+CoreDataClass.swift */; };
+		16652A1F271E0A690015BAA3 /* Item+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16652A15271E0A690015BAA3 /* Item+CoreDataClass.swift */; };
+		16652A21271E0A690015BAA3 /* Wallet+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16652A17271E0A690015BAA3 /* Wallet+CoreDataClass.swift */; };
 		16655627271A0E0000DE83F4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16655626271A0E0000DE83F4 /* AppDelegate.swift */; };
 		16655629271A0E0000DE83F4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16655628271A0E0000DE83F4 /* SceneDelegate.swift */; };
 		1665562B271A0E0000DE83F4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1665562A271A0E0000DE83F4 /* ViewController.swift */; };
@@ -28,16 +23,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		166529E7271E06870015BAA3 /* Item+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Item+CoreDataClass.swift"; sourceTree = "<group>"; };
-		166529E8271E06870015BAA3 /* Item+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Item+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		166529E9271E06870015BAA3 /* Wallet+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Wallet+CoreDataClass.swift"; sourceTree = "<group>"; };
-		166529EA271E06870015BAA3 /* Wallet+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Wallet+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		166529EB271E06870015BAA3 /* Template+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Template+CoreDataClass.swift"; sourceTree = "<group>"; };
-		166529EC271E06870015BAA3 /* Template+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Template+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		166529ED271E06870015BAA3 /* Goal+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Goal+CoreDataClass.swift"; sourceTree = "<group>"; };
-		166529EE271E06870015BAA3 /* Goal+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Goal+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		166529EF271E06870015BAA3 /* Transaction+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Transaction+CoreDataClass.swift"; sourceTree = "<group>"; };
-		166529F0271E06870015BAA3 /* Transaction+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Transaction+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		16652A0F271E0A690015BAA3 /* Goal+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Goal+CoreDataClass.swift"; sourceTree = "<group>"; };
+		16652A11271E0A690015BAA3 /* Template+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Template+CoreDataClass.swift"; sourceTree = "<group>"; };
+		16652A13271E0A690015BAA3 /* Transaction+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Transaction+CoreDataClass.swift"; sourceTree = "<group>"; };
+		16652A15271E0A690015BAA3 /* Item+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Item+CoreDataClass.swift"; sourceTree = "<group>"; };
+		16652A17271E0A690015BAA3 /* Wallet+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Wallet+CoreDataClass.swift"; sourceTree = "<group>"; };
 		16655623271A0E0000DE83F4 /* ExpensesOrganizer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExpensesOrganizer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		16655626271A0E0000DE83F4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		16655628271A0E0000DE83F4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -67,16 +57,11 @@
 		1665561A271A0E0000DE83F4 = {
 			isa = PBXGroup;
 			children = (
-				166529E7271E06870015BAA3 /* Item+CoreDataClass.swift */,
-				166529E8271E06870015BAA3 /* Item+CoreDataProperties.swift */,
-				166529E9271E06870015BAA3 /* Wallet+CoreDataClass.swift */,
-				166529EA271E06870015BAA3 /* Wallet+CoreDataProperties.swift */,
-				166529EB271E06870015BAA3 /* Template+CoreDataClass.swift */,
-				166529EC271E06870015BAA3 /* Template+CoreDataProperties.swift */,
-				166529ED271E06870015BAA3 /* Goal+CoreDataClass.swift */,
-				166529EE271E06870015BAA3 /* Goal+CoreDataProperties.swift */,
-				166529EF271E06870015BAA3 /* Transaction+CoreDataClass.swift */,
-				166529F0271E06870015BAA3 /* Transaction+CoreDataProperties.swift */,
+				16652A0F271E0A690015BAA3 /* Goal+CoreDataClass.swift */,
+				16652A11271E0A690015BAA3 /* Template+CoreDataClass.swift */,
+				16652A13271E0A690015BAA3 /* Transaction+CoreDataClass.swift */,
+				16652A15271E0A690015BAA3 /* Item+CoreDataClass.swift */,
+				16652A17271E0A690015BAA3 /* Wallet+CoreDataClass.swift */,
 				16655625271A0E0000DE83F4 /* ExpensesOrganizer */,
 				16655624271A0E0000DE83F4 /* Products */,
 			);
@@ -201,20 +186,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				166529F2271E06870015BAA3 /* Item+CoreDataProperties.swift in Sources */,
-				166529F1271E06870015BAA3 /* Item+CoreDataClass.swift in Sources */,
-				166529F8271E06870015BAA3 /* Goal+CoreDataProperties.swift in Sources */,
+				16652A21271E0A690015BAA3 /* Wallet+CoreDataClass.swift in Sources */,
+				16652A19271E0A690015BAA3 /* Goal+CoreDataClass.swift in Sources */,
 				1665562B271A0E0000DE83F4 /* ViewController.swift in Sources */,
+				16652A1F271E0A690015BAA3 /* Item+CoreDataClass.swift in Sources */,
+				16652A1D271E0A690015BAA3 /* Transaction+CoreDataClass.swift in Sources */,
 				16655627271A0E0000DE83F4 /* AppDelegate.swift in Sources */,
-				166529F3271E06870015BAA3 /* Wallet+CoreDataClass.swift in Sources */,
 				16655631271A0E0000DE83F4 /* ExpensesOrganizer.xcdatamodeld in Sources */,
-				166529F4271E06870015BAA3 /* Wallet+CoreDataProperties.swift in Sources */,
-				166529FA271E06870015BAA3 /* Transaction+CoreDataProperties.swift in Sources */,
-				166529F7271E06870015BAA3 /* Goal+CoreDataClass.swift in Sources */,
-				166529F9271E06870015BAA3 /* Transaction+CoreDataClass.swift in Sources */,
-				166529F6271E06870015BAA3 /* Template+CoreDataProperties.swift in Sources */,
 				16655629271A0E0000DE83F4 /* SceneDelegate.swift in Sources */,
-				166529F5271E06870015BAA3 /* Template+CoreDataClass.swift in Sources */,
+				16652A1B271E0A690015BAA3 /* Template+CoreDataClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

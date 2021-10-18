@@ -9,7 +9,7 @@
 import Foundation
 import CoreData
 
-@objc(Wallet)
+
 public class Wallet: NSManagedObject {
 
 }
