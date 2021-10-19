@@ -10,7 +10,7 @@ import CoreData
 import Foundation
 import UIKit
 
-public class Transaction: NSManagedObject, Operations {
+public class Transaction: NSManagedObject, Operable {
 //    swiftlint:disable force_cast
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
 //    swiftlint:enable force_cast
@@ -112,7 +112,7 @@ public class Transaction: NSManagedObject, Operations {
     
 }
 
-protocol Operations {
+protocol Operable {
     func income(objectID: UUID, value: Double)
     func outcome(objectID: UUID?, value: Double)
 }
