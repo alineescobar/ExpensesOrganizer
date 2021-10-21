@@ -21,6 +21,9 @@
 		16B2D719271E0EA800E7BB84 /* Wallet+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16B2D70F271E0EA800E7BB84 /* Wallet+CoreDataClass.swift */; };
 		16B2D71B271E0EA800E7BB84 /* Template+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16B2D711271E0EA800E7BB84 /* Template+CoreDataClass.swift */; };
 		F138B88F2720A950009F0837 /* ProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F138B88E2720A950009F0837 /* ProfileTableViewCell.swift */; };
+		F196D4FC2721ECF500CCAF81 /* BalanceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F196D4FB2721ECF500CCAF81 /* BalanceTableViewCell.swift */; };
+		F196D4FE2721FAA700CCAF81 /* GraphicsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F196D4FD2721FAA700CCAF81 /* GraphicsTableViewCell.swift */; };
+		F196D500272201F300CCAF81 /* ButtonsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F196D4FF272201F300CCAF81 /* ButtonsTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +46,9 @@
 		16B2D70F271E0EA800E7BB84 /* Wallet+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Wallet+CoreDataClass.swift"; sourceTree = "<group>"; };
 		16B2D711271E0EA800E7BB84 /* Template+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Template+CoreDataClass.swift"; sourceTree = "<group>"; };
 		F138B88E2720A950009F0837 /* ProfileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewCell.swift; sourceTree = "<group>"; };
+		F196D4FB2721ECF500CCAF81 /* BalanceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalanceTableViewCell.swift; sourceTree = "<group>"; };
+		F196D4FD2721FAA700CCAF81 /* GraphicsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphicsTableViewCell.swift; sourceTree = "<group>"; };
+		F196D4FF272201F300CCAF81 /* ButtonsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonsTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,8 +134,11 @@
 		F138B88A2720A19E009F0837 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				F196D4FB2721ECF500CCAF81 /* BalanceTableViewCell.swift */,
+				F196D4FD2721FAA700CCAF81 /* GraphicsTableViewCell.swift */,
 				F138B88E2720A950009F0837 /* ProfileTableViewCell.swift */,
 				1665562A271A0E0000DE83F4 /* DashboardViewController.swift */,
+				F196D4FF272201F300CCAF81 /* ButtonsTableViewCell.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -237,11 +246,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F196D4FC2721ECF500CCAF81 /* BalanceTableViewCell.swift in Sources */,
 				16B2D713271E0EA800E7BB84 /* Goal+CoreDataClass.swift in Sources */,
 				1665562B271A0E0000DE83F4 /* DashboardViewController.swift in Sources */,
+				F196D500272201F300CCAF81 /* ButtonsTableViewCell.swift in Sources */,
 				16B2D71B271E0EA800E7BB84 /* Template+CoreDataClass.swift in Sources */,
 				F138B88F2720A950009F0837 /* ProfileTableViewCell.swift in Sources */,
 				16B2D717271E0EA800E7BB84 /* Item+CoreDataClass.swift in Sources */,
+				F196D4FE2721FAA700CCAF81 /* GraphicsTableViewCell.swift in Sources */,
 				16B2D715271E0EA800E7BB84 /* Transaction+CoreDataClass.swift in Sources */,
 				16655627271A0E0000DE83F4 /* AppDelegate.swift in Sources */,
 				16655631271A0E0000DE83F4 /* ExpensesOrganizer.xcdatamodeld in Sources */,
