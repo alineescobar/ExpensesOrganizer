@@ -7,6 +7,14 @@
 
 import UIKit
 
+enum DashboardCategory: CaseIterable {
+    case profile, balance, graphics, buttons, wallets, actionableCell, transaction(transaction: Transaction)
+    
+    static var allCases: [DashboardCategory] {
+        return [.profile, .balance, .graphics, .buttons, .wallets, .actionableCell]
+    }
+}
+
 class DashboardViewController: UIViewController {
     
     @IBOutlet weak var backgroundViewHeightConstraint: NSLayoutConstraint!
@@ -14,6 +22,7 @@ class DashboardViewController: UIViewController {
     @IBOutlet weak var mainTableView: UITableView!
     private var isShowingGraphics: Bool = false
     private var isShowingBalance: Bool = false
+    private let dashboardCategories: [DashboardCategory] = DashboardCategory.allCases
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,26 +35,32 @@ class DashboardViewController: UIViewController {
 
 extension DashboardViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.row == 0 {
-            return 51
-        } else if indexPath.row == 1 {
-            return 130
-        } else if indexPath.row == 2 {
+        let dashboardCategory = dashboardCategories[indexPath.row]
+        
+        switch dashboardCategory {
+        case .graphics:
             return isShowingGraphics ? 150 : 0
+
+        default:
+            break
         }
-        return 0
+        return UITableView.automaticDimension
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row == 1 {
             isShowingGraphics = !isShowingGraphics
+            mainTableView.reloadRows(at: [indexPath], with: .automatic)
         }
     }
 }
 
 extension DashboardViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.row == 0 {
+        let dashboardCategory = dashboardCategories[indexPath.row]
+        
+        switch dashboardCategory {
+        case .profile:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "profileCell", for: indexPath) as? ProfileTableViewCell
             else {
                 return UITableViewCell()
@@ -53,7 +68,8 @@ extension DashboardViewController: UITableViewDataSource {
             cell.nameLabel.text = "Hi, Aline"
             cell.dateLabel.text = "18 Out 2021"
             return cell
-        } else if indexPath.row == 1 {
+            
+        case .balance:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "balanceCell", for: indexPath) as? BalanceTableViewCell
             else {
                 return UITableViewCell()
@@ -66,24 +82,29 @@ extension DashboardViewController: UITableViewDataSource {
             cell.balanceDecimalLabel.alpha = isShowingBalance ? 1 : 0
             cell.balanceStackView.backgroundColor = isShowingBalance ? UIColor.clear : UIColor.lightGray
             return cell
-        } else if indexPath.row == 2 {
+            
+        case .graphics:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "graphicsCell", for: indexPath) as? GraphicsTableViewCell
             else {
                 return UITableViewCell()
             }
             return cell
+            
+        case .buttons:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "buttonsCell", for: indexPath) as? ButtonsTableViewCell
+            else {
+                return UITableViewCell()
+            }
+            return cell
+                        
+        default:
+            return UITableViewCell()
+            
         }
-        
-        return UITableViewCell()
-        
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
-    }
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return dashboardCategories.count
     }
     
 }
@@ -96,11 +117,7 @@ extension DashboardViewController: BalanceCellDelegate {
     
     func didTapGraphicsButton() {
         isShowingGraphics = !isShowingGraphics
-        let newConstraint = backgroundViewHeightConstraint.constraintWithMultiplier(isShowingGraphics ? 0.65 : 0.48)
-        view.removeConstraint(backgroundViewHeightConstraint)
-        view.addConstraint(newConstraint)
-        view.layoutIfNeeded()
-        backgroundViewHeightConstraint = newConstraint
+        backgroundViewHeightConstraint.constant = isShowingGraphics ? 549 : 399
         mainTableView.reloadData()
     }
     

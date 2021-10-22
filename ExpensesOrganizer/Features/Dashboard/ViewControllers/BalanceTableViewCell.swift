@@ -30,6 +30,12 @@ class BalanceTableViewCell: UITableViewCell {
     @IBOutlet weak var showGraphicsButton: UIButton!
     weak var balanceDelegate: BalanceCellDelegate?
     
+    override func layoutSubviews() {
+        super.layoutSubviews()
+
+      //  contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 40, left: 0, bottom: 0, right: 0))
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         hideBalanceButton.semanticContentAttribute = UIApplication.shared
