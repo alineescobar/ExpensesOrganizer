@@ -31,6 +31,27 @@ class DashboardViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: animated)
+    }
+    
+/*    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let destination = sender as? DashboardSegueCategory else { return }
+
+        switch destination {
+        case .wallet:
+            let timeToWaterViewController = segue.destination as?
+        }
+
+    }
+ */
+    
 }
 
 extension DashboardViewController: UITableViewDelegate {
@@ -40,7 +61,7 @@ extension DashboardViewController: UITableViewDelegate {
         switch dashboardCategory {
         case .graphics:
             return isShowingGraphics ? 150 : 0
-
+            
         default:
             break
         }
@@ -48,9 +69,22 @@ extension DashboardViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.row == 1 {
+        let dashboardCategory = dashboardCategories[indexPath.row]
+        
+        switch dashboardCategory {
+        case .balance:
             isShowingGraphics = !isShowingGraphics
+            var indexPathToReload = indexPath
+            indexPathToReload.row += 1
+            UIView.animate(withDuration: 0.3) {
+                self.backgroundViewHeightConstraint.constant = self.isShowingGraphics ? 549 : 399
+                self.view.layoutIfNeeded()
+            }
             mainTableView.reloadRows(at: [indexPath], with: .automatic)
+            mainTableView.reloadRows(at: [indexPathToReload], with: .automatic)
+            
+        default:
+            break
         }
     }
 }
@@ -65,8 +99,12 @@ extension DashboardViewController: UITableViewDataSource {
             else {
                 return UITableViewCell()
             }
-            cell.nameLabel.text = "Hi, Aline"
-            cell.dateLabel.text = "18 Out 2021"
+            
+            let formatter = DateFormatter()
+            formatter.dateStyle = .medium
+            
+            cell.nameLabel.text = NSLocalizedString("GreetingsLabel", comment: "") + "Aline"
+            cell.dateLabel.text = formatter.string(from: Date())
             return cell
             
         case .balance:
@@ -75,7 +113,14 @@ extension DashboardViewController: UITableViewDataSource {
                 return UITableViewCell()
             }
             cell.balanceDelegate = self
-            cell.showGraphicsButton.setImage(isShowingGraphics ? UIImage(systemName: "chevron.up") : UIImage(systemName: "chevron.down"), for: .normal)
+            cell.hideBalanceButton.setTitle(NSLocalizedString("BalanceLabel", comment: ""), for: .normal)
+            
+            cell.currencyLabel.text = Locale.current.localizedCurrencySymbol(forCurrencyCode: Locale.current.currencyCode ?? "R$")
+            
+            // TODO: Set balance value based on user's Locale
+            // balance = ...
+            
+            cell.showGraphicsImage.image = isShowingGraphics ? UIImage(systemName: "chevron.up") : UIImage(systemName: "chevron.down")
             cell.hideBalanceButton.setImage(isShowingBalance ? UIImage(systemName: "eye") : UIImage(systemName: "eyebrow"), for: .normal)
             cell.currencyLabel.alpha = isShowingBalance ? 1 : 0
             cell.balanceRoundedLabel.alpha = isShowingBalance ? 1 : 0
@@ -95,8 +140,14 @@ extension DashboardViewController: UITableViewDataSource {
             else {
                 return UITableViewCell()
             }
+            cell.buttonsDelegate = self
+            cell.walletLabel.text = NSLocalizedString("WalletLabel", comment: "")
+            cell.goalsLabel.text = NSLocalizedString("GoalsLabel", comment: "")
+            cell.planningLabel.text = NSLocalizedString("PlanningLabel", comment: "")
+            cell.addLabel.text = NSLocalizedString("AddLabel", comment: "")
+            
             return cell
-                        
+            
         default:
             return UITableViewCell()
             
@@ -114,23 +165,22 @@ extension DashboardViewController: BalanceCellDelegate {
         isShowingBalance = !isShowingBalance
         mainTableView.reloadData()
     }
-    
-    func didTapGraphicsButton() {
-        isShowingGraphics = !isShowingGraphics
-        backgroundViewHeightConstraint.constant = isShowingGraphics ? 549 : 399
-        mainTableView.reloadData()
-    }
-    
 }
 
-extension NSLayoutConstraint {
-    func constraintWithMultiplier(_ multiplier: CGFloat) -> NSLayoutConstraint {
-        return NSLayoutConstraint(item: self.firstItem ?? UIView(),
-                                  attribute: self.firstAttribute,
-                                  relatedBy: self.relation,
-                                  toItem: self.secondItem,
-                                  attribute: self.secondAttribute,
-                                  multiplier: multiplier,
-                                  constant: self.constant)
+extension DashboardViewController: ButtonsCellDelegate {
+    func didTapWalletButton() {
+        performSegue(withIdentifier: "wallets", sender: nil)
+    }
+    
+    func didTapGoalsButton() {
+        performSegue(withIdentifier: "goals", sender: nil)
+    }
+    
+    func didTapPlanningButton() {
+        performSegue(withIdentifier: "plannings", sender: nil)
+    }
+    
+    func didTapAddButton() {
+        performSegue(withIdentifier: "add", sender: nil)
     }
 }

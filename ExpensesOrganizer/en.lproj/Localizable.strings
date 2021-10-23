@@ -5,3 +5,12 @@
   Created by Aline Osana Escobar on 15/10/21.
   
 */
+
+// MARK: Dashboard
+
+"GreetingsLabel" = "Hi, ";
+"BalanceLabel" = "Current balance";
+"WalletLabel" = "Wallet";
+"GoalsLabel" = "Goals";
+"PlanningLabel" = "Plan";
+"AddLabel" = "Add";
