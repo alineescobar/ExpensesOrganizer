@@ -61,7 +61,8 @@ extension DashboardViewController: UITableViewDelegate {
         switch dashboardCategory {
         case .graphics:
             return isShowingGraphics ? 150 : 0
-            
+        case .wallets:
+            return 140
         default:
             break
         }
@@ -82,7 +83,7 @@ extension DashboardViewController: UITableViewDelegate {
             }
             mainTableView.reloadRows(at: [indexPath], with: .automatic)
             mainTableView.reloadRows(at: [indexPathToReload], with: .automatic)
-            
+        
         default:
             break
         }
@@ -147,7 +148,13 @@ extension DashboardViewController: UITableViewDataSource {
             cell.addLabel.text = NSLocalizedString("AddLabel", comment: "")
             
             return cell
+        case .wallets:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "walletsCell", for: indexPath) as? WalletsTableViewCell
+            else {
+                return UITableViewCell()
+            }
             
+            return cell
         default:
             return UITableViewCell()
             

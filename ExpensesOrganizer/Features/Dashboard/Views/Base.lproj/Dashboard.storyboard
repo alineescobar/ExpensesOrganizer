@@ -6,6 +6,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -339,6 +340,89 @@
                                             <outlet property="walletView" destination="TMf-b1-KhQ" id="tjC-bJ-slz"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="walletsCell" rowHeight="150" id="iBN-19-BeY" userLabel="walletsCell" customClass="WalletsTableViewCell" customModule="ExpensesOrganizer" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="427.50000011920929" width="414" height="150"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="iBN-19-BeY" id="2gg-Vp-hcb">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="150"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Ato-Qu-NSl">
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="150"/>
+                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="13c-1A-QXC">
+                                                        <size key="itemSize" width="195" height="104"/>
+                                                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                    </collectionViewFlowLayout>
+                                                    <cells>
+                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="walletCellID" id="Gah-h6-7nJ" customClass="WalletCollectionViewCell" customModule="ExpensesOrganizer" customModuleProvider="target">
+                                                            <rect key="frame" x="0.0" y="23" width="168" height="104"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="skk-xc-Wc4">
+                                                                <rect key="frame" x="0.0" y="0.0" width="168" height="104"/>
+                                                                <autoresizingMask key="autoresizingMask"/>
+                                                                <subviews>
+                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Wallet" translatesAutoresizingMaskIntoConstraints="NO" id="Tet-rM-daR">
+                                                                        <rect key="frame" x="12" y="12" width="20" height="20"/>
+                                                                        <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="width" secondItem="Tet-rM-daR" secondAttribute="height" multiplier="1:1" id="OWZ-UP-1dt"/>
+                                                                        </constraints>
+                                                                    </imageView>
+                                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="qxb-nA-SWL">
+                                                                        <rect key="frame" x="12" y="44" width="144" height="48"/>
+                                                                        <subviews>
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="R$ 5.000,12 " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jGG-WN-fu3">
+                                                                                <rect key="frame" x="0.0" y="0.0" width="144" height="20"/>
+                                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                                <nil key="textColor"/>
+                                                                                <nil key="highlightedColor"/>
+                                                                            </label>
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No meu bolso" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GD6-rP-oDz">
+                                                                                <rect key="frame" x="0.0" y="28" width="144" height="20"/>
+                                                                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
+                                                                                <nil key="textColor"/>
+                                                                                <nil key="highlightedColor"/>
+                                                                            </label>
+                                                                        </subviews>
+                                                                    </stackView>
+                                                                </subviews>
+                                                                <constraints>
+                                                                    <constraint firstItem="qxb-nA-SWL" firstAttribute="top" secondItem="Tet-rM-daR" secondAttribute="bottom" constant="12" id="0kC-4J-B0y"/>
+                                                                    <constraint firstItem="Tet-rM-daR" firstAttribute="leading" secondItem="skk-xc-Wc4" secondAttribute="leading" constant="12" id="0tt-0b-rpv"/>
+                                                                    <constraint firstItem="Tet-rM-daR" firstAttribute="top" secondItem="skk-xc-Wc4" secondAttribute="top" constant="12" id="8Ru-TX-5LC"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="Tet-rM-daR" secondAttribute="trailing" constant="136" id="B8b-Qq-vJC"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="qxb-nA-SWL" secondAttribute="trailing" constant="12" id="Z4u-f6-joU"/>
+                                                                    <constraint firstItem="qxb-nA-SWL" firstAttribute="leading" secondItem="skk-xc-Wc4" secondAttribute="leading" constant="12" id="ZR0-80-xQI"/>
+                                                                    <constraint firstAttribute="bottom" secondItem="qxb-nA-SWL" secondAttribute="bottom" constant="12" id="dlB-px-TiS"/>
+                                                                </constraints>
+                                                            </collectionViewCellContentView>
+                                                            <color key="backgroundColor" systemColor="systemGray6Color"/>
+                                                            <size key="customSize" width="168" height="104"/>
+                                                            <connections>
+                                                                <outlet property="balanceLabel" destination="jGG-WN-fu3" id="a9L-OD-0oU"/>
+                                                                <outlet property="iconImage" destination="Tet-rM-daR" id="qNL-zY-gMb"/>
+                                                                <outlet property="walletTitleLabel" destination="GD6-rP-oDz" id="RRl-0V-7Bc"/>
+                                                            </connections>
+                                                        </collectionViewCell>
+                                                    </cells>
+                                                </collectionView>
+                                            </subviews>
+                                            <color key="backgroundColor" red="0.45098039220000002" green="0.98823529409999999" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="Ato-Qu-NSl" secondAttribute="trailing" id="HAr-Vz-vTx"/>
+                                                <constraint firstAttribute="bottom" secondItem="Ato-Qu-NSl" secondAttribute="bottom" id="aMG-Mj-5rd"/>
+                                                <constraint firstItem="Ato-Qu-NSl" firstAttribute="leading" secondItem="2gg-Vp-hcb" secondAttribute="leading" id="nfx-f3-80e"/>
+                                                <constraint firstItem="Ato-Qu-NSl" firstAttribute="top" secondItem="2gg-Vp-hcb" secondAttribute="top" id="tfE-yA-KNv"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <outlet property="walletsCollectionView" destination="Ato-Qu-NSl" id="eSJ-4m-QyB"/>
+                                        </connections>
+                                    </tableViewCell>
                                 </prototypes>
                             </tableView>
                         </subviews>
@@ -442,6 +526,9 @@
         </systemColor>
         <systemColor name="systemGray5Color">
             <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGray6Color">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
