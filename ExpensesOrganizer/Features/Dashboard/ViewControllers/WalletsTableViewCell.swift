@@ -29,8 +29,9 @@ extension WalletsTableViewCell: UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "walletCellID", for: indexPath) as? WalletCollectionViewCell
         cell?.balanceLabel.text = "$0"
         cell?.walletTitleLabel.text = "minha carteira"
-        cell?.contentView.layer.cornerRadius = 8
-        cell?.contentView.layer.masksToBounds = true
+        cell?.layer.cornerRadius = 8
+        cell?.layer.masksToBounds = true
+        
         return cell ?? UICollectionViewCell()
     }
     
