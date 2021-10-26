@@ -10,7 +10,7 @@ import UIKit
 class DummyViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var tableViewDummy: UITableView!
-    let customCellId = "TransactionCell"
+    private let customCellId = "TransactionCell"
     
     override func viewDidLoad() {
         super.viewDidLoad()

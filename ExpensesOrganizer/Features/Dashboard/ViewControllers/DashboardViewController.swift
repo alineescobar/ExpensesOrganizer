@@ -11,7 +11,7 @@ enum DashboardCategory: CaseIterable {
     case profile, balance, graphics, buttons, wallets, actionableCell, transaction(transaction: Transaction)
     
     static var allCases: [DashboardCategory] {
-        return [.profile, .balance, .graphics, .buttons, .wallets, .actionableCell]
+        return [.profile, .balance, .graphics, .buttons, .wallets, .actionableCell, .transaction(transaction: Transaction())]
     }
 }
 
@@ -20,6 +20,7 @@ class DashboardViewController: UIViewController {
     @IBOutlet weak var backgroundViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var backgroundView: UIView!
     @IBOutlet weak var mainTableView: UITableView!
+    private let customCellId = "TransactionCell"
     private var isShowingGraphics: Bool = false
     private var isShowingBalance: Bool = false
     private let dashboardCategories: [DashboardCategory] = DashboardCategory.allCases
@@ -28,6 +29,9 @@ class DashboardViewController: UIViewController {
         super.viewDidLoad()
         mainTableView.dataSource = self
         mainTableView.delegate = self
+        
+        mainTableView.register(UINib.init(nibName: customCellId, bundle: nil), forCellReuseIdentifier: customCellId)
+        
         // Do any additional setup after loading the view.
     }
     
@@ -61,7 +65,10 @@ extension DashboardViewController: UITableViewDelegate {
         switch dashboardCategory {
         case .graphics:
             return isShowingGraphics ? 150 : 0
-            
+        case .wallets:
+            return 140
+        case .transaction(transaction: Transaction()):
+            return 100
         default:
             break
         }
@@ -82,7 +89,7 @@ extension DashboardViewController: UITableViewDelegate {
             }
             mainTableView.reloadRows(at: [indexPath], with: .automatic)
             mainTableView.reloadRows(at: [indexPathToReload], with: .automatic)
-            
+        
         default:
             break
         }
@@ -99,12 +106,7 @@ extension DashboardViewController: UITableViewDataSource {
             else {
                 return UITableViewCell()
             }
-            
-            let formatter = DateFormatter()
-            formatter.dateStyle = .medium
-            
             cell.nameLabel.text = NSLocalizedString("GreetingsLabel", comment: "") + "Aline"
-            cell.dateLabel.text = formatter.string(from: Date())
             return cell
             
         case .balance:
@@ -113,19 +115,15 @@ extension DashboardViewController: UITableViewDataSource {
                 return UITableViewCell()
             }
             cell.balanceDelegate = self
-            cell.hideBalanceButton.setTitle(NSLocalizedString("BalanceLabel", comment: ""), for: .normal)
-            
             cell.currencyLabel.text = Locale.current.localizedCurrencySymbol(forCurrencyCode: Locale.current.currencyCode ?? "R$")
-            
-            // TODO: Set balance value based on user's Locale
-            // balance = ...
-            
             cell.showGraphicsImage.image = isShowingGraphics ? UIImage(systemName: "chevron.up") : UIImage(systemName: "chevron.down")
             cell.hideBalanceButton.setImage(isShowingBalance ? UIImage(systemName: "eye") : UIImage(systemName: "eyebrow"), for: .normal)
             cell.currencyLabel.alpha = isShowingBalance ? 1 : 0
             cell.balanceRoundedLabel.alpha = isShowingBalance ? 1 : 0
             cell.balanceDecimalLabel.alpha = isShowingBalance ? 1 : 0
             cell.balanceStackView.backgroundColor = isShowingBalance ? UIColor.clear : UIColor.lightGray
+            // TODO: Set balance value based on user's Locale
+            // balance = ...
             return cell
             
         case .graphics:
@@ -141,10 +139,27 @@ extension DashboardViewController: UITableViewDataSource {
                 return UITableViewCell()
             }
             cell.buttonsDelegate = self
-            cell.walletLabel.text = NSLocalizedString("WalletLabel", comment: "")
-            cell.goalsLabel.text = NSLocalizedString("GoalsLabel", comment: "")
-            cell.planningLabel.text = NSLocalizedString("PlanningLabel", comment: "")
-            cell.addLabel.text = NSLocalizedString("AddLabel", comment: "")
+            
+            return cell
+        
+        case .wallets:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "walletsCell", for: indexPath) as? WalletsTableViewCell
+            else {
+                return UITableViewCell()
+            }
+            cell.walletsDelegate = self
+            return cell
+
+        case .transaction(_):
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: customCellId, for: indexPath) as? TransactionCell else {
+                return UITableViewCell()
+            }
+            
+            cell.layer.backgroundColor = UIColor.green.cgColor
+            cell.transactionName.text = "Netflix"
+            cell.transactionTag.text = "Assinatura"
+            cell.transactionDate.text = "20 out"
+            cell.transactionPrice.text = "-9,50"
             
             return cell
             
@@ -155,6 +170,7 @@ extension DashboardViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print(dashboardCategories.count)
         return dashboardCategories.count
     }
     
@@ -182,5 +198,16 @@ extension DashboardViewController: ButtonsCellDelegate {
     
     func didTapAddButton() {
         performSegue(withIdentifier: "add", sender: nil)
+    }
+}
+
+extension DashboardViewController: WalletsCellDelegate {
+    func didTapWallet(index: Int) {
+        // TODO: Put Wallet object on sender (through its index)
+        performSegue(withIdentifier: "walletDetail", sender: nil)
+    }
+    
+    func didTapAddWallet() {
+        performSegue(withIdentifier: "addWallet", sender: nil)
     }
 }
