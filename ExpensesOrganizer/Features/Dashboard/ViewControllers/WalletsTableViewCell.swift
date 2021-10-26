@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreData
 
 class WalletsTableViewCell: UITableViewCell {
 
@@ -29,8 +30,6 @@ extension WalletsTableViewCell: UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "walletCellID", for: indexPath) as? WalletCollectionViewCell
         cell?.balanceLabel.text = "$0"
         cell?.walletTitleLabel.text = "minha carteira"
-        cell?.layer.cornerRadius = 8
-        cell?.layer.masksToBounds = true
         
         return cell ?? UICollectionViewCell()
     }
@@ -50,6 +49,12 @@ extension WalletsTableViewCell: UICollectionViewDataSource {
 
 extension WalletsTableViewCell: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 20, left: 24, bottom: 32, right: 20)
+        return UIEdgeInsets(top: 0, left: 24, bottom: 32, right: 40)
+    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 20
+    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 20
     }
 }
