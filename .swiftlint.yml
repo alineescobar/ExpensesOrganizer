@@ -6,6 +6,7 @@ disabled_rules:
   - todo
   - trailing_whitespace
   - unused_optional_binding
+  - cyclomatic_complexity
 opt_in_rules:
   - attributes
   - closure_end_indentation
@@ -54,12 +55,12 @@ opt_in_rules:
   - unneeded_parentheses_in_closure_argument
   - vertical_parameter_alignment_on_call
   - yoda_condition
+
 excluded:
   - Carthage
   - Pods
   - ExpensesOrganizer/AppDelegate.swift
   - ExpensesOrganizer/SceneDelegate.swift
-
 
 identifier_name:
   min_length: 3

@@ -45,6 +45,10 @@ class ButtonsTableViewCell: UITableViewCell {
         setCircles()
         setShadows()
         setGestures()
+        walletLabel.text = NSLocalizedString("WalletLabel", comment: "")
+        goalsLabel.text = NSLocalizedString("GoalsLabel", comment: "")
+        planningLabel.text = NSLocalizedString("PlanningLabel", comment: "")
+        addLabel.text = NSLocalizedString("AddLabel", comment: "")
     }
 
     @objc
@@ -89,10 +93,10 @@ class ButtonsTableViewCell: UITableViewCell {
     }
     
     func setCircles() {
-        walletView.layer.cornerRadius = walletLabel.frame.size.width / 2
-        goalsView.layer.cornerRadius = walletLabel.frame.size.width / 2
-        planningView.layer.cornerRadius = walletLabel.frame.size.width / 2
-        addView.layer.cornerRadius = walletLabel.frame.size.width / 2
+        walletView.layer.cornerRadius = walletView.frame.size.width / 2
+        goalsView.layer.cornerRadius = goalsView.frame.size.width / 2
+        planningView.layer.cornerRadius = planningView.frame.size.width / 2
+        addView.layer.cornerRadius = addView.frame.size.width / 2
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
