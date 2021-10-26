@@ -15,7 +15,7 @@ class DummyViewController: UIViewController, UITableViewDelegate, UITableViewDat
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableViewDummy.register(UINib.init(nibName: customCellId, bundle: nil), forCellReuseIdentifier: customCellId)
+        tableViewDummy.register(UINib(nibName: customCellId, bundle: nil), forCellReuseIdentifier: customCellId)
         tableViewDummy.reloadData()
     }
 
