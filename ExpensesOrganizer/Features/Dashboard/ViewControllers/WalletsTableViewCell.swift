@@ -6,11 +6,16 @@
 //
 
 import UIKit
-import CoreData
+
+protocol WalletsCellDelegate: AnyObject {
+    func didTapWallet(index: Int)
+    func didTapAddWallet()
+}
 
 class WalletsTableViewCell: UITableViewCell {
 
     @IBOutlet weak var walletsCollectionView: UICollectionView!
+    weak var walletsDelegate: WalletsCellDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -27,30 +32,56 @@ class WalletsTableViewCell: UITableViewCell {
 
 extension WalletsTableViewCell: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "walletCellID", for: indexPath) as? WalletCollectionViewCell
-        cell?.balanceLabel.text = "$0"
-        cell?.walletTitleLabel.text = "minha carteira"
-        
-        return cell ?? UICollectionViewCell()
+        if indexPath.section == 0 {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "walletCellID", for: indexPath) as? WalletCollectionViewCell
+            cell?.balanceLabel.text = "$0"
+            cell?.walletTitleLabel.text = "minha carteira"
+            return cell ?? UICollectionViewCell()
+        } else {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "addWalletCellID", for: indexPath) as? AddWalletCollectionViewCell
+            return cell ?? UICollectionViewCell()
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        if section == 0 {
+            return 5
+        } else {
+            return 1
+        }
+    }
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 2
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 168, height: 104)
+        if indexPath.section == 0 {
+            return CGSize(width: 168, height: 104)
+        } else {
+            return CGSize(width: 34, height: 50)
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        //selectedItemDelegate?.didSelectMusic(item: album!, music: music!)
+        if indexPath.section == 0 {
+            walletsDelegate?.didTapWallet(index: indexPath.row)
+        } else {
+            walletsDelegate?.didTapAddWallet()
+        }
     }
 }
 
 extension WalletsTableViewCell: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 0, left: 24, bottom: 32, right: 40)
+        if section == 0 {
+            return UIEdgeInsets(top: 0, left: 24, bottom: 32, right: 20)
+        } else {
+            return UIEdgeInsets(top: 0, left: 0, bottom: 32, right: 20)
+        }
+        
     }
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 20
     }

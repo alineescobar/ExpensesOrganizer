@@ -27,6 +27,7 @@ class BalanceTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        hideBalanceButton.setTitle(NSLocalizedString("BalanceLabel", comment: ""), for: .normal)
         hideBalanceButton.semanticContentAttribute = UIApplication.shared
             .userInterfaceLayoutDirection == .rightToLeft ? .forceLeftToRight : .forceRightToLeft
         // Initialization code
