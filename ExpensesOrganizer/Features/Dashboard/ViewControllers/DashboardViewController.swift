@@ -8,10 +8,11 @@
 import UIKit
 
 enum DashboardCategory: CaseIterable {
-    case profile, balance, graphics, buttons, wallets, actionableCell, transaction(transaction: Transaction)
+    case profile, balance, graphics, buttons, wallets, actionableCell, transaction
     
     static var allCases: [DashboardCategory] {
-        return [.profile, .balance, .graphics, .buttons, .wallets, .actionableCell, .transaction(transaction: Transaction())]
+        return [.profile, .balance, .graphics, .buttons, .wallets, .actionableCell, .transaction]
+//        TODO: create logic behind the transactions cells.
     }
 }
 
@@ -153,7 +154,7 @@ extension DashboardViewController: UITableViewDataSource {
             cell.walletsDelegate = self
             return cell
 
-        case .transaction(_):
+        case .transaction:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: customCellId, for: indexPath) as? TransactionCell else {
                 return UITableViewCell()
             }
