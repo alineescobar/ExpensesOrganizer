@@ -8,7 +8,7 @@
 import UIKit
 
 enum DashboardCategory: CaseIterable {
-    case profile, balance, graphics, buttons, wallets, actionableCell, transaction(transaction: Transaction)
+    case profile, balance, graphics, buttons, wallets, actionableCell, transaction
     
     static var allCases: [DashboardCategory] {
         return [.profile, .balance, .graphics, .buttons, .wallets, .actionableCell, .transaction, .transaction, .transaction, .transaction, .transaction]
