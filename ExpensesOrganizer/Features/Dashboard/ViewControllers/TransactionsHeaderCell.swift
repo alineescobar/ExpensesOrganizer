@@ -9,7 +9,12 @@ import UIKit
 
 class TransactionsHeaderCell: UITableViewCell {
     
+    @IBAction private func transactionHeaderAction(_ sender: UIButton) {
+        transactionsDelegate?.didTapButton()
+    }
+    
     @IBOutlet weak var transactionHeaderButton: UIButton!
+    weak var transactionsDelegate: TransactionsHeaderDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -26,4 +31,8 @@ class TransactionsHeaderCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+}
+
+protocol TransactionsHeaderDelegate: AnyObject {
+    func didTapButton()
 }

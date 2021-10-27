@@ -69,8 +69,6 @@ extension DashboardViewController: UITableViewDelegate {
             return isShowingGraphics ? 150 : 0
         case .wallets:
             return 140
-        case .transaction(transaction: Transaction()):
-            return 100
         default:
             break
         }
@@ -173,6 +171,9 @@ extension DashboardViewController: UITableViewDataSource {
                 return UITableViewCell()
             }
             cell.selectionStyle = .none
+            
+            cell.transactionsDelegate = self
+            
             return cell
             
         }
@@ -217,5 +218,11 @@ extension DashboardViewController: WalletsCellDelegate {
     
     func didTapAddWallet() {
         performSegue(withIdentifier: "addWallet", sender: nil)
+    }
+}
+
+extension DashboardViewController: TransactionsHeaderDelegate {
+    func didTapButton() {
+        performSegue(withIdentifier: "transactions", sender: nil)
     }
 }
