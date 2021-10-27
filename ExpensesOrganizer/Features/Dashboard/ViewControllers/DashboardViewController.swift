@@ -31,8 +31,8 @@ class DashboardViewController: UIViewController {
         mainTableView.dataSource = self
         mainTableView.delegate = self
         
-        mainTableView.register(UINib.init(nibName: customCellId, bundle: nil), forCellReuseIdentifier: customCellId)
-        mainTableView.register(UINib.init(nibName: graphicsCellId, bundle: nil), forCellReuseIdentifier: graphicsCellId)
+        mainTableView.register(UINib(nibName: customCellId, bundle: nil), forCellReuseIdentifier: customCellId)
+        mainTableView.register(UINib(nibName: graphicsCellId, bundle: nil), forCellReuseIdentifier: graphicsCellId)
 
         // Do any additional setup after loading the view.
     }

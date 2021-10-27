@@ -18,8 +18,20 @@ class GraphicsTableViewCell: UITableViewCell {
         super.awakeFromNib()
         
         chartView.backgroundColor = .systemGray5
-//        barChartView.rightAxis.enabled = false
-//        barChartView.drawGridBackgroundEnabled = false
+        chartView.rightAxis.enabled = false
+        chartView.gridBackgroundColor = .systemGray5
+        
+//        chartView.xAxis.drawGridLinesEnabled = false
+//        chartView.xAxis.drawAxisLineEnabled = false
+//        chartView.drawGridBackgroundEnabled = false
+//        chartView.leftAxis.drawAxisLineEnabled = false
+//
+        chartView.leftAxis.enabled = false
+        chartView.rightAxis.enabled = false
+        chartView.xAxis.enabled = false
+        chartView.xAxis.gridColor = .clear
+        chartView.leftAxis.gridColor = .clear
+        chartView.rightAxis.gridColor = .clear
         
         for i in 0..<20 {
             yValues += [ChartDataEntry(x: Double(i), y: Double.random(in: 0..<50))]
@@ -34,8 +46,8 @@ class GraphicsTableViewCell: UITableViewCell {
         set1.lineWidth = 3
         set1.setColor(.darkGray)
         set1.circleColors = [.darkGray]
-//        set1.drawVerticalHighlightIndicatorEnabled = false
-//        set1.drawHorizontalHighlightIndicatorEnabled = false
+        set1.drawVerticalHighlightIndicatorEnabled = false
+        set1.drawHorizontalHighlightIndicatorEnabled = false
         
         let data = LineChartData(dataSet: set1)
         

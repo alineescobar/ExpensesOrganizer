@@ -19,15 +19,16 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i20-KK-dQQ" customClass="LineChartView" customModule="Charts">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <rect key="frame" x="24" y="0.0" width="272" height="44"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                 </subviews>
+                <color key="backgroundColor" systemColor="systemGray5Color"/>
                 <constraints>
                     <constraint firstItem="i20-KK-dQQ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="9lg-Wt-Yoz"/>
                     <constraint firstAttribute="bottom" secondItem="i20-KK-dQQ" secondAttribute="bottom" id="UzW-6K-Kaw"/>
-                    <constraint firstAttribute="trailing" secondItem="i20-KK-dQQ" secondAttribute="trailing" id="gFx-XF-grn"/>
-                    <constraint firstItem="i20-KK-dQQ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="sOi-oR-CCD"/>
+                    <constraint firstAttribute="trailing" secondItem="i20-KK-dQQ" secondAttribute="trailing" constant="24" id="gFx-XF-grn"/>
+                    <constraint firstItem="i20-KK-dQQ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="24" id="sOi-oR-CCD"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
@@ -40,6 +41,9 @@
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray5Color">
+            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
