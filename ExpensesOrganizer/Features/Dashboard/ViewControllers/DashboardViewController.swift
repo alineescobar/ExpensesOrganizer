@@ -21,6 +21,7 @@ class DashboardViewController: UIViewController {
     @IBOutlet weak var backgroundView: UIView!
     @IBOutlet weak var mainTableView: UITableView!
     private let customCellId = "TransactionCell"
+    private let customCellHeader = "TransactionsHeaderCell"
     private var isShowingGraphics: Bool = false
     private var isShowingBalance: Bool = false
     private let dashboardCategories: [DashboardCategory] = DashboardCategory.allCases
@@ -30,7 +31,8 @@ class DashboardViewController: UIViewController {
         mainTableView.dataSource = self
         mainTableView.delegate = self
         
-        mainTableView.register(UINib.init(nibName: customCellId, bundle: nil), forCellReuseIdentifier: customCellId)
+        mainTableView.register(UINib(nibName: customCellId, bundle: nil), forCellReuseIdentifier: customCellId)
+        mainTableView.register(UINib(nibName: customCellHeader, bundle: nil), forCellReuseIdentifier: customCellHeader)
         
         // Do any additional setup after loading the view.
     }
@@ -90,6 +92,9 @@ extension DashboardViewController: UITableViewDelegate {
             mainTableView.reloadRows(at: [indexPath], with: .automatic)
             mainTableView.reloadRows(at: [indexPathToReload], with: .automatic)
         
+        case .actionableCell:
+            performSegue(withIdentifier: "transactions", sender: nil)
+            
         default:
             break
         }
@@ -155,7 +160,7 @@ extension DashboardViewController: UITableViewDataSource {
                 return UITableViewCell()
             }
             
-            cell.layer.backgroundColor = UIColor.green.cgColor
+            cell.selectionStyle = .none
             cell.transactionName.text = "Netflix"
             cell.transactionTag.text = "Assinatura"
             cell.transactionDate.text = "20 out"
@@ -163,14 +168,17 @@ extension DashboardViewController: UITableViewDataSource {
             
             return cell
             
-        default:
-            return UITableViewCell()
+        case .actionableCell:
+            guard let cell = mainTableView.dequeueReusableCell(withIdentifier: customCellHeader, for: indexPath) as? TransactionsHeaderCell else {
+                return UITableViewCell()
+            }
+            cell.selectionStyle = .none
+            return cell
             
         }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print(dashboardCategories.count)
         return dashboardCategories.count
     }
     
