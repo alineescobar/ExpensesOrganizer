@@ -202,7 +202,6 @@ extension DashboardViewController: UIScrollViewDelegate {
         let yOffset = scrollView.contentOffset.y
         isStatsBarHidden = yOffset > 0 ? true : false
         setNeedsStatusBarAppearanceUpdate()
-        print(yOffset)
         backgroundViewHeightConstraint.constant = initialBackgroundViewHeight - yOffset
         view.layoutIfNeeded()
         
