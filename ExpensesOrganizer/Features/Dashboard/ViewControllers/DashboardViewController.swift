@@ -21,6 +21,7 @@ class DashboardViewController: UIViewController {
     @IBOutlet weak var backgroundView: UIView!
     @IBOutlet weak var mainTableView: UITableView!
     private let customCellId = "TransactionCell"
+    private let graphicsCellId = "GraphicsTableViewCell"
     private var isShowingGraphics: Bool = false
     private var isShowingBalance: Bool = false
     private let dashboardCategories: [DashboardCategory] = DashboardCategory.allCases
@@ -31,7 +32,8 @@ class DashboardViewController: UIViewController {
         mainTableView.delegate = self
         
         mainTableView.register(UINib.init(nibName: customCellId, bundle: nil), forCellReuseIdentifier: customCellId)
-        
+        mainTableView.register(UINib.init(nibName: graphicsCellId, bundle: nil), forCellReuseIdentifier: graphicsCellId)
+
         // Do any additional setup after loading the view.
     }
     
@@ -127,7 +129,7 @@ extension DashboardViewController: UITableViewDataSource {
             return cell
             
         case .graphics:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "graphicsCell", for: indexPath) as? GraphicsTableViewCell
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "GraphicsTableViewCell", for: indexPath) as? GraphicsTableViewCell
             else {
                 return UITableViewCell()
             }

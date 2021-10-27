@@ -26,9 +26,11 @@
 		16FA96E227273A7A007EB7CA /* TransactionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 16FA96E027273A7A007EB7CA /* TransactionCell.xib */; };
 		16FA96E4272742D2007EB7CA /* DummyStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 16FA96E3272742D2007EB7CA /* DummyStoryboard.storyboard */; };
 		16FA96E6272743B7007EB7CA /* DummyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16FA96E5272743B7007EB7CA /* DummyViewController.swift */; };
+		710F1DC52729C55F005C06E1 /* Charts in Frameworks */ = {isa = PBXBuildFile; productRef = 710F1DC42729C55F005C06E1 /* Charts */; };
+		710F1DC82729C8D6005C06E1 /* GraphicsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 710F1DC62729C8D6005C06E1 /* GraphicsTableViewCell.swift */; };
+		710F1DC92729C8D6005C06E1 /* GraphicsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 710F1DC72729C8D6005C06E1 /* GraphicsTableViewCell.xib */; };
 		F138B88F2720A950009F0837 /* ProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F138B88E2720A950009F0837 /* ProfileTableViewCell.swift */; };
 		F196D4FC2721ECF500CCAF81 /* BalanceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F196D4FB2721ECF500CCAF81 /* BalanceTableViewCell.swift */; };
-		F196D4FE2721FAA700CCAF81 /* GraphicsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F196D4FD2721FAA700CCAF81 /* GraphicsTableViewCell.swift */; };
 		F196D500272201F300CCAF81 /* ButtonsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F196D4FF272201F300CCAF81 /* ButtonsTableViewCell.swift */; };
 		F196D510272476A800CCAF81 /* Wallets.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F196D50F272476A800CCAF81 /* Wallets.storyboard */; };
 		F196D512272476BE00CCAF81 /* WalletsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F196D511272476BE00CCAF81 /* WalletsViewController.swift */; };
@@ -71,9 +73,10 @@
 		16FA96E027273A7A007EB7CA /* TransactionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransactionCell.xib; sourceTree = "<group>"; };
 		16FA96E3272742D2007EB7CA /* DummyStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DummyStoryboard.storyboard; sourceTree = "<group>"; };
 		16FA96E5272743B7007EB7CA /* DummyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyViewController.swift; sourceTree = "<group>"; };
+		710F1DC62729C8D6005C06E1 /* GraphicsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphicsTableViewCell.swift; sourceTree = "<group>"; };
+		710F1DC72729C8D6005C06E1 /* GraphicsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GraphicsTableViewCell.xib; sourceTree = "<group>"; };
 		F138B88E2720A950009F0837 /* ProfileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewCell.swift; sourceTree = "<group>"; };
 		F196D4FB2721ECF500CCAF81 /* BalanceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalanceTableViewCell.swift; sourceTree = "<group>"; };
-		F196D4FD2721FAA700CCAF81 /* GraphicsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphicsTableViewCell.swift; sourceTree = "<group>"; };
 		F196D4FF272201F300CCAF81 /* ButtonsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonsTableViewCell.swift; sourceTree = "<group>"; };
 		F196D50F272476A800CCAF81 /* Wallets.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Wallets.storyboard; sourceTree = "<group>"; };
 		F196D511272476BE00CCAF81 /* WalletsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletsViewController.swift; sourceTree = "<group>"; };
@@ -96,6 +99,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				710F1DC52729C55F005C06E1 /* Charts in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -182,12 +186,12 @@
 			isa = PBXGroup;
 			children = (
 				F196D4FB2721ECF500CCAF81 /* BalanceTableViewCell.swift */,
-				F196D4FD2721FAA700CCAF81 /* GraphicsTableViewCell.swift */,
 				F138B88E2720A950009F0837 /* ProfileTableViewCell.swift */,
 				F19FF1A4272882FB0041F5E3 /* AddWalletCollectionViewCell.swift */,
 				1665562A271A0E0000DE83F4 /* DashboardViewController.swift */,
 				F196D4FF272201F300CCAF81 /* ButtonsTableViewCell.swift */,
 				16FA96DF27273A7A007EB7CA /* TransactionCell.swift */,
+				710F1DC62729C8D6005C06E1 /* GraphicsTableViewCell.swift */,
 				16FA96E5272743B7007EB7CA /* DummyViewController.swift */,
 				077CAFF727273759007D58C1 /* WalletsTableViewCell.swift */,
 				077CAFF927274147007D58C1 /* WalletCollectionViewCell.swift */,
@@ -198,6 +202,7 @@
 		F138B88B2720A1A6009F0837 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				710F1DC72729C8D6005C06E1 /* GraphicsTableViewCell.xib */,
 				16FA96E027273A7A007EB7CA /* TransactionCell.xib */,
 				1665562C271A0E0000DE83F4 /* Dashboard.storyboard */,
 				16FA96E3272742D2007EB7CA /* DummyStoryboard.storyboard */,
@@ -372,6 +377,9 @@
 			dependencies = (
 			);
 			name = ExpensesOrganizer;
+			packageProductDependencies = (
+				710F1DC42729C55F005C06E1 /* Charts */,
+			);
 			productName = ExpensesOrganizer;
 			productReference = 16655623271A0E0000DE83F4 /* ExpensesOrganizer.app */;
 			productType = "com.apple.product-type.application";
@@ -401,6 +409,9 @@
 				"pt-BR",
 			);
 			mainGroup = 1665561A271A0E0000DE83F4;
+			packageReferences = (
+				710F1DC32729C55F005C06E1 /* XCRemoteSwiftPackageReference "charts" */,
+			);
 			productRefGroup = 16655624271A0E0000DE83F4 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -417,6 +428,7 @@
 			files = (
 				16655636271A0E0400DE83F4 /* LaunchScreen.storyboard in Resources */,
 				16655641271A0ECA00DE83F4 /* Localizable.strings in Resources */,
+				710F1DC92729C8D6005C06E1 /* GraphicsTableViewCell.xib in Resources */,
 				16FA96E4272742D2007EB7CA /* DummyStoryboard.storyboard in Resources */,
 				16FA96E227273A7A007EB7CA /* TransactionCell.xib in Resources */,
 				F19FF1B32728896C0041F5E3 /* WalletCreation.storyboard in Resources */,
@@ -462,6 +474,7 @@
 				F196D52127247D0200CCAF81 /* Extensions.swift in Sources */,
 				16B2D713271E0EA800E7BB84 /* Goal+CoreDataClass.swift in Sources */,
 				16FA96E6272743B7007EB7CA /* DummyViewController.swift in Sources */,
+				710F1DC82729C8D6005C06E1 /* GraphicsTableViewCell.swift in Sources */,
 				16FA96E127273A7A007EB7CA /* TransactionCell.swift in Sources */,
 				F19FF1A5272882FB0041F5E3 /* AddWalletCollectionViewCell.swift in Sources */,
 				1665562B271A0E0000DE83F4 /* DashboardViewController.swift in Sources */,
@@ -472,7 +485,6 @@
 				16B2D717271E0EA800E7BB84 /* Item+CoreDataClass.swift in Sources */,
 				F19FF1B1272889500041F5E3 /* WalletCreationViewController.swift in Sources */,
 				F196D51C2724776500CCAF81 /* AdditionViewController.swift in Sources */,
-				F196D4FE2721FAA700CCAF81 /* GraphicsTableViewCell.swift in Sources */,
 				077CAFF827273759007D58C1 /* WalletsTableViewCell.swift in Sources */,
 				16B2D715271E0EA800E7BB84 /* Transaction+CoreDataClass.swift in Sources */,
 				16655627271A0E0000DE83F4 /* AppDelegate.swift in Sources */,
@@ -719,6 +731,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		710F1DC32729C55F005C06E1 /* XCRemoteSwiftPackageReference "charts" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/danielgindi/charts";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		710F1DC42729C55F005C06E1 /* Charts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 710F1DC32729C55F005C06E1 /* XCRemoteSwiftPackageReference "charts" */;
+			productName = Charts;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		1665562F271A0E0000DE83F4 /* ExpensesOrganizer.xcdatamodeld */ = {

@@ -2,7 +2,7 @@
 //  GraphicsTableViewCell.swift
 //  ExpensesOrganizer
 //
-//  Created by Diego Henrique on 21/10/21.
+//  Created by Anderson Sprenger on 27/10/21.
 //
 
 import UIKit
@@ -19,5 +19,5 @@ class GraphicsTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-
+    
 }
