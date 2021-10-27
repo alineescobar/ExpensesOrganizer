@@ -11,23 +11,31 @@ enum DashboardCategory: CaseIterable {
     case profile, balance, graphics, buttons, wallets, actionableCell, transaction(transaction: Transaction)
     
     static var allCases: [DashboardCategory] {
-        return [.profile, .balance, .graphics, .buttons, .wallets, .actionableCell]
+        return [.profile, .balance, .graphics, .buttons, .wallets, .actionableCell, .transaction, .transaction, .transaction, .transaction, .transaction]
+//        TODO: create logic behind the transactions cells.
     }
 }
 
 class DashboardViewController: UIViewController {
-    
     @IBOutlet weak var backgroundViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var backgroundView: UIView!
     @IBOutlet weak var mainTableView: UITableView!
+    private var initialBackgroundViewHeight: Double = -1
+    private let customCellId = "TransactionCell"
+    private let customCellHeader = "TransactionsHeaderCell"
     private var isShowingGraphics: Bool = false
     private var isShowingBalance: Bool = false
+   
     private let dashboardCategories: [DashboardCategory] = DashboardCategory.allCases
     
     override func viewDidLoad() {
         super.viewDidLoad()
         mainTableView.dataSource = self
         mainTableView.delegate = self
+        
+        mainTableView.register(UINib(nibName: customCellId, bundle: nil), forCellReuseIdentifier: customCellId)
+        mainTableView.register(UINib(nibName: customCellHeader, bundle: nil), forCellReuseIdentifier: customCellHeader)
+        initialBackgroundViewHeight = backgroundViewHeightConstraint.constant
         // Do any additional setup after loading the view.
     }
     
@@ -74,11 +82,16 @@ extension DashboardViewController: UITableViewDelegate {
         
         switch dashboardCategory {
         case .balance:
-            isShowingGraphics = !isShowingGraphics
+            isShowingGraphics.toggle()
+            let magnitude: Double = isShowingGraphics ? 1 : -1
+            let height: Double = 150.0
+            let heightOffset: Double = magnitude * height
             var indexPathToReload = indexPath
             indexPathToReload.row += 1
-            UIView.animate(withDuration: 0.3) {
-                self.backgroundViewHeightConstraint.constant = self.isShowingGraphics ? 549 : 399
+            UIView.animate(withDuration: isShowingGraphics ? 0.1 : 0.3) {
+                self.backgroundViewHeightConstraint.constant += heightOffset
+                self.initialBackgroundViewHeight += heightOffset
+//                self.backgroundViewHeightConstraint.constant = self.isShowingGraphics ? 549 : 399
                 self.view.layoutIfNeeded()
             }
             mainTableView.reloadRows(at: [indexPath], with: .automatic)
@@ -155,6 +168,16 @@ extension DashboardViewController: UITableViewDataSource {
         return dashboardCategories.count
     }
     
+}
+
+extension DashboardViewController: UIScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let yOffset = scrollView.contentOffset.y
+        print(yOffset)
+        backgroundViewHeightConstraint.constant = initialBackgroundViewHeight - yOffset
+        view.layoutIfNeeded()
+        
+    }
 }
 
 extension DashboardViewController: BalanceCellDelegate {
