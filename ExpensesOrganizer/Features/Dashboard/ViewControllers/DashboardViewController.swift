@@ -97,6 +97,9 @@ extension DashboardViewController: UITableViewDelegate {
             mainTableView.reloadRows(at: [indexPath], with: .automatic)
             mainTableView.reloadRows(at: [indexPathToReload], with: .automatic)
         
+        case .actionableCell:
+            performSegue(withIdentifier: "transactions", sender: nil)
+            
         default:
             break
         }
@@ -148,6 +151,7 @@ extension DashboardViewController: UITableViewDataSource {
             cell.buttonsDelegate = self
             
             return cell
+        
         case .wallets:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "walletsCell", for: indexPath) as? WalletsTableViewCell
             else {
@@ -155,15 +159,33 @@ extension DashboardViewController: UITableViewDataSource {
             }
             cell.walletsDelegate = self
             return cell
-        default:
-            return UITableViewCell()
+
+        case .transaction:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: customCellId, for: indexPath) as? TransactionCell else {
+                return UITableViewCell()
+            }
+            
+            cell.selectionStyle = .none
+            cell.transactionName.text = "Netflix"
+            cell.transactionTag.text = "Assinatura"
+            cell.transactionDate.text = "20 out"
+            cell.transactionPrice.text = "-9,50"
+            
+            return cell
+            
+        case .actionableCell:
+            guard let cell = mainTableView.dequeueReusableCell(withIdentifier: customCellHeader, for: indexPath) as? TransactionsHeaderCell else {
+                return UITableViewCell()
+            }
+            cell.selectionStyle = .none
+            
+            cell.transactionsDelegate = self
+            
+            return cell
             
         }
     }
     
-    func data(cell: BalanceTableViewCell) {
-        
-    }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return dashboardCategories.count
     }
@@ -213,5 +235,11 @@ extension DashboardViewController: WalletsCellDelegate {
     
     func didTapAddWallet() {
         performSegue(withIdentifier: "addWallet", sender: nil)
+    }
+}
+
+extension DashboardViewController: TransactionsHeaderDelegate {
+    func didTapButton() {
+        performSegue(withIdentifier: "transactions", sender: nil)
     }
 }

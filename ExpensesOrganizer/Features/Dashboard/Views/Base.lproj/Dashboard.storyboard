@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Nyf-Vb-4nW">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Nyf-Vb-4nW">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -481,6 +481,7 @@
                         <segue destination="5FX-Hg-nNs" kind="presentation" identifier="add" id="jRG-jL-WKs"/>
                         <segue destination="AVa-DQ-Vxs" kind="show" identifier="addWallet" id="G5B-Gg-R4P"/>
                         <segue destination="egx-D4-Max" kind="show" identifier="walletDetail" id="hPU-SG-9gw"/>
+                        <segue destination="CJZ-Ty-Mjz" kind="show" identifier="transactions" id="kMr-JR-W9U"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -562,6 +563,16 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Phi-DH-EeH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1721" y="346"/>
+        </scene>
+        <!--Transactions-->
+        <scene sceneID="AK1-zn-enV">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Transactions" id="CJZ-Ty-Mjz" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="1Tc-VZ-p5S"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xhs-yq-Vd0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1706" y="405"/>
         </scene>
     </scenes>
     <resources>
