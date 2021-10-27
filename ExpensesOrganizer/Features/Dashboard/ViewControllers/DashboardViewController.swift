@@ -129,7 +129,7 @@ extension DashboardViewController: UITableViewDataSource {
             return cell
             
         case .graphics:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "GraphicsTableViewCell", for: indexPath) as? GraphicsTableViewCell
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: graphicsCellId, for: indexPath) as? GraphicsTableViewCell
             else {
                 return UITableViewCell()
             }
