@@ -11,7 +11,7 @@ enum DashboardCategory: CaseIterable {
     case profile, balance, graphics, buttons, wallets, actionableCell, transaction(transaction: Transaction)
     
     static var allCases: [DashboardCategory] {
-        return [.profile, .balance, .graphics, .buttons, .wallets, .actionableCell]
+        return [.profile, .balance, .graphics, .buttons, .wallets, .actionableCell, .transaction(transaction: Transaction())]
     }
 }
 
@@ -20,6 +20,7 @@ class DashboardViewController: UIViewController {
     @IBOutlet weak var backgroundViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var backgroundView: UIView!
     @IBOutlet weak var mainTableView: UITableView!
+    private let customCellId = "TransactionCell"
     private var isShowingGraphics: Bool = false
     private var isShowingBalance: Bool = false
     private let dashboardCategories: [DashboardCategory] = DashboardCategory.allCases
@@ -28,6 +29,9 @@ class DashboardViewController: UIViewController {
         super.viewDidLoad()
         mainTableView.dataSource = self
         mainTableView.delegate = self
+        
+        mainTableView.register(UINib.init(nibName: customCellId, bundle: nil), forCellReuseIdentifier: customCellId)
+        
         // Do any additional setup after loading the view.
     }
     
@@ -63,6 +67,8 @@ extension DashboardViewController: UITableViewDelegate {
             return isShowingGraphics ? 150 : 0
         case .wallets:
             return 140
+        case .transaction(transaction: Transaction()):
+            return 100
         default:
             break
         }
@@ -135,6 +141,7 @@ extension DashboardViewController: UITableViewDataSource {
             cell.buttonsDelegate = self
             
             return cell
+        
         case .wallets:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "walletsCell", for: indexPath) as? WalletsTableViewCell
             else {
@@ -142,16 +149,28 @@ extension DashboardViewController: UITableViewDataSource {
             }
             cell.walletsDelegate = self
             return cell
+
+        case .transaction(_):
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: customCellId, for: indexPath) as? TransactionCell else {
+                return UITableViewCell()
+            }
+            
+            cell.layer.backgroundColor = UIColor.green.cgColor
+            cell.transactionName.text = "Netflix"
+            cell.transactionTag.text = "Assinatura"
+            cell.transactionDate.text = "20 out"
+            cell.transactionPrice.text = "-9,50"
+            
+            return cell
+            
         default:
             return UITableViewCell()
             
         }
     }
     
-    func data(cell: BalanceTableViewCell) {
-        
-    }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print(dashboardCategories.count)
         return dashboardCategories.count
     }
     
