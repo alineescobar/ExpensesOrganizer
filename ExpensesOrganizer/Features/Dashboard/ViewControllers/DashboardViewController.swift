@@ -25,6 +25,7 @@ class DashboardViewController: UIViewController {
     private let customCellHeader = "TransactionsHeaderCell"
     private var isShowingGraphics: Bool = false
     private var isShowingBalance: Bool = false
+    private var isStatsBarHidden: Bool = false
    
     private let dashboardCategories: [DashboardCategory] = DashboardCategory.allCases
     
@@ -49,6 +50,10 @@ class DashboardViewController: UIViewController {
         navigationController?.setNavigationBarHidden(false, animated: animated)
     }
     
+    override var prefersStatusBarHidden: Bool {
+        return isStatsBarHidden
+    }
+
 /*    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let destination = sender as? DashboardSegueCategory else { return }
 
@@ -195,6 +200,8 @@ extension DashboardViewController: UITableViewDataSource {
 extension DashboardViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let yOffset = scrollView.contentOffset.y
+        isStatsBarHidden = yOffset > 0 ? true : false
+        setNeedsStatusBarAppearanceUpdate()
         print(yOffset)
         backgroundViewHeightConstraint.constant = initialBackgroundViewHeight - yOffset
         view.layoutIfNeeded()
