@@ -19,10 +19,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rbi-wG-tAo">
-                                <rect key="frame" x="0.0" y="-10" width="414" height="399"/>
+                                <rect key="frame" x="0.0" y="-68" width="414" height="417"/>
                                 <color key="backgroundColor" systemColor="systemGray5Color"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="399" id="HLW-5e-aWd"/>
+                                    <constraint firstAttribute="height" constant="417" id="HLW-5e-aWd"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
@@ -32,7 +32,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" estimatedSectionHeaderHeight="-1" sectionFooterHeight="28" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="VL6-36-egd">
-                                <rect key="frame" x="0.0" y="44" width="414" height="896"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
@@ -462,9 +462,9 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="rbi-wG-tAo" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="DPV-DT-BJK"/>
-                            <constraint firstItem="rbi-wG-tAo" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="-10" id="LuF-G2-guD"/>
+                            <constraint firstItem="rbi-wG-tAo" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="-68" id="LuF-G2-guD"/>
                             <constraint firstItem="VL6-36-egd" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="OZE-tN-JBh"/>
-                            <constraint firstItem="VL6-36-egd" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="44" id="P6m-8D-5DW"/>
+                            <constraint firstItem="VL6-36-egd" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="P6m-8D-5DW"/>
                             <constraint firstItem="rbi-wG-tAo" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="P98-nw-Vyp"/>
                             <constraint firstItem="VL6-36-egd" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" id="Pyz-q6-W8H"/>
                             <constraint firstItem="VL6-36-egd" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="lOk-Zv-iyy"/>
@@ -481,6 +481,7 @@
                         <segue destination="5FX-Hg-nNs" kind="presentation" identifier="add" id="jRG-jL-WKs"/>
                         <segue destination="AVa-DQ-Vxs" kind="show" identifier="addWallet" id="G5B-Gg-R4P"/>
                         <segue destination="egx-D4-Max" kind="show" identifier="walletDetail" id="hPU-SG-9gw"/>
+                        <segue destination="CJZ-Ty-Mjz" kind="show" identifier="transactions" id="kMr-JR-W9U"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -562,6 +563,16 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Phi-DH-EeH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1721" y="346"/>
+        </scene>
+        <!--Transactions-->
+        <scene sceneID="AK1-zn-enV">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Transactions" id="CJZ-Ty-Mjz" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="1Tc-VZ-p5S"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xhs-yq-Vd0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1706" y="405"/>
         </scene>
     </scenes>
     <resources>

@@ -8,22 +8,26 @@
 import UIKit
 
 enum DashboardCategory: CaseIterable {
-    case profile, balance, graphics, buttons, wallets, actionableCell, transaction(transaction: Transaction)
+    case profile, balance, graphics, buttons, wallets, actionableCell, transaction
     
     static var allCases: [DashboardCategory] {
-        return [.profile, .balance, .graphics, .buttons, .wallets, .actionableCell, .transaction(transaction: Transaction())]
+        return [.profile, .balance, .graphics, .buttons, .wallets, .actionableCell, .transaction, .transaction, .transaction, .transaction, .transaction]
+//        TODO: create logic behind the transactions cells.
     }
 }
 
 class DashboardViewController: UIViewController {
-    
     @IBOutlet weak var backgroundViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var backgroundView: UIView!
     @IBOutlet weak var mainTableView: UITableView!
+    private var initialBackgroundViewHeight: Double = -1
     private let customCellId = "TransactionCell"
     private let graphicsCellId = "GraphicsTableViewCell"
+    private let customCellHeader = "TransactionsHeaderCell"
     private var isShowingGraphics: Bool = false
     private var isShowingBalance: Bool = false
+    private var isStatsBarHidden: Bool = false
+   
     private let dashboardCategories: [DashboardCategory] = DashboardCategory.allCases
     
     override func viewDidLoad() {
@@ -32,8 +36,9 @@ class DashboardViewController: UIViewController {
         mainTableView.delegate = self
         
         mainTableView.register(UINib(nibName: customCellId, bundle: nil), forCellReuseIdentifier: customCellId)
+        mainTableView.register(UINib(nibName: customCellHeader, bundle: nil), forCellReuseIdentifier: customCellHeader)
+        initialBackgroundViewHeight = backgroundViewHeightConstraint.constant
         mainTableView.register(UINib(nibName: graphicsCellId, bundle: nil), forCellReuseIdentifier: graphicsCellId)
-
         // Do any additional setup after loading the view.
     }
     
@@ -47,6 +52,10 @@ class DashboardViewController: UIViewController {
         navigationController?.setNavigationBarHidden(false, animated: animated)
     }
     
+    override var prefersStatusBarHidden: Bool {
+        return isStatsBarHidden
+    }
+
 /*    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let destination = sender as? DashboardSegueCategory else { return }
 
@@ -69,8 +78,6 @@ extension DashboardViewController: UITableViewDelegate {
             return isShowingGraphics ? 150 : 0
         case .wallets:
             return 140
-        case .transaction(transaction: Transaction()):
-            return 100
         default:
             break
         }
@@ -82,16 +89,24 @@ extension DashboardViewController: UITableViewDelegate {
         
         switch dashboardCategory {
         case .balance:
-            isShowingGraphics = !isShowingGraphics
+            isShowingGraphics.toggle()
+            let magnitude: Double = isShowingGraphics ? 1 : -1
+            let height: Double = 150.0
+            let heightOffset: Double = magnitude * height
             var indexPathToReload = indexPath
             indexPathToReload.row += 1
-            UIView.animate(withDuration: 0.3) {
-                self.backgroundViewHeightConstraint.constant = self.isShowingGraphics ? 549 : 399
+            UIView.animate(withDuration: isShowingGraphics ? 0.1 : 0.3) {
+                self.backgroundViewHeightConstraint.constant += heightOffset
+                self.initialBackgroundViewHeight += heightOffset
+//                self.backgroundViewHeightConstraint.constant = self.isShowingGraphics ? 549 : 399
                 self.view.layoutIfNeeded()
             }
             mainTableView.reloadRows(at: [indexPath], with: .automatic)
             mainTableView.reloadRows(at: [indexPathToReload], with: .automatic)
         
+        case .actionableCell:
+            performSegue(withIdentifier: "transactions", sender: nil)
+            
         default:
             break
         }
@@ -152,12 +167,12 @@ extension DashboardViewController: UITableViewDataSource {
             cell.walletsDelegate = self
             return cell
 
-        case .transaction(_):
+        case .transaction:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: customCellId, for: indexPath) as? TransactionCell else {
                 return UITableViewCell()
             }
             
-            cell.layer.backgroundColor = UIColor.green.cgColor
+            cell.selectionStyle = .none
             cell.transactionName.text = "Netflix"
             cell.transactionTag.text = "Assinatura"
             cell.transactionDate.text = "20 out"
@@ -165,17 +180,34 @@ extension DashboardViewController: UITableViewDataSource {
             
             return cell
             
-        default:
-            return UITableViewCell()
+        case .actionableCell:
+            guard let cell = mainTableView.dequeueReusableCell(withIdentifier: customCellHeader, for: indexPath) as? TransactionsHeaderCell else {
+                return UITableViewCell()
+            }
+            cell.selectionStyle = .none
+            
+            cell.transactionsDelegate = self
+            
+            return cell
             
         }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print(dashboardCategories.count)
         return dashboardCategories.count
     }
     
+}
+
+extension DashboardViewController: UIScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let yOffset = scrollView.contentOffset.y
+        isStatsBarHidden = yOffset > 0 ? true : false
+        setNeedsStatusBarAppearanceUpdate()
+        backgroundViewHeightConstraint.constant = initialBackgroundViewHeight - yOffset
+        view.layoutIfNeeded()
+        
+    }
 }
 
 extension DashboardViewController: BalanceCellDelegate {
@@ -211,5 +243,11 @@ extension DashboardViewController: WalletsCellDelegate {
     
     func didTapAddWallet() {
         performSegue(withIdentifier: "addWallet", sender: nil)
+    }
+}
+
+extension DashboardViewController: TransactionsHeaderDelegate {
+    func didTapButton() {
+        performSegue(withIdentifier: "transactions", sender: nil)
     }
 }
