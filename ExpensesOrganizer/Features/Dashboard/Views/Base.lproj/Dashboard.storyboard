@@ -103,7 +103,7 @@
                                                     <rect key="frame" x="28" y="0.0" width="354" height="75"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="OhS-L7-3hY">
-                                                            <rect key="frame" x="0.0" y="0.0" width="226" height="75"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="323" height="75"/>
                                                             <subviews>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kHc-ep-N37">
                                                                     <rect key="frame" x="0.0" y="0.0" width="97" height="18"/>
@@ -118,23 +118,11 @@
                                                                     </connections>
                                                                 </button>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" alignment="lastBaseline" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="8sh-ay-bOE">
-                                                                    <rect key="frame" x="0.0" y="26" width="226" height="49"/>
+                                                                    <rect key="frame" x="0.0" y="26" width="323" height="49"/>
                                                                     <subviews>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="R$" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R73-if-FSs">
-                                                                            <rect key="frame" x="0.0" y="33" width="16.5" height="16"/>
-                                                                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="13"/>
-                                                                            <nil key="textColor"/>
-                                                                            <nil key="highlightedColor"/>
-                                                                        </label>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="35.000," textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3R9-k0-GU6">
-                                                                            <rect key="frame" x="20.5" y="0.0" width="185.5" height="58"/>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="R$ 35.000,23" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3R9-k0-GU6">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="323" height="49"/>
                                                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="50"/>
-                                                                            <nil key="textColor"/>
-                                                                            <nil key="highlightedColor"/>
-                                                                        </label>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="24" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="21l-kA-jfL">
-                                                                            <rect key="frame" x="210" y="33" width="16" height="16"/>
-                                                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                                             <nil key="textColor"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
@@ -162,10 +150,8 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
-                                            <outlet property="balanceDecimalLabel" destination="21l-kA-jfL" id="Trw-pf-A10"/>
-                                            <outlet property="balanceRoundedLabel" destination="3R9-k0-GU6" id="zJr-Rl-RSn"/>
+                                            <outlet property="balanceLabel" destination="3R9-k0-GU6" id="zzz-hw-put"/>
                                             <outlet property="balanceStackView" destination="8sh-ay-bOE" id="sOK-RO-DuL"/>
-                                            <outlet property="currencyLabel" destination="R73-if-FSs" id="dUP-aA-JAl"/>
                                             <outlet property="hideBalanceButton" destination="kHc-ep-N37" id="NdT-Mi-iTG"/>
                                             <outlet property="showGraphicsImage" destination="4An-9A-pUg" id="zaQ-Kd-8py"/>
                                         </connections>
@@ -384,7 +370,7 @@
                                                                         <subviews>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="R$ 5.000,12 " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jGG-WN-fu3">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="140" height="18.5"/>
-                                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                                                                 <nil key="textColor"/>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
