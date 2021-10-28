@@ -32,11 +32,17 @@ class ButtonsTableViewCell: UITableViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-
+        
         walletLabel.setAdjustableFontSize(scaleFactor: 0.2)
         goalsLabel.setAdjustableFontSize(scaleFactor: 0.2)
         planningLabel.setAdjustableFontSize(scaleFactor: 0.2)
         addLabel.setAdjustableFontSize(scaleFactor: 0.2)
+    }
+    
+    override func layoutIfNeeded() {
+        super.layoutIfNeeded()
+        
+        setCircles()
     }
     
     override func awakeFromNib() {
@@ -49,6 +55,7 @@ class ButtonsTableViewCell: UITableViewCell {
         goalsLabel.text = NSLocalizedString("GoalsLabel", comment: "")
         planningLabel.text = NSLocalizedString("PlanningLabel", comment: "")
         addLabel.text = NSLocalizedString("AddLabel", comment: "")
+        layoutIfNeeded()
     }
 
     @objc
