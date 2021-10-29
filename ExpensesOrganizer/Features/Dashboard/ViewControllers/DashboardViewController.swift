@@ -22,6 +22,7 @@ class DashboardViewController: UIViewController {
     @IBOutlet weak var mainTableView: UITableView!
     private var initialBackgroundViewHeight: Double = -1
     private let customCellId = "TransactionCell"
+    private let graphicsCellId = "GraphicsTableViewCell"
     private let customCellHeader = "TransactionsHeaderCell"
     private var isShowingGraphics: Bool = false
     private var isShowingBalance: Bool = false
@@ -37,6 +38,7 @@ class DashboardViewController: UIViewController {
         mainTableView.register(UINib(nibName: customCellId, bundle: nil), forCellReuseIdentifier: customCellId)
         mainTableView.register(UINib(nibName: customCellHeader, bundle: nil), forCellReuseIdentifier: customCellHeader)
         initialBackgroundViewHeight = backgroundViewHeightConstraint.constant
+        mainTableView.register(UINib(nibName: graphicsCellId, bundle: nil), forCellReuseIdentifier: graphicsCellId)
         // Do any additional setup after loading the view.
     }
     
@@ -142,7 +144,7 @@ extension DashboardViewController: UITableViewDataSource {
             return cell
             
         case .graphics:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "graphicsCell", for: indexPath) as? GraphicsTableViewCell
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: graphicsCellId, for: indexPath) as? GraphicsTableViewCell
             else {
                 return UITableViewCell()
             }
