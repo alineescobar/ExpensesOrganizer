@@ -98,7 +98,6 @@ extension DashboardViewController: UITableViewDelegate {
             UIView.animate(withDuration: isShowingGraphics ? 0.1 : 0.3) {
                 self.backgroundViewHeightConstraint.constant += heightOffset
                 self.initialBackgroundViewHeight += heightOffset
-//                self.backgroundViewHeightConstraint.constant = self.isShowingGraphics ? 549 : 399
                 self.view.layoutIfNeeded()
             }
             mainTableView.reloadRows(at: [indexPath], with: .automatic)

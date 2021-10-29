@@ -32,12 +32,14 @@ class PillMarker: MarkerImage {
         let labelWidth = labelText.size(withAttributes: attrs).width + 10
         // if you modify labelHeigh you will have to tweak baselineOffset in attrs
         let labelHeight = labelText.size(withAttributes: attrs).height + 4
-
+        
         // place pill above the marker, centered along x
         var rectangle = CGRect(x: point.x, y: point.y, width: labelWidth, height: labelHeight)
-        rectangle.origin.x -= rectangle.width / 2.0
+        rectangle.origin.x = point.x > (UIScreen.main.bounds.width - rectangle.width) ? rectangle.origin.x - rectangle.width
+        : point.x < rectangle.width ? rectangle.origin.x + (rectangle.width / 4.0)
+        : rectangle.origin.x - (rectangle.width / 2.0)
         let spacing: CGFloat = 20
-        rectangle.origin.y -= rectangle.height + spacing
+        rectangle.origin.y = point.y < 41 ? rectangle.origin.y + rectangle.height : rectangle.origin.y - (rectangle.height + spacing)
 
         // rounded rect
         let clipPath = UIBezierPath(roundedRect: rectangle, cornerRadius: 6.0).cgPath
@@ -49,6 +51,11 @@ class PillMarker: MarkerImage {
 
         // add the text
         labelText.draw(with: rectangle, options: .usesLineFragmentOrigin, attributes: attrs, context: nil)
+        let circleRect = CGRect(x: point.x - 4, y: point.y - 4, width: 4 * 2, height: 4 * 2)
+                context.setFillColor(color.cgColor)
+                context.fillEllipse(in: circleRect)
+                
+                context.restoreGState()
     }
 
     override func refreshContent(entry: ChartDataEntry, highlight: Highlight) {
@@ -58,4 +65,5 @@ class PillMarker: MarkerImage {
     private func customString(_ value: Double) -> String {
         String(format: "%.2f", value)
     }
+    
 }
