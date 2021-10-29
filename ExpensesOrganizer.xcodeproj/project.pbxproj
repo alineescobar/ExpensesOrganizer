@@ -28,9 +28,12 @@
 		16D0B26627287A72007BE30E /* TransactionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D0B26527287A72007BE30E /* TransactionsViewController.swift */; };
 		16FA96E127273A7A007EB7CA /* TransactionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16FA96DF27273A7A007EB7CA /* TransactionCell.swift */; };
 		16FA96E227273A7A007EB7CA /* TransactionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 16FA96E027273A7A007EB7CA /* TransactionCell.xib */; };
+		710F1DC52729C55F005C06E1 /* Charts in Frameworks */ = {isa = PBXBuildFile; productRef = 710F1DC42729C55F005C06E1 /* Charts */; };
+		710F1DC82729C8D6005C06E1 /* GraphicsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 710F1DC62729C8D6005C06E1 /* GraphicsTableViewCell.swift */; };
+		710F1DC92729C8D6005C06E1 /* GraphicsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 710F1DC72729C8D6005C06E1 /* GraphicsTableViewCell.xib */; };
+		710F1DD0272B2743005C06E1 /* PillMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 710F1DCF272B2743005C06E1 /* PillMarker.swift */; };
 		F138B88F2720A950009F0837 /* ProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F138B88E2720A950009F0837 /* ProfileTableViewCell.swift */; };
 		F196D4FC2721ECF500CCAF81 /* BalanceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F196D4FB2721ECF500CCAF81 /* BalanceTableViewCell.swift */; };
-		F196D4FE2721FAA700CCAF81 /* GraphicsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F196D4FD2721FAA700CCAF81 /* GraphicsTableViewCell.swift */; };
 		F196D500272201F300CCAF81 /* ButtonsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F196D4FF272201F300CCAF81 /* ButtonsTableViewCell.swift */; };
 		F196D510272476A800CCAF81 /* Wallets.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F196D50F272476A800CCAF81 /* Wallets.storyboard */; };
 		F196D512272476BE00CCAF81 /* WalletsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F196D511272476BE00CCAF81 /* WalletsViewController.swift */; };
@@ -75,9 +78,11 @@
 		16D0B26527287A72007BE30E /* TransactionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsViewController.swift; sourceTree = "<group>"; };
 		16FA96DF27273A7A007EB7CA /* TransactionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionCell.swift; sourceTree = "<group>"; };
 		16FA96E027273A7A007EB7CA /* TransactionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransactionCell.xib; sourceTree = "<group>"; };
+		710F1DC62729C8D6005C06E1 /* GraphicsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphicsTableViewCell.swift; sourceTree = "<group>"; };
+		710F1DC72729C8D6005C06E1 /* GraphicsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GraphicsTableViewCell.xib; sourceTree = "<group>"; };
+		710F1DCF272B2743005C06E1 /* PillMarker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PillMarker.swift; sourceTree = "<group>"; };
 		F138B88E2720A950009F0837 /* ProfileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewCell.swift; sourceTree = "<group>"; };
 		F196D4FB2721ECF500CCAF81 /* BalanceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalanceTableViewCell.swift; sourceTree = "<group>"; };
-		F196D4FD2721FAA700CCAF81 /* GraphicsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphicsTableViewCell.swift; sourceTree = "<group>"; };
 		F196D4FF272201F300CCAF81 /* ButtonsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonsTableViewCell.swift; sourceTree = "<group>"; };
 		F196D50F272476A800CCAF81 /* Wallets.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Wallets.storyboard; sourceTree = "<group>"; };
 		F196D511272476BE00CCAF81 /* WalletsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletsViewController.swift; sourceTree = "<group>"; };
@@ -100,6 +105,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				710F1DC52729C55F005C06E1 /* Charts in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -212,12 +218,13 @@
 			isa = PBXGroup;
 			children = (
 				F196D4FB2721ECF500CCAF81 /* BalanceTableViewCell.swift */,
-				F196D4FD2721FAA700CCAF81 /* GraphicsTableViewCell.swift */,
 				F138B88E2720A950009F0837 /* ProfileTableViewCell.swift */,
 				F19FF1A4272882FB0041F5E3 /* AddWalletCollectionViewCell.swift */,
 				1665562A271A0E0000DE83F4 /* DashboardViewController.swift */,
 				F196D4FF272201F300CCAF81 /* ButtonsTableViewCell.swift */,
 				16FA96DF27273A7A007EB7CA /* TransactionCell.swift */,
+				710F1DC62729C8D6005C06E1 /* GraphicsTableViewCell.swift */,
+				710F1DCF272B2743005C06E1 /* PillMarker.swift */,
 				16D0B25B27286CDA007BE30E /* TransactionsHeaderCell.swift */,
 				077CAFF727273759007D58C1 /* WalletsTableViewCell.swift */,
 				077CAFF927274147007D58C1 /* WalletCollectionViewCell.swift */,
@@ -228,6 +235,7 @@
 		F138B88B2720A1A6009F0837 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				710F1DC72729C8D6005C06E1 /* GraphicsTableViewCell.xib */,
 				16FA96E027273A7A007EB7CA /* TransactionCell.xib */,
 				16D0B25C27286CDA007BE30E /* TransactionsHeaderCell.xib */,
 				1665562C271A0E0000DE83F4 /* Dashboard.storyboard */,
@@ -402,6 +410,9 @@
 			dependencies = (
 			);
 			name = ExpensesOrganizer;
+			packageProductDependencies = (
+				710F1DC42729C55F005C06E1 /* Charts */,
+			);
 			productName = ExpensesOrganizer;
 			productReference = 16655623271A0E0000DE83F4 /* ExpensesOrganizer.app */;
 			productType = "com.apple.product-type.application";
@@ -431,6 +442,9 @@
 				"pt-BR",
 			);
 			mainGroup = 1665561A271A0E0000DE83F4;
+			packageReferences = (
+				710F1DC32729C55F005C06E1 /* XCRemoteSwiftPackageReference "charts" */,
+			);
 			productRefGroup = 16655624271A0E0000DE83F4 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -448,6 +462,7 @@
 				16655636271A0E0400DE83F4 /* LaunchScreen.storyboard in Resources */,
 				16D0B25E27286CDA007BE30E /* TransactionsHeaderCell.xib in Resources */,
 				16655641271A0ECA00DE83F4 /* Localizable.strings in Resources */,
+				710F1DC92729C8D6005C06E1 /* GraphicsTableViewCell.xib in Resources */,
 				16D0B26327287A3F007BE30E /* Transactions.storyboard in Resources */,
 				16FA96E227273A7A007EB7CA /* TransactionCell.xib in Resources */,
 				F19FF1B32728896C0041F5E3 /* WalletCreation.storyboard in Resources */,
@@ -492,17 +507,18 @@
 				F196D4FC2721ECF500CCAF81 /* BalanceTableViewCell.swift in Sources */,
 				F196D52127247D0200CCAF81 /* Extensions.swift in Sources */,
 				16B2D713271E0EA800E7BB84 /* Goal+CoreDataClass.swift in Sources */,
+				710F1DC82729C8D6005C06E1 /* GraphicsTableViewCell.swift in Sources */,
 				16FA96E127273A7A007EB7CA /* TransactionCell.swift in Sources */,
 				F19FF1A5272882FB0041F5E3 /* AddWalletCollectionViewCell.swift in Sources */,
 				1665562B271A0E0000DE83F4 /* DashboardViewController.swift in Sources */,
 				F196D500272201F300CCAF81 /* ButtonsTableViewCell.swift in Sources */,
 				16B2D71B271E0EA800E7BB84 /* Template+CoreDataClass.swift in Sources */,
+				710F1DD0272B2743005C06E1 /* PillMarker.swift in Sources */,
 				F138B88F2720A950009F0837 /* ProfileTableViewCell.swift in Sources */,
 				F19FF1AC2728890D0041F5E3 /* WalletDetailViewController.swift in Sources */,
 				16B2D717271E0EA800E7BB84 /* Item+CoreDataClass.swift in Sources */,
 				F19FF1B1272889500041F5E3 /* WalletCreationViewController.swift in Sources */,
 				F196D51C2724776500CCAF81 /* AdditionViewController.swift in Sources */,
-				F196D4FE2721FAA700CCAF81 /* GraphicsTableViewCell.swift in Sources */,
 				16D0B25D27286CDA007BE30E /* TransactionsHeaderCell.swift in Sources */,
 				077CAFF827273759007D58C1 /* WalletsTableViewCell.swift in Sources */,
 				16B2D715271E0EA800E7BB84 /* Transaction+CoreDataClass.swift in Sources */,
@@ -676,7 +692,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = KSCMH866UD;
+				DEVELOPMENT_TEAM = M7DG8QRAF9;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ExpensesOrganizer/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -706,7 +722,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = KSCMH866UD;
+				DEVELOPMENT_TEAM = M7DG8QRAF9;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ExpensesOrganizer/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -751,6 +767,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		710F1DC32729C55F005C06E1 /* XCRemoteSwiftPackageReference "charts" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/danielgindi/charts";
+			requirement = {
+				kind = exactVersion;
+				version = 3.5.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		710F1DC42729C55F005C06E1 /* Charts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 710F1DC32729C55F005C06E1 /* XCRemoteSwiftPackageReference "charts" */;
+			productName = Charts;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		1665562F271A0E0000DE83F4 /* ExpensesOrganizer.xcdatamodeld */ = {
