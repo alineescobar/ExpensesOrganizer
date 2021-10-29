@@ -18,6 +18,7 @@ class GraphicsTableViewCell: UITableViewCell, ChartViewDelegate {
     override func awakeFromNib() {
         super.awakeFromNib()
         
+        self.clipsToBounds = false
         chartView.delegate = self
         
         chartView.backgroundColor = .systemGray5
@@ -36,29 +37,18 @@ class GraphicsTableViewCell: UITableViewCell, ChartViewDelegate {
         chartView.xAxis.avoidFirstLastClippingEnabled = true
         chartView.xAxis.valueFormatter = IndexAxisValueFormatter(values: months)
         chartView.xAxis.granularity = 1
+        chartView.xAxis.centerAxisLabelsEnabled = true
         
         let marker = PillMarker(color: .white, font: UIFont.boldSystemFont(ofSize: 14), textColor: .white)
         chartView.marker = marker
         
         // Mock
-        for i in 6..<12 {
+        for i in 5..<12 {
             yValues += [ChartDataEntry(x: Double(i), y: Double.random(in: 0..<50))]
         }
         
         setData()
     }
-    
-    func chartValueSelected(_ chartView: ChartViewBase, entry: ChartDataEntry, highlight: Highlight) {
-        print(entry)
-    }
-    
-    class MarkerView: UIView {
-        @IBOutlet var valueLabel: UILabel!
-        @IBOutlet var metricLabel: UILabel!
-        @IBOutlet var dateLabel: UILabel!
-    }
-    
-    let markerView = MarkerView()
     
     func setData() {
         let set1 = LineChartDataSet(entries: yValues, label: "Rendimento")
@@ -71,7 +61,6 @@ class GraphicsTableViewCell: UITableViewCell, ChartViewDelegate {
         set1.drawHorizontalHighlightIndicatorEnabled = false
         set1.drawValuesEnabled = false
         let data = LineChartData(dataSet: set1)
-        
         chartView.data = data
     }
 }

@@ -98,7 +98,6 @@ extension DashboardViewController: UITableViewDelegate {
             UIView.animate(withDuration: isShowingGraphics ? 0.1 : 0.3) {
                 self.backgroundViewHeightConstraint.constant += heightOffset
                 self.initialBackgroundViewHeight += heightOffset
-//                self.backgroundViewHeightConstraint.constant = self.isShowingGraphics ? 549 : 399
                 self.view.layoutIfNeeded()
             }
             mainTableView.reloadRows(at: [indexPath], with: .automatic)
@@ -132,15 +131,12 @@ extension DashboardViewController: UITableViewDataSource {
                 return UITableViewCell()
             }
             cell.balanceDelegate = self
-            cell.currencyLabel.text = Locale.current.localizedCurrencySymbol(forCurrencyCode: Locale.current.currencyCode ?? "R$")
             cell.showGraphicsImage.image = isShowingGraphics ? UIImage(systemName: "chevron.up") : UIImage(systemName: "chevron.down")
             cell.hideBalanceButton.setImage(isShowingBalance ? UIImage(systemName: "eye") : UIImage(systemName: "eyebrow"), for: .normal)
-            cell.currencyLabel.alpha = isShowingBalance ? 1 : 0
-            cell.balanceRoundedLabel.alpha = isShowingBalance ? 1 : 0
-            cell.balanceDecimalLabel.alpha = isShowingBalance ? 1 : 0
+            cell.balanceLabel.alpha = isShowingBalance ? 1 : 0
             cell.balanceStackView.backgroundColor = isShowingBalance ? UIColor.clear : UIColor.lightGray
-            // TODO: Set balance value based on user's Locale
-            // balance = ...
+            let balance = 2234.5
+            cell.balanceLabel.attributedText = getFormattedBalance(balance: balance, smallTextSize: 13.6, type: .screen)
             return cell
             
         case .graphics:
