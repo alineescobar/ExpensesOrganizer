@@ -74,7 +74,7 @@ extension WalletsListTableViewCell: UICollectionViewDelegateFlowLayout {
         } else {
             return UIEdgeInsets(top: 0, left: 0, bottom: 32, right: 20)
         }
-        
+
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {

@@ -37,7 +37,7 @@ extension WalletsViewController: UITableViewDelegate {
         case .graphics:
             return 240
         case .wallets:
-            return 250
+            return 450
         default:
             break
         }
