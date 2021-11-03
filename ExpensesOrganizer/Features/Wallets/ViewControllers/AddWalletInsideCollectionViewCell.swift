@@ -12,9 +12,9 @@ class AddWalletInsideCollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.layer.cornerRadius = 8
-        self.layer.masksToBounds = true
-
+        self.contentView.layer.cornerRadius = 8
+        self.contentView.layer.masksToBounds = true
+        
         self.layer.shadowColor = UIColor.black.cgColor
         self.layer.shadowOffset = CGSize(width: 0, height: 2.0)
         self.layer.shadowRadius = 2.0
