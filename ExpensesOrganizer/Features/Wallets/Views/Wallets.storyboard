@@ -25,21 +25,13 @@
                                     <constraint firstAttribute="height" constant="428" id="Ka2-0Z-F9S"/>
                                 </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Ji7-FR-Dof">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Ji7-FR-Dof" userLabel="Wallets Table View">
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="separatorColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <navigationBar key="tableHeaderView" contentMode="scaleToFill" id="v3j-C0-VRG">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                    <color key="tintColor" systemColor="labelColor"/>
-                                    <items>
-                                        <navigationItem title="Carteira" id="c1u-PU-b7V"/>
-                                    </items>
-                                </navigationBar>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="103" id="mKd-Da-Sa3" userLabel="balanceCell">
-                                        <rect key="frame" x="0.0" y="88.5" width="414" height="103"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="BalanceInsideTableViewCellID" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="BalanceInsideTableViewCellID" rowHeight="103" id="mKd-Da-Sa3" userLabel="balanceCell" customClass="BalanceInsideTableViewCell" customModule="ExpensesOrganizer" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="103"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="mKd-Da-Sa3" id="9HC-A5-6Iw">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="103"/>
@@ -49,12 +41,12 @@
                                                     <rect key="frame" x="24" y="0.0" width="358" height="103"/>
                                                     <subviews>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="ukM-B2-PBh" userLabel="Hide Balance Button">
-                                                            <rect key="frame" x="0.0" y="0.0" width="97" height="47.5"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="115" height="47.5"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
                                                             <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <inset key="imageEdgeInsets" minX="10" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                            <state key="normal" title="Saldo atual" image="eye" catalog="system">
+                                                            <state key="normal" title="     Saldo atual" image="eye" catalog="system">
                                                                 <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             </state>
                                                         </button>
@@ -75,9 +67,13 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <outlet property="balanceLabel" destination="YaO-bE-KDR" id="8SH-sZ-aWj"/>
+                                            <outlet property="currentBalanceButton" destination="ukM-B2-PBh" id="fab-gJ-gc2"/>
+                                        </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="191" id="KAq-hK-g56" userLabel="graphicsCell">
-                                        <rect key="frame" x="0.0" y="191.5" width="414" height="191"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="GraphicsInsideTableViewCellID" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="GraphicsInsideTableViewCellID" rowHeight="191" id="KAq-hK-g56" userLabel="graphicsCell" customClass="GraphicsInsideTableViewCell" customModule="ExpensesOrganizer" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="147.5" width="414" height="191"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="KAq-hK-g56" id="pxh-il-o7z">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="191"/>
@@ -85,26 +81,26 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="249" id="oHg-YD-Qz2" userLabel="walletsListCell">
-                                        <rect key="frame" x="0.0" y="382.5" width="414" height="249"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="WalletsListTableViewCellID" rowHeight="249" id="oHg-YD-Qz2" userLabel="walletsListCell" customClass="WalletsListTableViewCell" customModule="ExpensesOrganizer" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="338.5" width="414" height="249"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="oHg-YD-Qz2" id="anl-sq-ow8">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="249"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="fHN-0b-bbh">
-                                                    <rect key="frame" x="0.0" y="21" width="414" height="217"/>
+                                                    <rect key="frame" x="0.0" y="21" width="414" height="455"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="EJd-Wi-3QQ">
+                                                    <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="EJd-Wi-3QQ">
                                                         <size key="itemSize" width="128" height="128"/>
                                                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                         <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                                         <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                     </collectionViewFlowLayout>
                                                     <cells>
-                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="r66-aB-30i" userLabel="walletCellID">
-                                                            <rect key="frame" x="0.0" y="0.0" width="343" height="110"/>
+                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="walletInsideCellID" id="r66-aB-30i" userLabel="walletInsideCellID" customClass="WalletsInsideCollectionViewCell" customModule="ExpensesOrganizer" customModuleProvider="target">
+                                                            <rect key="frame" x="35.5" y="0.0" width="343" height="110"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Trq-Ug-HDh">
                                                                 <rect key="frame" x="0.0" y="0.0" width="343" height="110"/>
@@ -170,9 +166,13 @@
                                                                 </constraints>
                                                             </collectionViewCellContentView>
                                                             <size key="customSize" width="343" height="110"/>
+                                                            <connections>
+                                                                <outlet property="walletBalanceLabel" destination="2EP-yu-uOv" id="nst-vQ-FGV"/>
+                                                                <outlet property="walletNameLabel" destination="Tv7-0e-uxD" id="B2s-6e-uNG"/>
+                                                            </connections>
                                                         </collectionViewCell>
-                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Dqo-t2-ECR" userLabel="addWalletCellID">
-                                                            <rect key="frame" x="0.5" y="120" width="342" height="42"/>
+                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="addWalletInsideCellID" id="Dqo-t2-ECR" userLabel="addWalletInsideCellID" customClass="AddWalletInsideCollectionViewCell" customModule="ExpensesOrganizer" customModuleProvider="target">
+                                                            <rect key="frame" x="36" y="120" width="342" height="42"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Zir-mz-TLQ">
                                                                 <rect key="frame" x="0.0" y="0.0" width="342" height="42"/>
@@ -194,12 +194,18 @@
                                                                 </constraints>
                                                             </collectionViewCellContentView>
                                                             <size key="customSize" width="342" height="42"/>
+                                                            <connections>
+                                                                <outlet property="createNewWalletButton" destination="Nc7-oN-bxK" id="Ez2-Xx-m2k"/>
+                                                            </connections>
                                                         </collectionViewCell>
                                                     </cells>
                                                 </collectionView>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <outlet property="walletsCollectionView" destination="fHN-0b-bbh" id="IFN-w0-DUg"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -217,6 +223,10 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="oaT-NI-o7s"/>
+                    <connections>
+                        <outlet property="backgroundView" destination="Ccy-Qu-9yb" id="0u0-QJ-z91"/>
+                        <outlet property="walletsTableView" destination="Ji7-FR-Dof" id="2tB-HC-nSA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -228,9 +238,6 @@
         <image name="Wallet" width="25" height="24"/>
         <image name="chevron.right" catalog="system" width="96" height="128"/>
         <image name="eye" catalog="system" width="128" height="81"/>
-        <systemColor name="labelColor">
-            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
