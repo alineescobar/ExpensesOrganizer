@@ -8,24 +8,16 @@
 import UIKit
 
 class AdditionViewController: UIViewController {
-    @IBOutlet weak var viewContainer: UIView!
-    var views: [UIView]!
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    @IBOutlet weak var firstView: UIView!
+    @IBOutlet weak var secondView: UIView!
 
-        views = []
-        views.append(AddExpenseTableViewController().view)
-        views.append(AddIncomeTableViewController().view)
-        
-        for view in views {
-            viewContainer.addSubview(view)
+    @IBAction private func switchViews(_ sender: UISegmentedControl) {
+        if sender.selectedSegmentIndex == 0 {
+            firstView.isHidden = true
+            secondView.isHidden = false
+        } else {
+            firstView.isHidden = false
+            secondView.isHidden = true
         }
-        
-        viewContainer.bringSubviewToFront(views[0])
-    }
-
-    @IBAction private func switchViewAction(_ sender: UISegmentedControl) {
-        viewContainer.bringSubviewToFront(views[sender.selectedSegmentIndex])
     }
 }
