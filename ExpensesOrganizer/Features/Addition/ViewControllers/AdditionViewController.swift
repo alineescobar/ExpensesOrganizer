@@ -8,21 +8,24 @@
 import UIKit
 
 class AdditionViewController: UIViewController {
-
+    @IBOutlet weak var viewContainer: UIView!
+    var views: [UIView]!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        views = []
+        views.append(AddExpenseTableViewController().view)
+        views.append(AddIncomeTableViewController().view)
+        
+        for view in views {
+            viewContainer.addSubview(view)
+        }
+        
+        viewContainer.bringSubviewToFront(views[0])
     }
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction private func switchViewAction(_ sender: UISegmentedControl) {
+        viewContainer.bringSubviewToFront(views[sender.selectedSegmentIndex])
     }
-    */
-
 }

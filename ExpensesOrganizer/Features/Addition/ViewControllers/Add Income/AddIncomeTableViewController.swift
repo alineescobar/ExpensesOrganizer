@@ -7,83 +7,76 @@
 
 import UIKit
 
-class AddIncomeTableViewController: UITableViewController {
+enum AddIncomeCells: CaseIterable {
+    case value, divider, name, category, wallet, planning
+    
+    static var allCases: [AddIncomeCells] {
+        [.value, .name, .divider, .category, .divider, .wallet, .divider, .planning]
+    }
+}
 
+class AddIncomeTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
+    @IBOutlet weak var tableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        
+        tableView.dataSource = self
+        tableView.delegate = self
     }
-
+    
     // MARK: - Table view data source
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
     }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return AddIncomeCells.allCases.count
     }
-
-    /*
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
-        return cell
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cellCategory = AddIncomeCells.allCases[indexPath.row]
+        
+        switch cellCategory {
+        case .value:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: AddIncomeValueCell.identifier, for: indexPath) as? AddIncomeValueCell else {
+                return UITableViewCell()
+            }
+            
+            return cell
+            
+        case .name:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: AddIncomeNameCell.identifier, for: indexPath) as? AddIncomeNameCell else {
+                return UITableViewCell()
+            }
+            
+            return cell
+            
+        case .category:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: AddIncomeCategoryCell.identifier, for: indexPath) as? AddIncomeCategoryCell else {
+                return UITableViewCell()
+            }
+            
+            return cell
+            
+        case .wallet:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: AddIncomeWalletCell.identifier, for: indexPath) as? AddIncomeWalletCell else {
+                return UITableViewCell()
+            }
+            
+            return cell
+            
+        case .planning:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: AddIncomePlanningCell.identifier, for: indexPath) as? AddIncomePlanningCell else {
+                return UITableViewCell()
+            }
+            
+            return cell
+            
+        case .divider:
+            return tableView.dequeueReusableCell(withIdentifier: "add-income-divider-cell", for: indexPath)
+        }
     }
-    */
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

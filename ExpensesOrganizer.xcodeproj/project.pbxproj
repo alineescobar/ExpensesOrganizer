@@ -34,6 +34,17 @@
 		710F1DD0272B2743005C06E1 /* PillMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 710F1DCF272B2743005C06E1 /* PillMarker.swift */; };
 		71FED85427330E1700B90A5A /* AddExpenseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71FED85327330E1700B90A5A /* AddExpenseTableViewController.swift */; };
 		71FED85627330E3500B90A5A /* AddIncomeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71FED85527330E3500B90A5A /* AddIncomeTableViewController.swift */; };
+		71FED85D2733147000B90A5A /* AddExpenseValueCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71FED85C2733147000B90A5A /* AddExpenseValueCell.swift */; };
+		71FED860273314DF00B90A5A /* AddExpenseNameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71FED85F273314DF00B90A5A /* AddExpenseNameCell.swift */; };
+		71FED8622733151200B90A5A /* AddExpenseCategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71FED8612733151200B90A5A /* AddExpenseCategoryCell.swift */; };
+		71FED8642733153000B90A5A /* AddExpensePaymentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71FED8632733153000B90A5A /* AddExpensePaymentCell.swift */; };
+		71FED8662733159F00B90A5A /* AddExpensePlanningCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71FED8652733159F00B90A5A /* AddExpensePlanningCell.swift */; };
+		71FED86C273325A800B90A5A /* AddIncomeValueCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71FED86B273325A800B90A5A /* AddIncomeValueCell.swift */; };
+		71FED86E273325C900B90A5A /* AddIncomeNameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71FED86D273325C900B90A5A /* AddIncomeNameCell.swift */; };
+		71FED870273325E100B90A5A /* AddIncomeCategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71FED86F273325E100B90A5A /* AddIncomeCategoryCell.swift */; };
+		71FED8722733260F00B90A5A /* AddIncomeWalletCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71FED8712733260F00B90A5A /* AddIncomeWalletCell.swift */; };
+		71FED8742733263500B90A5A /* AddIncomePlanningCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71FED8732733263500B90A5A /* AddIncomePlanningCell.swift */; };
+		71FED87627332F5C00B90A5A /* AddExpenseUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71FED87527332F5C00B90A5A /* AddExpenseUIViewController.swift */; };
 		F138B88F2720A950009F0837 /* ProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F138B88E2720A950009F0837 /* ProfileTableViewCell.swift */; };
 		F196D4FC2721ECF500CCAF81 /* BalanceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F196D4FB2721ECF500CCAF81 /* BalanceTableViewCell.swift */; };
 		F196D500272201F300CCAF81 /* ButtonsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F196D4FF272201F300CCAF81 /* ButtonsTableViewCell.swift */; };
@@ -85,6 +96,17 @@
 		710F1DCF272B2743005C06E1 /* PillMarker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PillMarker.swift; sourceTree = "<group>"; };
 		71FED85327330E1700B90A5A /* AddExpenseTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExpenseTableViewController.swift; sourceTree = "<group>"; };
 		71FED85527330E3500B90A5A /* AddIncomeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddIncomeTableViewController.swift; sourceTree = "<group>"; };
+		71FED85C2733147000B90A5A /* AddExpenseValueCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExpenseValueCell.swift; sourceTree = "<group>"; };
+		71FED85F273314DF00B90A5A /* AddExpenseNameCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExpenseNameCell.swift; sourceTree = "<group>"; };
+		71FED8612733151200B90A5A /* AddExpenseCategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExpenseCategoryCell.swift; sourceTree = "<group>"; };
+		71FED8632733153000B90A5A /* AddExpensePaymentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExpensePaymentCell.swift; sourceTree = "<group>"; };
+		71FED8652733159F00B90A5A /* AddExpensePlanningCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExpensePlanningCell.swift; sourceTree = "<group>"; };
+		71FED86B273325A800B90A5A /* AddIncomeValueCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddIncomeValueCell.swift; sourceTree = "<group>"; };
+		71FED86D273325C900B90A5A /* AddIncomeNameCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddIncomeNameCell.swift; sourceTree = "<group>"; };
+		71FED86F273325E100B90A5A /* AddIncomeCategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddIncomeCategoryCell.swift; sourceTree = "<group>"; };
+		71FED8712733260F00B90A5A /* AddIncomeWalletCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddIncomeWalletCell.swift; sourceTree = "<group>"; };
+		71FED8732733263500B90A5A /* AddIncomePlanningCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddIncomePlanningCell.swift; sourceTree = "<group>"; };
+		71FED87527332F5C00B90A5A /* AddExpenseUIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExpenseUIViewController.swift; sourceTree = "<group>"; };
 		F138B88E2720A950009F0837 /* ProfileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewCell.swift; sourceTree = "<group>"; };
 		F196D4FB2721ECF500CCAF81 /* BalanceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalanceTableViewCell.swift; sourceTree = "<group>"; };
 		F196D4FF272201F300CCAF81 /* ButtonsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonsTableViewCell.swift; sourceTree = "<group>"; };
@@ -177,7 +199,12 @@
 			isa = PBXGroup;
 			children = (
 				71FED85327330E1700B90A5A /* AddExpenseTableViewController.swift */,
-				71FED859273313AE00B90A5A /* Table Cells */,
+				71FED85C2733147000B90A5A /* AddExpenseValueCell.swift */,
+				71FED85F273314DF00B90A5A /* AddExpenseNameCell.swift */,
+				71FED8612733151200B90A5A /* AddExpenseCategoryCell.swift */,
+				71FED8632733153000B90A5A /* AddExpensePaymentCell.swift */,
+				71FED8652733159F00B90A5A /* AddExpensePlanningCell.swift */,
+				71FED87527332F5C00B90A5A /* AddExpenseUIViewController.swift */,
 			);
 			path = "Add Expense";
 			sourceTree = "<group>";
@@ -186,23 +213,13 @@
 			isa = PBXGroup;
 			children = (
 				71FED85527330E3500B90A5A /* AddIncomeTableViewController.swift */,
-				71FED85A273313BC00B90A5A /* Table Cells */,
+				71FED86B273325A800B90A5A /* AddIncomeValueCell.swift */,
+				71FED86D273325C900B90A5A /* AddIncomeNameCell.swift */,
+				71FED86F273325E100B90A5A /* AddIncomeCategoryCell.swift */,
+				71FED8712733260F00B90A5A /* AddIncomeWalletCell.swift */,
+				71FED8732733263500B90A5A /* AddIncomePlanningCell.swift */,
 			);
 			path = "Add Income";
-			sourceTree = "<group>";
-		};
-		71FED859273313AE00B90A5A /* Table Cells */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "Table Cells";
-			sourceTree = "<group>";
-		};
-		71FED85A273313BC00B90A5A /* Table Cells */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "Table Cells";
 			sourceTree = "<group>";
 		};
 		F138B8862720A028009F0837 /* Shared */ = {
@@ -544,7 +561,10 @@
 			files = (
 				F196D4FC2721ECF500CCAF81 /* BalanceTableViewCell.swift in Sources */,
 				F196D52127247D0200CCAF81 /* Extensions.swift in Sources */,
+				71FED8662733159F00B90A5A /* AddExpensePlanningCell.swift in Sources */,
+				71FED8622733151200B90A5A /* AddExpenseCategoryCell.swift in Sources */,
 				16B2D713271E0EA800E7BB84 /* Goal+CoreDataClass.swift in Sources */,
+				71FED85D2733147000B90A5A /* AddExpenseValueCell.swift in Sources */,
 				710F1DC82729C8D6005C06E1 /* GraphicsTableViewCell.swift in Sources */,
 				16FA96E127273A7A007EB7CA /* TransactionCell.swift in Sources */,
 				F19FF1A5272882FB0041F5E3 /* AddWalletCollectionViewCell.swift in Sources */,
@@ -552,9 +572,12 @@
 				F196D500272201F300CCAF81 /* ButtonsTableViewCell.swift in Sources */,
 				16B2D71B271E0EA800E7BB84 /* Template+CoreDataClass.swift in Sources */,
 				710F1DD0272B2743005C06E1 /* PillMarker.swift in Sources */,
+				71FED860273314DF00B90A5A /* AddExpenseNameCell.swift in Sources */,
 				F138B88F2720A950009F0837 /* ProfileTableViewCell.swift in Sources */,
+				71FED8742733263500B90A5A /* AddIncomePlanningCell.swift in Sources */,
 				F19FF1AC2728890D0041F5E3 /* WalletDetailViewController.swift in Sources */,
 				16B2D717271E0EA800E7BB84 /* Item+CoreDataClass.swift in Sources */,
+				71FED87627332F5C00B90A5A /* AddExpenseUIViewController.swift in Sources */,
 				F19FF1B1272889500041F5E3 /* WalletCreationViewController.swift in Sources */,
 				F196D51C2724776500CCAF81 /* AdditionViewController.swift in Sources */,
 				16D0B25D27286CDA007BE30E /* TransactionsHeaderCell.swift in Sources */,
@@ -562,6 +585,8 @@
 				16B2D715271E0EA800E7BB84 /* Transaction+CoreDataClass.swift in Sources */,
 				16D0B26627287A72007BE30E /* TransactionsViewController.swift in Sources */,
 				16655627271A0E0000DE83F4 /* AppDelegate.swift in Sources */,
+				71FED86C273325A800B90A5A /* AddIncomeValueCell.swift in Sources */,
+				71FED870273325E100B90A5A /* AddIncomeCategoryCell.swift in Sources */,
 				16655631271A0E0000DE83F4 /* ExpensesOrganizer.xcdatamodeld in Sources */,
 				16B2D719271E0EA800E7BB84 /* Wallet+CoreDataClass.swift in Sources */,
 				16655629271A0E0000DE83F4 /* SceneDelegate.swift in Sources */,
@@ -570,7 +595,10 @@
 				077CAFFA27274147007D58C1 /* WalletCollectionViewCell.swift in Sources */,
 				71FED85427330E1700B90A5A /* AddExpenseTableViewController.swift in Sources */,
 				F196D512272476BE00CCAF81 /* WalletsViewController.swift in Sources */,
+				71FED8642733153000B90A5A /* AddExpensePaymentCell.swift in Sources */,
+				71FED8722733260F00B90A5A /* AddIncomeWalletCell.swift in Sources */,
 				F196D5162724771C00CCAF81 /* GoalsViewController.swift in Sources */,
+				71FED86E273325C900B90A5A /* AddIncomeNameCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
