@@ -32,8 +32,8 @@
 		710F1DC82729C8D6005C06E1 /* GraphicsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 710F1DC62729C8D6005C06E1 /* GraphicsTableViewCell.swift */; };
 		710F1DC92729C8D6005C06E1 /* GraphicsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 710F1DC72729C8D6005C06E1 /* GraphicsTableViewCell.xib */; };
 		710F1DD0272B2743005C06E1 /* PillMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 710F1DCF272B2743005C06E1 /* PillMarker.swift */; };
-		71FED85427330E1700B90A5A /* AddExpenseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71FED85327330E1700B90A5A /* AddExpenseTableViewController.swift */; };
-		71FED85627330E3500B90A5A /* AddIncomeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71FED85527330E3500B90A5A /* AddIncomeTableViewController.swift */; };
+		71FED85427330E1700B90A5A /* AddExpenseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71FED85327330E1700B90A5A /* AddExpenseViewController.swift */; };
+		71FED85627330E3500B90A5A /* AddIncomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71FED85527330E3500B90A5A /* AddIncomeViewController.swift */; };
 		71FED85D2733147000B90A5A /* AddExpenseValueCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71FED85C2733147000B90A5A /* AddExpenseValueCell.swift */; };
 		71FED860273314DF00B90A5A /* AddExpenseNameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71FED85F273314DF00B90A5A /* AddExpenseNameCell.swift */; };
 		71FED8622733151200B90A5A /* AddExpenseCategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71FED8612733151200B90A5A /* AddExpenseCategoryCell.swift */; };
@@ -94,8 +94,8 @@
 		710F1DC62729C8D6005C06E1 /* GraphicsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphicsTableViewCell.swift; sourceTree = "<group>"; };
 		710F1DC72729C8D6005C06E1 /* GraphicsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GraphicsTableViewCell.xib; sourceTree = "<group>"; };
 		710F1DCF272B2743005C06E1 /* PillMarker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PillMarker.swift; sourceTree = "<group>"; };
-		71FED85327330E1700B90A5A /* AddExpenseTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExpenseTableViewController.swift; sourceTree = "<group>"; };
-		71FED85527330E3500B90A5A /* AddIncomeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddIncomeTableViewController.swift; sourceTree = "<group>"; };
+		71FED85327330E1700B90A5A /* AddExpenseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExpenseViewController.swift; sourceTree = "<group>"; };
+		71FED85527330E3500B90A5A /* AddIncomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddIncomeViewController.swift; sourceTree = "<group>"; };
 		71FED85C2733147000B90A5A /* AddExpenseValueCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExpenseValueCell.swift; sourceTree = "<group>"; };
 		71FED85F273314DF00B90A5A /* AddExpenseNameCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExpenseNameCell.swift; sourceTree = "<group>"; };
 		71FED8612733151200B90A5A /* AddExpenseCategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExpenseCategoryCell.swift; sourceTree = "<group>"; };
@@ -198,7 +198,7 @@
 		71FED8572733132600B90A5A /* Add Expense */ = {
 			isa = PBXGroup;
 			children = (
-				71FED85327330E1700B90A5A /* AddExpenseTableViewController.swift */,
+				71FED85327330E1700B90A5A /* AddExpenseViewController.swift */,
 				71FED85C2733147000B90A5A /* AddExpenseValueCell.swift */,
 				71FED85F273314DF00B90A5A /* AddExpenseNameCell.swift */,
 				71FED8612733151200B90A5A /* AddExpenseCategoryCell.swift */,
@@ -212,7 +212,7 @@
 		71FED8582733134800B90A5A /* Add Income */ = {
 			isa = PBXGroup;
 			children = (
-				71FED85527330E3500B90A5A /* AddIncomeTableViewController.swift */,
+				71FED85527330E3500B90A5A /* AddIncomeViewController.swift */,
 				71FED86B273325A800B90A5A /* AddIncomeValueCell.swift */,
 				71FED86D273325C900B90A5A /* AddIncomeNameCell.swift */,
 				71FED86F273325E100B90A5A /* AddIncomeCategoryCell.swift */,
@@ -590,10 +590,10 @@
 				16655631271A0E0000DE83F4 /* ExpensesOrganizer.xcdatamodeld in Sources */,
 				16B2D719271E0EA800E7BB84 /* Wallet+CoreDataClass.swift in Sources */,
 				16655629271A0E0000DE83F4 /* SceneDelegate.swift in Sources */,
-				71FED85627330E3500B90A5A /* AddIncomeTableViewController.swift in Sources */,
+				71FED85627330E3500B90A5A /* AddIncomeViewController.swift in Sources */,
 				F196D5182724773C00CCAF81 /* PlanningViewController.swift in Sources */,
 				077CAFFA27274147007D58C1 /* WalletCollectionViewCell.swift in Sources */,
-				71FED85427330E1700B90A5A /* AddExpenseTableViewController.swift in Sources */,
+				71FED85427330E1700B90A5A /* AddExpenseViewController.swift in Sources */,
 				F196D512272476BE00CCAF81 /* WalletsViewController.swift in Sources */,
 				71FED8642733153000B90A5A /* AddExpensePaymentCell.swift in Sources */,
 				71FED8722733260F00B90A5A /* AddIncomeWalletCell.swift in Sources */,

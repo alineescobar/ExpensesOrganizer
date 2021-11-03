@@ -15,15 +15,24 @@ enum AddExpenseCells: CaseIterable {
     }
 }
 
-class AddExpenseTableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class AddExpenseViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var cancellButton: UIButton!
+    @IBOutlet weak var doneButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tableView.dataSource = self
         tableView.delegate = self
+        
+        tableView.allowsSelection = false
+        
+        doneButton.layer.cornerRadius = 8
+        cancellButton.layer.cornerRadius = 8
+        cancellButton.layer.borderColor = UIColor.label.cgColor
+        cancellButton.layer.borderWidth = 2.0
     }
     
     // MARK: - Table view data source
@@ -69,9 +78,8 @@ class AddExpenseTableViewController: UIViewController, UITableViewDataSource, UI
             return cell
             
         case .planning:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: AddExpensePlanningCell.identifier, for: indexPath) as? AddExpenseValueCell else {
-                return UITableViewCell()
-            }
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: AddExpensePlanningCell.identifier, for: indexPath) as? AddExpensePlanningCell else {
+                return UITableViewCell()            }
             
             return cell
             
