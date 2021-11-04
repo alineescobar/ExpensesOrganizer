@@ -15,14 +15,14 @@ class AddWalletInsideTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        addWalletButton.layer.cornerRadius = 8
+        addWalletButton.layer.cornerRadius = 20
         addWalletButton.layer.masksToBounds = true
         
-//        self.layer.shadowColor = UIColor.black.cgColor
-//        self.layer.shadowOffset = CGSize(width: 0, height: 2.0)
-//        self.layer.shadowRadius = 2.0
-//        self.layer.shadowOpacity = 0.2
-//        self.layer.masksToBounds = false
+        addWalletButton.layer.shadowColor = UIColor.black.cgColor
+        addWalletButton.layer.shadowOffset = CGSize(width: 0, height: 2.0)
+        addWalletButton.layer.shadowRadius = 2.0
+        addWalletButton.layer.shadowOpacity = 0.2
+        addWalletButton.layer.masksToBounds = false
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

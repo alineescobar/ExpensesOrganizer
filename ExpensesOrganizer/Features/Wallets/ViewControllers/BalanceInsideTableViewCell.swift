@@ -11,10 +11,10 @@ class BalanceInsideTableViewCell: UITableViewCell {
 
     @IBOutlet weak var currentBalanceButton: UIButton!
     @IBOutlet weak var balanceLabel: UILabel!
+    @IBOutlet weak var balanceInsideWalletConstrains: UIStackView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

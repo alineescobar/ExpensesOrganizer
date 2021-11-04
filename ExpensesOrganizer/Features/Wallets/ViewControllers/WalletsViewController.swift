@@ -11,7 +11,7 @@ enum WalletsCategory: CaseIterable {
     case balance, graphics, wallets, addWallet
     
     static var allCases: [WalletsCategory] {
-        return [.balance, .graphics, .wallets, .addWallet]
+        return [.balance, .graphics, .wallets,.wallets,.wallets,.wallets, .addWallet]
 //        TODO: create logic behind the transactions cells.
     }
 }
@@ -35,9 +35,9 @@ extension WalletsViewController: UITableViewDelegate {
 
         switch walletsCategory {
         case .graphics:
-            return 240
+            return 230
         case .wallets:
-            return 150
+            return 120
         default:
             break
         }
@@ -86,6 +86,9 @@ extension WalletsViewController: UITableViewDataSource {
             return cell
         }
         }
+    func tableView(_ tableView: UITableView, estimatedHeightForHeaderInSection section: Int) -> CGFloat {
+        return 20
+    }
 }
 
 extension WalletsViewController: WalletsCellDelegate {
