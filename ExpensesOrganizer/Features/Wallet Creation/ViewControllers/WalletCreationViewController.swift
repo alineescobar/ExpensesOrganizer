@@ -12,18 +12,19 @@ enum WalletCreationCategory: CaseIterable {
     
     static var allCases: [WalletCreationCategory] {
         return [.currency, .description, .planning]
-//        TODO: create logic behind the transactions cells.
     }
 }
 
 class WalletCreationViewController: UIViewController {
-
+    @IBOutlet weak var newWalletLabel: UILabel!
     @IBOutlet private weak var tableView: UITableView!
     @IBOutlet private weak var readyButton: UIButton!
     private let walletCreationCategories: [WalletCreationCategory] = WalletCreationCategory.allCases
-    
+
     @IBAction private func readyAction(_ sender: UIButton) {
         
+    }
+    @IBAction private func backButtonAction(_ sender: UIButton) {
     }
     
     override func viewDidLoad() {
@@ -54,38 +55,11 @@ extension WalletCreationViewController: UITableViewDelegate {
         case .currency:
             return 81
         case .description:
-            return 200
+            return 167
         case .planning:
             return 121
         }
     }
-    
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        let walletCreationCategory = walletCreationCategories[indexPath.row]
-//
-//        switch walletCreationCategory {
-//        case .currency:
-//
-//            let magnitude: Double = isShowingGraphics ? 1 : -1
-//            let height: Double = 150.0
-//            let heightOffset: Double = magnitude * height
-//            var indexPathToReload = indexPath
-//            indexPathToReload.row += 1
-//            UIView.animate(withDuration: isShowingGraphics ? 0.1 : 0.3) {
-//                self.backgroundViewHeightConstraint.constant += heightOffset
-//                self.initialBackgroundViewHeight += heightOffset
-//                self.view.layoutIfNeeded()
-//            }
-//            mainTableView.reloadRows(at: [indexPath], with: .automatic)
-//            mainTableView.reloadRows(at: [indexPathToReload], with: .automatic)
-//
-//        case .actionableCell:
-//            performSegue(withIdentifier: "transactions", sender: nil)
-//
-//        default:
-//            break
-//        }
-//    }
 }
 
 extension WalletCreationViewController: UITableViewDataSource {

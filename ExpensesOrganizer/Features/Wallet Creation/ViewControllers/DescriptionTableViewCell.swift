@@ -17,6 +17,8 @@ class DescriptionTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        imageTextFieldStackView.layoutMargins = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 0)
+        imageTextFieldStackView.isLayoutMarginsRelativeArrangement = true
         // Initialization code
     }
 

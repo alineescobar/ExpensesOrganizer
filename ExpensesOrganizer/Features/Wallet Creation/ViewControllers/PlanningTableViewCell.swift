@@ -10,14 +10,17 @@ import UIKit
 class PlanningTableViewCell: UITableViewCell {
 
     @IBOutlet weak var planningLabel: UILabel!
+    @IBOutlet weak var planningStackView: UIStackView!
     @IBOutlet weak var firstImageView: UIImageView!
     @IBOutlet weak var secondImageView: UIImageView!
-    @IBOutlet weak var picker: UIPickerView!
-    @IBOutlet weak var datePicker: UIDatePicker!
+    @IBOutlet weak var recurrencyLabel: UIImageView!
+    @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var lineView: UIView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        planningStackView.layoutMargins = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 0)
+        planningStackView.isLayoutMarginsRelativeArrangement = true
         // Initialization code
     }
 
