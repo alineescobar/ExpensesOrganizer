@@ -16,15 +16,26 @@ enum WalletCreationCategory: CaseIterable {
 }
 
 class WalletCreationViewController: UIViewController {
+    private var selectedRecurrencyType: RecurrencyTypes = .never
+    private var selectedDate: Date = Date()
+    private let interactor = Interactor()
+    private let walletCreationCategories: [WalletCreationCategory] = WalletCreationCategory.allCases
     @IBOutlet weak var newWalletLabel: UILabel!
     @IBOutlet private weak var tableView: UITableView!
     @IBOutlet private weak var readyButton: UIButton!
-    private let walletCreationCategories: [WalletCreationCategory] = WalletCreationCategory.allCases
 
     @IBAction private func readyAction(_ sender: UIButton) {
-        
+        // TODO: Create Wallet object on CoreData and verify data integrity
     }
+    
     @IBAction private func backButtonAction(_ sender: UIButton) {
+        // TODO: Make alert to make user know all inserted data will be lost
+        self.dismiss(animated: true)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        // TODO: Make alert to make user know all inserted data will be lost
+        super.viewWillDisappear(animated)
     }
     
     override func viewDidLoad() {
@@ -34,17 +45,6 @@ class WalletCreationViewController: UIViewController {
 
         // Do any additional setup after loading the view.
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
 
 extension WalletCreationViewController: UITableViewDelegate {
@@ -86,6 +86,13 @@ extension WalletCreationViewController: UITableViewDataSource {
             else {
                 return UITableViewCell()
             }
+            let formatter = DateFormatter()
+            formatter.dateStyle = .medium
+            
+            cell.planningDelegate = self
+            cell.recurrencyLabel.text = selectedRecurrencyType.rawValue
+            cell.dateLabel.text = formatter.string(from: selectedDate)
+            
             return cell
         }
     }
@@ -94,4 +101,54 @@ extension WalletCreationViewController: UITableViewDataSource {
         return walletCreationCategories.count
     }
     
+}
+
+extension WalletCreationViewController: UIViewControllerTransitioningDelegate {
+    func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {
+        return HalfSizePresentationController(presentedViewController: presented, presenting: presentingViewController)
+    }
+    
+    func interactionControllerForDismissal(using animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
+        interactor.hasStarted ? interactor : .none
+    }
+}
+
+extension WalletCreationViewController: PlanningCellDelegate {
+    func didTapRecurrency() {
+        let storyboard = UIStoryboard(name: "WalletCreation", bundle: nil)
+        let pvc = storyboard.instantiateViewController(withIdentifier: "RecurrencyViewController") as? RecurrencyViewController
+        
+        pvc?.modalPresentationStyle = .custom
+        pvc?.transitioningDelegate = self
+        pvc?.recurrencyDelegate = self
+        pvc?.selectedRecurrencyType = selectedRecurrencyType
+        
+        present(pvc ?? UIViewController(), animated: true)
+    }
+    
+    func didTapCalendar() {
+        let storyboard = UIStoryboard(name: "WalletCreation", bundle: nil)
+        let pvc = storyboard.instantiateViewController(withIdentifier: "CalendarViewController") as? CalendarViewController
+        
+        pvc?.modalPresentationStyle = .custom
+        pvc?.transitioningDelegate = self
+        pvc?.calendarDelegate = self
+        pvc?.selectedDate = selectedDate
+        
+        present(pvc ?? UIViewController(), animated: true)
+    }
+}
+
+extension WalletCreationViewController: RecurrencyTypeDelegate {
+    func sendRecurrencyType(recurrencyType: RecurrencyTypes) {
+        selectedRecurrencyType = recurrencyType
+        tableView.reloadData()
+    }
+}
+
+extension WalletCreationViewController: CalendarDelegate {
+    func sendDate(date: Date) {
+        selectedDate = date
+        tableView.reloadData()
+    }
 }
