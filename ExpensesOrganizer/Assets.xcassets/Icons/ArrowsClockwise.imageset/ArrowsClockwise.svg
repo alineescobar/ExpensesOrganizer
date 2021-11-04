@@ -1,7 +1,6 @@
-<svg id="Raw" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
-  <rect width="256" height="256" fill="none"/>
-  <polyline points="176.167 99.716 224.167 99.716 224.167 51.716" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/>
-  <path d="M65.7746,65.7746a88,88,0,0,1,124.4508,0l33.94112,33.94113" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/>
-  <polyline points="79.833 156.284 31.833 156.284 31.833 204.284" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/>
-  <path d="M190.2254,190.2254a88,88,0,0,1-124.4508,0L31.83348,156.28427" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/>
+<svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M16.5156 9.84863H21.0156V5.34863" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M6.16602 6.66637C6.9321 5.90029 7.84157 5.2926 8.84251 4.87799C9.84344 4.46339 10.9162 4.25 11.9996 4.25C13.0831 4.25 14.1558 4.46339 15.1568 4.87799C16.1577 5.2926 17.0672 5.90029 17.8333 6.66637L21.0153 9.84835" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M7.48438 15.1514H2.98438V19.6514" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M17.8336 18.3333C17.0675 19.0994 16.1581 19.7071 15.1571 20.1217C14.1562 20.5363 13.0834 20.7497 12 20.7497C10.9166 20.7497 9.84378 20.5363 8.84285 20.1217C7.84191 19.7071 6.93244 19.0994 6.16635 18.3333L2.98438 15.1514" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
