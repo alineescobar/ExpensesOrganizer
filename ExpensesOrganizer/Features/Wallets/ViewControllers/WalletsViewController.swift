@@ -8,10 +8,10 @@
 import UIKit
 
 enum WalletsCategory: CaseIterable {
-    case balance, graphics, wallets
+    case balance, graphics, wallets, addWallet
     
     static var allCases: [WalletsCategory] {
-        return [.balance, .graphics, .wallets]
+        return [.balance, .graphics, .wallets, .addWallet]
 //        TODO: create logic behind the transactions cells.
     }
 }
@@ -37,7 +37,7 @@ extension WalletsViewController: UITableViewDelegate {
         case .graphics:
             return 240
         case .wallets:
-            return 450
+            return 150
         default:
             break
         }
@@ -67,13 +67,24 @@ extension WalletsViewController: UITableViewDataSource {
             }
             return cell
         case .wallets:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "WalletsListTableViewCellID", for: indexPath) as? WalletsListTableViewCell
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "WalletsInsideTableViewCellID", for: indexPath) as? WalletsInsideTableViewCell
+            else {
+                return UITableViewCell()
+            }
+            cell.balanceInsideLabel.text = "R$ 1000,00"
+            cell.walletNameLabel.text = "No meu bolso"
+            cell.walletsDelegate = self
+            cell.selectionStyle = .none
+            return cell
+        case .addWallet:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "AddWalletInsideTableViewCellID", for: indexPath) as? AddWalletInsideTableViewCell
             else {
                 return UITableViewCell()
             }
             cell.walletsDelegate = self
+            cell.selectionStyle = .none
             return cell
-            }
+        }
         }
 }
 
