@@ -65,10 +65,8 @@ class AdditionViewController: UIViewController {
         let newTemplate = Template(context: context)
         newTemplate.name = name
         newTemplate.templateDescription = templateDescription
-        let mutableTemplate = newTemplate.items?.mutableCopy() as! NSMutableOrderedSet
-        mutableTemplate.add(item as Any)
         newTemplate.templateID = templateID
-//        newTemplate.items?.copy() as! NSOrderedSet
+        newTemplate.items?.adding(item as Any)
         
         do {
             try context.save()
@@ -93,12 +91,6 @@ class AdditionViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-//        createItem(name: "item teste", value: 12.00, recurrence: false, category: nil, itemID: UUID())
-//
-//        let item = fetchItem(name: "item teste")
-//
-//        createTemplate(name: "carro", templateDescription: "teste descricao", item: item, templateID: UUID())
         
     }
     

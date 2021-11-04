@@ -19,7 +19,7 @@
         <attribute name="name" attributeType="String"/>
         <attribute name="templateDescription" optional="YES" attributeType="String"/>
         <attribute name="templateID" attributeType="UUID" usesScalarValueType="NO"/>
-        <relationship name="items" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Item" inverseName="template" inverseEntity="Item"/>
+        <relationship name="items" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Item" inverseName="template" inverseEntity="Item"/>
     </entity>
     <entity name="Transaction" representedClassName=".Transaction" syncable="YES" codeGenerationType="category">
         <attribute name="destination" attributeType="UUID" usesScalarValueType="NO"/>
