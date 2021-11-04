@@ -37,6 +37,10 @@
 		71FED87E27345F9000B90A5A /* WorkSans-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 71FED87A27345F9000B90A5A /* WorkSans-Medium.ttf */; };
 		71FED87F27345F9000B90A5A /* WorkSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 71FED87B27345F9000B90A5A /* WorkSans-Regular.ttf */; };
 		F138B88F2720A950009F0837 /* ProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F138B88E2720A950009F0837 /* ProfileTableViewCell.swift */; };
+		F153F4622733BF20004F06CC /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F153F4612733BF20004F06CC /* CalendarViewController.swift */; };
+		F153F4642733BF2D004F06CC /* RecurrencyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F153F4632733BF2D004F06CC /* RecurrencyViewController.swift */; };
+		F153F46627344630004F06CC /* HalfSizePresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F153F46527344630004F06CC /* HalfSizePresentationController.swift */; };
+		F153F468273451C9004F06CC /* RecurrencyTypeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F153F467273451C9004F06CC /* RecurrencyTypeTableViewCell.swift */; };
 		F196D4FC2721ECF500CCAF81 /* BalanceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F196D4FB2721ECF500CCAF81 /* BalanceTableViewCell.swift */; };
 		F196D500272201F300CCAF81 /* ButtonsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F196D4FF272201F300CCAF81 /* ButtonsTableViewCell.swift */; };
 		F196D510272476A800CCAF81 /* Wallets.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F196D50F272476A800CCAF81 /* Wallets.storyboard */; };
@@ -53,6 +57,9 @@
 		F19FF1AC2728890D0041F5E3 /* WalletDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19FF1AB2728890D0041F5E3 /* WalletDetailViewController.swift */; };
 		F19FF1B1272889500041F5E3 /* WalletCreationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19FF1B0272889500041F5E3 /* WalletCreationViewController.swift */; };
 		F19FF1B32728896C0041F5E3 /* WalletCreation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F19FF1B22728896C0041F5E3 /* WalletCreation.storyboard */; };
+		F1CE7149272C8647002D6020 /* CurrencyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CE7148272C8647002D6020 /* CurrencyTableViewCell.swift */; };
+		F1CE714B272C867C002D6020 /* DescriptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CE714A272C867C002D6020 /* DescriptionTableViewCell.swift */; };
+		F1CE714D272C8776002D6020 /* PlanningTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CE714C272C8776002D6020 /* PlanningTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -90,6 +97,10 @@
 		71FED87A27345F9000B90A5A /* WorkSans-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "WorkSans-Medium.ttf"; sourceTree = "<group>"; };
 		71FED87B27345F9000B90A5A /* WorkSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "WorkSans-Regular.ttf"; sourceTree = "<group>"; };
 		F138B88E2720A950009F0837 /* ProfileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewCell.swift; sourceTree = "<group>"; };
+		F153F4612733BF20004F06CC /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
+		F153F4632733BF2D004F06CC /* RecurrencyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecurrencyViewController.swift; sourceTree = "<group>"; };
+		F153F46527344630004F06CC /* HalfSizePresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HalfSizePresentationController.swift; sourceTree = "<group>"; };
+		F153F467273451C9004F06CC /* RecurrencyTypeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecurrencyTypeTableViewCell.swift; sourceTree = "<group>"; };
 		F196D4FB2721ECF500CCAF81 /* BalanceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalanceTableViewCell.swift; sourceTree = "<group>"; };
 		F196D4FF272201F300CCAF81 /* ButtonsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonsTableViewCell.swift; sourceTree = "<group>"; };
 		F196D50F272476A800CCAF81 /* Wallets.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Wallets.storyboard; sourceTree = "<group>"; };
@@ -106,6 +117,9 @@
 		F19FF1AB2728890D0041F5E3 /* WalletDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletDetailViewController.swift; sourceTree = "<group>"; };
 		F19FF1B0272889500041F5E3 /* WalletCreationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletCreationViewController.swift; sourceTree = "<group>"; };
 		F19FF1B22728896C0041F5E3 /* WalletCreation.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = WalletCreation.storyboard; sourceTree = "<group>"; };
+		F1CE7148272C8647002D6020 /* CurrencyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyTableViewCell.swift; sourceTree = "<group>"; };
+		F1CE714A272C867C002D6020 /* DescriptionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionTableViewCell.swift; sourceTree = "<group>"; };
+		F1CE714C272C8776002D6020 /* PlanningTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanningTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -192,6 +206,7 @@
 			isa = PBXGroup;
 			children = (
 				F196D52027247D0200CCAF81 /* Extensions.swift */,
+				F153F46527344630004F06CC /* HalfSizePresentationController.swift */,
 				71FED87727345CEB00B90A5A /* Fonts */,
 			);
 			path = Shared;
@@ -409,6 +424,12 @@
 			isa = PBXGroup;
 			children = (
 				F19FF1B0272889500041F5E3 /* WalletCreationViewController.swift */,
+				F153F4612733BF20004F06CC /* CalendarViewController.swift */,
+				F153F4632733BF2D004F06CC /* RecurrencyViewController.swift */,
+				F153F467273451C9004F06CC /* RecurrencyTypeTableViewCell.swift */,
+				F1CE7148272C8647002D6020 /* CurrencyTableViewCell.swift */,
+				F1CE714A272C867C002D6020 /* DescriptionTableViewCell.swift */,
+				F1CE714C272C8776002D6020 /* PlanningTableViewCell.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -528,16 +549,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F1CE7149272C8647002D6020 /* CurrencyTableViewCell.swift in Sources */,
 				F196D4FC2721ECF500CCAF81 /* BalanceTableViewCell.swift in Sources */,
 				F196D52127247D0200CCAF81 /* Extensions.swift in Sources */,
 				16B2D713271E0EA800E7BB84 /* Goal+CoreDataClass.swift in Sources */,
 				710F1DC82729C8D6005C06E1 /* GraphicsTableViewCell.swift in Sources */,
 				16FA96E127273A7A007EB7CA /* TransactionCell.swift in Sources */,
+				F1CE714D272C8776002D6020 /* PlanningTableViewCell.swift in Sources */,
+				F153F468273451C9004F06CC /* RecurrencyTypeTableViewCell.swift in Sources */,
+				F153F46627344630004F06CC /* HalfSizePresentationController.swift in Sources */,
 				F19FF1A5272882FB0041F5E3 /* AddWalletCollectionViewCell.swift in Sources */,
 				1665562B271A0E0000DE83F4 /* DashboardViewController.swift in Sources */,
 				F196D500272201F300CCAF81 /* ButtonsTableViewCell.swift in Sources */,
 				16B2D71B271E0EA800E7BB84 /* Template+CoreDataClass.swift in Sources */,
 				710F1DD0272B2743005C06E1 /* PillMarker.swift in Sources */,
+				F153F4622733BF20004F06CC /* CalendarViewController.swift in Sources */,
 				F138B88F2720A950009F0837 /* ProfileTableViewCell.swift in Sources */,
 				F19FF1AC2728890D0041F5E3 /* WalletDetailViewController.swift in Sources */,
 				16B2D717271E0EA800E7BB84 /* Item+CoreDataClass.swift in Sources */,
@@ -549,7 +575,9 @@
 				16D0B26627287A72007BE30E /* TransactionsViewController.swift in Sources */,
 				16655627271A0E0000DE83F4 /* AppDelegate.swift in Sources */,
 				16655631271A0E0000DE83F4 /* ExpensesOrganizer.xcdatamodeld in Sources */,
+				F1CE714B272C867C002D6020 /* DescriptionTableViewCell.swift in Sources */,
 				16B2D719271E0EA800E7BB84 /* Wallet+CoreDataClass.swift in Sources */,
+				F153F4642733BF2D004F06CC /* RecurrencyViewController.swift in Sources */,
 				16655629271A0E0000DE83F4 /* SceneDelegate.swift in Sources */,
 				F196D5182724773C00CCAF81 /* PlanningViewController.swift in Sources */,
 				077CAFFA27274147007D58C1 /* WalletCollectionViewCell.swift in Sources */,
