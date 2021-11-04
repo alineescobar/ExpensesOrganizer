@@ -10,6 +10,17 @@
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="WorkSans-Bold.ttf">
+            <string>WorkSans-Bold</string>
+        </array>
+        <array key="WorkSans-Medium.ttf">
+            <string>WorkSans-Medium</string>
+        </array>
+        <array key="WorkSans-SemiBold.ttf">
+            <string>WorkSans-SemiBold</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Addition View Controller-->
         <scene sceneID="s0d-6b-0kx">
@@ -88,9 +99,9 @@
                                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="BMI-Ux-gDl">
                                                     <rect key="frame" x="24" y="40" width="366" height="40"/>
                                                     <subviews>
-                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UQi-GF-QnR">
+                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="50,00" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UQi-GF-QnR">
                                                             <rect key="frame" x="0.0" y="0.0" width="328" height="40"/>
-                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="48"/>
+                                                            <fontDescription key="fontDescription" name="WorkSans-SemiBold" family="Work Sans" pointSize="50"/>
                                                             <textInputTraits key="textInputTraits"/>
                                                         </textField>
                                                         <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" verticalHuggingPriority="246" horizontalCompressionResistancePriority="743" verticalCompressionResistancePriority="735" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z8t-ns-nnK">
@@ -148,7 +159,7 @@
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nome do ganho" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UOO-cC-f9a">
                                                     <rect key="frame" x="24" y="0.0" width="366" height="42"/>
-                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                                    <fontDescription key="fontDescription" name="WorkSans-Medium" family="Work Sans" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -191,7 +202,7 @@
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Categoria" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GH4-kv-5qS">
                                                     <rect key="frame" x="24" y="0.0" width="366" height="24"/>
-                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                                    <fontDescription key="fontDescription" name="WorkSans-Medium" family="Work Sans" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -235,7 +246,7 @@
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Adicionar em" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ot9-mR-Esb">
                                                     <rect key="frame" x="24" y="0.0" width="366" height="24"/>
-                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                                    <fontDescription key="fontDescription" name="WorkSans-Medium" family="Work Sans" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -279,7 +290,7 @@
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Planejamento" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iVe-UY-oCU">
                                                     <rect key="frame" x="24" y="0.0" width="366" height="24"/>
-                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                                    <fontDescription key="fontDescription" name="WorkSans-Medium" family="Work Sans" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -412,28 +423,28 @@
                                     <color key="titleColor" systemColor="systemGray6Color"/>
                                 </state>
                             </button>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="132" translatesAutoresizingMaskIntoConstraints="NO" id="aqu-md-59k">
-                                <rect key="frame" x="24" y="167.5" width="366" height="371.5"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="84" translatesAutoresizingMaskIntoConstraints="NO" id="aqu-md-59k">
+                                <rect key="frame" x="24" y="192.5" width="366" height="321.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="21" translatesAutoresizingMaskIntoConstraints="NO" id="wx3-ut-viV">
-                                        <rect key="frame" x="25" y="0.0" width="316" height="119.5"/>
+                                        <rect key="frame" x="14" y="0.0" width="338.5" height="117.5"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tudo certo por aqui!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M9S-TU-2r0">
-                                                <rect key="frame" x="0.0" y="0.0" width="316" height="41"/>
-                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="34"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tudo certo por aqui!" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M9S-TU-2r0">
+                                                <rect key="frame" x="0.0" y="0.0" width="338.5" height="40"/>
+                                                <fontDescription key="fontDescription" name="WorkSans-Bold" family="Work Sans" pointSize="34"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Seu ganho foi adicionado com sucesso." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Nz-rY-hTk">
-                                                <rect key="frame" x="0.0" y="62" width="278" height="57.5"/>
-                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="24"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Seu ganho foi adicionado com sucesso." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Nz-rY-hTk">
+                                                <rect key="frame" x="0.0" y="61" width="303.5" height="56.5"/>
+                                                <fontDescription key="fontDescription" name="WorkSans-SemiBold" family="Work Sans" pointSize="24"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
                                     </stackView>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SmileyWink" translatesAutoresizingMaskIntoConstraints="NO" id="vYI-i1-QCV">
-                                        <rect key="frame" x="123" y="251.5" width="120" height="120"/>
+                                        <rect key="frame" x="123" y="201.5" width="120" height="120"/>
                                         <color key="tintColor" systemColor="labelColor"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="120" id="Eyo-Ju-DCb"/>
@@ -482,9 +493,9 @@
                                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Cc6-vT-LMr">
                                                     <rect key="frame" x="24" y="40" width="366" height="40"/>
                                                     <subviews>
-                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Aw0-un-lu9">
+                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="50,00" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Aw0-un-lu9">
                                                             <rect key="frame" x="0.0" y="0.0" width="328" height="40"/>
-                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="48"/>
+                                                            <fontDescription key="fontDescription" name="WorkSans-SemiBold" family="Work Sans" pointSize="50"/>
                                                             <textInputTraits key="textInputTraits"/>
                                                         </textField>
                                                         <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" verticalHuggingPriority="246" horizontalCompressionResistancePriority="743" verticalCompressionResistancePriority="735" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NVY-eE-eYT">
@@ -520,7 +531,7 @@
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nome da despesa" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xN9-zA-Vvj">
                                                     <rect key="frame" x="24" y="0.0" width="366" height="42"/>
-                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                                    <fontDescription key="fontDescription" name="WorkSans-Medium" family="Work Sans" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -535,7 +546,7 @@
                                                                 <constraint firstAttribute="width" constant="17" id="h0U-kC-U8G"/>
                                                             </constraints>
                                                         </imageView>
-                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Nome é opcional" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sGM-xx-rYs">
+                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="O nome é opcional" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sGM-xx-rYs">
                                                             <rect key="frame" x="25" y="0.0" width="341" height="17"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <textInputTraits key="textInputTraits"/>
@@ -585,7 +596,7 @@
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Categoria" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dx8-rd-hCn">
                                                     <rect key="frame" x="24" y="0.0" width="366" height="24"/>
-                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                                    <fontDescription key="fontDescription" name="WorkSans-Medium" family="Work Sans" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -629,7 +640,7 @@
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pagar com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yNF-vL-YVd">
                                                     <rect key="frame" x="24" y="0.0" width="366" height="24"/>
-                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                                    <fontDescription key="fontDescription" name="WorkSans-Medium" family="Work Sans" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -673,7 +684,7 @@
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Planejamento" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rbE-R7-1jH">
                                                     <rect key="frame" x="24" y="0.0" width="366" height="24"/>
-                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                                    <fontDescription key="fontDescription" name="WorkSans-Medium" family="Work Sans" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -806,28 +817,28 @@
                                     <color key="titleColor" systemColor="systemGray6Color"/>
                                 </state>
                             </button>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="132" translatesAutoresizingMaskIntoConstraints="NO" id="Rt4-8J-PKb">
-                                <rect key="frame" x="24" y="167.5" width="366" height="371.5"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="84" translatesAutoresizingMaskIntoConstraints="NO" id="Rt4-8J-PKb">
+                                <rect key="frame" x="24" y="192.5" width="366" height="321.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="21" translatesAutoresizingMaskIntoConstraints="NO" id="rzZ-vi-JKI">
-                                        <rect key="frame" x="25" y="0.0" width="316" height="119.5"/>
+                                        <rect key="frame" x="14" y="0.0" width="338.5" height="117.5"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tudo certo por aqui!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QOQ-Mr-XTt">
-                                                <rect key="frame" x="0.0" y="0.0" width="316" height="41"/>
-                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="34"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tudo certo por aqui!" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QOQ-Mr-XTt">
+                                                <rect key="frame" x="0.0" y="0.0" width="338.5" height="40"/>
+                                                <fontDescription key="fontDescription" name="WorkSans-Bold" family="Work Sans" pointSize="34"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sua despesa foi adicionada com sucesso." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZI3-IZ-yAN">
-                                                <rect key="frame" x="0.0" y="62" width="301" height="57.5"/>
-                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="24"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sua despesa foi adicionada com sucesso." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZI3-IZ-yAN">
+                                                <rect key="frame" x="0.0" y="61" width="328" height="56.5"/>
+                                                <fontDescription key="fontDescription" name="WorkSans-SemiBold" family="Work Sans" pointSize="24"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
                                     </stackView>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SmileyWink" translatesAutoresizingMaskIntoConstraints="NO" id="ebg-dz-r7P">
-                                        <rect key="frame" x="123" y="251.5" width="120" height="120"/>
+                                        <rect key="frame" x="123" y="201.5" width="120" height="120"/>
                                         <color key="tintColor" systemColor="labelColor"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="120" id="9mw-4o-cgv"/>
@@ -856,11 +867,11 @@
         </scene>
     </scenes>
     <resources>
-        <image name="ArrowsClockwise" width="256" height="256"/>
+        <image name="ArrowsClockwise" width="24" height="25"/>
         <image name="Atom" width="256" height="256"/>
-        <image name="Backspace" width="256" height="256"/>
+        <image name="Backspace" width="32" height="32"/>
         <image name="Calendar" width="25" height="24"/>
-        <image name="PencilLine" width="256" height="256"/>
+        <image name="PencilLine" width="24" height="24"/>
         <image name="SmileyWink" width="160" height="160"/>
         <image name="Wallet" width="25" height="24"/>
         <systemColor name="labelColor">
