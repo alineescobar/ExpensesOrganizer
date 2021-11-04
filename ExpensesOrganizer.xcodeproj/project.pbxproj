@@ -32,6 +32,10 @@
 		710F1DC82729C8D6005C06E1 /* GraphicsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 710F1DC62729C8D6005C06E1 /* GraphicsTableViewCell.swift */; };
 		710F1DC92729C8D6005C06E1 /* GraphicsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 710F1DC72729C8D6005C06E1 /* GraphicsTableViewCell.xib */; };
 		710F1DD0272B2743005C06E1 /* PillMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 710F1DCF272B2743005C06E1 /* PillMarker.swift */; };
+		71FED87C27345F9000B90A5A /* WorkSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 71FED87827345F8F00B90A5A /* WorkSans-Bold.ttf */; };
+		71FED87D27345F9000B90A5A /* WorkSans-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 71FED87927345F9000B90A5A /* WorkSans-SemiBold.ttf */; };
+		71FED87E27345F9000B90A5A /* WorkSans-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 71FED87A27345F9000B90A5A /* WorkSans-Medium.ttf */; };
+		71FED87F27345F9000B90A5A /* WorkSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 71FED87B27345F9000B90A5A /* WorkSans-Regular.ttf */; };
 		F138B88F2720A950009F0837 /* ProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F138B88E2720A950009F0837 /* ProfileTableViewCell.swift */; };
 		F153F4622733BF20004F06CC /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F153F4612733BF20004F06CC /* CalendarViewController.swift */; };
 		F153F4642733BF2D004F06CC /* RecurrencyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F153F4632733BF2D004F06CC /* RecurrencyViewController.swift */; };
@@ -88,6 +92,10 @@
 		710F1DC62729C8D6005C06E1 /* GraphicsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphicsTableViewCell.swift; sourceTree = "<group>"; };
 		710F1DC72729C8D6005C06E1 /* GraphicsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GraphicsTableViewCell.xib; sourceTree = "<group>"; };
 		710F1DCF272B2743005C06E1 /* PillMarker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PillMarker.swift; sourceTree = "<group>"; };
+		71FED87827345F8F00B90A5A /* WorkSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "WorkSans-Bold.ttf"; sourceTree = "<group>"; };
+		71FED87927345F9000B90A5A /* WorkSans-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "WorkSans-SemiBold.ttf"; sourceTree = "<group>"; };
+		71FED87A27345F9000B90A5A /* WorkSans-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "WorkSans-Medium.ttf"; sourceTree = "<group>"; };
+		71FED87B27345F9000B90A5A /* WorkSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "WorkSans-Regular.ttf"; sourceTree = "<group>"; };
 		F138B88E2720A950009F0837 /* ProfileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewCell.swift; sourceTree = "<group>"; };
 		F153F4612733BF20004F06CC /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
 		F153F4632733BF2D004F06CC /* RecurrencyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecurrencyViewController.swift; sourceTree = "<group>"; };
@@ -183,11 +191,23 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		71FED87727345CEB00B90A5A /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				71FED87827345F8F00B90A5A /* WorkSans-Bold.ttf */,
+				71FED87A27345F9000B90A5A /* WorkSans-Medium.ttf */,
+				71FED87B27345F9000B90A5A /* WorkSans-Regular.ttf */,
+				71FED87927345F9000B90A5A /* WorkSans-SemiBold.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		F138B8862720A028009F0837 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
 				F196D52027247D0200CCAF81 /* Extensions.swift */,
 				F153F46527344630004F06CC /* HalfSizePresentationController.swift */,
+				71FED87727345CEB00B90A5A /* Fonts */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -485,15 +505,19 @@
 				16655641271A0ECA00DE83F4 /* Localizable.strings in Resources */,
 				710F1DC92729C8D6005C06E1 /* GraphicsTableViewCell.xib in Resources */,
 				16D0B26327287A3F007BE30E /* Transactions.storyboard in Resources */,
+				71FED87D27345F9000B90A5A /* WorkSans-SemiBold.ttf in Resources */,
 				16FA96E227273A7A007EB7CA /* TransactionCell.xib in Resources */,
 				F19FF1B32728896C0041F5E3 /* WalletCreation.storyboard in Resources */,
 				F196D51A2724774500CCAF81 /* Planning.storyboard in Resources */,
+				71FED87F27345F9000B90A5A /* WorkSans-Regular.ttf in Resources */,
 				16655633271A0E0400DE83F4 /* Assets.xcassets in Resources */,
 				F196D510272476A800CCAF81 /* Wallets.storyboard in Resources */,
 				F19FF1A8272888E80041F5E3 /* WalletDetail.storyboard in Resources */,
 				1665562E271A0E0000DE83F4 /* Dashboard.storyboard in Resources */,
 				F196D51E2724776E00CCAF81 /* Addition.storyboard in Resources */,
+				71FED87E27345F9000B90A5A /* WorkSans-Medium.ttf in Resources */,
 				F196D5142724770100CCAF81 /* Goals.storyboard in Resources */,
+				71FED87C27345F9000B90A5A /* WorkSans-Bold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
