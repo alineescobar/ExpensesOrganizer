@@ -10,8 +10,9 @@
     </entity>
     <entity name="Item" representedClassName=".Item" syncable="YES" codeGenerationType="category">
         <attribute name="itemID" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="itemRecurrenceDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="name" attributeType="String"/>
-        <attribute name="recurrence" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="recurrence" optional="YES" attributeType="Integer 16" usesScalarValueType="YES"/>
         <attribute name="value" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <relationship name="template" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Template" inverseName="items" inverseEntity="Template"/>
     </entity>
@@ -30,16 +31,17 @@
     </entity>
     <entity name="Wallet" representedClassName=".Wallet" syncable="YES" codeGenerationType="category">
         <attribute name="name" attributeType="String"/>
-        <attribute name="recurrence" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="recurrence" optional="YES" attributeType="Integer 16" usesScalarValueType="YES"/>
         <attribute name="value" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="walletDescription" optional="YES" attributeType="String"/>
         <attribute name="walletID" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="walletRecurrenceDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
     </entity>
     <elements>
         <element name="Goal" positionX="153.6805419921875" positionY="-194.7109985351562" width="128" height="133"/>
-        <element name="Item" positionX="-18" positionY="81" width="128" height="104"/>
+        <element name="Item" positionX="-18" positionY="81" width="128" height="119"/>
         <element name="Template" positionX="-36" positionY="72" width="128" height="89"/>
         <element name="Transaction" positionX="0" positionY="99" width="128" height="104"/>
-        <element name="Wallet" positionX="-63" positionY="-18" width="128" height="118"/>
+        <element name="Wallet" positionX="-63" positionY="-18" width="128" height="119"/>
     </elements>
 </model>
