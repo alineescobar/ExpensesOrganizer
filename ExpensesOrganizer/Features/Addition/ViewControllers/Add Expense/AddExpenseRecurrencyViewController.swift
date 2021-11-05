@@ -34,6 +34,7 @@ class AddExpenseRecurrencyViewController: UIViewController, UITableViewDataSourc
         let recurrencyType = recurrencyTypes[indexPath.row]
         selectedRecurrencyType = recurrencyType
         tableView.reloadData()
+        self.dismiss(animated: true, completion: nil)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
