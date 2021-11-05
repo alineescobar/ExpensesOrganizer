@@ -29,7 +29,7 @@ class AdditionViewController: UIViewController {
         }
     }
     
-    func fetchCategory(name: String) -> Template? {
+    func fetchTemplate(name: String) -> Template? {
         do {
             let request = Template.fetchRequest() as NSFetchRequest<Template>
             request.fetchLimit = 1
@@ -38,8 +38,8 @@ class AdditionViewController: UIViewController {
             
             request.predicate = predicate
 
-            let category = try context.fetch(request)
-            return category.first
+            let template = try context.fetch(request)
+            return template.first
         } catch {
             print(error.localizedDescription)
             return nil
@@ -47,15 +47,15 @@ class AdditionViewController: UIViewController {
     }
     
     //    swiftlint:disable function_parameter_count
-    func createItem(name: String, value: Double, recurrence: Int16, category: Template?, itemID: UUID, recurrenceDate: Date) {
+    func createItem(name: String, value: Double, recurrence: Int16, template: Template?, itemID: UUID, recurrenceDate: Date) {
         let newItem = Item(context: context)
         newItem.name = name
         newItem.value = value
         newItem.recurrence = recurrence
-        newItem.template = category
+        newItem.template = template
         newItem.itemID = itemID
         newItem.itemRecurrenceDate = recurrenceDate
-        category?.addToItems(newItem)
+        template?.addToItems(newItem)
         
         do {
             try context.save()
