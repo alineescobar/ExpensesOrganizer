@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AddExpenseRecurrencyViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class AddExpenseRecurrencyViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     private let recurrencyTypes: [RecurrencyTypes] = RecurrencyTypes.allCases
@@ -20,14 +20,20 @@ class AddExpenseRecurrencyViewController: UIViewController, UITableViewDataSourc
         tableView.dataSource = self
         tableView.delegate = self
     }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return recurrencyTypes.count
-    }
+}
+
+extension AddExpenseRecurrencyViewController: UITableViewDelegate {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         recurrencyDelegate?.sendRecurrencyType(recurrencyType: selectedRecurrencyType)
+    }
+}
+
+extension AddExpenseRecurrencyViewController: UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return recurrencyTypes.count
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

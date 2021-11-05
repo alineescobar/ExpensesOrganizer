@@ -21,6 +21,5 @@ class AddIncomeCalendarViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         calendarDelegate?.sendDate(date: datePicker.date)
-        
     }
 }

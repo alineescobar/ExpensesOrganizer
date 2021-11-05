@@ -102,11 +102,8 @@ extension AddExpenseViewController: UITableViewDataSource {
 }
 
 extension AddExpenseViewController: UIViewControllerTransitioningDelegate {
-    // TODO: mudar para default se all done
+    
     func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {
-//        guard (presenting as? AddExpenseAllDoneViewController) != nil else {
-//            return self.presentationController
-//        }
 
         return HalfSizePresentationController(presentedViewController: presented, presenting: presentingViewController)
     }
