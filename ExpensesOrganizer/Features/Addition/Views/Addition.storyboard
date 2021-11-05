@@ -963,6 +963,9 @@
                             <outletCollection property="gestureRecognizers" destination="Xo1-nl-S3z" appends="YES" id="Jwv-xm-hd8"/>
                         </connections>
                     </view>
+                    <connections>
+                        <outlet property="datePicker" destination="gSF-SX-LTy" id="MdK-zC-kCd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XLO-fe-6pU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <panGestureRecognizer minimumNumberOfTouches="1" id="Xo1-nl-S3z"/>

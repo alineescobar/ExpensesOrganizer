@@ -15,7 +15,12 @@ enum AddExpenseCells: CaseIterable {
     }
 }
 
-class AddExpenseViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, RecurrencyTypeDelegate {
+class AddExpenseViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, RecurrencyTypeDelegate, CalendarDelegate {
+    func sendDate(date: Date) {
+        selectedDate = date
+        tableView.reloadData()
+    }
+    
     func sendRecurrencyType(recurrencyType: RecurrencyTypes) {
         selectedRecurrencyType = recurrencyType
         tableView.reloadData()
@@ -143,8 +148,8 @@ extension AddExpenseViewController: PlanningCellDelegate {
 
         pvc?.modalPresentationStyle = .custom
         pvc?.transitioningDelegate = self
-//        pvc?.calendarDelegate = self
-//        pvc?.selectedDate = selectedDate
+        pvc?.calendarDelegate = self
+        pvc?.selectedDate = selectedDate
 
         present(pvc ?? UIViewController(), animated: true)
         
