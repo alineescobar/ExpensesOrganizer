@@ -167,7 +167,7 @@ extension WalletDetailViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            walletRecentTransactions.remove(at: indexPath.row)
+//            walletRecentTransactions.remove(at: indexPath.row)
             // TODO: Update CoreData object
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
