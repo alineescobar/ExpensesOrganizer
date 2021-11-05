@@ -7,6 +7,10 @@
 
 import UIKit
 
+enum UIType {
+    case card, screen
+}
+
 extension UIView {
     func makeCircle() {
         layer.cornerRadius = frame.size.width / 2
@@ -51,5 +55,101 @@ extension Locale {
         let identifier = Locale.identifier(fromComponents: components)
 
         return Locale(identifier: identifier).currencySymbol
+    }
+}
+
+extension String {
+
+    var length: Int {
+        return count
+    }
+
+    subscript (i: Int) -> String {
+        return self[i ..< i + 1]
+    }
+
+    func substring(fromIndex: Int) -> String {
+        return self[min(fromIndex, length) ..< length]
+    }
+
+    func substring(toIndex: Int) -> String {
+        return self[0 ..< max(0, toIndex)]
+    }
+
+    subscript (ran: Range<Int>) -> String {
+        let range = Range(uncheckedBounds: (lower: max(0, min(length, ran.lowerBound)),
+                                            upper: min(length, max(0, ran.upperBound))))
+        let start = index(startIndex, offsetBy: range.lowerBound)
+        let end = index(start, offsetBy: range.upperBound - range.lowerBound)
+        return String(self[start ..< end])
+    }
+}
+
+func getFormattedBalance(balance: Double, smallTextSize: CGFloat, type: UIType) -> NSAttributedString {
+    let currency: String = Locale.current.localizedCurrencySymbol(forCurrencyCode: Locale.current.currencyCode ?? "R$") ?? ""
+    let formatter = NumberFormatter()
+    formatter.numberStyle = .currency
+    
+    if var formattedBalance = formatter.string(from: balance as NSNumber) {
+        
+        if Character(formattedBalance[currency.count]).isNumber {
+            let index = formattedBalance.index(formattedBalance.startIndex, offsetBy: currency.count)
+            formattedBalance.insert(" ", at: index)
+        }
+        
+        if type == .screen {
+            let index = formattedBalance.index(formattedBalance.startIndex, offsetBy: formattedBalance.count - 2)
+            formattedBalance.insert(" ", at: index)
+        }
+        
+        let amountText = NSMutableAttributedString(string: formattedBalance)
+        
+        amountText.setAttributes([NSAttributedString.Key.font: UIFont.systemFont(ofSize: smallTextSize, weight: .light),
+                                      NSAttributedString.Key.foregroundColor: UIColor.black],
+                                 range: NSRange(location: 0, length: currency.count + 1))
+        
+        amountText.setAttributes([NSAttributedString.Key.font: UIFont.systemFont(ofSize: smallTextSize, weight: .light),
+                                      NSAttributedString.Key.foregroundColor: UIColor.black],
+                                 range: NSRange(location: formattedBalance.count - 3, length: 3))
+       return amountText
+    }
+    
+    return NSAttributedString()
+}
+
+extension String {
+
+    // formatting text for currency textField
+    func currencyInputFormatting() -> String {
+
+        var number: NSNumber!
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .currencyAccounting
+        formatter.currencySymbol = ""
+        formatter.maximumFractionDigits = 2
+        formatter.minimumFractionDigits = 2
+
+        var amountWithPrefix = self
+
+        // remove from String: "$", ".", ","
+        let regex = try? NSRegularExpression(pattern: "[^0-9]", options: .caseInsensitive)
+        amountWithPrefix = regex?.stringByReplacingMatches(in: amountWithPrefix,
+                                                           options: NSRegularExpression.MatchingOptions(rawValue: 0),
+                                                           range: NSRange(location: 0, length: self.count),
+                                                           withTemplate: "") ?? ""
+
+        let double = (amountWithPrefix as NSString).doubleValue
+        number = NSNumber(value: (double / 100))
+
+        // if first number is 0 or all numbers were deleted
+        guard number != 0 as NSNumber else {
+            return ""
+        }
+
+        var formattedString = formatter.string(from: number) ?? ""
+        if !Character(formattedString[0]).isNumber {
+            formattedString = formattedString.substring(fromIndex: 1)
+        }
+        return formattedString
     }
 }

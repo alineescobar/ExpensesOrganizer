@@ -19,9 +19,7 @@ class BalanceTableViewCell: UITableViewCell {
     
     @IBOutlet weak var hideBalanceButton: UIButton!
     @IBOutlet weak var balanceStackView: UIStackView!
-    @IBOutlet weak var currencyLabel: UILabel!
-    @IBOutlet weak var balanceRoundedLabel: UILabel!
-    @IBOutlet weak var balanceDecimalLabel: UILabel!
+    @IBOutlet weak var balanceLabel: UILabel!
     @IBOutlet weak var showGraphicsImage: UIImageView!
     weak var balanceDelegate: BalanceCellDelegate?
     
@@ -30,6 +28,7 @@ class BalanceTableViewCell: UITableViewCell {
         hideBalanceButton.setTitle(NSLocalizedString("BalanceLabel", comment: ""), for: .normal)
         hideBalanceButton.semanticContentAttribute = UIApplication.shared
             .userInterfaceLayoutDirection == .rightToLeft ? .forceLeftToRight : .forceRightToLeft
+       
         // Initialization code
     }
 
