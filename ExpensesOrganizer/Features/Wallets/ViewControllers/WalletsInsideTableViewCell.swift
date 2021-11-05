@@ -19,7 +19,7 @@ class WalletsInsideTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        walletInside.layoutMargins = UIEdgeInsets(top: 0, left: 12, bottom: 0, right: 0)
+        walletInside.layoutMargins = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 0)
         walletInside.isLayoutMarginsRelativeArrangement = true
         walletAllContrains.layer.cornerRadius = 8
         walletAllContrains.layer.masksToBounds = true

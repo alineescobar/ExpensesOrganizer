@@ -15,6 +15,9 @@ class BalanceInsideTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        currentBalanceButton.setTitle(NSLocalizedString("BalanceLabel", comment: ""), for: .normal)
+        currentBalanceButton.semanticContentAttribute = UIApplication.shared
+            .userInterfaceLayoutDirection == .rightToLeft ? .forceLeftToRight : .forceRightToLeft
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
