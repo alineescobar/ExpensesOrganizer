@@ -348,6 +348,12 @@
                                                 <constraint firstItem="iVe-UY-oCU" firstAttribute="leading" secondItem="5tI-6C-DPU" secondAttribute="leading" constant="24" id="oja-Cb-WHL"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="calendarStack" destination="aVw-ew-hjA" id="lBV-hB-xFe"/>
+                                            <outlet property="dateLabel" destination="TwH-h4-82z" id="S2d-Hu-9rq"/>
+                                            <outlet property="recurrencyLabel" destination="FUC-68-mEK" id="9eQ-Dd-Jhb"/>
+                                            <outlet property="recurrencyStack" destination="y2g-ja-7am" id="ojp-9E-cbE"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -399,6 +405,8 @@
                         <outlet property="cancellButton" destination="Vh6-wP-okH" id="cMH-Y7-Oxu"/>
                         <outlet property="doneButton" destination="HzJ-js-YtR" id="xtW-oq-ugU"/>
                         <outlet property="tableView" destination="Kxf-XT-KjO" id="qKz-FA-gqf"/>
+                        <segue destination="TYP-sd-EKi" kind="presentation" id="teK-vF-ogl"/>
+                        <segue destination="QAS-by-xNX" kind="presentation" id="Yx8-YX-SWb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uXc-4H-D13" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1056,6 +1064,143 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jqm-lZ-ncn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2575" y="784"/>
+        </scene>
+        <!--Add Income Recurrency View Controller-->
+        <scene sceneID="K0j-38-amd">
+            <objects>
+                <viewController storyboardIdentifier="AddIncomeRecurrencyViewController" id="QAS-by-xNX" customClass="AddIncomeRecurrencyViewController" customModule="ExpensesOrganizer" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ZgE-Pr-Xe2">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="679"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XwQ-9w-uSh">
+                                <rect key="frame" x="173.5" y="25" width="67" height="5"/>
+                                <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="67" id="2IV-aq-y9p"/>
+                                    <constraint firstAttribute="height" constant="5" id="yJu-jl-R00"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="NO"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Ct4-mO-Lfz">
+                                <rect key="frame" x="0.0" y="40" width="414" height="639"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="separatorColor" systemColor="opaqueSeparatorColor"/>
+                                <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="recurrencyTypeCell" rowHeight="54" id="f6b-By-9bw" customClass="RecurrencyTypeTableViewCell" customModule="ExpensesOrganizer" customModuleProvider="target">
+                                        <rect key="frame" x="20" y="49.5" width="374" height="54"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="f6b-By-9bw" id="TW7-gP-EqY">
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="54"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="5e3-5M-ogR">
+                                                    <rect key="frame" x="16" y="13" width="342" height="28"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nunca" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j0f-cV-lUE">
+                                                            <rect key="frame" x="0.0" y="0.0" width="46.5" height="28"/>
+                                                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="16"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkmark" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="gKp-rz-U0A">
+                                                            <rect key="frame" x="323.5" y="2" width="18.5" height="24.5"/>
+                                                        </imageView>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="5e3-5M-ogR" secondAttribute="trailing" constant="16" id="L0s-wI-EPs"/>
+                                                <constraint firstItem="5e3-5M-ogR" firstAttribute="top" secondItem="TW7-gP-EqY" secondAttribute="top" constant="13" id="Nvs-M4-hW6"/>
+                                                <constraint firstItem="5e3-5M-ogR" firstAttribute="leading" secondItem="TW7-gP-EqY" secondAttribute="leading" constant="16" id="aZ6-Ho-Qo7"/>
+                                                <constraint firstAttribute="bottom" secondItem="5e3-5M-ogR" secondAttribute="bottom" constant="13" id="wXa-8Q-JEN"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="recurrencyTypeCheckImage" destination="gKp-rz-U0A" id="TDA-Sy-DZU"/>
+                                            <outlet property="recurrencyTypeLabel" destination="j0f-cV-lUE" id="gnz-TY-2at"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="oH1-be-L8w"/>
+                        <color key="backgroundColor" systemColor="systemGray5Color"/>
+                        <constraints>
+                            <constraint firstItem="oH1-be-L8w" firstAttribute="trailing" secondItem="Ct4-mO-Lfz" secondAttribute="trailing" id="2Ac-wp-bou"/>
+                            <constraint firstItem="oH1-be-L8w" firstAttribute="bottom" secondItem="Ct4-mO-Lfz" secondAttribute="bottom" id="3al-PQ-PPO"/>
+                            <constraint firstItem="Ct4-mO-Lfz" firstAttribute="top" secondItem="XwQ-9w-uSh" secondAttribute="bottom" constant="10" id="CkR-Ps-fep"/>
+                            <constraint firstItem="XwQ-9w-uSh" firstAttribute="top" secondItem="oH1-be-L8w" secondAttribute="top" constant="25" id="E1M-ue-Yg9"/>
+                            <constraint firstItem="XwQ-9w-uSh" firstAttribute="centerX" secondItem="oH1-be-L8w" secondAttribute="centerX" id="GQi-cQ-Eva"/>
+                            <constraint firstItem="Ct4-mO-Lfz" firstAttribute="leading" secondItem="oH1-be-L8w" secondAttribute="leading" id="PHP-J8-jFg"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="Ct4-mO-Lfz" id="34P-u2-dRN"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vnY-T6-tgm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2572" y="113"/>
+        </scene>
+        <!--Add Income Calendar View Controller-->
+        <scene sceneID="6vx-F9-RZA">
+            <objects>
+                <viewController storyboardIdentifier="AddIncomeCalendarViewController" id="TYP-sd-EKi" customClass="AddIncomeCalendarViewController" customModule="ExpensesOrganizer" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="i2O-4m-8m4">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="679"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SKT-cx-TFN">
+                                <rect key="frame" x="173.5" y="20" width="67" height="5"/>
+                                <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="5" id="VPI-au-WaE"/>
+                                    <constraint firstAttribute="width" constant="67" id="b0e-aE-pbm"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="NO"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" style="inline" translatesAutoresizingMaskIntoConstraints="NO" id="M22-LD-QHZ">
+                                <rect key="frame" x="23.5" y="65" width="367.5" height="614"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </datePicker>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6ym-Ye-0Lp"/>
+                        <color key="backgroundColor" systemColor="systemGray5Color"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="M22-LD-QHZ" firstAttribute="top" secondItem="SKT-cx-TFN" secondAttribute="bottom" constant="40" id="00r-5o-gWd"/>
+                            <constraint firstItem="SKT-cx-TFN" firstAttribute="centerX" secondItem="6ym-Ye-0Lp" secondAttribute="centerX" id="4rg-cQ-bnQ"/>
+                            <constraint firstItem="SKT-cx-TFN" firstAttribute="top" secondItem="6ym-Ye-0Lp" secondAttribute="top" constant="20" id="6du-va-eib"/>
+                            <constraint firstItem="6ym-Ye-0Lp" firstAttribute="trailing" secondItem="M22-LD-QHZ" secondAttribute="trailing" constant="23" id="DoH-Kw-2vn"/>
+                            <constraint firstItem="M22-LD-QHZ" firstAttribute="leading" secondItem="6ym-Ye-0Lp" secondAttribute="leading" constant="23.5" id="EOg-ZA-2v0"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="M22-LD-QHZ" secondAttribute="bottom" id="zD2-Ls-ZYX"/>
+                        </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="K2d-1i-tgv" appends="YES" id="iI0-au-Wua"/>
+                        </connections>
+                    </view>
+                    <connections>
+                        <outlet property="datePicker" destination="M22-LD-QHZ" id="nlD-7E-5we"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AuK-IZ-flZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="K2d-1i-tgv"/>
+            </objects>
+            <point key="canvasLocation" x="1628" y="113"/>
         </scene>
     </scenes>
     <resources>

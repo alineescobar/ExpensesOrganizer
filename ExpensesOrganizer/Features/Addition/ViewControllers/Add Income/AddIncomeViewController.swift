@@ -21,6 +21,11 @@ class AddIncomeViewController: UIViewController {
     @IBOutlet weak var cancellButton: UIButton!
     @IBOutlet weak var doneButton: UIButton!
     
+    private var selectedRecurrencyType: RecurrencyTypes = .never
+    private var selectedDate: Date = Date()
+    private let interactor = Interactor()
+    private let walletCreationCategories: [WalletCreationCategory] = WalletCreationCategory.allCases
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -82,10 +87,69 @@ extension AddIncomeViewController: UITableViewDataSource {
                 return UITableViewCell()
             }
             
+            let formatter = DateFormatter()
+            formatter.dateStyle = .medium
+            
+            cell.planningDelegate = self
+            cell.recurrencyLabel.text = selectedRecurrencyType.rawValue
+            cell.dateLabel.text = formatter.string(from: selectedDate)
+            
             return cell
             
         case .divider:
             return tableView.dequeueReusableCell(withIdentifier: "add-income-divider-cell", for: indexPath)
         }
+    }
+}
+
+extension AddIncomeViewController: UIViewControllerTransitioningDelegate {
+    func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {
+
+        return HalfSizePresentationController(presentedViewController: presented, presenting: presentingViewController)
+    }
+    
+    func interactionControllerForDismissal(using animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
+        interactor.hasStarted ? interactor : .none
+    }
+}
+
+extension AddIncomeViewController: PlanningCellDelegate, RecurrencyTypeDelegate, CalendarDelegate {
+    
+    func didTapRecurrency() {
+        let storyboard = UIStoryboard(name: "Addition", bundle: nil)
+        let pvc = storyboard.instantiateViewController(withIdentifier: "AddExpenseRecurrencyViewController") as? AddExpenseRecurrencyViewController
+
+        pvc?.modalPresentationStyle = .custom
+        pvc?.transitioningDelegate = self
+        pvc?.recurrencyDelegate = self
+        pvc?.selectedRecurrencyType = selectedRecurrencyType
+
+        present(pvc ?? UIViewController(), animated: true)
+        
+        print(#function)
+    }
+
+    func didTapCalendar() {
+        let storyboard = UIStoryboard(name: "Addition", bundle: nil)
+        let pvc = storyboard.instantiateViewController(withIdentifier: "AddExpenseCalendarViewController") as? AddExpenseCalendarViewController
+
+        pvc?.modalPresentationStyle = .custom
+        pvc?.transitioningDelegate = self
+        pvc?.calendarDelegate = self
+        pvc?.selectedDate = selectedDate
+
+        present(pvc ?? UIViewController(), animated: true)
+        
+        print(#function)
+    }
+    
+    func sendDate(date: Date) {
+        selectedDate = date
+        tableView.reloadData()
+    }
+    
+    func sendRecurrencyType(recurrencyType: RecurrencyTypes) {
+        selectedRecurrencyType = recurrencyType
+        tableView.reloadData()
     }
 }

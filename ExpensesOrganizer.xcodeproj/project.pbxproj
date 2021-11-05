@@ -28,6 +28,8 @@
 		16D0B26627287A72007BE30E /* TransactionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D0B26527287A72007BE30E /* TransactionsViewController.swift */; };
 		16FA96E127273A7A007EB7CA /* TransactionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16FA96DF27273A7A007EB7CA /* TransactionCell.swift */; };
 		16FA96E227273A7A007EB7CA /* TransactionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 16FA96E027273A7A007EB7CA /* TransactionCell.xib */; };
+		710269142735D3F500D62DEE /* AddIncomeRecurrencyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 710269132735D3F500D62DEE /* AddIncomeRecurrencyViewController.swift */; };
+		710269162735D40700D62DEE /* AddIncomeCalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 710269152735D40700D62DEE /* AddIncomeCalendarViewController.swift */; };
 		710F1DC52729C55F005C06E1 /* Charts in Frameworks */ = {isa = PBXBuildFile; productRef = 710F1DC42729C55F005C06E1 /* Charts */; };
 		710F1DC82729C8D6005C06E1 /* GraphicsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 710F1DC62729C8D6005C06E1 /* GraphicsTableViewCell.swift */; };
 		710F1DC92729C8D6005C06E1 /* GraphicsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 710F1DC72729C8D6005C06E1 /* GraphicsTableViewCell.xib */; };
@@ -105,6 +107,8 @@
 		16D0B26527287A72007BE30E /* TransactionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsViewController.swift; sourceTree = "<group>"; };
 		16FA96DF27273A7A007EB7CA /* TransactionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionCell.swift; sourceTree = "<group>"; };
 		16FA96E027273A7A007EB7CA /* TransactionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransactionCell.xib; sourceTree = "<group>"; };
+		710269132735D3F500D62DEE /* AddIncomeRecurrencyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddIncomeRecurrencyViewController.swift; sourceTree = "<group>"; };
+		710269152735D40700D62DEE /* AddIncomeCalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddIncomeCalendarViewController.swift; sourceTree = "<group>"; };
 		710F1DC62729C8D6005C06E1 /* GraphicsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphicsTableViewCell.swift; sourceTree = "<group>"; };
 		710F1DC72729C8D6005C06E1 /* GraphicsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GraphicsTableViewCell.xib; sourceTree = "<group>"; };
 		710F1DCF272B2743005C06E1 /* PillMarker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PillMarker.swift; sourceTree = "<group>"; };
@@ -264,6 +268,8 @@
 			children = (
 				71FED85527330E3500B90A5A /* AddIncomeViewController.swift */,
 				7140E5B62735102C00685927 /* AddIncomeAllDoneViewController.swift */,
+				710269132735D3F500D62DEE /* AddIncomeRecurrencyViewController.swift */,
+				710269152735D40700D62DEE /* AddIncomeCalendarViewController.swift */,
 				710269122735CFD100D62DEE /* Cells */,
 			);
 			path = "Add Income";
@@ -658,6 +664,7 @@
 				077CAFF827273759007D58C1 /* WalletsTableViewCell.swift in Sources */,
 				16B2D715271E0EA800E7BB84 /* Transaction+CoreDataClass.swift in Sources */,
 				16D0B26627287A72007BE30E /* TransactionsViewController.swift in Sources */,
+				710269162735D40700D62DEE /* AddIncomeCalendarViewController.swift in Sources */,
 				16655627271A0E0000DE83F4 /* AppDelegate.swift in Sources */,
 				7140E5B52735101800685927 /* AddExpenseAllDoneViewController.swift in Sources */,
 				71CD631427359B8B007A3D75 /* AddExpenseRecurrencyViewController.swift in Sources */,
@@ -679,6 +686,7 @@
 				71FED8722733260F00B90A5A /* AddIncomeWalletCell.swift in Sources */,
 				F196D5162724771C00CCAF81 /* GoalsViewController.swift in Sources */,
 				71FED86E273325C900B90A5A /* AddIncomeNameCell.swift in Sources */,
+				710269142735D3F500D62DEE /* AddIncomeRecurrencyViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
