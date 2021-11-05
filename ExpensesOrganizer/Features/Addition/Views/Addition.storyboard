@@ -405,118 +405,6 @@
             </objects>
             <point key="canvasLocation" x="663.768115942029" y="101.45089285714285"/>
         </scene>
-        <!--Add Expense Calendar View Controller-->
-        <scene sceneID="Aly-rj-nFx">
-            <objects>
-                <viewController storyboardIdentifier="AddExpenseCalendarViewController" id="OqA-JU-OUc" customClass="AddExpenseCalendarViewController" customModule="ExpensesOrganizer" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Ste-pW-she">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="679"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" style="inline" translatesAutoresizingMaskIntoConstraints="NO" id="jSV-cU-Akb">
-                                <rect key="frame" x="24" y="69" width="366" height="380"/>
-                                <color key="tintColor" systemColor="labelColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="380" id="zZ4-9B-CVW"/>
-                                </constraints>
-                            </datePicker>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HUk-37-I18">
-                                <rect key="frame" x="173.5" y="24" width="67" height="5"/>
-                                <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="67" id="Ih7-c7-wHN"/>
-                                    <constraint firstAttribute="height" constant="5" id="PYl-JZ-U93"/>
-                                </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="5"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="NO"/>
-                                </userDefinedRuntimeAttributes>
-                            </view>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="0yh-Jw-R8W"/>
-                        <color key="backgroundColor" systemColor="systemGray5Color"/>
-                        <constraints>
-                            <constraint firstItem="0yh-Jw-R8W" firstAttribute="trailing" secondItem="jSV-cU-Akb" secondAttribute="trailing" constant="24" id="CDN-71-vRk"/>
-                            <constraint firstItem="HUk-37-I18" firstAttribute="centerX" secondItem="Ste-pW-she" secondAttribute="centerX" id="I4q-Jx-dOR"/>
-                            <constraint firstItem="jSV-cU-Akb" firstAttribute="top" secondItem="HUk-37-I18" secondAttribute="bottom" constant="40" id="OBs-in-JSt"/>
-                            <constraint firstItem="jSV-cU-Akb" firstAttribute="leading" secondItem="0yh-Jw-R8W" secondAttribute="leading" constant="24" id="PEf-aT-fvf"/>
-                            <constraint firstItem="HUk-37-I18" firstAttribute="top" secondItem="0yh-Jw-R8W" secondAttribute="top" constant="24" id="YKO-MQ-9Oh"/>
-                            <constraint firstItem="0yh-Jw-R8W" firstAttribute="bottom" secondItem="jSV-cU-Akb" secondAttribute="bottom" constant="230" id="guZ-cl-OZ9"/>
-                        </constraints>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="B4j-OI-TOd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1664" y="784"/>
-        </scene>
-        <!--Add Expense Recurrency View Controller-->
-        <scene sceneID="Xnv-od-P1L">
-            <objects>
-                <viewController storyboardIdentifier="AddExpenseRecurrencyViewController" id="MoM-iS-vEa" customClass="AddExpenseRecurrencyViewController" customModule="ExpensesOrganizer" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="PjB-11-Qfb">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="679"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="5Ew-M4-5tU">
-                                <rect key="frame" x="24" y="69" width="366" height="342"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="342" id="Wmv-wc-4bN"/>
-                                </constraints>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="IzS-Tn-Rl2" style="IBUITableViewCellStyleDefault" id="9mu-hI-6Nm">
-                                        <rect key="frame" x="0.0" y="44.5" width="366" height="43.5"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="9mu-hI-6Nm" id="2kf-7w-REl">
-                                            <rect key="frame" x="0.0" y="0.0" width="366" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Semanalmente" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="IzS-Tn-Rl2">
-                                                    <rect key="frame" x="20" y="0.0" width="326" height="43.5"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
-                            </tableView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MwV-wh-df4">
-                                <rect key="frame" x="173.5" y="24" width="67" height="5"/>
-                                <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="5" id="TXR-xE-zXs"/>
-                                    <constraint firstAttribute="width" constant="67" id="vcm-wS-5fR"/>
-                                </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="5"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="NO"/>
-                                </userDefinedRuntimeAttributes>
-                            </view>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="fae-g8-KDl"/>
-                        <color key="backgroundColor" systemColor="systemGray5Color"/>
-                        <constraints>
-                            <constraint firstItem="5Ew-M4-5tU" firstAttribute="top" secondItem="MwV-wh-df4" secondAttribute="bottom" constant="40" id="SIH-v6-VeC"/>
-                            <constraint firstItem="fae-g8-KDl" firstAttribute="trailing" secondItem="5Ew-M4-5tU" secondAttribute="trailing" constant="24" id="THR-gx-szY"/>
-                            <constraint firstItem="MwV-wh-df4" firstAttribute="centerX" secondItem="PjB-11-Qfb" secondAttribute="centerX" id="TuX-xC-KQ5"/>
-                            <constraint firstItem="MwV-wh-df4" firstAttribute="top" secondItem="fae-g8-KDl" secondAttribute="top" constant="24" id="WT1-4O-VQF"/>
-                            <constraint firstItem="5Ew-M4-5tU" firstAttribute="top" secondItem="MwV-wh-df4" secondAttribute="bottom" constant="40" id="aAD-v4-wpZ"/>
-                            <constraint firstItem="5Ew-M4-5tU" firstAttribute="leading" secondItem="fae-g8-KDl" secondAttribute="leading" constant="24" id="hZd-Dx-zMR"/>
-                            <constraint firstItem="fae-g8-KDl" firstAttribute="bottom" secondItem="5Ew-M4-5tU" secondAttribute="bottom" constant="268" id="wGg-u8-FIH"/>
-                        </constraints>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="E80-Zq-O2r" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2585.507246376812" y="782.47767857142856"/>
-        </scene>
         <!--Add Income All Done View Controller-->
         <scene sceneID="Ch6-XY-4Do">
             <objects>
@@ -918,8 +806,8 @@
                         <outlet property="cancellButton" destination="tKG-Eg-Kdl" id="UJq-ZW-uoM"/>
                         <outlet property="doneButton" destination="TkP-4F-u25" id="zcu-2X-4Nv"/>
                         <outlet property="tableView" destination="49B-CL-pcO" id="AWs-xc-RfA"/>
-                        <segue destination="OqA-JU-OUc" kind="presentation" id="35Z-VN-knl"/>
-                        <segue destination="MoM-iS-vEa" kind="presentation" id="D8b-dQ-hbD"/>
+                        <segue destination="R9A-fC-udx" kind="presentation" id="2ga-8p-aaZ"/>
+                        <segue destination="xei-pb-Vro" kind="presentation" id="E87-0Q-H7a"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TPL-6P-KfE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1032,6 +920,140 @@
             </objects>
             <point key="canvasLocation" x="-243.47826086956525" y="783.81696428571422"/>
         </scene>
+        <!--Add Expense Calendar View Controller-->
+        <scene sceneID="2C3-Es-GPM">
+            <objects>
+                <viewController storyboardIdentifier="AddExpenseCalendarViewController" id="R9A-fC-udx" customClass="AddExpenseCalendarViewController" customModule="ExpensesOrganizer" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="G1x-mu-Z2a">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="679"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kgb-5I-Fj0">
+                                <rect key="frame" x="173.5" y="20" width="67" height="5"/>
+                                <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="5" id="0SJ-WV-zWo"/>
+                                    <constraint firstAttribute="width" constant="67" id="1l3-4G-WdN"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="NO"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" style="inline" translatesAutoresizingMaskIntoConstraints="NO" id="gSF-SX-LTy">
+                                <rect key="frame" x="23.5" y="65" width="367.5" height="614"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </datePicker>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="j2n-k5-IaN"/>
+                        <color key="backgroundColor" systemColor="systemGray5Color"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="gSF-SX-LTy" firstAttribute="top" secondItem="Kgb-5I-Fj0" secondAttribute="bottom" constant="40" id="6oj-X5-bMx"/>
+                            <constraint firstItem="j2n-k5-IaN" firstAttribute="trailing" secondItem="gSF-SX-LTy" secondAttribute="trailing" constant="23" id="DIQ-tU-yGT"/>
+                            <constraint firstItem="Kgb-5I-Fj0" firstAttribute="centerX" secondItem="j2n-k5-IaN" secondAttribute="centerX" id="Ot6-No-D1I"/>
+                            <constraint firstItem="Kgb-5I-Fj0" firstAttribute="top" secondItem="j2n-k5-IaN" secondAttribute="top" constant="20" id="Rqf-wD-PZ5"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="gSF-SX-LTy" secondAttribute="bottom" id="a5v-J6-uU7"/>
+                            <constraint firstItem="gSF-SX-LTy" firstAttribute="leading" secondItem="j2n-k5-IaN" secondAttribute="leading" constant="23.5" id="ghp-U3-rP9"/>
+                        </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="Xo1-nl-S3z" appends="YES" id="Jwv-xm-hd8"/>
+                        </connections>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XLO-fe-6pU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="Xo1-nl-S3z"/>
+            </objects>
+            <point key="canvasLocation" x="1654" y="784"/>
+        </scene>
+        <!--Add Expense Recurrency View Controller-->
+        <scene sceneID="Xgv-fJ-CQt">
+            <objects>
+                <viewController storyboardIdentifier="AddExpenseRecurrencyViewController" id="xei-pb-Vro" customClass="AddExpenseRecurrencyViewController" customModule="ExpensesOrganizer" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="o9T-Dj-D9h">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="679"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n2Y-PR-nIS">
+                                <rect key="frame" x="173.5" y="25" width="67" height="5"/>
+                                <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="67" id="2Aq-Td-HUx"/>
+                                    <constraint firstAttribute="height" constant="5" id="3uD-Cb-sLV"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="NO"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="2fS-4s-guS">
+                                <rect key="frame" x="0.0" y="40" width="414" height="639"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="separatorColor" systemColor="opaqueSeparatorColor"/>
+                                <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="recurrencyTypeCell" rowHeight="54" id="RLn-6Q-vzP" customClass="RecurrencyTypeTableViewCell" customModule="ExpensesOrganizer" customModuleProvider="target">
+                                        <rect key="frame" x="20" y="49.5" width="374" height="54"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="RLn-6Q-vzP" id="ATC-q4-ShA">
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="54"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="GKX-0A-MUc">
+                                                    <rect key="frame" x="16" y="13" width="342" height="28"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nunca" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KkS-z2-AVC">
+                                                            <rect key="frame" x="0.0" y="0.0" width="46.5" height="28"/>
+                                                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="16"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkmark" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="NOz-lU-OBk">
+                                                            <rect key="frame" x="323.5" y="2" width="18.5" height="24.5"/>
+                                                        </imageView>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="GKX-0A-MUc" secondAttribute="bottom" constant="13" id="NXP-vO-LNm"/>
+                                                <constraint firstAttribute="trailing" secondItem="GKX-0A-MUc" secondAttribute="trailing" constant="16" id="RTM-bh-fSY"/>
+                                                <constraint firstItem="GKX-0A-MUc" firstAttribute="leading" secondItem="ATC-q4-ShA" secondAttribute="leading" constant="16" id="vF7-7o-4AE"/>
+                                                <constraint firstItem="GKX-0A-MUc" firstAttribute="top" secondItem="ATC-q4-ShA" secondAttribute="top" constant="13" id="xZa-Lo-xhi"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="recurrencyTypeCheckImage" destination="NOz-lU-OBk" id="vTI-9O-ptI"/>
+                                            <outlet property="recurrencyTypeLabel" destination="KkS-z2-AVC" id="eFA-aA-JvA"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="NSi-mn-cMR"/>
+                        <color key="backgroundColor" systemColor="systemGray5Color"/>
+                        <constraints>
+                            <constraint firstItem="2fS-4s-guS" firstAttribute="top" secondItem="n2Y-PR-nIS" secondAttribute="bottom" constant="10" id="94k-kd-HPC"/>
+                            <constraint firstItem="2fS-4s-guS" firstAttribute="leading" secondItem="NSi-mn-cMR" secondAttribute="leading" id="Qfo-2A-JWh"/>
+                            <constraint firstItem="NSi-mn-cMR" firstAttribute="trailing" secondItem="2fS-4s-guS" secondAttribute="trailing" id="ibk-PP-dmx"/>
+                            <constraint firstItem="n2Y-PR-nIS" firstAttribute="centerX" secondItem="NSi-mn-cMR" secondAttribute="centerX" id="lMd-vu-9ht"/>
+                            <constraint firstItem="n2Y-PR-nIS" firstAttribute="top" secondItem="NSi-mn-cMR" secondAttribute="top" constant="25" id="qFI-qA-6p6"/>
+                            <constraint firstItem="NSi-mn-cMR" firstAttribute="bottom" secondItem="2fS-4s-guS" secondAttribute="bottom" id="tRn-2j-qte"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="2fS-4s-guS" id="VLu-ye-wNN"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Jqm-lZ-ncn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2575" y="784"/>
+        </scene>
     </scenes>
     <resources>
         <image name="ArrowsClockwise" width="24" height="25"/>
@@ -1041,6 +1063,7 @@
         <image name="PencilLine" width="24" height="24"/>
         <image name="SmileyWink" width="160" height="160"/>
         <image name="Wallet" width="25" height="24"/>
+        <image name="checkmark" catalog="system" width="128" height="114"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

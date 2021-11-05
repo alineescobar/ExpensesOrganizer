@@ -15,13 +15,20 @@ enum AddExpenseCells: CaseIterable {
     }
 }
 
-class AddExpenseViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class AddExpenseViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, RecurrencyTypeDelegate {
+    func sendRecurrencyType(recurrencyType: RecurrencyTypes) {
+        selectedRecurrencyType = recurrencyType
+        tableView.reloadData()
+    }
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var cancellButton: UIButton!
     @IBOutlet weak var doneButton: UIButton!
     
+    private var selectedRecurrencyType: RecurrencyTypes = .never
+    private var selectedDate: Date = Date()
     private let interactor = Interactor()
+    private let walletCreationCategories: [WalletCreationCategory] = WalletCreationCategory.allCases
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -85,7 +92,12 @@ class AddExpenseViewController: UIViewController, UITableViewDataSource, UITable
             guard let cell = tableView.dequeueReusableCell(withIdentifier: AddExpensePlanningCell.identifier, for: indexPath) as? AddExpensePlanningCell else {
                 return UITableViewCell()            }
             
+            let formatter = DateFormatter()
+            formatter.dateStyle = .medium
+            
             cell.planningDelegate = self
+            cell.recurrencyLabel.text = selectedRecurrencyType.rawValue
+            cell.dateLabel.text = formatter.string(from: selectedDate)
             
             return cell
             
@@ -117,8 +129,8 @@ extension AddExpenseViewController: PlanningCellDelegate {
 
         pvc?.modalPresentationStyle = .custom
         pvc?.transitioningDelegate = self
-//        pvc?.recurrencyDelegate = self
-//        pvc?.selectedRecurrencyType = selectedRecurrencyType
+        pvc?.recurrencyDelegate = self
+        pvc?.selectedRecurrencyType = selectedRecurrencyType
 
         present(pvc ?? UIViewController(), animated: true)
         
