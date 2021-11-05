@@ -29,21 +29,33 @@ class WalletCreationViewController: UIViewController {
     }
     
     @IBAction private func backButtonAction(_ sender: UIButton) {
-        // TODO: Make alert to make user know all inserted data will be lost
-        self.dismiss(animated: true)
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        // TODO: Make alert to make user know all inserted data will be lost
-        super.viewWillDisappear(animated)
+        showCancelWalletAlert()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        presentationController?.delegate = self
+        isModalInPresentation = true
         tableView.delegate = self
         tableView.dataSource = self
 
         // Do any additional setup after loading the view.
+    }
+    
+    func showCancelWalletAlert() {
+        let alert = UIAlertController(title: NSLocalizedString("WalletCreationCancelAlertTitle", comment: ""),
+                                      message: NSLocalizedString("WalletCreationCancelAlertDescription", comment: ""),
+                                      preferredStyle: .alert)
+
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .destructive, handler: { _ in
+            // TODO: Delete Wallet object from CoreData
+            self.dismiss(animated: true)
+        }))
+        
+        alert.addAction(UIAlertAction(title: NSLocalizedString("WalletCreationKeepCreatingAction", comment: ""), style: .cancel, handler: { _ in
+        }))
+
+        self.present(alert, animated: true)
     }
 }
 
@@ -150,5 +162,11 @@ extension WalletCreationViewController: CalendarDelegate {
     func sendDate(date: Date) {
         selectedDate = date
         tableView.reloadData()
+    }
+}
+
+extension WalletCreationViewController: UIAdaptivePresentationControllerDelegate {
+    func presentationControllerDidAttemptToDismiss(_ presentationController: UIPresentationController) {
+        showCancelWalletAlert()
     }
 }

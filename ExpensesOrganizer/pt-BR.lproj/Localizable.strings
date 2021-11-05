@@ -14,3 +14,16 @@
 "GoalsLabel" = "Metas";
 "PlanningLabel" = "Planejar";
 "AddLabel" = "Adicionar";
+
+// MARK: Wallet Creation
+"WalletCreationCancelAlertTitle" = "Cancelar nova Carteira";
+"WalletCreationCancelAlertDescription" = "Você tem certeza? Todos os dados inseridos serão perdidos.";
+"WalletCreationKeepCreatingAction" = "Coninuar criando";
+
+// MARK: Wallet Detail
+"WalletDeleteAlertTitle" = "Apagar Carteira";
+"WalletDeleteAlertDescription" = "Você tem certeza? Todos os dados inseridos nessa carteira serão perdidos.";
+
+// MARK: Shared
+"Delete" = "Apagar";
+"Cancel" = "Cancelar";
