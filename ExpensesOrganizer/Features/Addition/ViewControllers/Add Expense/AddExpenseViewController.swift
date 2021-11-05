@@ -15,16 +15,7 @@ enum AddExpenseCells: CaseIterable {
     }
 }
 
-class AddExpenseViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, RecurrencyTypeDelegate, CalendarDelegate {
-    func sendDate(date: Date) {
-        selectedDate = date
-        tableView.reloadData()
-    }
-    
-    func sendRecurrencyType(recurrencyType: RecurrencyTypes) {
-        selectedRecurrencyType = recurrencyType
-        tableView.reloadData()
-    }
+class AddExpenseViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var cancellButton: UIButton!
@@ -39,19 +30,17 @@ class AddExpenseViewController: UIViewController, UITableViewDataSource, UITable
         super.viewDidLoad()
         
         tableView.dataSource = self
-        tableView.delegate = self
-        
         tableView.allowsSelection = false
         
         doneButton.layer.cornerRadius = 8
+        
         cancellButton.layer.cornerRadius = 8
         cancellButton.layer.borderColor = UIColor.label.cgColor
         cancellButton.layer.borderWidth = 2.0
-        
-        print("\n\n\nterminal\n\n\n")
     }
-    
-    // MARK: - Table view data source
+}
+
+extension AddExpenseViewController: UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -127,7 +116,8 @@ extension AddExpenseViewController: UIViewControllerTransitioningDelegate {
     }
 }
 
-extension AddExpenseViewController: PlanningCellDelegate {
+extension AddExpenseViewController: PlanningCellDelegate, RecurrencyTypeDelegate, CalendarDelegate {
+    
     func didTapRecurrency() {
         let storyboard = UIStoryboard(name: "Addition", bundle: nil)
         let pvc = storyboard.instantiateViewController(withIdentifier: "AddExpenseRecurrencyViewController") as? AddExpenseRecurrencyViewController
@@ -154,5 +144,15 @@ extension AddExpenseViewController: PlanningCellDelegate {
         present(pvc ?? UIViewController(), animated: true)
         
         print(#function)
+    }
+    
+    func sendDate(date: Date) {
+        selectedDate = date
+        tableView.reloadData()
+    }
+    
+    func sendRecurrencyType(recurrencyType: RecurrencyTypes) {
+        selectedRecurrencyType = recurrencyType
+        tableView.reloadData()
     }
 }

@@ -15,7 +15,7 @@ enum AddIncomeCells: CaseIterable {
     }
 }
 
-class AddIncomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class AddIncomeViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var cancellButton: UIButton!
@@ -25,17 +25,17 @@ class AddIncomeViewController: UIViewController, UITableViewDelegate, UITableVie
         super.viewDidLoad()
         
         tableView.dataSource = self
-        tableView.delegate = self
-        
         tableView.allowsSelection = false
         
         doneButton.layer.cornerRadius = 8
+        
         cancellButton.layer.cornerRadius = 8
         cancellButton.layer.borderColor = UIColor.label.cgColor
         cancellButton.layer.borderWidth = 2.0
     }
-    
-    // MARK: - Table view data source
+}
+
+extension AddIncomeViewController: UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1

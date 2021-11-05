@@ -223,18 +223,38 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		710269112735CF9C00D62DEE /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				71FED85C2733147000B90A5A /* AddExpenseValueCell.swift */,
+				71FED85F273314DF00B90A5A /* AddExpenseNameCell.swift */,
+				71FED8612733151200B90A5A /* AddExpenseCategoryCell.swift */,
+				71FED8632733153000B90A5A /* AddExpensePaymentCell.swift */,
+				71FED8652733159F00B90A5A /* AddExpensePlanningCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		710269122735CFD100D62DEE /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				71FED86B273325A800B90A5A /* AddIncomeValueCell.swift */,
+				71FED86D273325C900B90A5A /* AddIncomeNameCell.swift */,
+				71FED86F273325E100B90A5A /* AddIncomeCategoryCell.swift */,
+				71FED8712733260F00B90A5A /* AddIncomeWalletCell.swift */,
+				71FED8732733263500B90A5A /* AddIncomePlanningCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		71FED8572733132600B90A5A /* Add Expense */ = {
 			isa = PBXGroup;
 			children = (
 				71FED85327330E1700B90A5A /* AddExpenseViewController.swift */,
-				71FED85C2733147000B90A5A /* AddExpenseValueCell.swift */,
 				7140E5B42735101800685927 /* AddExpenseAllDoneViewController.swift */,
-				71FED85F273314DF00B90A5A /* AddExpenseNameCell.swift */,
-				71FED8612733151200B90A5A /* AddExpenseCategoryCell.swift */,
 				71CD631327359B8B007A3D75 /* AddExpenseRecurrencyViewController.swift */,
 				71CD631527359B9C007A3D75 /* AddExpenseCalendarViewController.swift */,
-				71FED8632733153000B90A5A /* AddExpensePaymentCell.swift */,
-				71FED8652733159F00B90A5A /* AddExpensePlanningCell.swift */,
+				710269112735CF9C00D62DEE /* Cells */,
 			);
 			path = "Add Expense";
 			sourceTree = "<group>";
@@ -244,11 +264,7 @@
 			children = (
 				71FED85527330E3500B90A5A /* AddIncomeViewController.swift */,
 				7140E5B62735102C00685927 /* AddIncomeAllDoneViewController.swift */,
-				71FED86B273325A800B90A5A /* AddIncomeValueCell.swift */,
-				71FED86D273325C900B90A5A /* AddIncomeNameCell.swift */,
-				71FED86F273325E100B90A5A /* AddIncomeCategoryCell.swift */,
-				71FED8712733260F00B90A5A /* AddIncomeWalletCell.swift */,
-				71FED8732733263500B90A5A /* AddIncomePlanningCell.swift */,
+				710269122735CFD100D62DEE /* Cells */,
 			);
 			path = "Add Income";
 			sourceTree = "<group>";
