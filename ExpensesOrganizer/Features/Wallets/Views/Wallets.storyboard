@@ -18,10 +18,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ccy-Qu-9yb" userLabel="Background View">
-                                <rect key="frame" x="0.0" y="-56" width="414" height="428"/>
+                                <rect key="frame" x="0.0" y="-56" width="414" height="400"/>
                                 <color key="backgroundColor" systemColor="systemGray5Color"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="428" id="Ka2-0Z-F9S"/>
+                                    <constraint firstAttribute="height" constant="400" id="Ka2-0Z-F9S" userLabel="background Constrain"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
@@ -46,23 +46,33 @@
                                                     <rect key="frame" x="24" y="0.0" width="358" height="104"/>
                                                     <subviews>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BLU-co-L6K">
-                                                            <rect key="frame" x="0.0" y="0.0" width="97" height="54.5"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="97" height="41.5"/>
                                                             <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
                                                             <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <inset key="imageEdgeInsets" minX="10" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                             <state key="normal" title="Saldo atual" image="eye" catalog="system">
                                                                 <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             </state>
+                                                            <connections>
+                                                                <action selector="hideBalanceInsideAction:" destination="mKd-Da-Sa3" eventType="touchUpInside" id="cQ0-Pw-CxO"/>
+                                                            </connections>
                                                         </button>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="R$ 35.000,00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YaO-bE-KDR" userLabel="Balance Label">
-                                                            <rect key="frame" x="0.0" y="59.5" width="243" height="44.5"/>
-                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="37"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="3wT-yD-d2B">
+                                                            <rect key="frame" x="0.0" y="46.5" width="313.5" height="57.5"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="R$ 35.000,00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YaO-bE-KDR" userLabel="Balance Label">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="313.5" height="57.5"/>
+                                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="48"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                        </stackView>
                                                     </subviews>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </stackView>
                                             </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstItem="RUD-mQ-Dwm" firstAttribute="leading" secondItem="9HC-A5-6Iw" secondAttribute="leading" constant="24" id="Cvq-1f-gzw"/>
                                                 <constraint firstAttribute="trailing" secondItem="RUD-mQ-Dwm" secondAttribute="trailing" constant="32" id="ETz-ma-xg3"/>
@@ -75,6 +85,7 @@
                                             <outlet property="balanceInsideWalletConstrains" destination="RUD-mQ-Dwm" id="wfh-cM-u3p"/>
                                             <outlet property="balanceLabel" destination="YaO-bE-KDR" id="8SH-sZ-aWj"/>
                                             <outlet property="currentBalanceButton" destination="BLU-co-L6K" id="kTQ-cA-20t"/>
+                                            <outlet property="stackJustForBalance" destination="3wT-yD-d2B" id="skQ-Yo-37L"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="GraphicsInsideTableViewCellID" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="GraphicsTableViewCell" rowHeight="154" id="KAq-hK-g56" userLabel="graphicsCell" customClass="GraphicsTableViewCell" customModule="ExpensesOrganizer" customModuleProvider="target">
@@ -83,6 +94,7 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="KAq-hK-g56" id="pxh-il-o7z">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="154"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </tableViewCell>
@@ -153,6 +165,7 @@
                                                 <constraint firstItem="Dlx-un-36W" firstAttribute="top" secondItem="VKF-Zy-u07" secondAttribute="top" constant="8" id="p2z-vP-kXS"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
                                             <outlet property="balanceInsideLabel" destination="2EP-yu-uOv" id="Q9o-LR-OS9"/>
                                             <outlet property="insideWalletButton" destination="kWF-Hu-IiE" id="UDf-L6-sle"/>
@@ -187,6 +200,7 @@
                                                 <constraint firstAttribute="bottomMargin" secondItem="Nc7-oN-bxK" secondAttribute="bottom" constant="32" id="n92-6i-JBN"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
                                             <outlet property="addWalletButton" destination="Nc7-oN-bxK" id="DJZ-iW-oSo"/>
                                         </connections>
@@ -208,6 +222,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="oaT-NI-o7s"/>
                     <connections>
+                        <outlet property="backgroundConstrain" destination="Ka2-0Z-F9S" id="rUL-7i-AnH"/>
                         <outlet property="backgroundView" destination="Ccy-Qu-9yb" id="0u0-QJ-z91"/>
                         <outlet property="walletsTableView" destination="Ji7-FR-Dof" id="2tB-HC-nSA"/>
                     </connections>

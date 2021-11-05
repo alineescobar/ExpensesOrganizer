@@ -9,9 +9,14 @@ import UIKit
 
 class BalanceInsideTableViewCell: UITableViewCell {
 
+    @IBAction func hideBalanceInsideAction(_ sender: UIButton) {
+        balanceDelegate?.didTapBalanceButton()
+    }
+    
     @IBOutlet weak var currentBalanceButton: UIButton!
     @IBOutlet weak var balanceLabel: UILabel!
     @IBOutlet weak var balanceInsideWalletConstrains: UIStackView!
+    @IBOutlet weak var stackJustForBalance: UIStackView!
     weak var balanceDelegate: BalanceCellDelegate?
     
     override func awakeFromNib() {
