@@ -20,12 +20,15 @@ class WalletsViewController: UIViewController {
     
     @IBOutlet weak var backgroundView: UIView!
     @IBOutlet weak var walletsTableView: UITableView!
+    private let graphicsCellId = "GraphicsTableViewCell"
     private let walletsCategories: [WalletsCategory] = WalletsCategory.allCases
+    private var isShowingBalance: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         walletsTableView.dataSource = self
         walletsTableView.delegate = self
+        walletsTableView.register(UINib(nibName: graphicsCellId, bundle: nil), forCellReuseIdentifier: graphicsCellId)
     }
 }
 
@@ -59,9 +62,16 @@ extension WalletsViewController: UITableViewDataSource {
             else {
                 return UITableViewCell()
             }
+            cell.balanceDelegate = self
+            cell.currentBalanceButton.setImage(isShowingBalance ? UIImage(systemName: "eye") : UIImage(systemName: "eyebrow"), for: .normal)
+            cell.balanceLabel.alpha = isShowingBalance ? 1 : 0
+            cell.balanceInsideWalletConstrains.backgroundColor = isShowingBalance ? UIColor.clear : UIColor.lightGray
+            let balance = 2234.5
+            cell.balanceLabel.attributedText = getFormattedBalance(balance: balance, smallTextSize: 13.6, type: .screen)
+            
             return cell
         case .graphics:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "GraphicsInsideTableViewCellID", for: indexPath) as? GraphicsInsideTableViewCell
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: graphicsCellId, for: indexPath) as? GraphicsTableViewCell
             else {
                 return UITableViewCell()
             }
@@ -99,5 +109,12 @@ extension WalletsViewController: WalletsCellDelegate {
     
     func didTapAddWallet() {
         performSegue(withIdentifier: "addWallet", sender: nil)
+    }
+}
+
+extension WalletsViewController: BalanceCellDelegate {
+    func didTapBalanceButton() {
+        isShowingBalance = !isShowingBalance
+        walletsTableView.reloadData()
     }
 }
