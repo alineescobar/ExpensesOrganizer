@@ -41,25 +41,25 @@
                                 </connections>
                             </segmentedControl>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LHx-cE-JJv">
-                                <rect key="frame" x="0.0" y="102" width="414" height="760"/>
+                                <rect key="frame" x="0.0" y="129" width="414" height="733"/>
                                 <connections>
-                                    <segue destination="8fW-bf-dI9" kind="embed" id="Age-UW-zrF"/>
+                                    <segue destination="BE6-8L-WaS" kind="embed" id="Age-UW-zrF"/>
                                 </connections>
                             </containerView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f5x-de-Zge">
-                                <rect key="frame" x="0.0" y="102" width="414" height="760"/>
+                                <rect key="frame" x="0.0" y="129" width="414" height="733"/>
                                 <connections>
-                                    <segue destination="rbo-ha-FuY" kind="embed" id="TxQ-xF-ICF"/>
+                                    <segue destination="3gC-w0-qp9" kind="embed" id="TxQ-xF-ICF"/>
                                 </connections>
                             </containerView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="LHx-cE-JJv" firstAttribute="top" secondItem="os5-se-bgi" secondAttribute="bottom" id="4mh-Kb-A6m"/>
+                            <constraint firstItem="LHx-cE-JJv" firstAttribute="top" secondItem="os5-se-bgi" secondAttribute="bottom" constant="27" id="72V-QV-PvT"/>
                             <constraint firstItem="f5x-de-Zge" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="IA0-Tr-gB5"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="f5x-de-Zge" secondAttribute="bottom" id="PNH-hx-HUg"/>
-                            <constraint firstItem="f5x-de-Zge" firstAttribute="top" secondItem="os5-se-bgi" secondAttribute="bottom" id="XPg-ZN-IPv"/>
+                            <constraint firstItem="f5x-de-Zge" firstAttribute="top" secondItem="os5-se-bgi" secondAttribute="bottom" constant="27" id="XPg-ZN-IPv"/>
                             <constraint firstItem="LHx-cE-JJv" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="XZf-NQ-V1S"/>
                             <constraint firstItem="LHx-cE-JJv" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="dQV-hk-00E"/>
                             <constraint firstItem="os5-se-bgi" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="ofk-or-ffO"/>
@@ -75,29 +75,29 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-10.144927536231885" y="417.85714285714283"/>
+            <point key="canvasLocation" x="-1435" y="497"/>
         </scene>
         <!--Add Income View Controller-->
         <scene sceneID="8QV-xR-008">
             <objects>
                 <viewController id="8fW-bf-dI9" customClass="AddIncomeViewController" customModule="ExpensesOrganizer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="t72-zN-741">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="760"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="733"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Kxf-XT-KjO">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="698"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="671"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="add-income-value-cell" rowHeight="144" id="52D-AG-hAU" customClass="AddIncomeValueCell" customModule="ExpensesOrganizer" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="44.5" width="414" height="144"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="add-income-value-cell" rowHeight="127" id="52D-AG-hAU" customClass="AddIncomeValueCell" customModule="ExpensesOrganizer" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="127"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="52D-AG-hAU" id="uI6-7b-hPg">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="144"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="127"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="BMI-Ux-gDl">
-                                                    <rect key="frame" x="24" y="40" width="366" height="40"/>
+                                                    <rect key="frame" x="24" y="23" width="366" height="40"/>
                                                     <subviews>
                                                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="50,00" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UQi-GF-QnR">
                                                             <rect key="frame" x="0.0" y="0.0" width="328" height="40"/>
@@ -121,7 +121,7 @@
                                                 </stackView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="BMI-Ux-gDl" firstAttribute="top" secondItem="uI6-7b-hPg" secondAttribute="top" constant="40" id="PXR-Ff-B5V"/>
+                                                <constraint firstItem="BMI-Ux-gDl" firstAttribute="top" secondItem="uI6-7b-hPg" secondAttribute="top" constant="23" id="PXR-Ff-B5V"/>
                                                 <constraint firstAttribute="bottom" secondItem="BMI-Ux-gDl" secondAttribute="bottom" constant="64" id="UEl-aa-Vx5"/>
                                                 <constraint firstItem="BMI-Ux-gDl" firstAttribute="leading" secondItem="uI6-7b-hPg" secondAttribute="leading" constant="24" id="XiN-9n-dKv"/>
                                                 <constraint firstAttribute="trailing" secondItem="BMI-Ux-gDl" secondAttribute="trailing" constant="24" id="fQ3-WW-hn1"/>
@@ -129,7 +129,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="add-income-divider-cell" rowHeight="1" id="yoU-3A-2FF">
-                                        <rect key="frame" x="0.0" y="188.5" width="414" height="1"/>
+                                        <rect key="frame" x="0.0" y="171.5" width="414" height="1"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="yoU-3A-2FF" id="XyM-GT-fZA">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="1"/>
@@ -151,7 +151,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="add-income-name-cell" rowHeight="90" id="5aN-Tu-ad4" customClass="AddIncomeNameCell" customModule="ExpensesOrganizer" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="189.5" width="414" height="90"/>
+                                        <rect key="frame" x="0.0" y="172.5" width="414" height="90"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="5aN-Tu-ad4" id="HLt-yZ-jul">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="90"/>
@@ -194,7 +194,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="add-income-category-cell" rowHeight="75" id="cUP-aM-rDf" customClass="AddIncomeCategoryCell" customModule="ExpensesOrganizer" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="279.5" width="414" height="75"/>
+                                        <rect key="frame" x="0.0" y="262.5" width="414" height="75"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="cUP-aM-rDf" id="wTR-4e-ACC">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="75"/>
@@ -238,7 +238,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="add-income-wallet-cell" rowHeight="75" id="PUf-Hp-Tey" customClass="AddIncomeWalletCell" customModule="ExpensesOrganizer" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="354.5" width="414" height="75"/>
+                                        <rect key="frame" x="0.0" y="337.5" width="414" height="75"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="PUf-Hp-Tey" id="HPK-99-aqR">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="75"/>
@@ -282,7 +282,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="add-income-planning-cell" rowHeight="75" id="fIC-14-5j4" customClass="AddIncomePlanningCell" customModule="ExpensesOrganizer" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="429.5" width="414" height="75"/>
+                                        <rect key="frame" x="0.0" y="412.5" width="414" height="75"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fIC-14-5j4" id="5tI-6C-DPU">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="75"/>
@@ -352,7 +352,7 @@
                                 </prototypes>
                             </tableView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="27" translatesAutoresizingMaskIntoConstraints="NO" id="PxO-kU-dZf">
-                                <rect key="frame" x="32" y="710" width="350" height="38"/>
+                                <rect key="frame" x="32" y="683" width="350" height="38"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vh6-wP-okH">
                                         <rect key="frame" x="0.0" y="0.0" width="161.5" height="38"/>
@@ -394,26 +394,74 @@
                             <constraint firstAttribute="trailing" secondItem="Kxf-XT-KjO" secondAttribute="trailing" id="ydh-2q-4II"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="jXn-W6-2Wp"/>
                     <connections>
                         <outlet property="cancellButton" destination="Vh6-wP-okH" id="cMH-Y7-Oxu"/>
                         <outlet property="doneButton" destination="HzJ-js-YtR" id="xtW-oq-ugU"/>
                         <outlet property="tableView" destination="Kxf-XT-KjO" id="qKz-FA-gqf"/>
+                        <segue destination="OqA-JU-OUc" kind="presentation" id="qpv-E9-2GG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uXc-4H-D13" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1132" y="103"/>
+            <point key="canvasLocation" x="663.768115942029" y="101.45089285714285"/>
         </scene>
         <!--View Controller-->
+        <scene sceneID="Aly-rj-nFx">
+            <objects>
+                <viewController id="OqA-JU-OUc" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ste-pW-she">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="679"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" style="inline" translatesAutoresizingMaskIntoConstraints="NO" id="jSV-cU-Akb">
+                                <rect key="frame" x="24" y="69" width="366" height="380"/>
+                                <color key="tintColor" systemColor="labelColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="380" id="zZ4-9B-CVW"/>
+                                </constraints>
+                            </datePicker>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HUk-37-I18">
+                                <rect key="frame" x="173.5" y="24" width="67" height="5"/>
+                                <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="67" id="Ih7-c7-wHN"/>
+                                    <constraint firstAttribute="height" constant="5" id="PYl-JZ-U93"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="NO"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="0yh-Jw-R8W"/>
+                        <color key="backgroundColor" systemColor="systemGray5Color"/>
+                        <constraints>
+                            <constraint firstItem="0yh-Jw-R8W" firstAttribute="trailing" secondItem="jSV-cU-Akb" secondAttribute="trailing" constant="24" id="CDN-71-vRk"/>
+                            <constraint firstItem="HUk-37-I18" firstAttribute="centerX" secondItem="Ste-pW-she" secondAttribute="centerX" id="I4q-Jx-dOR"/>
+                            <constraint firstItem="jSV-cU-Akb" firstAttribute="top" secondItem="HUk-37-I18" secondAttribute="bottom" constant="40" id="OBs-in-JSt"/>
+                            <constraint firstItem="jSV-cU-Akb" firstAttribute="leading" secondItem="0yh-Jw-R8W" secondAttribute="leading" constant="24" id="PEf-aT-fvf"/>
+                            <constraint firstItem="HUk-37-I18" firstAttribute="top" secondItem="0yh-Jw-R8W" secondAttribute="top" constant="24" id="YKO-MQ-9Oh"/>
+                            <constraint firstItem="0yh-Jw-R8W" firstAttribute="bottom" secondItem="jSV-cU-Akb" secondAttribute="bottom" constant="230" id="guZ-cl-OZ9"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="B4j-OI-TOd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1486.9565217391305" y="101.45089285714285"/>
+        </scene>
+        <!--Add Income All Done View Controller-->
         <scene sceneID="Ch6-XY-4Do">
             <objects>
-                <viewController id="F2A-pe-i2m" sceneMemberID="viewController">
+                <viewController id="F2A-pe-i2m" customClass="AddIncomeAllDoneViewController" customModule="ExpensesOrganizer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ylV-o0-uil">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="706"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="733"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mD7-g4-8dZ">
-                                <rect key="frame" x="32" y="636" width="350" height="38"/>
+                                <rect key="frame" x="32" y="663" width="350" height="38"/>
                                 <color key="backgroundColor" systemColor="labelColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="38" id="xqI-ud-85n"/>
@@ -422,9 +470,12 @@
                                 <state key="normal" title="Prontinho">
                                     <color key="titleColor" systemColor="systemGray6Color"/>
                                 </state>
+                                <connections>
+                                    <action selector="doneAction:" destination="F2A-pe-i2m" eventType="touchUpInside" id="iAO-3l-5BF"/>
+                                </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="84" translatesAutoresizingMaskIntoConstraints="NO" id="aqu-md-59k">
-                                <rect key="frame" x="24" y="192.5" width="366" height="321.5"/>
+                                <rect key="frame" x="24" y="206" width="366" height="321.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="21" translatesAutoresizingMaskIntoConstraints="NO" id="wx3-ut-viV">
                                         <rect key="frame" x="14" y="0.0" width="338.5" height="117.5"/>
@@ -466,32 +517,35 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="jYt-G9-r8V"/>
+                    <connections>
+                        <outlet property="doneButton" destination="mD7-g4-8dZ" id="Hma-Gy-5Q3"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5j1-vI-8lU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1961" y="103"/>
+            <point key="canvasLocation" x="3536.2318840579715" y="100.78125"/>
         </scene>
         <!--Add Expense View Controller-->
         <scene sceneID="ipc-nT-Afl">
             <objects>
                 <viewController id="rbo-ha-FuY" customClass="AddExpenseViewController" customModule="ExpensesOrganizer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Fa2-9o-PgN">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="760"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="733"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="49B-CL-pcO">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="698"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="671"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="add-expense-value-cell" rowHeight="144" id="DdK-Yj-TL6" customClass="AddExpenseValueCell" customModule="ExpensesOrganizer" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="44.5" width="414" height="144"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="add-expense-value-cell" rowHeight="127" id="DdK-Yj-TL6" customClass="AddExpenseValueCell" customModule="ExpensesOrganizer" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="127"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="DdK-Yj-TL6" id="ksH-8O-jcP">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="144"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="127"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Cc6-vT-LMr">
-                                                    <rect key="frame" x="24" y="40" width="366" height="40"/>
+                                                    <rect key="frame" x="24" y="23" width="366" height="40"/>
                                                     <subviews>
                                                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="50,00" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Aw0-un-lu9">
                                                             <rect key="frame" x="0.0" y="0.0" width="328" height="40"/>
@@ -518,12 +572,12 @@
                                                 <constraint firstAttribute="bottom" secondItem="Cc6-vT-LMr" secondAttribute="bottom" constant="64" id="QPP-Kw-ssw"/>
                                                 <constraint firstItem="Cc6-vT-LMr" firstAttribute="leading" secondItem="ksH-8O-jcP" secondAttribute="leading" constant="24" id="cB3-gS-0ca"/>
                                                 <constraint firstAttribute="trailing" secondItem="Cc6-vT-LMr" secondAttribute="trailing" constant="24" id="gdx-LJ-cm8"/>
-                                                <constraint firstItem="Cc6-vT-LMr" firstAttribute="top" secondItem="ksH-8O-jcP" secondAttribute="top" constant="40" id="hgr-sQ-58X"/>
+                                                <constraint firstItem="Cc6-vT-LMr" firstAttribute="top" secondItem="ksH-8O-jcP" secondAttribute="top" constant="23" id="hgr-sQ-58X"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="add-expense-name-cell" rowHeight="90" id="X9e-Cb-bgp" customClass="AddExpenseNameCell" customModule="ExpensesOrganizer" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="188.5" width="414" height="90"/>
+                                        <rect key="frame" x="0.0" y="171.5" width="414" height="90"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="X9e-Cb-bgp" id="EmP-JF-p2J">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="90"/>
@@ -566,7 +620,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="add-expense-divider-cell" rowHeight="1" id="SsP-PU-L7F">
-                                        <rect key="frame" x="0.0" y="278.5" width="414" height="1"/>
+                                        <rect key="frame" x="0.0" y="261.5" width="414" height="1"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="SsP-PU-L7F" id="FO5-pO-Emt">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="1"/>
@@ -588,7 +642,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="add-expense-category-cell" rowHeight="75" id="gcr-xn-2bk" customClass="AddExpenseCategoryCell" customModule="ExpensesOrganizer" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="279.5" width="414" height="75"/>
+                                        <rect key="frame" x="0.0" y="262.5" width="414" height="75"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gcr-xn-2bk" id="UeZ-jU-ACM">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="75"/>
@@ -632,7 +686,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="add-expense-payment-cell" rowHeight="75" id="os0-Ln-j58" customClass="AddExpensePaymentCell" customModule="ExpensesOrganizer" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="354.5" width="414" height="75"/>
+                                        <rect key="frame" x="0.0" y="337.5" width="414" height="75"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="os0-Ln-j58" id="htK-0G-OrM">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="75"/>
@@ -676,7 +730,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="add-expense-planning-cell" rowHeight="75" id="1Qj-cT-Hey" customClass="AddExpensePlanningCell" customModule="ExpensesOrganizer" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="429.5" width="414" height="75"/>
+                                        <rect key="frame" x="0.0" y="412.5" width="414" height="75"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="1Qj-cT-Hey" id="0sL-yj-jTG">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="75"/>
@@ -746,7 +800,7 @@
                                 </prototypes>
                             </tableView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="27" translatesAutoresizingMaskIntoConstraints="NO" id="wJy-DP-8ZG">
-                                <rect key="frame" x="32" y="710" width="350" height="38"/>
+                                <rect key="frame" x="32" y="683" width="350" height="38"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tKG-Eg-Kdl">
                                         <rect key="frame" x="0.0" y="0.0" width="161.5" height="38"/>
@@ -788,6 +842,7 @@
                             <constraint firstItem="wJy-DP-8ZG" firstAttribute="leading" secondItem="pas-Pf-rGn" secondAttribute="leading" constant="32" id="zqq-xQ-uoU"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="1Jk-Du-7eZ"/>
                     <connections>
                         <outlet property="cancellButton" destination="tKG-Eg-Kdl" id="UJq-ZW-uoM"/>
                         <outlet property="doneButton" destination="TkP-4F-u25" id="zcu-2X-4Nv"/>
@@ -796,18 +851,18 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TPL-6P-KfE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1132" y="723"/>
+            <point key="canvasLocation" x="663.768115942029" y="783.81696428571422"/>
         </scene>
-        <!--View Controller-->
+        <!--Add Expense All Done View Controller-->
         <scene sceneID="WWw-vT-JFz">
             <objects>
-                <viewController id="Rfg-Jl-Vfa" sceneMemberID="viewController">
+                <viewController id="Rfg-Jl-Vfa" customClass="AddExpenseAllDoneViewController" customModule="ExpensesOrganizer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="vs4-bI-BHy">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="706"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="733"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="REn-9U-fqd">
-                                <rect key="frame" x="32" y="636" width="350" height="38"/>
+                                <rect key="frame" x="32" y="663" width="350" height="38"/>
                                 <color key="backgroundColor" systemColor="labelColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="38" id="r8k-HT-zoe"/>
@@ -816,9 +871,12 @@
                                 <state key="normal" title="Prontinho">
                                     <color key="titleColor" systemColor="systemGray6Color"/>
                                 </state>
+                                <connections>
+                                    <action selector="doneAction:" destination="Rfg-Jl-Vfa" eventType="touchUpInside" id="awG-2F-WPV"/>
+                                </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="84" translatesAutoresizingMaskIntoConstraints="NO" id="Rt4-8J-PKb">
-                                <rect key="frame" x="24" y="192.5" width="366" height="321.5"/>
+                                <rect key="frame" x="24" y="206" width="366" height="321.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="21" translatesAutoresizingMaskIntoConstraints="NO" id="rzZ-vi-JKI">
                                         <rect key="frame" x="14" y="0.0" width="338.5" height="117.5"/>
@@ -859,11 +917,47 @@
                             <constraint firstItem="Rs5-TH-9jv" firstAttribute="trailing" secondItem="REn-9U-fqd" secondAttribute="trailing" constant="32" id="iTb-dJ-xWV"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="YKa-bR-4xq"/>
+                    <connections>
+                        <outlet property="doneButton" destination="REn-9U-fqd" id="3ak-bo-Mxq"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9NA-8b-4hw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1961" y="723"/>
+            <point key="canvasLocation" x="3536.2318840579715" y="783.81696428571422"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="YfB-Lu-Uig">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="BE6-8L-WaS" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" hidden="YES" contentMode="scaleToFill" id="8af-3P-oRp">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="8fW-bf-dI9" kind="relationship" relationship="rootViewController" id="wI1-PR-Mcu"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uG6-kj-Fq5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-243.47826086956525" y="101.45089285714285"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="U7N-zK-6Ju">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="3gC-w0-qp9" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="exe-bl-jba">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="rbo-ha-FuY" kind="relationship" relationship="rootViewController" id="5LZ-wq-oM1"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="r6p-Ag-eX1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-243.47826086956525" y="783.81696428571422"/>
         </scene>
     </scenes>
     <resources>
@@ -877,8 +971,14 @@
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
+        <systemColor name="opaqueSeparatorColor">
+            <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray5Color">
+            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGray6Color">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
