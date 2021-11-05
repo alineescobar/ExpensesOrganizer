@@ -21,6 +21,8 @@ class AddExpenseViewController: UIViewController, UITableViewDataSource, UITable
     @IBOutlet weak var cancellButton: UIButton!
     @IBOutlet weak var doneButton: UIButton!
     
+    private let interactor = Interactor()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -33,6 +35,8 @@ class AddExpenseViewController: UIViewController, UITableViewDataSource, UITable
         cancellButton.layer.cornerRadius = 8
         cancellButton.layer.borderColor = UIColor.label.cgColor
         cancellButton.layer.borderWidth = 2.0
+        
+        print("\n\n\nterminal\n\n\n")
     }
     
     // MARK: - Table view data source
@@ -81,10 +85,57 @@ class AddExpenseViewController: UIViewController, UITableViewDataSource, UITable
             guard let cell = tableView.dequeueReusableCell(withIdentifier: AddExpensePlanningCell.identifier, for: indexPath) as? AddExpensePlanningCell else {
                 return UITableViewCell()            }
             
+            cell.planningDelegate = self
+            
             return cell
             
         case .divider:
             return tableView.dequeueReusableCell(withIdentifier: "add-expense-divider-cell", for: indexPath)
         }
+    }
+}
+
+extension AddExpenseViewController: UIViewControllerTransitioningDelegate {
+    // TODO: mudar para default se all done
+    func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {
+//        guard (presenting as? AddExpenseAllDoneViewController) != nil else {
+//            return self.presentationController
+//        }
+
+        return HalfSizePresentationController(presentedViewController: presented, presenting: presentingViewController)
+    }
+    
+    func interactionControllerForDismissal(using animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
+        interactor.hasStarted ? interactor : .none
+    }
+}
+
+extension AddExpenseViewController: PlanningCellDelegate {
+    func didTapRecurrency() {
+        let storyboard = UIStoryboard(name: "Addition", bundle: nil)
+        let pvc = storyboard.instantiateViewController(withIdentifier: "AddExpenseRecurrencyViewController") as? AddExpenseRecurrencyViewController
+
+        pvc?.modalPresentationStyle = .custom
+        pvc?.transitioningDelegate = self
+//        pvc?.recurrencyDelegate = self
+//        pvc?.selectedRecurrencyType = selectedRecurrencyType
+
+        present(pvc ?? UIViewController(), animated: true)
+        
+        print(#function)
+    }
+
+    func didTapCalendar() {
+        let storyboard = UIStoryboard(name: "Addition", bundle: nil)
+        let pvc = storyboard.instantiateViewController(withIdentifier: "AddExpenseCalendarViewController") as? AddExpenseCalendarViewController
+
+        pvc?.modalPresentationStyle = .custom
+        pvc?.transitioningDelegate = self
+//        pvc?.calendarDelegate = self
+//        pvc?.selectedDate = selectedDate
+
+        present(pvc ?? UIViewController(), animated: true)
+        
+        print(#function)
     }
 }

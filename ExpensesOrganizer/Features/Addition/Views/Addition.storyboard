@@ -399,17 +399,16 @@
                         <outlet property="cancellButton" destination="Vh6-wP-okH" id="cMH-Y7-Oxu"/>
                         <outlet property="doneButton" destination="HzJ-js-YtR" id="xtW-oq-ugU"/>
                         <outlet property="tableView" destination="Kxf-XT-KjO" id="qKz-FA-gqf"/>
-                        <segue destination="OqA-JU-OUc" kind="presentation" id="qpv-E9-2GG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uXc-4H-D13" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="663.768115942029" y="101.45089285714285"/>
         </scene>
-        <!--View Controller-->
+        <!--Add Expense Calendar View Controller-->
         <scene sceneID="Aly-rj-nFx">
             <objects>
-                <viewController id="OqA-JU-OUc" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AddExpenseCalendarViewController" id="OqA-JU-OUc" customClass="AddExpenseCalendarViewController" customModule="ExpensesOrganizer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ste-pW-she">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="679"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -450,7 +449,73 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="B4j-OI-TOd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1486.9565217391305" y="101.45089285714285"/>
+            <point key="canvasLocation" x="1664" y="784"/>
+        </scene>
+        <!--Add Expense Recurrency View Controller-->
+        <scene sceneID="Xnv-od-P1L">
+            <objects>
+                <viewController storyboardIdentifier="AddExpenseRecurrencyViewController" id="MoM-iS-vEa" customClass="AddExpenseRecurrencyViewController" customModule="ExpensesOrganizer" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="PjB-11-Qfb">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="679"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="5Ew-M4-5tU">
+                                <rect key="frame" x="24" y="69" width="366" height="342"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="342" id="Wmv-wc-4bN"/>
+                                </constraints>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="IzS-Tn-Rl2" style="IBUITableViewCellStyleDefault" id="9mu-hI-6Nm">
+                                        <rect key="frame" x="0.0" y="44.5" width="366" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="9mu-hI-6Nm" id="2kf-7w-REl">
+                                            <rect key="frame" x="0.0" y="0.0" width="366" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Semanalmente" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="IzS-Tn-Rl2">
+                                                    <rect key="frame" x="20" y="0.0" width="326" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MwV-wh-df4">
+                                <rect key="frame" x="173.5" y="24" width="67" height="5"/>
+                                <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="5" id="TXR-xE-zXs"/>
+                                    <constraint firstAttribute="width" constant="67" id="vcm-wS-5fR"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="NO"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="fae-g8-KDl"/>
+                        <color key="backgroundColor" systemColor="systemGray5Color"/>
+                        <constraints>
+                            <constraint firstItem="5Ew-M4-5tU" firstAttribute="top" secondItem="MwV-wh-df4" secondAttribute="bottom" constant="40" id="SIH-v6-VeC"/>
+                            <constraint firstItem="fae-g8-KDl" firstAttribute="trailing" secondItem="5Ew-M4-5tU" secondAttribute="trailing" constant="24" id="THR-gx-szY"/>
+                            <constraint firstItem="MwV-wh-df4" firstAttribute="centerX" secondItem="PjB-11-Qfb" secondAttribute="centerX" id="TuX-xC-KQ5"/>
+                            <constraint firstItem="MwV-wh-df4" firstAttribute="top" secondItem="fae-g8-KDl" secondAttribute="top" constant="24" id="WT1-4O-VQF"/>
+                            <constraint firstItem="5Ew-M4-5tU" firstAttribute="top" secondItem="MwV-wh-df4" secondAttribute="bottom" constant="40" id="aAD-v4-wpZ"/>
+                            <constraint firstItem="5Ew-M4-5tU" firstAttribute="leading" secondItem="fae-g8-KDl" secondAttribute="leading" constant="24" id="hZd-Dx-zMR"/>
+                            <constraint firstItem="fae-g8-KDl" firstAttribute="bottom" secondItem="5Ew-M4-5tU" secondAttribute="bottom" constant="268" id="wGg-u8-FIH"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="E80-Zq-O2r" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2585.507246376812" y="782.47767857142856"/>
         </scene>
         <!--Add Income All Done View Controller-->
         <scene sceneID="Ch6-XY-4Do">
@@ -796,6 +861,12 @@
                                                 <constraint firstAttribute="bottom" secondItem="70G-Uc-1nx" secondAttribute="bottom" constant="8" id="oT4-xx-WOb"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="calendarStack" destination="GbO-O7-jzv" id="pXQ-UO-NQ1"/>
+                                            <outlet property="dateLabel" destination="toK-pB-Vsh" id="aia-iA-nKe"/>
+                                            <outlet property="recurrencyLabel" destination="NvS-U9-AGK" id="WtT-zI-qxy"/>
+                                            <outlet property="recurrencyStack" destination="kDs-dq-zf2" id="NII-bL-Ika"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -847,6 +918,8 @@
                         <outlet property="cancellButton" destination="tKG-Eg-Kdl" id="UJq-ZW-uoM"/>
                         <outlet property="doneButton" destination="TkP-4F-u25" id="zcu-2X-4Nv"/>
                         <outlet property="tableView" destination="49B-CL-pcO" id="AWs-xc-RfA"/>
+                        <segue destination="OqA-JU-OUc" kind="presentation" id="35Z-VN-knl"/>
+                        <segue destination="MoM-iS-vEa" kind="presentation" id="D8b-dQ-hbD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TPL-6P-KfE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
