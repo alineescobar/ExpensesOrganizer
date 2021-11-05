@@ -169,7 +169,7 @@ extension WalletDetailViewController: UITableViewDataSource {
         if editingStyle == .delete {
 //            walletRecentTransactions.remove(at: indexPath.row)
             // TODO: Update CoreData object
-            tableView.deleteRows(at: [indexPath], with: .fade)
+//            tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
         }
