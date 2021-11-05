@@ -17,7 +17,7 @@ class AdditionViewController: UIViewController {
             let request = Item.fetchRequest() as NSFetchRequest<Item>
             request.fetchLimit = 1
             
-            let predicate = NSPredicate(format: "name == %@")
+            let predicate = NSPredicate(format: "name == %@", name)
             
             request.predicate = predicate
 
@@ -34,7 +34,7 @@ class AdditionViewController: UIViewController {
             let request = Template.fetchRequest() as NSFetchRequest<Template>
             request.fetchLimit = 1
             
-            let predicate = NSPredicate(format: "name == %@")
+            let predicate = NSPredicate(format: "name == %@", name)
             
             request.predicate = predicate
 
@@ -46,27 +46,33 @@ class AdditionViewController: UIViewController {
         }
     }
     
-    func createItem(name: String, value: Double, recurrence: Bool, category: Template?, itemID: UUID) {
+    //    swiftlint:disable function_parameter_count
+    func createItem(name: String, value: Double, recurrence: Int16, category: Template?, itemID: UUID, recurrenceDate: Date) {
         let newItem = Item(context: context)
         newItem.name = name
         newItem.value = value
         newItem.recurrence = recurrence
         newItem.template = category
         newItem.itemID = itemID
+        newItem.itemRecurrenceDate = recurrenceDate
+        category?.addToItems(newItem)
+        
         do {
             try context.save()
         } catch {
-            print("saving failed")
             print(error.localizedDescription)
         }
     }
+    // swiftlint: enable function_parameter_count
     
     func createTemplate(name: String, templateDescription: String?, item: Item?, templateID: UUID) {
         let newTemplate = Template(context: context)
         newTemplate.name = name
         newTemplate.templateDescription = templateDescription
         newTemplate.templateID = templateID
-        newTemplate.items?.adding(item as Any)
+        if let item = item {
+            newTemplate.addToItems(item)
+        }
         
         do {
             try context.save()
