@@ -22,13 +22,17 @@ class WalletsViewController: UIViewController {
     @IBOutlet weak var walletsTableView: UITableView!
     private let graphicsCellId = "GraphicsTableViewCell"
     private let walletsCategories: [WalletsCategory] = WalletsCategory.allCases
-    private var isShowingBalance: Bool = false
+    private var isShowingBalance: Bool = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
         walletsTableView.dataSource = self
         walletsTableView.delegate = self
         walletsTableView.register(UINib(nibName: graphicsCellId, bundle: nil), forCellReuseIdentifier: graphicsCellId)
+        self.navigationItem.title = "Carteira"
+        self.navigationController?.navigationBar.topItem?.title = " "
+        self.navigationController?.navigationBar.tintColor = UIColor.black
+        navigationController?.navigationBar.barTintColor = UIColor.gray
     }
 }
 
@@ -38,7 +42,7 @@ extension WalletsViewController: UITableViewDelegate {
 
         switch walletsCategory {
         case .graphics:
-            return 230
+            return 250
         case .wallets:
             return 120
         default:
@@ -65,10 +69,10 @@ extension WalletsViewController: UITableViewDataSource {
             cell.balanceDelegate = self
             cell.currentBalanceButton.setImage(isShowingBalance ? UIImage(systemName: "eye") : UIImage(systemName: "eyebrow"), for: .normal)
             cell.balanceLabel.alpha = isShowingBalance ? 1 : 0
-            cell.balanceInsideWalletConstrains.backgroundColor = isShowingBalance ? UIColor.clear : UIColor.lightGray
+            cell.balanceLabel.backgroundColor = isShowingBalance ? UIColor.clear : UIColor.lightGray
             let balance = 2234.5
             cell.balanceLabel.attributedText = getFormattedBalance(balance: balance, smallTextSize: 13.6, type: .screen)
-            
+            cell.selectionStyle = .none
             return cell
         case .graphics:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: graphicsCellId, for: indexPath) as? GraphicsTableViewCell
@@ -81,9 +85,10 @@ extension WalletsViewController: UITableViewDataSource {
             else {
                 return UITableViewCell()
             }
-            cell.balanceInsideLabel.text = "R$ 1000,00"
+            let balance = 2234.5
             cell.walletNameLabel.text = "No meu bolso"
             cell.walletsDelegate = self
+            cell.balanceInsideLabel.attributedText = getFormattedBalance(balance: balance, smallTextSize: 13.6, type: .screen)
             cell.selectionStyle = .none
             return cell
         case .addWallet:
