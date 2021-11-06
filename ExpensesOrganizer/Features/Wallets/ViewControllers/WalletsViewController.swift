@@ -16,7 +16,7 @@ enum WalletsCategory: CaseIterable {
     }
     
     static var walletsCases: [WalletsCategory] {
-        return [.wallets,.wallets,.wallets,.wallets,.addWallet]
+        return [.wallets, .wallets, .wallets, .wallets, .addWallet]
     }
 }
 
@@ -35,12 +35,18 @@ class WalletsViewController: UIViewController {
         super.viewDidLoad()
         walletsTableView.dataSource = self
         walletsTableView.delegate = self
+        initialBackgroundViewHeight = backgroundConstrain.constant
         walletsTableView.register(UINib(nibName: graphicsCellId, bundle: nil), forCellReuseIdentifier: graphicsCellId)
         self.navigationItem.title = "Carteira"
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 20, weight: .bold)]
+        self.navigationController?.navigationBar.backIndicatorImage = UIImage(systemName: "chevron.left")?.withInsets(UIEdgeInsets(top: 0, left: 15, bottom: 3, right: 0))
+        self.navigationController?.navigationBar.backIndicatorTransitionMaskImage = UIImage(systemName: "chevron.left")?.withInsets(UIEdgeInsets(top: 0, left: 15, bottom: 3, right: 0))
         self.navigationController?.navigationBar.topItem?.title = " "
         self.navigationController?.navigationBar.tintColor = UIColor.black
         navigationController?.navigationBar.barTintColor = UIColor.gray
+        
     }
+    
 }
 
 extension WalletsViewController: UITableViewDelegate {
@@ -49,7 +55,7 @@ extension WalletsViewController: UITableViewDelegate {
             let pageCategory = walletsCategories[indexPath.row]
             switch pageCategory {
             case .graphics:
-                return 200
+                return 150
             default:
                 break
             }
@@ -65,135 +71,120 @@ extension WalletsViewController: UITableViewDelegate {
         return UITableView.automaticDimension
     }
     
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        if section == 0 {
+            return CGFloat(32)
+        } else {
+            return .zero
+        }
+    }
+
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        if section == 0 {
+            return UIView()
+        } else {
+            return nil
+        }
+    }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        if indexPath.section == 0 {
+        // TODO: Segues to wallet and to wallet creation screens
+    }
+}
+
+extension WalletsViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if section == 0 {
+            return walletsCategories.count
+        } else {
+            return numberOfWalletsCategories.count
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        if indexPath.section == 0 {
             let pageCategory = walletsCategories[indexPath.row]
             switch pageCategory {
             case .balance:
-                let height: Double = 150.0
-                let heightOffset: Double = -1 * height
-                var indexPathToReload = indexPath
-                indexPathToReload.row += 1
-                UIView.animate(withDuration: 0.1) {
-                    self.backgroundConstrain.constant += heightOffset
-                    self.initialBackgroundViewHeight += heightOffset
-                    self.view.layoutIfNeeded()
+                guard let cell = tableView.dequeueReusableCell(withIdentifier: "BalanceInsideTableViewCellID", for: indexPath) as? BalanceInsideTableViewCell
+                else {
+                    return UITableViewCell()
                 }
-                walletsTableView.reloadRows(at: [indexPath], with: .automatic)
-                walletsTableView.reloadRows(at: [indexPathToReload], with: .automatic)
+                cell.balanceDelegate = self
+                cell.currentBalanceButton.setImage(isShowingBalance ? UIImage(systemName: "eye") : UIImage(systemName: "eyebrow"), for: .normal)
+                cell.balanceLabel.alpha = isShowingBalance ? 1 : 0
+                cell.stackJustForBalance.setBackgroundColor(color: isShowingBalance ? UIColor.clear : UIColor.lightGray)
+                let balance = 2234.5
+                cell.balanceLabel.attributedText = getFormattedBalance(balance: balance, smallTextSize: 13.6, type: .screen)
+                cell.selectionStyle = .none
+                return cell
+            case .graphics:
+                guard let cell = tableView.dequeueReusableCell(withIdentifier: graphicsCellId, for: indexPath) as? GraphicsTableViewCell
+                else {
+                    return UITableViewCell()
+                }
+                cell.selectionStyle = .none
+                return cell
             default:
-                break
- //           }
-//        } else {
-//            let walletsCategory = numberOfWalletsCategories[indexPath.row]
-//            switch walletsCategory {
-//            case .wallets:
-//                let height: Double = 150.0
-//                let heightOffset: Double = -1 * height
-//                var indexPathToReload = indexPath
-//                indexPathToReload.row += 1
-//                UIView.animate(withDuration: 0.1) {
-//                    self.backgroundConstrain.constant += heightOffset
-//                    self.initialBackgroundViewHeight += heightOffset
-//                    self.view.layoutIfNeeded()
-//                }
-//                walletsTableView.reloadRows(at: [indexPath], with: .automatic)
-//                walletsTableView.reloadRows(at: [indexPathToReload], with: .automatic)
-//            default:
-//                break
-//            }
-       }
-    }
-    }
-    
-    extension WalletsViewController: UITableViewDataSource {
-        func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-            if section == 0 {
-                return walletsCategories.count
-            } else {
-                return numberOfWalletsCategories.count
+                return UITableViewCell()
             }
-        }
-        
-        func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        } else {
+            let walletsCategory = numberOfWalletsCategories[indexPath.row]
+            switch walletsCategory {
+            case .wallets:
+                guard let cell = tableView.dequeueReusableCell(withIdentifier: "WalletsInsideTableViewCellID", for: indexPath) as? WalletsInsideTableViewCell
+                else {
+                    return UITableViewCell()
+                }
+                let balance = 2234.5
+                cell.walletNameLabel.text = "No meu bolso"
+                cell.walletsDelegate = self
+                cell.balanceInsideLabel.attributedText = getFormattedBalance(balance: balance, smallTextSize: 13.6, type: .card)
+                cell.selectionStyle = .none
+                return cell
+            case .addWallet:
+                guard let cell = tableView.dequeueReusableCell(withIdentifier: "AddWalletInsideTableViewCellID", for: indexPath) as? AddWalletInsideTableViewCell
+                else {
+                    return UITableViewCell()
+                }
+                cell.walletsDelegate = self
+                cell.selectionStyle = .none
+                return cell
+            default:
+                return UITableViewCell()
+            }
             
-            if indexPath.section == 0 {
-                let pageCategory = walletsCategories[indexPath.row]
-                switch pageCategory {
-                case .balance:
-                    guard let cell = tableView.dequeueReusableCell(withIdentifier: "BalanceInsideTableViewCellID", for: indexPath) as? BalanceInsideTableViewCell
-                    else {
-                        return UITableViewCell()
-                    }
-                    cell.balanceDelegate = self
-                    cell.currentBalanceButton.setImage(isShowingBalance ? UIImage(systemName: "eye") : UIImage(systemName: "eyebrow"), for: .normal)
-                    cell.balanceLabel.alpha = isShowingBalance ? 1 : 0
-                    cell.stackJustForBalance.setBackgroundColor(color: isShowingBalance ? UIColor.clear : UIColor.lightGray)
-                    let balance = 2234.5
-                    cell.balanceLabel.attributedText = getFormattedBalance(balance: balance, smallTextSize: 13.6, type: .screen)
-                    cell.selectionStyle = .none
-                    return cell
-                case .graphics:
-                    guard let cell = tableView.dequeueReusableCell(withIdentifier: graphicsCellId, for: indexPath) as? GraphicsTableViewCell
-                    else {
-                        return UITableViewCell()
-                    }
-                    return cell
-                default:
-                    return UITableViewCell()
-                }
-            } else {
-                let walletsCategory = numberOfWalletsCategories[indexPath.row]
-                switch walletsCategory {
-                case .wallets:
-                    guard let cell = tableView.dequeueReusableCell(withIdentifier: "WalletsInsideTableViewCellID", for: indexPath) as? WalletsInsideTableViewCell
-                    else {
-                        return UITableViewCell()
-                    }
-                    let balance = 2234.5
-                    cell.walletNameLabel.text = "No meu bolso"
-                    cell.walletsDelegate = self
-                    cell.balanceInsideLabel.attributedText = getFormattedBalance(balance: balance, smallTextSize: 13.6, type: .screen)
-                    cell.selectionStyle = .none
-                    return cell
-                case .addWallet:
-                    guard let cell = tableView.dequeueReusableCell(withIdentifier: "AddWalletInsideTableViewCellID", for: indexPath) as? AddWalletInsideTableViewCell
-                    else {
-                        return UITableViewCell()
-                    }
-                    cell.walletsDelegate = self
-                    cell.selectionStyle = .none
-                    return cell
-                default:
-                    return UITableViewCell()
-                }
-                
-            }
-        }
-        
-        func tableView(_ tableView: UITableView, estimatedHeightForHeaderInSection section: Int) -> CGFloat {
-            return 20
-        }
-        
-        func numberOfSections(in tableView: UITableView) -> Int {
-            return 2
         }
     }
     
-    extension WalletsViewController: WalletsCellDelegate {
-        func didTapWallet(index: Int) {
-            // TODO: Put Wallet object on sender (through its index)
-            performSegue(withIdentifier: "walletDetail", sender: nil)
-        }
-        
-        func didTapAddWallet() {
-            performSegue(withIdentifier: "addWallet", sender: nil)
-        }
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
+    }
+}
+
+extension WalletsViewController: UIScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let yOffset = scrollView.contentOffset.y
+        backgroundConstrain.constant = initialBackgroundViewHeight - yOffset
+        view.layoutIfNeeded()
+    }
+}
+
+extension WalletsViewController: WalletsCellDelegate {
+    func didTapWallet(index: Int) {
+        // TODO: Put Wallet object on sender (through its index)
+        performSegue(withIdentifier: "walletDetail", sender: nil)
     }
     
-    extension WalletsViewController: BalanceCellDelegate {
-        func didTapBalanceButton() {
-            isShowingBalance = !isShowingBalance
-            walletsTableView.reloadData()
-        }
+    func didTapAddWallet() {
+        performSegue(withIdentifier: "addWallet", sender: nil)
     }
+}
+
+extension WalletsViewController: BalanceCellDelegate {
+    func didTapBalanceButton() {
+        isShowingBalance = !isShowingBalance
+        walletsTableView.reloadData()
+    }
+}

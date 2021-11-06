@@ -9,7 +9,7 @@ import UIKit
 
 class BalanceInsideTableViewCell: UITableViewCell {
 
-    @IBAction func hideBalanceInsideAction(_ sender: UIButton) {
+    @IBAction private func hideBalanceInsideAction(_ sender: UIButton) {
         balanceDelegate?.didTapBalanceButton()
     }
     
