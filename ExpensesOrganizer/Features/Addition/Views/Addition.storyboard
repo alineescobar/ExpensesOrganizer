@@ -116,6 +116,9 @@
                                                                 <color key="titleColor" systemColor="labelColor"/>
                                                                 <imageReference key="image" image="Backspace" symbolScale="large"/>
                                                             </state>
+                                                            <connections>
+                                                                <action selector="backspaceAction:" destination="52D-AG-hAU" eventType="touchUpInside" id="4ja-LX-kyW"/>
+                                                            </connections>
                                                         </button>
                                                     </subviews>
                                                 </stackView>
@@ -127,6 +130,10 @@
                                                 <constraint firstAttribute="trailing" secondItem="BMI-Ux-gDl" secondAttribute="trailing" constant="24" id="fQ3-WW-hn1"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="backspaceButton" destination="z8t-ns-nnK" id="ovX-UK-IkG"/>
+                                            <outlet property="currencyTextField" destination="UQi-GF-QnR" id="9nz-E8-1e1"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="add-income-divider-cell" rowHeight="1" id="yoU-3A-2FF">
                                         <rect key="frame" x="0.0" y="171.5" width="414" height="1"/>
@@ -525,6 +532,9 @@
                                                                 <color key="titleColor" systemColor="labelColor"/>
                                                                 <imageReference key="image" image="Backspace" symbolScale="large"/>
                                                             </state>
+                                                            <connections>
+                                                                <action selector="backspaceAction:" destination="DdK-Yj-TL6" eventType="touchUpInside" id="AwO-C2-3vN"/>
+                                                            </connections>
                                                         </button>
                                                     </subviews>
                                                 </stackView>
@@ -536,6 +546,10 @@
                                                 <constraint firstItem="Cc6-vT-LMr" firstAttribute="top" secondItem="ksH-8O-jcP" secondAttribute="top" constant="23" id="hgr-sQ-58X"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="backspaceButton" destination="NVY-eE-eYT" id="TG0-xg-nfL"/>
+                                            <outlet property="currencyTextField" destination="Aw0-un-lu9" id="oW0-hs-SM4"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="add-expense-name-cell" rowHeight="90" id="X9e-Cb-bgp" customClass="AddExpenseNameCell" customModule="ExpensesOrganizer" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="171.5" width="414" height="90"/>

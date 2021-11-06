@@ -125,8 +125,6 @@ extension AddIncomeViewController: PlanningCellDelegate, RecurrencyTypeDelegate,
         pvc?.selectedRecurrencyType = selectedRecurrencyType
 
         present(pvc ?? UIViewController(), animated: true)
-        
-        print(#function)
     }
 
     func didTapCalendar() {
@@ -139,8 +137,6 @@ extension AddIncomeViewController: PlanningCellDelegate, RecurrencyTypeDelegate,
         pvc?.selectedDate = selectedDate
 
         present(pvc ?? UIViewController(), animated: true)
-        
-        print(#function)
     }
     
     func sendDate(date: Date) {
