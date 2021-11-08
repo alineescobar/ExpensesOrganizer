@@ -18,9 +18,8 @@
                 <rect key="frame" x="0.0" y="0.0" width="56" height="56"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SC7-dw-xt7">
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SC7-dw-xt7">
                         <rect key="frame" x="0.0" y="0.0" width="56" height="56"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="5eV-SJ-0uE">
                                 <rect key="frame" x="18" y="18" width="20" height="20"/>
@@ -32,6 +31,12 @@
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstItem="SC7-dw-xt7" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="LdE-gZ-DEQ"/>
+                <constraint firstAttribute="bottom" secondItem="SC7-dw-xt7" secondAttribute="bottom" id="nxh-K2-U9R"/>
+                <constraint firstAttribute="trailing" secondItem="SC7-dw-xt7" secondAttribute="trailing" id="qNH-Yg-F9U"/>
+                <constraint firstItem="SC7-dw-xt7" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="ys9-6t-EJL"/>
+            </constraints>
             <connections>
                 <outlet property="background" destination="SC7-dw-xt7" id="Oxv-Jz-naU"/>
                 <outlet property="categoryImage" destination="5eV-SJ-0uE" id="Sgh-am-zPC"/>
