@@ -30,6 +30,7 @@
 		16FA96E227273A7A007EB7CA /* TransactionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 16FA96E027273A7A007EB7CA /* TransactionCell.xib */; };
 		710269142735D3F500D62DEE /* AddIncomeRecurrencyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 710269132735D3F500D62DEE /* AddIncomeRecurrencyViewController.swift */; };
 		710269162735D40700D62DEE /* AddIncomeCalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 710269152735D40700D62DEE /* AddIncomeCalendarViewController.swift */; };
+		710269182737325F00D62DEE /* AddExpenseCategoriesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 710269172737325F00D62DEE /* AddExpenseCategoriesCell.swift */; };
 		710F1DC52729C55F005C06E1 /* Charts in Frameworks */ = {isa = PBXBuildFile; productRef = 710F1DC42729C55F005C06E1 /* Charts */; };
 		710F1DC82729C8D6005C06E1 /* GraphicsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 710F1DC62729C8D6005C06E1 /* GraphicsTableViewCell.swift */; };
 		710F1DC92729C8D6005C06E1 /* GraphicsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 710F1DC72729C8D6005C06E1 /* GraphicsTableViewCell.xib */; };
@@ -109,6 +110,7 @@
 		16FA96E027273A7A007EB7CA /* TransactionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransactionCell.xib; sourceTree = "<group>"; };
 		710269132735D3F500D62DEE /* AddIncomeRecurrencyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddIncomeRecurrencyViewController.swift; sourceTree = "<group>"; };
 		710269152735D40700D62DEE /* AddIncomeCalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddIncomeCalendarViewController.swift; sourceTree = "<group>"; };
+		710269172737325F00D62DEE /* AddExpenseCategoriesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExpenseCategoriesCell.swift; sourceTree = "<group>"; };
 		710F1DC62729C8D6005C06E1 /* GraphicsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphicsTableViewCell.swift; sourceTree = "<group>"; };
 		710F1DC72729C8D6005C06E1 /* GraphicsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GraphicsTableViewCell.xib; sourceTree = "<group>"; };
 		710F1DCF272B2743005C06E1 /* PillMarker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PillMarker.swift; sourceTree = "<group>"; };
@@ -235,6 +237,7 @@
 				71FED8612733151200B90A5A /* AddExpenseCategoryCell.swift */,
 				71FED8632733153000B90A5A /* AddExpensePaymentCell.swift */,
 				71FED8652733159F00B90A5A /* AddExpensePlanningCell.swift */,
+				710269172737325F00D62DEE /* AddExpenseCategoriesCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -649,6 +652,7 @@
 				F153F46627344630004F06CC /* HalfSizePresentationController.swift in Sources */,
 				F19FF1A5272882FB0041F5E3 /* AddWalletCollectionViewCell.swift in Sources */,
 				1665562B271A0E0000DE83F4 /* DashboardViewController.swift in Sources */,
+				710269182737325F00D62DEE /* AddExpenseCategoriesCell.swift in Sources */,
 				F196D500272201F300CCAF81 /* ButtonsTableViewCell.swift in Sources */,
 				16B2D71B271E0EA800E7BB84 /* Template+CoreDataClass.swift in Sources */,
 				710F1DD0272B2743005C06E1 /* PillMarker.swift in Sources */,
