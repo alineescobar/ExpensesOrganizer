@@ -42,7 +42,7 @@
 		710F1DD0272B2743005C06E1 /* PillMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 710F1DCF272B2743005C06E1 /* PillMarker.swift */; };
 		7140E5B52735101800685927 /* AddExpenseAllDoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7140E5B42735101800685927 /* AddExpenseAllDoneViewController.swift */; };
 		7140E5B72735102C00685927 /* AddIncomeAllDoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7140E5B62735102C00685927 /* AddIncomeAllDoneViewController.swift */; };
-		71737920273AEAE2007D83CC /* AddExpenseColectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7173791F273AEAE2007D83CC /* AddExpenseColectionViewController.swift */; };
+		71737920273AEAE2007D83CC /* AddIncomeColectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7173791F273AEAE2007D83CC /* AddIncomeColectionViewController.swift */; };
 		71CD631427359B8B007A3D75 /* AddExpenseRecurrencyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71CD631327359B8B007A3D75 /* AddExpenseRecurrencyViewController.swift */; };
 		71CD631627359B9C007A3D75 /* AddExpenseCalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71CD631527359B9C007A3D75 /* AddExpenseCalendarViewController.swift */; };
 		71FED85427330E1700B90A5A /* AddExpenseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71FED85327330E1700B90A5A /* AddExpenseViewController.swift */; };
@@ -127,7 +127,7 @@
 		710F1DCF272B2743005C06E1 /* PillMarker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PillMarker.swift; sourceTree = "<group>"; };
 		7140E5B42735101800685927 /* AddExpenseAllDoneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExpenseAllDoneViewController.swift; sourceTree = "<group>"; };
 		7140E5B62735102C00685927 /* AddIncomeAllDoneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddIncomeAllDoneViewController.swift; sourceTree = "<group>"; };
-		7173791F273AEAE2007D83CC /* AddExpenseColectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExpenseColectionViewController.swift; sourceTree = "<group>"; };
+		7173791F273AEAE2007D83CC /* AddIncomeColectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddIncomeColectionViewController.swift; sourceTree = "<group>"; };
 		71CD631327359B8B007A3D75 /* AddExpenseRecurrencyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExpenseRecurrencyViewController.swift; sourceTree = "<group>"; };
 		71CD631527359B9C007A3D75 /* AddExpenseCalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExpenseCalendarViewController.swift; sourceTree = "<group>"; };
 		71FED85327330E1700B90A5A /* AddExpenseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExpenseViewController.swift; sourceTree = "<group>"; };
@@ -310,7 +310,7 @@
 				7140E5B62735102C00685927 /* AddIncomeAllDoneViewController.swift */,
 				710269132735D3F500D62DEE /* AddIncomeRecurrencyViewController.swift */,
 				710269152735D40700D62DEE /* AddIncomeCalendarViewController.swift */,
-				7173791F273AEAE2007D83CC /* AddExpenseColectionViewController.swift */,
+				7173791F273AEAE2007D83CC /* AddIncomeColectionViewController.swift */,
 				710269122735CFD100D62DEE /* Cells */,
 			);
 			path = "Add Income";
@@ -721,7 +721,7 @@
 				71CD631427359B8B007A3D75 /* AddExpenseRecurrencyViewController.swift in Sources */,
 				71FED86C273325A800B90A5A /* AddIncomeValueCell.swift in Sources */,
 				71FED870273325E100B90A5A /* AddIncomeCategoryCell.swift in Sources */,
-				71737920273AEAE2007D83CC /* AddExpenseColectionViewController.swift in Sources */,
+				71737920273AEAE2007D83CC /* AddIncomeColectionViewController.swift in Sources */,
 				16655631271A0E0000DE83F4 /* ExpensesOrganizer.xcdatamodeld in Sources */,
 				F1CE714B272C867C002D6020 /* DescriptionTableViewCell.swift in Sources */,
 				16B2D719271E0EA800E7BB84 /* Wallet+CoreDataClass.swift in Sources */,

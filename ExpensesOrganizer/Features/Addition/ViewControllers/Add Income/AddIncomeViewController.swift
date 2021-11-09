@@ -131,7 +131,7 @@ extension AddIncomeViewController: PlanningCellDelegate, RecurrencyTypeDelegate,
     
     func openCollection() {
         let storyboard = UIStoryboard(name: "Addition", bundle: nil)
-        let pvc = storyboard.instantiateViewController(withIdentifier: "open-income-collection-segue") as? AddExpenseColectionViewController
+        let pvc = storyboard.instantiateViewController(withIdentifier: "open-income-collection-segue") as? AddIncomeColectionViewController
 
         present(pvc ?? UIViewController(), animated: true)
     }

@@ -1,5 +1,5 @@
 //
-//  AddExpenseColectionViewController.swift
+//  AddIncomeColectionViewController.swift
 //  ExpensesOrganizer
 //
 //  Created by Anderson Sprenger on 09/11/21.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AddExpenseColectionViewController: UIViewController {
+class AddIncomeColectionViewController: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
         
@@ -33,7 +33,7 @@ class AddExpenseColectionViewController: UIViewController {
     }
 }
 
-extension AddExpenseColectionViewController: UICollectionViewDelegateFlowLayout {
+extension AddIncomeColectionViewController: UICollectionViewDelegateFlowLayout {
  
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
@@ -56,7 +56,7 @@ extension AddExpenseColectionViewController: UICollectionViewDelegateFlowLayout 
     }
 }
 
-extension AddExpenseColectionViewController: UICollectionViewDataSource {
+extension AddIncomeColectionViewController: UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 10
