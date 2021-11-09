@@ -73,7 +73,7 @@ extension WalletsViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         if section == 0 {
-            return CGFloat(32)
+            return CGFloat(25)
         } else {
             return .zero
         }
