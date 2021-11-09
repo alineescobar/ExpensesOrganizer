@@ -30,6 +30,7 @@ class AddIncomeViewController: UIViewController {
         super.viewDidLoad()
         
         tableView.dataSource = self
+        tableView.delegate = self
         tableView.allowsSelection = false
         
         doneButton.layer.cornerRadius = 8
@@ -38,6 +39,17 @@ class AddIncomeViewController: UIViewController {
         cancellButton.layer.borderColor = UIColor.label.cgColor
         cancellButton.layer.borderWidth = 2.0
     }
+}
+
+extension AddIncomeViewController: UITableViewDelegate {
+    
+//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        let cellCategory = AddIncomeCells.allCases[indexPath.row]
+//
+//        if cellCategory == .category {
+//            performSegue(withIdentifier: "open-income-collection-segue", sender: nil)
+//        }
+//    }
 }
 
 extension AddIncomeViewController: UITableViewDataSource {
@@ -72,6 +84,8 @@ extension AddIncomeViewController: UITableViewDataSource {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: AddIncomeCategoryCell.identifier, for: indexPath) as? AddIncomeCategoryCell else {
                 return UITableViewCell()
             }
+            
+            cell.planningDelegate = self
             
             return cell
             
@@ -113,8 +127,15 @@ extension AddIncomeViewController: UIViewControllerTransitioningDelegate {
     }
 }
 
-extension AddIncomeViewController: PlanningCellDelegate, RecurrencyTypeDelegate, CalendarDelegate {
+extension AddIncomeViewController: PlanningCellDelegate, RecurrencyTypeDelegate, CalendarDelegate, CollectionDelegate {
     
+    func openCollection() {
+        let storyboard = UIStoryboard(name: "Addition", bundle: nil)
+        let pvc = storyboard.instantiateViewController(withIdentifier: "open-income-collection-segue") as? AddExpenseColectionViewController
+
+        present(pvc ?? UIViewController(), animated: true)
+    }
+
     func didTapRecurrency() {
         let storyboard = UIStoryboard(name: "Addition", bundle: nil)
         let pvc = storyboard.instantiateViewController(withIdentifier: "AddExpenseRecurrencyViewController") as? AddExpenseRecurrencyViewController
