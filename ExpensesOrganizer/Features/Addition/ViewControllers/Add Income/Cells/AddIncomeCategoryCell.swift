@@ -24,11 +24,12 @@ class AddIncomeCategoryCell: UITableViewCell {
     }
     
     func setTapGesture() {
-        var tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.openTable(_:)))
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.openTable(_:)))
         categoryStackView.addGestureRecognizer(tapGesture)
     }
 
-    @objc func openTable(_ sender: UITapGestureRecognizer) {
+    @objc
+    func openTable(_ sender: UITapGestureRecognizer) {
         planningDelegate?.openCollection()
     }
 }

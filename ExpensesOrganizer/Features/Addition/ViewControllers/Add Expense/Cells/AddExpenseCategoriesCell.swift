@@ -10,6 +10,7 @@ import UIKit
 class AddExpenseCategoriesCell: UITableViewCell {
 
     @IBOutlet weak var circle1: UIView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
