@@ -20,6 +20,8 @@
 		16655633271A0E0400DE83F4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 16655632271A0E0400DE83F4 /* Assets.xcassets */; };
 		16655636271A0E0400DE83F4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 16655634271A0E0400DE83F4 /* LaunchScreen.storyboard */; };
 		16655641271A0ECA00DE83F4 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 16655643271A0ECA00DE83F4 /* Localizable.strings */; };
+		16ADD0592735C53600FF6718 /* RoundButtonCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16ADD0572735C53600FF6718 /* RoundButtonCollectionViewCell.swift */; };
+		16ADD05A2735C53600FF6718 /* RoundButtonCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 16ADD0582735C53600FF6718 /* RoundButtonCollectionViewCell.xib */; };
 		16B2D713271E0EA800E7BB84 /* Goal+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16B2D709271E0EA800E7BB84 /* Goal+CoreDataClass.swift */; };
 		16B2D715271E0EA800E7BB84 /* Transaction+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16B2D70B271E0EA800E7BB84 /* Transaction+CoreDataClass.swift */; };
 		16B2D717271E0EA800E7BB84 /* Item+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16B2D70D271E0EA800E7BB84 /* Item+CoreDataClass.swift */; };
@@ -84,6 +86,8 @@
 		1665563E271A0E6500DE83F4 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		16655642271A0ECA00DE83F4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		16655644271A0ECC00DE83F4 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		16ADD0572735C53600FF6718 /* RoundButtonCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundButtonCollectionViewCell.swift; sourceTree = "<group>"; };
+		16ADD0582735C53600FF6718 /* RoundButtonCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RoundButtonCollectionViewCell.xib; sourceTree = "<group>"; };
 		16B2D709271E0EA800E7BB84 /* Goal+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Goal+CoreDataClass.swift"; sourceTree = "<group>"; };
 		16B2D70B271E0EA800E7BB84 /* Transaction+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Transaction+CoreDataClass.swift"; sourceTree = "<group>"; };
 		16B2D70D271E0EA800E7BB84 /* Item+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Item+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -172,6 +176,31 @@
 			path = ExpensesOrganizer;
 			sourceTree = "<group>";
 		};
+		16ADD0522735C3AA00FF6718 /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				16ADD0542735C3C700FF6718 /* ViewControllers */,
+				16ADD0532735C3C000FF6718 /* Views */,
+			);
+			path = Buttons;
+			sourceTree = "<group>";
+		};
+		16ADD0532735C3C000FF6718 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				16ADD0582735C53600FF6718 /* RoundButtonCollectionViewCell.xib */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		16ADD0542735C3C700FF6718 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				16ADD0572735C53600FF6718 /* RoundButtonCollectionViewCell.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
 		16D0B25F27287A0D007BE30E /* Transactions */ = {
 			isa = PBXGroup;
 			children = (
@@ -211,6 +240,7 @@
 		F138B8862720A028009F0837 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				16ADD0522735C3AA00FF6718 /* Buttons */,
 				F196D52027247D0200CCAF81 /* Extensions.swift */,
 				F153F46527344630004F06CC /* HalfSizePresentationController.swift */,
 				71FED87727345CEB00B90A5A /* Fonts */,
@@ -510,6 +540,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				16655636271A0E0400DE83F4 /* LaunchScreen.storyboard in Resources */,
+				16ADD05A2735C53600FF6718 /* RoundButtonCollectionViewCell.xib in Resources */,
 				16D0B25E27286CDA007BE30E /* TransactionsHeaderCell.xib in Resources */,
 				16655641271A0ECA00DE83F4 /* Localizable.strings in Resources */,
 				710F1DC92729C8D6005C06E1 /* GraphicsTableViewCell.xib in Resources */,
@@ -565,6 +596,7 @@
 				710F1DC82729C8D6005C06E1 /* GraphicsTableViewCell.swift in Sources */,
 				16FA96E127273A7A007EB7CA /* TransactionCell.swift in Sources */,
 				F1CE714D272C8776002D6020 /* PlanningTableViewCell.swift in Sources */,
+				16ADD0592735C53600FF6718 /* RoundButtonCollectionViewCell.swift in Sources */,
 				F153F468273451C9004F06CC /* RecurrencyTypeTableViewCell.swift in Sources */,
 				F153F46627344630004F06CC /* HalfSizePresentationController.swift in Sources */,
 				F19FF1A5272882FB0041F5E3 /* AddWalletCollectionViewCell.swift in Sources */,
