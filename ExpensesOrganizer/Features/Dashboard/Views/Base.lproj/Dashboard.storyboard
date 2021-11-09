@@ -466,7 +466,7 @@
                         <segue destination="xW6-sy-vWI" kind="show" identifier="plannings" id="4rO-d9-WjU"/>
                         <segue destination="5FX-Hg-nNs" kind="presentation" identifier="add" id="jRG-jL-WKs"/>
                         <segue destination="AVa-DQ-Vxs" kind="presentation" identifier="addWallet" id="G5B-Gg-R4P"/>
-                        <segue destination="egx-D4-Max" kind="show" identifier="walletDetail" id="hPU-SG-9gw"/>
+                        <segue destination="egx-D4-Max" kind="presentation" identifier="walletDetail" id="hPU-SG-9gw"/>
                         <segue destination="CJZ-Ty-Mjz" kind="show" identifier="transactions" id="kMr-JR-W9U"/>
                     </connections>
                 </viewController>

@@ -153,3 +153,42 @@ extension String {
         return formattedString
     }
 }
+
+extension UIStackView {
+    private func addBackground(color: UIColor) {
+        let subView = UIView(frame: bounds)
+        subView.tag = -1
+        subView.backgroundColor = color
+        subView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        insertSubview(subView, at: 0)
+    }
+    
+    func setBackgroundColor(color: UIColor) {
+        if #available(iOS 14, *) {
+            backgroundColor = color
+        } else {
+            guard let backgroundView = viewWithTag(-1) else {
+                addBackground(color: color)
+                return
+            }
+            backgroundView.backgroundColor = color
+        }
+    }
+}
+
+extension UIImage {
+    func withInsets(_ insets: UIEdgeInsets) -> UIImage? {
+        UIGraphicsBeginImageContextWithOptions(
+            CGSize(width: size.width + insets.left + insets.right,
+                   height: size.height + insets.top + insets.bottom),
+            false,
+            self.scale)
+
+        let origin = CGPoint(x: insets.left, y: insets.top)
+        self.draw(at: origin)
+        let imageWithInsets = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+
+        return imageWithInsets
+    }
+}

@@ -14,3 +14,16 @@
 "GoalsLabel" = "Goals";
 "PlanningLabel" = "Plan";
 "AddLabel" = "Add";
+
+// MARK: Wallet Creation
+"WalletCreationCancelAlertTitle" = "Cancel new Wallet";
+"WalletCreationCancelAlertDescription" = "Are you sure? All inserted data will be lost.";
+"WalletCreationKeepCreatingAction" = "Keep creating";
+
+// MARK: Wallet Detail
+"WalletDeleteAlertTitle" = "Delete Wallet";
+"WalletDeleteAlertDescription" = "Are you sure? All data inserted in this wallet will be lost.";
+
+// MARK: Shared
+"Delete" = "Delete";
+"Cancel" = "Cancel";
