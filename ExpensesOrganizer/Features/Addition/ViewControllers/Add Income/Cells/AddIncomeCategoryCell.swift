@@ -25,8 +25,8 @@ class AddIncomeCategoryCell: UITableViewCell {
         titleLabel.text = NSLocalizedString("addition-expense-category", comment: "")
         // selectionLabel.text = NSLocalizedString("", comment: "")
         
-        categoryStackView.layoutMargins = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 0)
-        
+        categoryStackView.layoutMargins = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 0)
+        categoryStackView.isLayoutMarginsRelativeArrangement = true
         setTapGesture()
     }
     

@@ -21,5 +21,6 @@ class AddExpenseCategoryCell: UITableViewCell {
         // selectionLabel.text = NSLocalizedString("", comment: "")
         
         selectionStack.layoutMargins = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 0)
+        selectionStack.isLayoutMarginsRelativeArrangement = true
     }
 }
