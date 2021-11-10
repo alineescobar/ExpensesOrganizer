@@ -17,15 +17,17 @@ class DescriptionTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        walletNameTextField.delegate = self
         imageTextFieldStackView.layoutMargins = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 0)
         imageTextFieldStackView.isLayoutMarginsRelativeArrangement = true
         // Initialization code
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
+}
 
-        // Configure the view for the selected state
+extension DescriptionTableViewCell: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
-
 }

@@ -13,6 +13,7 @@ class BalanceInsideTableViewCell: UITableViewCell {
         balanceDelegate?.didTapBalanceButton()
     }
     
+    @IBOutlet weak var atualBalance: UIButton!
     @IBOutlet weak var currentBalanceButton: UIButton!
     @IBOutlet weak var balanceLabel: UILabel!
     @IBOutlet weak var balanceInsideWalletConstrains: UIStackView!
@@ -24,6 +25,9 @@ class BalanceInsideTableViewCell: UITableViewCell {
         currentBalanceButton.setTitle(NSLocalizedString("BalanceLabel", comment: ""), for: .normal)
         currentBalanceButton.semanticContentAttribute = UIApplication.shared
             .userInterfaceLayoutDirection == .rightToLeft ? .forceLeftToRight : .forceRightToLeft
+        atualBalance.titleLabel?.font = UIFont(name: "Work Sans", size: 14)
+        balanceLabel.font = UIFont(name: "WorkSans-Bold", size: 48)
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

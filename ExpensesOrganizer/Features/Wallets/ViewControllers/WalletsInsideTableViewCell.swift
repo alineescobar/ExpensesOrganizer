@@ -29,6 +29,8 @@ class WalletsInsideTableViewCell: UITableViewCell {
         walletAllContrains.layer.shadowRadius = 2.0
         walletAllContrains.layer.shadowOpacity = 0.2
         walletAllContrains.layer.masksToBounds = false
+        balanceInsideLabel.font = UIFont(name: "WorkSans-Bold", size: 20)
+        walletNameLabel.font = UIFont(name: "Work Sans", size: 14)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

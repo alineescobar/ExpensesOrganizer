@@ -14,6 +14,7 @@
 "GoalsLabel" = "Goals";
 "PlanningLabel" = "Plan";
 "AddLabel" = "Add";
+"TransactionsHeader" = "Latest transactions";
 
 // MARK: Wallet Creation
 "WalletCreationCancelAlertTitle" = "Cancel new Wallet";
@@ -28,6 +29,18 @@
 "Delete" = "Delete";
 "Cancel" = "Cancel";
 "Done" = "Done";
+
+// MARK: Planning Detail
+"PlanningCreationCancelAlertTitle" = "Cancel Planning";
+"PlanningCreationCancelAlertDescription" = "Are you sure? All inserted data will be lost.";
+"PlanningCreationKeepCreatingAction" = "Keep creating";
+
+// MARK: Planning List
+
+"PlanningTitle" = "Planning";
+"FirstSegmentedControl" = "Outcome";
+"SecondSegmentedControl" = "Income";
+"AddButton" = "Create a new template";
 
 // MARK: Addition Income
 "addition-income-segmented-title" = "Incomes";

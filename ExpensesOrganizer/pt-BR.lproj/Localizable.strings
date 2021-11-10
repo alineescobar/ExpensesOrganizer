@@ -14,6 +14,7 @@
 "GoalsLabel" = "Metas";
 "PlanningLabel" = "Planejar";
 "AddLabel" = "Adicionar";
+"TransactionsHeader" = "Transações recentes";
 
 // MARK: Wallet Creation
 "WalletCreationCancelAlertTitle" = "Cancelar nova Carteira";
@@ -28,6 +29,18 @@
 "Delete" = "Apagar";
 "Cancel" = "Cancelar";
 "Done" = "Done";
+
+// MARK: Planning Detail
+"PlanningCreationCancelAlertTitle" = "Cancelar novo Planejamento";
+"PlanningCreationCancelAlertDescription" = "Você tem certeza? Todos os dados inseridos serão perdidos.";
+"PlanningCreationKeepCreatingAction" = "Coninuar criando";
+
+// MARK: Planning List
+
+"PlanningTitle" = "Planejar";
+"FirstSegmentedControl" = "Despesas";
+"SecondSegmentedControl" = "Ganhos";
+"AddButton" = "Criar novo planejamento";
 
 // MARK: Addition Income
 "addition-income-segmented-title" = "Ganhos";
