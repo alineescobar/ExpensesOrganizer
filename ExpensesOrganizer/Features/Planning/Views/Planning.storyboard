@@ -60,6 +60,7 @@
                     </view>
                     <connections>
                         <outlet property="planningCollectionView" destination="Sf6-1d-puY" id="6fD-Qh-twA"/>
+                        <outlet property="segmentedControl" destination="yHb-kH-sXD" id="ib4-47-mDq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

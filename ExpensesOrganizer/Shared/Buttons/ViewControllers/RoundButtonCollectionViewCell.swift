@@ -17,7 +17,7 @@ class RoundButtonCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
         background.layer.cornerRadius = background.frame.size.width / 2
         background.layer.shadowColor = UIColor.black.cgColor
-        background.layer.shadowRadius = 1
+        background.layer.shadowRadius = 2
         background.layer.shadowOpacity = 0.2
         background.layer.shadowOffset = CGSize(width: 1, height: 2)
         categoryImage.image = UIImage(named: "house-icon")
