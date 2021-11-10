@@ -7,22 +7,27 @@
 
 import UIKit
 
+protocol PlanningItemDelagate: AnyObject {
+    func notificationSwitchDidChange(value: Bool, item: Item)
+}
+
 class PlanningItemTableViewCell: UITableViewCell {
+    @IBAction private func didChangeSwitchValue(_ sender: UISwitch) {
+        if let item = self.item {
+            planningItemDelegate?.notificationSwitchDidChange(value: sender.isOn, item: item)
+        }
+    }
+    
     @IBOutlet weak var itemNameLabel: UILabel!
     @IBOutlet weak var itemValueLabel: UILabel!
     @IBOutlet weak var itemRecurrencyLabel: UILabel!
     @IBOutlet weak var notificationLabel: UILabel!
-    @IBOutlet weak var notificationSwitch: UISwitch!
+    weak var planningItemDelegate: PlanningItemDelagate?
+    var item: Item?
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
 
 }

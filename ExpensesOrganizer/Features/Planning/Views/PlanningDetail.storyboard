@@ -242,6 +242,9 @@
                                                                         </label>
                                                                         <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Puf-ke-Ct1">
                                                                             <rect key="frame" x="96.5" y="0.0" width="51" height="31"/>
+                                                                            <connections>
+                                                                                <action selector="didChangeSwitchValue:" destination="jcq-y3-0Od" eventType="valueChanged" id="gtd-zm-Xme"/>
+                                                                            </connections>
                                                                         </switch>
                                                                     </subviews>
                                                                 </stackView>
@@ -270,7 +273,6 @@
                                             <outlet property="itemRecurrencyLabel" destination="nmm-tN-PDd" id="jk3-n7-V7P"/>
                                             <outlet property="itemValueLabel" destination="bC4-9H-0tO" id="gjM-iJ-2SS"/>
                                             <outlet property="notificationLabel" destination="7eP-cF-aua" id="SEs-hA-QNl"/>
-                                            <outlet property="notificationSwitch" destination="Puf-ke-Ct1" id="9JD-DE-QFr"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

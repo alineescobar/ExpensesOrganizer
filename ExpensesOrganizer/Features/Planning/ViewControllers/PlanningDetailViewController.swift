@@ -30,7 +30,7 @@ class PlanningDetailViewController: UIViewController {
         showCancelPlanningAlert()
     }
     @IBAction private func readyAction(_ sender: UIButton) {
-        // TODO: Save Planning item on CoreData
+        // TODO: Save Planning item on CoreData and set notifications
         self.dismiss(animated: true)
     }
     
@@ -156,6 +156,7 @@ extension PlanningDetailViewController: UITableViewDataSource {
                 else {
                     return UITableViewCell()
                 }
+                cell.planningItemDelegate = self
                 return cell
                 
             default:
@@ -184,5 +185,11 @@ extension PlanningDetailViewController: UIGestureRecognizerDelegate {
     @objc
     func dismissKeyboard() {
         view.endEditing(true)
+    }
+}
+
+extension PlanningDetailViewController: PlanningItemDelagate {
+    func notificationSwitchDidChange(value: Bool, item: Item) {
+        // TODO: Update item notification value
     }
 }
