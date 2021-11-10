@@ -38,7 +38,7 @@ class PlanningViewController: UIViewController, UICollectionViewDelegate {
         
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
-        layout.minimumLineSpacing = 55
+        layout.minimumLineSpacing = 24
         layout.minimumInteritemSpacing = 0
         planningCollectionView.setCollectionViewLayout(layout, animated: true)
     }
@@ -54,6 +54,8 @@ extension PlanningViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: roundButtonID, for: indexPath) as? RoundButtonCollectionViewCell
+        cell?.categoryNameLabel.text = "Mirela"
+        cell?.categoryImage.image = UIImage(systemName: "eyebrow")
         return cell ?? UICollectionViewCell()
     }
     
@@ -70,5 +72,9 @@ extension PlanningViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
         return CGSize(width: 84, height: 87)
+    }
+
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "planningDetail", sender: nil)
     }
 }

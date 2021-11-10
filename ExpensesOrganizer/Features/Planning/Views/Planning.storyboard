@@ -89,11 +89,22 @@
                         <outlet property="newPlanningButton" destination="xoA-Ep-Zsu" id="ZhP-0P-37q"/>
                         <outlet property="planningCollectionView" destination="Sf6-1d-puY" id="6fD-Qh-twA"/>
                         <outlet property="segmentedControl" destination="yHb-kH-sXD" id="ib4-47-mDq"/>
+                        <segue destination="cDQ-Td-rSA" kind="presentation" identifier="planningDetail" id="Zrj-II-rPh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-4.3478260869565224" y="108.48214285714285"/>
+        </scene>
+        <!--PlanningDetail-->
+        <scene sceneID="7HB-i2-8pP">
+            <objects>
+                <viewControllerPlaceholder storyboardName="PlanningDetail" id="cDQ-Td-rSA" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="fQo-xF-ZIW"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UA2-7c-V9y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="612" y="60"/>
         </scene>
     </scenes>
     <resources>
