@@ -57,6 +57,7 @@
             <connections>
                 <outlet property="background" destination="SC7-dw-xt7" id="Oxv-Jz-naU"/>
                 <outlet property="categoryImage" destination="5eV-SJ-0uE" id="Sgh-am-zPC"/>
+                <outlet property="categoryNameLabel" destination="4mx-e7-AYO" id="5vD-k8-12j"/>
             </connections>
             <point key="canvasLocation" x="136.23188405797103" y="119.53125"/>
         </collectionViewCell>

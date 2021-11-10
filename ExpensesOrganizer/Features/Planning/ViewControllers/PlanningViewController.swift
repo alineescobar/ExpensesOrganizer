@@ -11,8 +11,8 @@ class PlanningViewController: UIViewController, UICollectionViewDelegate {
     
     @IBOutlet weak var planningCollectionView: UICollectionView!
     private let roundButtonID: String = "RoundButtonCollectionViewCell"
-    
     @IBOutlet weak var segmentedControl: UISegmentedControl!
+    @IBOutlet weak var newPlanningButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,7 +26,9 @@ class PlanningViewController: UIViewController, UICollectionViewDelegate {
         
         // MARK: Collection View Settings
         setUpCollection()
-        // MARK: Segmented Controll
+        // MARK: Adding a new planning button
+        newPlanningButton.backgroundColor = .black
+        newPlanningButton.layer.cornerRadius = 20
         
     }
     private func setUpCollection() {
@@ -39,6 +41,9 @@ class PlanningViewController: UIViewController, UICollectionViewDelegate {
         layout.minimumLineSpacing = 55
         layout.minimumInteritemSpacing = 0
         planningCollectionView.setCollectionViewLayout(layout, animated: true)
+    }
+    @IBAction private func newPlanningButton(_ sender: Any) {
+        // TODO: Open the new planning view
     }
 }
 
