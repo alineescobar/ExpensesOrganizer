@@ -75,6 +75,7 @@
                     <connections>
                         <outlet property="firstView" destination="LHx-cE-JJv" id="19e-aR-eLY"/>
                         <outlet property="secondView" destination="f5x-de-Zge" id="Do1-Ln-THi"/>
+                        <outlet property="segmentedControl" destination="os5-se-bgi" id="mPj-Xk-ivn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

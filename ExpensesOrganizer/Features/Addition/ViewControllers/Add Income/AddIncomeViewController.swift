@@ -36,7 +36,6 @@ class AddIncomeViewController: UIViewController {
         doneButton.titleLabel?.font = UIFont(name: "WorkSans-SemiBold", size: 16)
         doneButton.setTitle(NSLocalizedString("Done", comment: ""), for: .normal)
 
-        
         cancellButton.layer.cornerRadius = 8
         cancellButton.layer.borderColor = UIColor.label.cgColor
         cancellButton.layer.borderWidth = 2.0
