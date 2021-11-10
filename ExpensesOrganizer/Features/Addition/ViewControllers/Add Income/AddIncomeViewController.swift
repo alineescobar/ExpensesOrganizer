@@ -112,11 +112,10 @@ extension AddIncomeViewController: UIViewControllerTransitioningDelegate {
     func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {
 
         guard presenting is AddIncomeColectionViewController else {
-            print("\n\n\n\n ok \n\n\n\n")
-            return CustomSizePresentationController(presentedViewController: presented, presenting: presentingViewController, height: 360)
+            // FIXME: carregar o numero de itens a serem mostrandos em presenting e calcular por funcao um valor de height.
+            return CustomSizePresentationController(presentedViewController: presented, presenting: presentingViewController, height: 370)
         }
         
-        print("\n\n\n\n !!! \n\n\n\n")
         return HalfSizePresentationController(presentedViewController: presented, presenting: presentingViewController)
     }
     

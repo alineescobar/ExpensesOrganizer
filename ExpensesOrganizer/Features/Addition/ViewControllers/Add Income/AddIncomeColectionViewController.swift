@@ -73,7 +73,12 @@ extension AddIncomeColectionViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: roundButtonCollectionCellID, for: indexPath)
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: roundButtonCollectionCellID, for: indexPath) as? RoundButtonCollectionViewCell else {
+            return UICollectionViewCell()
+        }
+        
+        cell.categoryNameLabel.text = "Mirela"
+        cell.categoryImage.image = UIImage(systemName: "eyebrow")
 
         return cell
     }
