@@ -40,7 +40,6 @@ class WalletCreationViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
 
-        // Do any additional setup after loading the view.
     }
     
     func showCancelWalletAlert() {

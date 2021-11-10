@@ -62,6 +62,7 @@
 		F19FF1AC2728890D0041F5E3 /* WalletDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19FF1AB2728890D0041F5E3 /* WalletDetailViewController.swift */; };
 		F19FF1B1272889500041F5E3 /* WalletCreationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19FF1B0272889500041F5E3 /* WalletCreationViewController.swift */; };
 		F19FF1B32728896C0041F5E3 /* WalletCreation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F19FF1B22728896C0041F5E3 /* WalletCreation.storyboard */; };
+		F1BBB940273C527700B5746D /* WalletSelectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BBB93F273C527700B5746D /* WalletSelectionTableViewCell.swift */; };
 		F1CE7149272C8647002D6020 /* CurrencyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CE7148272C8647002D6020 /* CurrencyTableViewCell.swift */; };
 		F1CE714B272C867C002D6020 /* DescriptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CE714A272C867C002D6020 /* DescriptionTableViewCell.swift */; };
 		F1CE714D272C8776002D6020 /* PlanningTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CE714C272C8776002D6020 /* PlanningTableViewCell.swift */; };
@@ -134,6 +135,7 @@
 		F19FF1AB2728890D0041F5E3 /* WalletDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletDetailViewController.swift; sourceTree = "<group>"; };
 		F19FF1B0272889500041F5E3 /* WalletCreationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletCreationViewController.swift; sourceTree = "<group>"; };
 		F19FF1B22728896C0041F5E3 /* WalletCreation.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = WalletCreation.storyboard; sourceTree = "<group>"; };
+		F1BBB93F273C527700B5746D /* WalletSelectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletSelectionTableViewCell.swift; sourceTree = "<group>"; };
 		F1CE7148272C8647002D6020 /* CurrencyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyTableViewCell.swift; sourceTree = "<group>"; };
 		F1CE714A272C867C002D6020 /* DescriptionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionTableViewCell.swift; sourceTree = "<group>"; };
 		F1CE714C272C8776002D6020 /* PlanningTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanningTableViewCell.swift; sourceTree = "<group>"; };
@@ -506,6 +508,7 @@
 			isa = PBXGroup;
 			children = (
 				F1FA9981273B44D20034483E /* ItemViewController.swift */,
+				F1BBB93F273C527700B5746D /* WalletSelectionTableViewCell.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -659,6 +662,7 @@
 				F19FF1AC2728890D0041F5E3 /* WalletDetailViewController.swift in Sources */,
 				16B2D717271E0EA800E7BB84 /* Item+CoreDataClass.swift in Sources */,
 				07E20F3227345B7E0087835E /* WalletsInsideTableViewCell.swift in Sources */,
+				F1BBB940273C527700B5746D /* WalletSelectionTableViewCell.swift in Sources */,
 				F19FF1B1272889500041F5E3 /* WalletCreationViewController.swift in Sources */,
 				F196D51C2724776500CCAF81 /* AdditionViewController.swift in Sources */,
 				07E20F2E272C80F90087835E /* BalanceInsideTableViewCell.swift in Sources */,
