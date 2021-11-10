@@ -12,14 +12,14 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="RoundButtonCollectionViewCell" id="gTV-IL-0wX" customClass="RoundButtonCollectionViewCell" customModule="ExpensesOrganizer" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="56" height="56"/>
+            <rect key="frame" x="0.0" y="0.0" width="62" height="62"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="56" height="56"/>
+                <rect key="frame" x="0.0" y="0.0" width="62" height="62"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SC7-dw-xt7">
-                        <rect key="frame" x="0.0" y="0.0" width="56" height="56"/>
+                        <rect key="frame" x="2" y="2" width="58" height="58"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="5eV-SJ-0uE">
                                 <rect key="frame" x="18" y="18" width="20" height="20"/>
@@ -32,10 +32,11 @@
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <constraints>
-                <constraint firstItem="SC7-dw-xt7" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="LdE-gZ-DEQ"/>
-                <constraint firstAttribute="bottom" secondItem="SC7-dw-xt7" secondAttribute="bottom" id="nxh-K2-U9R"/>
-                <constraint firstAttribute="trailing" secondItem="SC7-dw-xt7" secondAttribute="trailing" id="qNH-Yg-F9U"/>
-                <constraint firstItem="SC7-dw-xt7" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="ys9-6t-EJL"/>
+                <constraint firstItem="SC7-dw-xt7" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="2" id="Blg-Kv-7he"/>
+                <constraint firstItem="SC7-dw-xt7" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="2" id="StV-31-viA"/>
+                <constraint firstAttribute="trailing" secondItem="SC7-dw-xt7" secondAttribute="trailing" constant="2" id="cm8-95-zee"/>
+                <constraint firstItem="SC7-dw-xt7" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="pae-9i-Qr0"/>
+                <constraint firstItem="SC7-dw-xt7" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="sDn-a7-laF"/>
             </constraints>
             <connections>
                 <outlet property="background" destination="SC7-dw-xt7" id="Oxv-Jz-naU"/>
