@@ -380,6 +380,7 @@
                                             <outlet property="dateLabel" destination="TwH-h4-82z" id="S2d-Hu-9rq"/>
                                             <outlet property="recurrencyLabel" destination="FUC-68-mEK" id="9eQ-Dd-Jhb"/>
                                             <outlet property="recurrencyStack" destination="y2g-ja-7am" id="ojp-9E-cbE"/>
+                                            <outlet property="titleLabel" destination="iVe-UY-oCU" id="Y7X-Dg-jcT"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -519,6 +520,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="38" id="xqI-ud-85n"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" name="WorkSans-SemiBold" family="Work Sans" pointSize="17"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="Prontinho">
                                     <color key="titleColor" systemColor="systemGray6Color"/>
@@ -876,6 +878,7 @@
                                             <outlet property="dateLabel" destination="toK-pB-Vsh" id="aia-iA-nKe"/>
                                             <outlet property="recurrencyLabel" destination="NvS-U9-AGK" id="WtT-zI-qxy"/>
                                             <outlet property="recurrencyStack" destination="kDs-dq-zf2" id="NII-bL-Ika"/>
+                                            <outlet property="titleLabel" destination="rbE-R7-1jH" id="V5i-NK-GWJ"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -953,6 +956,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="38" id="r8k-HT-zoe"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" name="WorkSans-SemiBold" family="Work Sans" pointSize="17"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="Prontinho">
                                     <color key="titleColor" systemColor="systemGray6Color"/>

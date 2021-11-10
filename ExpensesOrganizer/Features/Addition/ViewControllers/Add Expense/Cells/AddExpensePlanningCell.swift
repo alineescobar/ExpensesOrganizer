@@ -1,5 +1,5 @@
 //
-//  AEPlanningCell.swift
+//  AddExpensePlanningCell.swift
 //  ExpensesOrganizer
 //
 //  Created by Anderson Sprenger on 03/11/21.
@@ -10,6 +10,7 @@ import UIKit
 class AddExpensePlanningCell: UITableViewCell {
     static var identifier: String = "add-expense-planning-cell"
     
+    @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var recurrencyLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var recurrencyStack: UIStackView!
@@ -19,6 +20,8 @@ class AddExpensePlanningCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        titleLabel.text = NSLocalizedString("addition-income-planning", comment: "")
         
         recurrencyStack.layoutMargins = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 0)
         recurrencyStack.isLayoutMarginsRelativeArrangement = true

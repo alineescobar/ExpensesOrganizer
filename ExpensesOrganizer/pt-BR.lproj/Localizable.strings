@@ -28,7 +28,7 @@
 // MARK: Shared
 "Delete" = "Apagar";
 "Cancel" = "Cancelar";
-"Done" = "Done";
+"Done" = "Pronto";
 
 // MARK: Planning Detail
 "PlanningCreationCancelAlertTitle" = "Cancelar novo Planejamento";
