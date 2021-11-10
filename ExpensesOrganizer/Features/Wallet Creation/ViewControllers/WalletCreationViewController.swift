@@ -34,6 +34,7 @@ class WalletCreationViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.hideKeyboardWhenTappedAround()
         presentationController?.delegate = self
         isModalInPresentation = true
         tableView.delegate = self
@@ -151,6 +152,26 @@ extension WalletCreationViewController: PlanningCellDelegate {
     }
 }
 
+extension WalletCreationViewController: UIAdaptivePresentationControllerDelegate {
+    func presentationControllerDidAttemptToDismiss(_ presentationController: UIPresentationController) {
+        showCancelWalletAlert()
+    }
+}
+
+extension WalletCreationViewController: UIGestureRecognizerDelegate {
+    func hideKeyboardWhenTappedAround() {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        tap.delegate = self
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc
+    func dismissKeyboard() {
+        view.endEditing(true)
+    }
+}
+
 extension WalletCreationViewController: RecurrencyTypeDelegate {
     func sendRecurrencyType(recurrencyType: RecurrencyTypes) {
         selectedRecurrencyType = recurrencyType
@@ -162,11 +183,5 @@ extension WalletCreationViewController: CalendarDelegate {
     func sendDate(date: Date) {
         selectedDate = date
         tableView.reloadData()
-    }
-}
-
-extension WalletCreationViewController: UIAdaptivePresentationControllerDelegate {
-    func presentationControllerDidAttemptToDismiss(_ presentationController: UIPresentationController) {
-        showCancelWalletAlert()
     }
 }

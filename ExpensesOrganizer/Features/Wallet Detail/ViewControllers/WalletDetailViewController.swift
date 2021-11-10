@@ -43,6 +43,7 @@ class WalletDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.hideKeyboardWhenTappedAround()
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(UINib(nibName: customCellId, bundle: nil), forCellReuseIdentifier: customCellId)
@@ -209,6 +210,20 @@ extension WalletDetailViewController: PlanningCellDelegate {
         pvc?.selectedDate = selectedDate
         
         present(pvc ?? UIViewController(), animated: true)
+    }
+}
+
+extension WalletDetailViewController: UIGestureRecognizerDelegate {
+    func hideKeyboardWhenTappedAround() {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        tap.delegate = self
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc
+    func dismissKeyboard() {
+        view.endEditing(true)
     }
 }
 
