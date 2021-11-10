@@ -30,26 +30,19 @@ class AddIncomeViewController: UIViewController {
         super.viewDidLoad()
         
         tableView.dataSource = self
-        tableView.delegate = self
         tableView.allowsSelection = false
         
         doneButton.layer.cornerRadius = 8
+        doneButton.titleLabel?.font = UIFont(name: "WorkSans-SemiBold", size: 16)
+        doneButton.setTitle(NSLocalizedString("Done", comment: ""), for: .normal)
+
         
         cancellButton.layer.cornerRadius = 8
         cancellButton.layer.borderColor = UIColor.label.cgColor
         cancellButton.layer.borderWidth = 2.0
+        cancellButton.titleLabel?.font = UIFont(name: "WorkSans-SemiBold", size: 16)
+        cancellButton.setTitle(NSLocalizedString("Cancel", comment: ""), for: .normal)
     }
-}
-
-extension AddIncomeViewController: UITableViewDelegate {
-    
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        let cellCategory = AddIncomeCells.allCases[indexPath.row]
-//
-//        if cellCategory == .category {
-//            performSegue(withIdentifier: "open-income-collection-segue", sender: nil)
-//        }
-//    }
 }
 
 extension AddIncomeViewController: UITableViewDataSource {
