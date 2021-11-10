@@ -39,6 +39,8 @@ class AddIncomeViewController: UIViewController {
         cancellButton.layer.borderColor = UIColor.label.cgColor
         cancellButton.layer.borderWidth = 2.0
         cancellButton.setTitle(NSLocalizedString("Cancel", comment: ""), for: .normal)
+        
+        hideKeyboardWhenTappedAround()
     }
 }
 
@@ -167,5 +169,19 @@ extension AddIncomeViewController: PlanningCellDelegate, RecurrencyTypeDelegate,
     func sendRecurrencyType(recurrencyType: RecurrencyTypes) {
         selectedRecurrencyType = recurrencyType
         tableView.reloadData()
+    }
+}
+
+extension AddIncomeViewController: UIGestureRecognizerDelegate {
+    func hideKeyboardWhenTappedAround() {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        tap.delegate = self
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc
+    func dismissKeyboard() {
+        view.endEditing(true)
     }
 }
