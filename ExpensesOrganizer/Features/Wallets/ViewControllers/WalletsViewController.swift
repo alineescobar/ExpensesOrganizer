@@ -30,6 +30,7 @@ class WalletsViewController: UIViewController {
     private let numberOfWalletsCategories: [WalletsCategory] = WalletsCategory.walletsCases
     private var isShowingBalance: Bool = false
     private var initialBackgroundViewHeight: Double = -1
+    let navigationFont = UIFont(name: "WorkSans-SemiBold", size: 20)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,9 +45,8 @@ class WalletsViewController: UIViewController {
         self.navigationController?.navigationBar.topItem?.title = " "
         self.navigationController?.navigationBar.tintColor = UIColor.black
         navigationController?.navigationBar.barTintColor = UIColor.gray
-        
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "WorkSans-SemiBold", size: 20) as Any]
     }
-    
 }
 
 extension WalletsViewController: UITableViewDelegate {
@@ -73,7 +73,7 @@ extension WalletsViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         if section == 0 {
-            return CGFloat(32)
+            return CGFloat(25)
         } else {
             return .zero
         }
@@ -88,7 +88,15 @@ extension WalletsViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // TODO: Segues to wallet and to wallet creation screens
+        if indexPath.section == 1 {
+            let walletsCategory = numberOfWalletsCategories[indexPath.row]
+            switch walletsCategory {
+            case .wallets:
+                self.performSegue(withIdentifier: "walletDetailSegue", sender: nil)
+            default:
+                break
+            }
+        }
     }
 }
 

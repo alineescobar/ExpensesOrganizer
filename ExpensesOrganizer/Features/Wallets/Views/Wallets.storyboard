@@ -18,10 +18,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ccy-Qu-9yb" userLabel="Background View">
-                                <rect key="frame" x="0.0" y="-68" width="414" height="457"/>
+                                <rect key="frame" x="0.0" y="-68" width="414" height="413"/>
                                 <color key="backgroundColor" systemColor="systemGray5Color"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="457" id="Ka2-0Z-F9S" userLabel="background Constrain"/>
+                                    <constraint firstAttribute="height" constant="413" id="Ka2-0Z-F9S" userLabel="background Constrain"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
@@ -82,6 +82,7 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
+                                            <outlet property="atualBalance" destination="BLU-co-L6K" id="cGn-ov-egy"/>
                                             <outlet property="balanceInsideWalletConstrains" destination="RUD-mQ-Dwm" id="wfh-cM-u3p"/>
                                             <outlet property="balanceLabel" destination="YaO-bE-KDR" id="8SH-sZ-aWj"/>
                                             <outlet property="currentBalanceButton" destination="BLU-co-L6K" id="kTQ-cA-20t"/>
@@ -147,8 +148,11 @@
                                                                 <constraint firstAttribute="height" constant="50" id="YhO-mx-kv5"/>
                                                             </constraints>
                                                             <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                            <state key="normal" title="Button"/>
-                                                            <buttonConfiguration key="configuration" style="plain" image="DotsThreeVertical" title=""/>
+                                                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                            <state key="normal" title="" image="DotsThreeVertical"/>
+                                                            <connections>
+                                                                <segue destination="URw-AU-7QW" kind="presentation" identifier="walletDetailSegue" id="Ybn-kQ-Fzo"/>
+                                                            </connections>
                                                         </button>
                                                     </subviews>
                                                     <color key="backgroundColor" systemColor="systemGray6Color"/>
@@ -167,11 +171,11 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
-                                            <outlet property="balanceInsideLabel" destination="2EP-yu-uOv" id="Q9o-LR-OS9"/>
+                                            <outlet property="balanceInsideLabel" destination="2EP-yu-uOv" id="Jp3-ZS-iRB"/>
                                             <outlet property="insideWalletButton" destination="kWF-Hu-IiE" id="UDf-L6-sle"/>
                                             <outlet property="walletAllContrains" destination="Dlx-un-36W" id="HTc-MR-naN"/>
                                             <outlet property="walletInside" destination="Yr1-cm-kgs" id="dpg-cE-g4g"/>
-                                            <outlet property="walletNameLabel" destination="Tv7-0e-uxD" id="SM3-ec-waU"/>
+                                            <outlet property="walletNameLabel" destination="Tv7-0e-uxD" id="qHO-d5-JYG"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="AddWalletInsideTableViewCellID" rowHeight="80" id="XnM-Oo-b0d" userLabel="addWalletCell" customClass="AddWalletInsideTableViewCell" customModule="ExpensesOrganizer" customModuleProvider="target">
@@ -192,6 +196,9 @@
                                                     <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="10" maxY="0.0"/>
                                                     <state key="normal" title="Criar nova carteira" image="Plus"/>
+                                                    <connections>
+                                                        <segue destination="rtR-fu-GOB" kind="presentation" id="mqJ-WG-KcB"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -214,7 +221,7 @@
                         <constraints>
                             <constraint firstItem="Ccy-Qu-9yb" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" constant="-68" id="Aaw-s0-aO4"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Ccy-Qu-9yb" secondAttribute="trailing" id="EkQ-5Q-NxR"/>
-                            <constraint firstItem="Ji7-FR-Dof" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="Tzn-vJ-ILE"/>
+                            <constraint firstItem="Ji7-FR-Dof" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" constant="44" id="Tzn-vJ-ILE"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Ji7-FR-Dof" secondAttribute="trailing" id="ZeC-p7-QC5"/>
                             <constraint firstItem="Ccy-Qu-9yb" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="sqI-YC-YYo"/>
                             <constraint firstAttribute="bottom" secondItem="Ji7-FR-Dof" secondAttribute="bottom" id="tNK-Wq-1ls"/>
@@ -231,6 +238,26 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="318.84057971014494" y="85.714285714285708"/>
+        </scene>
+        <!--WalletDetail-->
+        <scene sceneID="C4R-qR-z29">
+            <objects>
+                <viewControllerPlaceholder storyboardName="WalletDetail" id="URw-AU-7QW" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="OMB-PB-QDH"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Spk-ZP-puM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1038" y="35"/>
+        </scene>
+        <!--WalletCreation-->
+        <scene sceneID="2Mv-Tx-nJn">
+            <objects>
+                <viewControllerPlaceholder storyboardName="WalletCreation" id="rtR-fu-GOB" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="at3-dJ-Bfb"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Scb-au-vaW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1008" y="172"/>
         </scene>
     </scenes>
     <resources>
