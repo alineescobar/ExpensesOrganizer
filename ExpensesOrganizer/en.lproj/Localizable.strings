@@ -54,7 +54,7 @@
 
 // MARK: Addition Expense
 "addition-expense-segmented-title" = "Expenses";
-"addition-expense-name" = "Expenses name";
+"addition-expense-name" = "Expense name";
 "addition-expense-name-placeholder" = "The name is optional";
 "addition-expense-category" = "Category";
 "addition-expense-wallet" = "Way with";
