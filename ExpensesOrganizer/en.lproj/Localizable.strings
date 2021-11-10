@@ -57,7 +57,7 @@
 "addition-expense-name" = "Expense name";
 "addition-expense-name-placeholder" = "The name is optional";
 "addition-expense-category" = "Category";
-"addition-expense-wallet" = "Way with";
+"addition-expense-wallet" = "Pay with";
 "addition-expense-planning" = "Planning";
 "addition-expense-done-header" = "Everything is fine!";
 "addition-expense-done-body" = "Your income has been successfully added.";

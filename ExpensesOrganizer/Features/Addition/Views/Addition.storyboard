@@ -302,6 +302,11 @@
                                                 <constraint firstItem="VkE-4R-TBN" firstAttribute="top" secondItem="Ot9-mR-Esb" secondAttribute="bottom" constant="23" id="yrN-C6-b3K"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="contentLabel" destination="JvT-me-6wx" id="t3H-Ob-kWj"/>
+                                            <outlet property="contentStack" destination="VkE-4R-TBN" id="I3T-5w-JbF"/>
+                                            <outlet property="titleLabel" destination="Ot9-mR-Esb" id="3A8-t6-MuK"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="add-income-planning-cell" rowHeight="75" id="fIC-14-5j4" customClass="AddIncomePlanningCell" customModule="ExpensesOrganizer" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="412.5" width="414" height="75"/>
@@ -793,6 +798,11 @@
                                                 <constraint firstItem="CDK-db-cEJ" firstAttribute="leading" secondItem="htK-0G-OrM" secondAttribute="leading" constant="24" id="xJ8-y6-0mW"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="contentLabel" destination="cMC-ux-1qT" id="rAV-ba-FIJ"/>
+                                            <outlet property="contentStack" destination="CDK-db-cEJ" id="cmN-Db-XA9"/>
+                                            <outlet property="titleLabel" destination="yNF-vL-YVd" id="ap3-ye-Qyc"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="add-expense-planning-cell" rowHeight="75" id="1Qj-cT-Hey" customClass="AddExpensePlanningCell" customModule="ExpensesOrganizer" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="412.5" width="414" height="75"/>
