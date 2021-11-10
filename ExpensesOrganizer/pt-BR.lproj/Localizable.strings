@@ -27,3 +27,8 @@
 // MARK: Shared
 "Delete" = "Apagar";
 "Cancel" = "Cancelar";
+
+// MARK: Planning Detail
+"PlanningCreationCancelAlertTitle" = "Cancelar novo Planejamento";
+"PlanningCreationCancelAlertDescription" = "Você tem certeza? Todos os dados inseridos serão perdidos.";
+"PlanningCreationKeepCreatingAction" = "Coninuar criando";
