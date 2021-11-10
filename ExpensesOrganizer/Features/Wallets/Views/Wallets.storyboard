@@ -82,6 +82,7 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
+                                            <outlet property="atualBalance" destination="BLU-co-L6K" id="cGn-ov-egy"/>
                                             <outlet property="balanceInsideWalletConstrains" destination="RUD-mQ-Dwm" id="wfh-cM-u3p"/>
                                             <outlet property="balanceLabel" destination="YaO-bE-KDR" id="8SH-sZ-aWj"/>
                                             <outlet property="currentBalanceButton" destination="BLU-co-L6K" id="kTQ-cA-20t"/>
@@ -147,10 +148,10 @@
                                                                 <constraint firstAttribute="height" constant="50" id="YhO-mx-kv5"/>
                                                             </constraints>
                                                             <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                            <state key="normal" title="Button"/>
-                                                            <buttonConfiguration key="configuration" style="plain" image="DotsThreeVertical" title=""/>
+                                                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                            <state key="normal" title="" image="DotsThreeVertical"/>
                                                             <connections>
-                                                                <segue destination="URw-AU-7QW" kind="presentation" id="Ybn-kQ-Fzo"/>
+                                                                <segue destination="URw-AU-7QW" kind="presentation" identifier="walletDetailSegue" id="Ybn-kQ-Fzo"/>
                                                             </connections>
                                                         </button>
                                                     </subviews>
@@ -170,11 +171,11 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
-                                            <outlet property="balanceInsideLabel" destination="2EP-yu-uOv" id="Q9o-LR-OS9"/>
+                                            <outlet property="balanceInsideLabel" destination="2EP-yu-uOv" id="Jp3-ZS-iRB"/>
                                             <outlet property="insideWalletButton" destination="kWF-Hu-IiE" id="UDf-L6-sle"/>
                                             <outlet property="walletAllContrains" destination="Dlx-un-36W" id="HTc-MR-naN"/>
                                             <outlet property="walletInside" destination="Yr1-cm-kgs" id="dpg-cE-g4g"/>
-                                            <outlet property="walletNameLabel" destination="Tv7-0e-uxD" id="SM3-ec-waU"/>
+                                            <outlet property="walletNameLabel" destination="Tv7-0e-uxD" id="qHO-d5-JYG"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="AddWalletInsideTableViewCellID" rowHeight="80" id="XnM-Oo-b0d" userLabel="addWalletCell" customClass="AddWalletInsideTableViewCell" customModule="ExpensesOrganizer" customModuleProvider="target">
@@ -238,10 +239,10 @@
             </objects>
             <point key="canvasLocation" x="318.84057971014494" y="85.714285714285708"/>
         </scene>
-        <!--Storyboard Reference-->
+        <!--WalletDetail-->
         <scene sceneID="C4R-qR-z29">
             <objects>
-                <viewControllerPlaceholder id="URw-AU-7QW" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="WalletDetail" id="URw-AU-7QW" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="OMB-PB-QDH"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Spk-ZP-puM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

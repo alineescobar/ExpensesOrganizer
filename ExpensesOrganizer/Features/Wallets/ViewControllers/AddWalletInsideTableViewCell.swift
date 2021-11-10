@@ -23,6 +23,7 @@ class AddWalletInsideTableViewCell: UITableViewCell {
         addWalletButton.layer.shadowRadius = 2.0
         addWalletButton.layer.shadowOpacity = 0.2
         addWalletButton.layer.masksToBounds = false
+        addWalletButton.titleLabel?.font = UIFont(name: "WorkSans-SemiBold", size: 16)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
