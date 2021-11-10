@@ -27,3 +27,24 @@
 // MARK: Shared
 "Delete" = "Delete";
 "Cancel" = "Cancel";
+"Done" = "Done";
+
+// MARK: Addition Income
+"addition-income-segmented-title" = "Incomes";
+"addition-income-name" = "Income name";
+"addition-income-name-placeholder" = "The name is optional";
+"addition-income-category" = "Category";
+"addition-income-wallet" = "Add in";
+"addition-income-planning" = "Planning";
+"addition-income-done-header" = "Everything is fine!";
+"addition-income-done-body" = "Your expense has been successfully added.";
+
+// MARK: Addition Expense
+"addition-expense-segmented-title" = "Expenses";
+"addition-expense-name" = "Expenses name";
+"addition-expense-name-placeholder" = "The name is optional";
+"addition-expense-category" = "Category";
+"addition-expense-wallet" = "Way with";
+"addition-expense-planning" = "Planning";
+"addition-expense-done-header" = "Everything is fine!";
+"addition-expense-done-body" = "Your income has been successfully added.";
