@@ -207,6 +207,7 @@
                                         <connections>
                                             <outlet property="nameLabel" destination="UOO-cC-f9a" id="Tl1-zc-bNx"/>
                                             <outlet property="nameTextField" destination="9eX-Iq-o1g" id="jQx-JO-EeP"/>
+                                            <outlet property="textStack" destination="WF2-QM-AKU" id="SfN-E3-9T8"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="add-income-category-cell" rowHeight="75" id="cUP-aM-rDf" customClass="AddIncomeCategoryCell" customModule="ExpensesOrganizer" customModuleProvider="target">
@@ -254,6 +255,8 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="categoryStackView" destination="fua-0p-Y9h" id="840-sb-d9O"/>
+                                            <outlet property="selectionLabel" destination="cgz-ML-jcW" id="BII-tn-uhJ"/>
+                                            <outlet property="titleLabel" destination="GH4-kv-5qS" id="ZfJ-Fh-Efm"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="add-income-wallet-cell" rowHeight="75" id="PUf-Hp-Tey" customClass="AddIncomeWalletCell" customModule="ExpensesOrganizer" customModuleProvider="target">
@@ -673,6 +676,7 @@
                                         <connections>
                                             <outlet property="nameLabel" destination="xN9-zA-Vvj" id="UhM-OE-fAx"/>
                                             <outlet property="nameTextField" destination="sGM-xx-rYs" id="abI-fV-hRO"/>
+                                            <outlet property="textStack" destination="5zr-8U-H0W" id="tGY-pd-koC"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="add-expense-divider-cell" rowHeight="1" id="SsP-PU-L7F">
@@ -740,6 +744,11 @@
                                                 <constraint firstAttribute="trailing" secondItem="dx8-rd-hCn" secondAttribute="trailing" constant="24" id="qDz-tN-yc1"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="selectionLabel" destination="pjk-j3-dHu" id="lk3-wa-fFl"/>
+                                            <outlet property="selectionStack" destination="BRh-h8-MDc" id="gIt-xD-Xmk"/>
+                                            <outlet property="titleLabel" destination="dx8-rd-hCn" id="CVx-CP-Cfo"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="add-expense-payment-cell" rowHeight="75" id="os0-Ln-j58" customClass="AddExpensePaymentCell" customModule="ExpensesOrganizer" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="337.5" width="414" height="75"/>

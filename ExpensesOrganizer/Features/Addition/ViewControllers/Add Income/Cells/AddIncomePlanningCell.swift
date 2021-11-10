@@ -20,7 +20,7 @@ class AddIncomePlanningCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        recurrencyStack.layoutMargins = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 0)
+        recurrencyStack.layoutMargins = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 0)
         recurrencyStack.isLayoutMarginsRelativeArrangement = true
         
         setGestures()
