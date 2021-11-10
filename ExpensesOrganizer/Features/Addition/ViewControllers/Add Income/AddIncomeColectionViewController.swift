@@ -10,6 +10,8 @@ import UIKit
 class AddIncomeColectionViewController: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
+    
+    let roundButtonCollectionCellID: String = "RoundButtonCollectionViewCell"
         
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,9 +29,12 @@ class AddIncomeColectionViewController: UIViewController {
         
         layout.scrollDirection = .vertical
         layout.minimumLineSpacing = 8
-        layout.minimumInteritemSpacing = 4
+        layout.minimumInteritemSpacing = 0
         
         collectionView.setCollectionViewLayout(layout, animated: true)
+        
+        collectionView.register(UINib(nibName: roundButtonCollectionCellID, bundle: nil),
+                                forCellWithReuseIdentifier: roundButtonCollectionCellID)
     }
 }
 
@@ -39,20 +44,25 @@ extension AddIncomeColectionViewController: UICollectionViewDelegateFlowLayout {
                         layout collectionViewLayout: UICollectionViewLayout,
                         insetForSectionAt section: Int) -> UIEdgeInsets {
 
-        return UIEdgeInsets(top: 1.0, left: 8.0, bottom: 1.0, right: 8.0)
+        return UIEdgeInsets(top: 1.0, left: .zero, bottom: 1.0, right: .zero)
     }
     
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let leftPadding = collectionView.contentInset.left
+        let rightPadding = collectionView.contentInset.right
+        
+        let itemsPerRow: CGFloat = 4
+        let itemHeight: CGFloat = 87
+        
+        let totalPadding = leftPadding + rightPadding
+        
+        let availableWidth = collectionView.bounds.width - totalPadding
+        
+        let itemWidth = availableWidth / itemsPerRow
 
-        guard let lay = collectionViewLayout as? UICollectionViewFlowLayout else {
-            return CGSize(width: 0, height: 0)
-        }
-
-        let widthPerItem = collectionView.frame.width / 2 - lay.minimumInteritemSpacing
-
-        return CGSize(width: widthPerItem - 8, height: 250)
+        return CGSize(width: itemWidth, height: itemHeight)
     }
 }
 
@@ -63,27 +73,8 @@ extension AddIncomeColectionViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collection-cell", for: indexPath)
-        cell.backgroundColor = UIColor.randomColor()
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: roundButtonCollectionCellID, for: indexPath)
+
         return cell
-    }
-}
-
-/// Extension for random value get.
-extension CGFloat {
-    static func randomValue() -> CGFloat {
-        return CGFloat(arc4random()) / CGFloat(UInt32.max)
-    }
-}
-
-/// Extension for random color using random value.
-extension UIColor {
-    static func randomColor() -> UIColor {
-        return UIColor(
-            red: .randomValue(),
-            green: .randomValue(),
-            blue: .randomValue(),
-            alpha: 1.0
-        )
     }
 }

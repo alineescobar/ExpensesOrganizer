@@ -119,6 +119,12 @@ extension AddIncomeViewController: UITableViewDataSource {
 extension AddIncomeViewController: UIViewControllerTransitioningDelegate {
     func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {
 
+        guard presenting is AddIncomeColectionViewController else {
+            print("\n\n\n\n ok \n\n\n\n")
+            return CustomSizePresentationController(presentedViewController: presented, presenting: presentingViewController, height: 360)
+        }
+        
+        print("\n\n\n\n !!! \n\n\n\n")
         return HalfSizePresentationController(presentedViewController: presented, presenting: presentingViewController)
     }
     
@@ -132,6 +138,9 @@ extension AddIncomeViewController: PlanningCellDelegate, RecurrencyTypeDelegate,
     func openCollection() {
         let storyboard = UIStoryboard(name: "Addition", bundle: nil)
         let pvc = storyboard.instantiateViewController(withIdentifier: "open-income-collection-segue") as? AddIncomeColectionViewController
+        
+        pvc?.modalPresentationStyle = .custom
+        pvc?.transitioningDelegate = self
 
         present(pvc ?? UIViewController(), animated: true)
     }
