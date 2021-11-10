@@ -17,7 +17,7 @@ class PlanningViewController: UIViewController, UICollectionViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         // MARK: Navigation Visuals
-        self.navigationItem.title = "Planejar"
+        self.navigationItem.title = NSLocalizedString("PlanningTitle", comment: "")
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "WorkSans-Bold", size: 20) as Any]
         self.navigationController?.navigationBar.topItem?.title = " "
         self.navigationController?.navigationBar.tintColor = .black
@@ -26,10 +26,22 @@ class PlanningViewController: UIViewController, UICollectionViewDelegate {
         
         // MARK: Collection View Settings
         setUpCollection()
+        
         // MARK: Adding a new planning button
         newPlanningButton.backgroundColor = .black
         newPlanningButton.layer.cornerRadius = 20
+        newPlanningButton.setTitle(NSLocalizedString("AddButton", comment: ""), for: .normal)
         
+        // MARK: Segmented Controls
+        segmentedControl.setTitle(NSLocalizedString("FirstSegmentedControl", comment: ""), forSegmentAt: 0)
+        segmentedControl.setTitle(NSLocalizedString("SecondSegmentedControl", comment: ""), forSegmentAt: 1)
+        let fontNormal = UIFont(name: "WorkSans-Regular", size: 14)
+        let fontBold = UIFont(name: "WorkSans-SemiBold", size: 14)
+        segmentedControl.setTitleTextAttributes([NSAttributedString.Key.font: fontNormal as Any],
+                                                for: .normal)
+        segmentedControl.setTitleTextAttributes([NSAttributedString.Key.font: fontBold as Any],
+                                                for: .selected)
+
     }
     private func setUpCollection() {
         planningCollectionView.register(UINib(nibName: roundButtonID, bundle: nil), forCellWithReuseIdentifier: roundButtonID)
