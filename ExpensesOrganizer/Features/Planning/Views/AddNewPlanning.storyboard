@@ -52,7 +52,7 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MWi-Yx-h6y">
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MWi-Yx-h6y">
                                                     <rect key="frame" x="84" y="68" width="306" height="24"/>
                                                     <fontDescription key="fontDescription" name="WorkSans-Regular" family="Work Sans" pointSize="16"/>
                                                     <textInputTraits key="textInputTraits"/>
@@ -96,7 +96,7 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ioa-tA-pZa">
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ioa-tA-pZa">
                                                     <rect key="frame" x="84" y="68" width="306" height="24"/>
                                                     <fontDescription key="fontDescription" name="WorkSans-Regular" family="Work Sans" pointSize="16"/>
                                                     <textInputTraits key="textInputTraits"/>
@@ -163,26 +163,24 @@
                                             <outlet property="planningIconLabel" destination="7Ne-a8-NvT" id="GIW-6h-M08"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="newItenButton" rowHeight="114" id="LxP-41-jA1" customClass="NewPlanningButtonTableViewCell" customModule="ExpensesOrganizer" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="422.5" width="414" height="114"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="newItenButton" rowHeight="80" id="LxP-41-jA1" customClass="NewPlanningButtonTableViewCell" customModule="ExpensesOrganizer" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="422.5" width="414" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="LxP-41-jA1" id="Fiv-ae-hPl">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="114"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="80"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ssm-Hx-vZK">
-                                                    <rect key="frame" x="44" y="52" width="326" height="40"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="40" id="FDF-vj-hSA"/>
-                                                    </constraints>
+                                                    <rect key="frame" x="24" y="40" width="366" height="40"/>
                                                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                     <state key="normal" title="Button" image="plus" catalog="system"/>
                                                 </button>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="Ssm-Hx-vZK" firstAttribute="top" secondItem="Fiv-ae-hPl" secondAttribute="topMargin" constant="41" id="HQD-2p-mbw"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="Ssm-Hx-vZK" secondAttribute="trailing" constant="24" id="SAk-Oj-TsB"/>
-                                                <constraint firstItem="Ssm-Hx-vZK" firstAttribute="leading" secondItem="Fiv-ae-hPl" secondAttribute="leadingMargin" constant="24" id="aOu-vC-ptq"/>
+                                                <constraint firstItem="Ssm-Hx-vZK" firstAttribute="top" secondItem="Fiv-ae-hPl" secondAttribute="top" constant="40" id="GPp-3r-hRy"/>
+                                                <constraint firstItem="Ssm-Hx-vZK" firstAttribute="leading" secondItem="Fiv-ae-hPl" secondAttribute="leading" constant="24" id="ZT8-eh-Yj4"/>
+                                                <constraint firstAttribute="trailing" secondItem="Ssm-Hx-vZK" secondAttribute="trailing" constant="24" id="azz-pg-5Ob"/>
+                                                <constraint firstAttribute="bottom" secondItem="Ssm-Hx-vZK" secondAttribute="bottom" id="vMv-EA-USB"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>

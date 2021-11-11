@@ -10,12 +10,13 @@ import UIKit
 class NewPlanningButtonTableViewCell: UITableViewCell {
 
     @IBOutlet weak var newPlanningButton: UIButton!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // MARK:
-//        newPlanningButton.backgroundColor = .black
-//        newPlanningButton.layer.cornerRadius = 20
-//        newPlanningButton.setTitle(NSLocalizedString("AddButton", comment: ""), for: .normal)
+        // MARK: Planning new item button
+        newPlanningButton.backgroundColor = .black
+        newPlanningButton.layer.cornerRadius = 20
+        newPlanningButton.setTitle(NSLocalizedString("PlanningCreationButtonLabel", comment: ""), for: .normal)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
