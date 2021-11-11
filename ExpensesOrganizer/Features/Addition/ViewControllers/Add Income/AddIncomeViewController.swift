@@ -42,6 +42,10 @@ class AddIncomeViewController: UIViewController {
         
         hideKeyboardWhenTappedAround()
     }
+    
+    @IBAction private func cancellButton(_ sender: UIButton) {
+        navigationController?.dismiss(animated: true, completion: nil)
+    }
 }
 
 extension AddIncomeViewController: UITableViewDataSource {

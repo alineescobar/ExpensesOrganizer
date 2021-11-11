@@ -399,6 +399,9 @@
                                         <state key="normal" title="Cancelar">
                                             <color key="titleColor" systemColor="labelColor"/>
                                         </state>
+                                        <connections>
+                                            <action selector="cancellButton:" destination="8fW-bf-dI9" eventType="touchUpInside" id="uEJ-Rh-DhR"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HzJ-js-YtR">
                                         <rect key="frame" x="188.5" y="0.0" width="161.5" height="38"/>
@@ -961,6 +964,9 @@
                                         <state key="normal" title="Cancelar">
                                             <color key="titleColor" systemColor="labelColor"/>
                                         </state>
+                                        <connections>
+                                            <action selector="cancellButton:" destination="rbo-ha-FuY" eventType="touchUpInside" id="rWc-Cf-wg0"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TkP-4F-u25">
                                         <rect key="frame" x="188.5" y="0.0" width="161.5" height="38"/>
@@ -1206,7 +1212,7 @@
                                                     <rect key="frame" x="16" y="13" width="342" height="28"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nunca" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KkS-z2-AVC">
-                                                            <rect key="frame" x="0.0" y="0.0" width="47" height="28"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="49.5" height="28"/>
                                                             <fontDescription key="fontDescription" name="WorkSans-Regular" family="Work Sans" pointSize="16"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
