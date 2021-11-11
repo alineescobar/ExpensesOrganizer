@@ -21,7 +21,7 @@
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="BV9-I4-6co">
                                 <rect key="frame" x="0.0" y="0.0" width="419" height="766"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="RsN-Fw-N13">
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="RsN-Fw-N13">
                                     <size key="itemSize" width="414" height="753"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -63,6 +63,12 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
+                                                    <constraints>
+                                                        <constraint firstItem="aId-oM-iTw" firstAttribute="leading" secondItem="hSr-HZ-PMW" secondAttribute="leading" id="0t3-DW-rE7"/>
+                                                        <constraint firstItem="FTw-Cl-yMg" firstAttribute="leading" secondItem="hSr-HZ-PMW" secondAttribute="leading" id="BWq-hM-aOA"/>
+                                                        <constraint firstItem="FTw-Cl-yMg" firstAttribute="top" secondItem="hSr-HZ-PMW" secondAttribute="top" id="CpF-bC-y5A"/>
+                                                        <constraint firstItem="aId-oM-iTw" firstAttribute="top" secondItem="FTw-Cl-yMg" secondAttribute="bottom" constant="24" id="uXm-PV-c84"/>
+                                                    </constraints>
                                                 </stackView>
                                             </subviews>
                                             <constraints>
