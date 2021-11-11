@@ -145,10 +145,10 @@
             </objects>
             <point key="canvasLocation" x="-117.39130434782609" y="103.79464285714285"/>
         </scene>
-        <!--View Controller-->
+        <!--Last Onboarding Screen View Controller-->
         <scene sceneID="Kcg-JD-DNM">
             <objects>
-                <viewController id="Qel-Dc-Lfh" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LastOnboardingID" id="Qel-Dc-Lfh" customClass="LastOnboardingScreenViewController" customModule="ExpensesOrganizer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0yR-cF-IKc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -211,28 +211,16 @@
                                             </view>
                                         </subviews>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="aG1-vq-ALb">
+                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0U1-gs-7BY">
                                         <rect key="frame" x="0.0" y="265.5" width="366" height="40"/>
-                                        <subviews>
-                                            <pageControl opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" numberOfPages="4" translatesAutoresizingMaskIntoConstraints="NO" id="BbA-0B-DWe">
-                                                <rect key="frame" x="0.0" y="0.0" width="172.5" height="40"/>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <color key="pageIndicatorTintColor" systemColor="systemGray2Color"/>
-                                                <color key="currentPageIndicatorTintColor" systemColor="systemRedColor"/>
-                                            </pageControl>
-                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0U1-gs-7BY">
-                                                <rect key="frame" x="222.5" y="0.0" width="143.5" height="40"/>
-                                                <color key="backgroundColor" systemColor="systemRedColor"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="40" id="8J4-rG-wh9"/>
-                                                </constraints>
-                                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                <state key="normal" title="Pronto"/>
-                                            </button>
-                                        </subviews>
-                                    </stackView>
+                                        <color key="backgroundColor" systemColor="systemRedColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="8J4-rG-wh9"/>
+                                        </constraints>
+                                        <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="Pronto"/>
+                                    </button>
                                 </subviews>
                             </stackView>
                         </subviews>

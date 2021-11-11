@@ -29,18 +29,24 @@ class OnboardingViewController: UIViewController{
         collectionView.delegate = self
         collectionView.dataSource = self
         
+        guard let image1 = UIImage(named: "Onboarding-4") else {
+            return }
+        guard let image2 = UIImage(named: "Onboarding-7") else {
+            return }
+        guard let image3 = UIImage(named: "Onboarding") else {
+            return }
         slides = [
-            OnboardingSlide(title: "controle", description: "Aqui voce pode controlar seus gastos registrando cada entrada e saida de valores.", image: UIImage(named:"Onboarding-4")!),
-            OnboardingSlide(title: "planeje", description: "Nunca foi tão facil se planejar, aqui voce pode adicionar seus próprios itens em diferentes planejamentos e aproveitar os nossos prontos também!", image: UIImage(named:"Onboarding-7")!),
-            OnboardingSlide(title: "economize", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Convallis vestibulum augue massa sed aenean.", image: UIImage(named:"Onboarding")!)
+            OnboardingSlide(title: "controle", description: "Aqui voce pode controlar seus gastos registrando cada entrada e saida de valores.", image: image1),
+            OnboardingSlide(title: "planeje", description: "Nunca foi tão facil se planejar, aqui voce pode adicionar seus próprios itens em diferentes planejamentos e aproveitar os nossos prontos também!", image: image2),
+            OnboardingSlide(title: "economize", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Convallis vestibulum augue massa sed aenean.", image: image3)
         ]
     }
-    @IBAction func nextButtonAction(_ sender: UIButton) {
+    @IBAction private func nextButtonAction(_ sender: UIButton) {
         if currentPage == slides.count - 1 {
-                    let controller = storyboard?.instantiateViewController(identifier: "HomeNC") as! UINavigationController
-                    controller.modalPresentationStyle = .fullScreen
-                    controller.modalTransitionStyle = .flipHorizontal
-                    UserDefaults.standard.hasOnboarded = true
+                    guard let controller = storyboard?.instantiateViewController(identifier: "LastOnboardingID") as? UINavigationController else {
+                        return }
+                    // controller.modalPresentationStyle = .fullScreen
+                    // controller.modalTransitionStyle = .flipHorizontal
                     present(controller, animated: true, completion: nil)
                 } else {
                     currentPage += 1
@@ -56,7 +62,10 @@ extension OnboardingViewController: UICollectionViewDelegate, UICollectionViewDa
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "OnboardingCollectionViewCellID", for: indexPath) as! OnboardingCollectionViewCell
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "OnboardingCollectionViewCellID", for: indexPath) as? OnboardingCollectionViewCell else {
+            return UICollectionViewCell()
+        }
+        
         cell.setup(slides[indexPath.row])
         return cell
     }

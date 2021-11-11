@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		077626EF273D8D7C002B691E /* OnboardingSlide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077626EE273D8D7C002B691E /* OnboardingSlide.swift */; };
+		077626F2273DBC01002B691E /* LastOnboardingScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077626F1273DBC01002B691E /* LastOnboardingScreenViewController.swift */; };
 		077CAFF827273759007D58C1 /* WalletsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077CAFF727273759007D58C1 /* WalletsTableViewCell.swift */; };
 		077CAFFA27274147007D58C1 /* WalletCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077CAFF927274147007D58C1 /* WalletCollectionViewCell.swift */; };
 		07B88B72273C391600D484E5 /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07B88B71273C391600D484E5 /* Onboarding.storyboard */; };
@@ -73,6 +74,7 @@
 
 /* Begin PBXFileReference section */
 		077626EE273D8D7C002B691E /* OnboardingSlide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingSlide.swift; sourceTree = "<group>"; };
+		077626F1273DBC01002B691E /* LastOnboardingScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastOnboardingScreenViewController.swift; sourceTree = "<group>"; };
 		077CAFF727273759007D58C1 /* WalletsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletsTableViewCell.swift; sourceTree = "<group>"; };
 		077CAFF927274147007D58C1 /* WalletCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletCollectionViewCell.swift; sourceTree = "<group>"; };
 		07B88B71273C391600D484E5 /* Onboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
@@ -183,6 +185,7 @@
 			children = (
 				07B88B73273C397300D484E5 /* OnboardingViewController.swift */,
 				07B88B75273C543900D484E5 /* OnboardingCollectionViewCell.swift */,
+				077626F1273DBC01002B691E /* LastOnboardingScreenViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -665,6 +668,7 @@
 				07B88B76273C543900D484E5 /* OnboardingCollectionViewCell.swift in Sources */,
 				16B2D715271E0EA800E7BB84 /* Transaction+CoreDataClass.swift in Sources */,
 				16D0B26627287A72007BE30E /* TransactionsViewController.swift in Sources */,
+				077626F2273DBC01002B691E /* LastOnboardingScreenViewController.swift in Sources */,
 				16655627271A0E0000DE83F4 /* AppDelegate.swift in Sources */,
 				16655631271A0E0000DE83F4 /* ExpensesOrganizer.xcdatamodeld in Sources */,
 				F1CE714B272C867C002D6020 /* DescriptionTableViewCell.swift in Sources */,
