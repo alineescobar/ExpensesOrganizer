@@ -25,6 +25,7 @@
 		16904832273D80F20011A11D /* PlanningNAmeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16904831273D80F20011A11D /* PlanningNAmeTableViewCell.swift */; };
 		16904834273DA0D30011A11D /* PlannimgPaymentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16904833273DA0D30011A11D /* PlannimgPaymentTableViewCell.swift */; };
 		16904836273DA1280011A11D /* PlanningIconTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16904835273DA1280011A11D /* PlanningIconTableViewCell.swift */; };
+		16904838273DB3C40011A11D /* NewPlanningButtonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16904837273DB3C40011A11D /* NewPlanningButtonTableViewCell.swift */; };
 		16ADD0592735C53600FF6718 /* RoundButtonCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16ADD0572735C53600FF6718 /* RoundButtonCollectionViewCell.swift */; };
 		16ADD05A2735C53600FF6718 /* RoundButtonCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 16ADD0582735C53600FF6718 /* RoundButtonCollectionViewCell.xib */; };
 		16B2D713271E0EA800E7BB84 /* Goal+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16B2D709271E0EA800E7BB84 /* Goal+CoreDataClass.swift */; };
@@ -103,6 +104,7 @@
 		16904831273D80F20011A11D /* PlanningNAmeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanningNAmeTableViewCell.swift; sourceTree = "<group>"; };
 		16904833273DA0D30011A11D /* PlannimgPaymentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlannimgPaymentTableViewCell.swift; sourceTree = "<group>"; };
 		16904835273DA1280011A11D /* PlanningIconTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanningIconTableViewCell.swift; sourceTree = "<group>"; };
+		16904837273DB3C40011A11D /* NewPlanningButtonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPlanningButtonTableViewCell.swift; sourceTree = "<group>"; };
 		16ADD0572735C53600FF6718 /* RoundButtonCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundButtonCollectionViewCell.swift; sourceTree = "<group>"; };
 		16ADD0582735C53600FF6718 /* RoundButtonCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RoundButtonCollectionViewCell.xib; sourceTree = "<group>"; };
 		16B2D709271E0EA800E7BB84 /* Goal+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Goal+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -403,6 +405,7 @@
 				16904831273D80F20011A11D /* PlanningNAmeTableViewCell.swift */,
 				16904833273DA0D30011A11D /* PlannimgPaymentTableViewCell.swift */,
 				16904835273DA1280011A11D /* PlanningIconTableViewCell.swift */,
+				16904837273DB3C40011A11D /* NewPlanningButtonTableViewCell.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -683,6 +686,7 @@
 				07E20F2E272C80F90087835E /* BalanceInsideTableViewCell.swift in Sources */,
 				16D0B25D27286CDA007BE30E /* TransactionsHeaderCell.swift in Sources */,
 				077CAFF827273759007D58C1 /* WalletsTableViewCell.swift in Sources */,
+				16904838273DB3C40011A11D /* NewPlanningButtonTableViewCell.swift in Sources */,
 				16B2D715271E0EA800E7BB84 /* Transaction+CoreDataClass.swift in Sources */,
 				16D0B26627287A72007BE30E /* TransactionsViewController.swift in Sources */,
 				16904830273C5C550011A11D /* AddNewPlanningViewController.swift in Sources */,

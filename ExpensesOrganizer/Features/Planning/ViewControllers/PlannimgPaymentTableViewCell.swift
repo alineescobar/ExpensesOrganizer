@@ -16,7 +16,12 @@ class PlannimgPaymentTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        // MARK: Planning payment label
+        planningPaymentLabel.text = NSLocalizedString("PlanningCreationPayWith", comment: "")
+        
+        // MARK: Planning payment text field
+//        planningPaymentTextField.placeholder = NSLocalizedString("PlanningCreationPlanningNamePlaceholder", comment: "")
+        planningPaymentTextField.tintColor = UIColor(red: 0.6, green: 0.6, blue: 0.6, alpha: 1)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

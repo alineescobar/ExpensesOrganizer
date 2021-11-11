@@ -16,7 +16,11 @@ class PlanningIconTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        // MARK: Planning Icon label
+        planningIconLabel.text = NSLocalizedString("PlanningCreationIcon", comment: "")
+        
+        // MARK: Planning icon
+        // TODO: set the action to select a icon to the new planning 
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
