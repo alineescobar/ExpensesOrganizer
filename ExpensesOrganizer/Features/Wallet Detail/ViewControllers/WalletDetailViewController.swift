@@ -124,6 +124,8 @@ extension WalletDetailViewController: UITableViewDataSource {
             else {
                 return UITableViewCell()
             }
+            cell.walletNameTextField.placeholder = NSLocalizedString("WalletName", comment: "")
+            cell.descriptionLabel.text = NSLocalizedString("Description", comment: "")
             return cell
             
         case .planning:
@@ -133,10 +135,12 @@ extension WalletDetailViewController: UITableViewDataSource {
             }
             let formatter = DateFormatter()
             formatter.dateStyle = .medium
+            let date = formatter.string(from: selectedDate)
             
+            cell.dateLabel.text = date.substring(toIndex: date.count - 4)
+            cell.planningLabel.text = NSLocalizedString("Planning", comment: "")
             cell.planningDelegate = self
-            cell.recurrencyLabel.text = selectedRecurrencyType.rawValue
-            cell.dateLabel.text = formatter.string(from: selectedDate)
+            cell.recurrencyLabel.text = RecurrencyTypes.getTitleFor(title: selectedRecurrencyType)
             
             return cell
         case .actionableCell:
@@ -179,7 +183,9 @@ extension WalletDetailViewController: UITableViewDataSource {
 
 extension WalletDetailViewController: UIViewControllerTransitioningDelegate {
     func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {
-        return HalfSizePresentationController(presentedViewController: presented, presenting: presentingViewController)
+        let viewController = CustomSizePresentationController(presentedViewController: presented, presenting: presentingViewController)
+        viewController.heightMultiplier = 0.5
+        return viewController
     }
     
     func interactionControllerForDismissal(using animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
