@@ -55,22 +55,22 @@ extension AddIncomeRecurrencyViewController: UITableViewDataSource {
         
         switch recurrencyType {
         case .never:
-            cell.recurrencyTypeLabel.text = recurrencyType.rawValue
+            cell.recurrencyTypeLabel.text = RecurrencyTypes.getTitleFor(title: recurrencyType)
             cell.recurrencyTypeCheckImage.alpha = selectedRecurrencyType == recurrencyType ? 1.0 : 0
         case .everyDay:
-            cell.recurrencyTypeLabel.text = recurrencyType.rawValue
+            cell.recurrencyTypeLabel.text = RecurrencyTypes.getTitleFor(title: recurrencyType)
             cell.recurrencyTypeCheckImage.alpha = selectedRecurrencyType == recurrencyType ? 1.0 : 0
         case .everyWeek:
-            cell.recurrencyTypeLabel.text = recurrencyType.rawValue
+            cell.recurrencyTypeLabel.text = RecurrencyTypes.getTitleFor(title: recurrencyType)
             cell.recurrencyTypeCheckImage.alpha = selectedRecurrencyType == recurrencyType ? 1.0 : 0
         case .eachTwoWeeks:
-            cell.recurrencyTypeLabel.text = recurrencyType.rawValue
+            cell.recurrencyTypeLabel.text = RecurrencyTypes.getTitleFor(title: recurrencyType)
             cell.recurrencyTypeCheckImage.alpha = selectedRecurrencyType == recurrencyType ? 1.0 : 0
         case .eachMonth:
-            cell.recurrencyTypeLabel.text = recurrencyType.rawValue
+            cell.recurrencyTypeLabel.text = RecurrencyTypes.getTitleFor(title: recurrencyType)
             cell.recurrencyTypeCheckImage.alpha = selectedRecurrencyType == recurrencyType ? 1.0 : 0
         case .eachYear:
-            cell.recurrencyTypeLabel.text = recurrencyType.rawValue
+            cell.recurrencyTypeLabel.text = RecurrencyTypes.getTitleFor(title: recurrencyType)
             cell.recurrencyTypeCheckImage.alpha = selectedRecurrencyType == recurrencyType ? 1.0 : 0
         }
         return cell
