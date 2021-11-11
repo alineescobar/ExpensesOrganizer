@@ -20,6 +20,11 @@
 		16655633271A0E0400DE83F4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 16655632271A0E0400DE83F4 /* Assets.xcassets */; };
 		16655636271A0E0400DE83F4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 16655634271A0E0400DE83F4 /* LaunchScreen.storyboard */; };
 		16655641271A0ECA00DE83F4 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 16655643271A0ECA00DE83F4 /* Localizable.strings */; };
+		1690482E273C5A670011A11D /* AddNewPlanning.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1690482D273C5A670011A11D /* AddNewPlanning.storyboard */; };
+		16904830273C5C550011A11D /* AddNewPlanningViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1690482F273C5C550011A11D /* AddNewPlanningViewController.swift */; };
+		16904832273D80F20011A11D /* PlanningNAmeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16904831273D80F20011A11D /* PlanningNAmeTableViewCell.swift */; };
+		16904834273DA0D30011A11D /* PlannimgPaymentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16904833273DA0D30011A11D /* PlannimgPaymentTableViewCell.swift */; };
+		16904836273DA1280011A11D /* PlanningIconTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16904835273DA1280011A11D /* PlanningIconTableViewCell.swift */; };
 		16ADD0592735C53600FF6718 /* RoundButtonCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16ADD0572735C53600FF6718 /* RoundButtonCollectionViewCell.swift */; };
 		16ADD05A2735C53600FF6718 /* RoundButtonCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 16ADD0582735C53600FF6718 /* RoundButtonCollectionViewCell.xib */; };
 		16B2D713271E0EA800E7BB84 /* Goal+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16B2D709271E0EA800E7BB84 /* Goal+CoreDataClass.swift */; };
@@ -93,6 +98,11 @@
 		1665563E271A0E6500DE83F4 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		16655642271A0ECA00DE83F4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		16655644271A0ECC00DE83F4 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		1690482D273C5A670011A11D /* AddNewPlanning.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddNewPlanning.storyboard; sourceTree = "<group>"; };
+		1690482F273C5C550011A11D /* AddNewPlanningViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewPlanningViewController.swift; sourceTree = "<group>"; };
+		16904831273D80F20011A11D /* PlanningNAmeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanningNAmeTableViewCell.swift; sourceTree = "<group>"; };
+		16904833273DA0D30011A11D /* PlannimgPaymentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlannimgPaymentTableViewCell.swift; sourceTree = "<group>"; };
+		16904835273DA1280011A11D /* PlanningIconTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanningIconTableViewCell.swift; sourceTree = "<group>"; };
 		16ADD0572735C53600FF6718 /* RoundButtonCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundButtonCollectionViewCell.swift; sourceTree = "<group>"; };
 		16ADD0582735C53600FF6718 /* RoundButtonCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RoundButtonCollectionViewCell.xib; sourceTree = "<group>"; };
 		16B2D709271E0EA800E7BB84 /* Goal+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Goal+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -389,6 +399,10 @@
 				F1FA9976273B20230034483E /* PlanningEditionTableViewCell.swift */,
 				F1FA9978273B2B910034483E /* TotalPlanningBalanceTableViewCell.swift */,
 				F1FA997A273B2D5C0034483E /* PlanningItemTableViewCell.swift */,
+				1690482F273C5C550011A11D /* AddNewPlanningViewController.swift */,
+				16904831273D80F20011A11D /* PlanningNAmeTableViewCell.swift */,
+				16904833273DA0D30011A11D /* PlannimgPaymentTableViewCell.swift */,
+				16904835273DA1280011A11D /* PlanningIconTableViewCell.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -398,6 +412,7 @@
 			children = (
 				F196D5192724774500CCAF81 /* Planning.storyboard */,
 				F1FA9972273AE6E60034483E /* PlanningDetail.storyboard */,
+				1690482D273C5A670011A11D /* AddNewPlanning.storyboard */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -594,6 +609,7 @@
 				16FA96E227273A7A007EB7CA /* TransactionCell.xib in Resources */,
 				F1FA9973273AE6E60034483E /* PlanningDetail.storyboard in Resources */,
 				F19FF1B32728896C0041F5E3 /* WalletCreation.storyboard in Resources */,
+				1690482E273C5A670011A11D /* AddNewPlanning.storyboard in Resources */,
 				F196D51A2724774500CCAF81 /* Planning.storyboard in Resources */,
 				71FED87F27345F9000B90A5A /* WorkSans-Regular.ttf in Resources */,
 				16655633271A0E0400DE83F4 /* Assets.xcassets in Resources */,
@@ -648,6 +664,7 @@
 				F153F468273451C9004F06CC /* RecurrencyTypeTableViewCell.swift in Sources */,
 				F1FA997B273B2D5C0034483E /* PlanningItemTableViewCell.swift in Sources */,
 				F153F46627344630004F06CC /* HalfSizePresentationController.swift in Sources */,
+				16904834273DA0D30011A11D /* PlannimgPaymentTableViewCell.swift in Sources */,
 				F19FF1A5272882FB0041F5E3 /* AddWalletCollectionViewCell.swift in Sources */,
 				1665562B271A0E0000DE83F4 /* DashboardViewController.swift in Sources */,
 				07E20F3027345B370087835E /* AddWalletInsideTableViewCell.swift in Sources */,
@@ -655,8 +672,10 @@
 				16B2D71B271E0EA800E7BB84 /* Template+CoreDataClass.swift in Sources */,
 				710F1DD0272B2743005C06E1 /* PillMarker.swift in Sources */,
 				F153F4622733BF20004F06CC /* CalendarViewController.swift in Sources */,
+				16904836273DA1280011A11D /* PlanningIconTableViewCell.swift in Sources */,
 				F138B88F2720A950009F0837 /* ProfileTableViewCell.swift in Sources */,
 				F19FF1AC2728890D0041F5E3 /* WalletDetailViewController.swift in Sources */,
+				16904832273D80F20011A11D /* PlanningNAmeTableViewCell.swift in Sources */,
 				16B2D717271E0EA800E7BB84 /* Item+CoreDataClass.swift in Sources */,
 				07E20F3227345B7E0087835E /* WalletsInsideTableViewCell.swift in Sources */,
 				F19FF1B1272889500041F5E3 /* WalletCreationViewController.swift in Sources */,
@@ -666,6 +685,7 @@
 				077CAFF827273759007D58C1 /* WalletsTableViewCell.swift in Sources */,
 				16B2D715271E0EA800E7BB84 /* Transaction+CoreDataClass.swift in Sources */,
 				16D0B26627287A72007BE30E /* TransactionsViewController.swift in Sources */,
+				16904830273C5C550011A11D /* AddNewPlanningViewController.swift in Sources */,
 				16655627271A0E0000DE83F4 /* AppDelegate.swift in Sources */,
 				16655631271A0E0000DE83F4 /* ExpensesOrganizer.xcdatamodeld in Sources */,
 				F1FA9979273B2B910034483E /* TotalPlanningBalanceTableViewCell.swift in Sources */,

@@ -28,6 +28,9 @@
 // MARK: Shared
 "Delete" = "Apagar";
 "Cancel" = "Cancelar";
+"FirstSegmentedControl" = "Despesas";
+"SecondSegmentedControl" = "Ganhos";
+"Done" = "Pronto";
 
 // MARK: Planning Detail
 "PlanningCreationCancelAlertTitle" = "Cancelar novo Planejamento";
@@ -35,8 +38,13 @@
 "PlanningCreationKeepCreatingAction" = "Coninuar criando";
 
 // MARK: Planning List
-
 "PlanningTitle" = "Planejar";
-"FirstSegmentedControl" = "Despesas";
-"SecondSegmentedControl" = "Ganhos";
 "AddButton" = "Criar novo planejamento";
+
+// MARK: Planning Add
+"AddPlanningTitle" = "Novo planejamento";
+"PlanningCreationPlanningName" = "Nome do planejamento";
+"PlanningCreationPlanningNamePlaceholder" = "Nome do novo planejamento";
+"PlanningCreationPayWith"= "Pagar com";
+"PlanningCreationIcon"= "Ícone do planejamento";
+"PlanningCreationButtonLabel" = "Criar novo item";

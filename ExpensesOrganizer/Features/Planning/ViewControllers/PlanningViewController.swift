@@ -37,10 +37,8 @@ class PlanningViewController: UIViewController, UICollectionViewDelegate {
         segmentedControl.setTitle(NSLocalizedString("SecondSegmentedControl", comment: ""), forSegmentAt: 1)
         let fontNormal = UIFont(name: "WorkSans-Regular", size: 14)
         let fontBold = UIFont(name: "WorkSans-SemiBold", size: 14)
-        segmentedControl.setTitleTextAttributes([NSAttributedString.Key.font: fontNormal as Any],
-                                                for: .normal)
-        segmentedControl.setTitleTextAttributes([NSAttributedString.Key.font: fontBold as Any],
-                                                for: .selected)
+        segmentedControl.setTitleTextAttributes([NSAttributedString.Key.font: fontNormal as Any], for: .normal)
+        segmentedControl.setTitleTextAttributes([NSAttributedString.Key.font: fontBold as Any], for: .selected)
 
     }
     private func setUpCollection() {
@@ -54,9 +52,7 @@ class PlanningViewController: UIViewController, UICollectionViewDelegate {
         layout.minimumInteritemSpacing = 0
         planningCollectionView.setCollectionViewLayout(layout, animated: true)
     }
-    @IBAction private func newPlanningButton(_ sender: Any) {
-        // TODO: Open the new planning view
-    }
+     
 }
 
 extension PlanningViewController: UICollectionViewDataSource {
