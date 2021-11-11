@@ -17,6 +17,8 @@
 "TransactionsHeader" = "Latest transactions";
 
 // MARK: Wallet Creation
+"WalletName" = "Wallet name";
+"NewWallet" = "New wallet";
 "WalletCreationCancelAlertTitle" = "Cancel new Wallet";
 "WalletCreationCancelAlertDescription" = "Are you sure? All inserted data will be lost.";
 "WalletCreationKeepCreatingAction" = "Keep creating";
@@ -26,17 +28,33 @@
 "WalletDeleteAlertDescription" = "Are you sure? All data inserted in this wallet will be lost.";
 
 // MARK: Shared
+"Ready" = "Ready";
 "Delete" = "Delete";
 "Cancel" = "Cancel";
+"Description" = "Description";
+"Planning" = "Planning";
 
 // MARK: Planning Detail
+"OptionalDescription" = "Description is optional";
 "PlanningCreationCancelAlertTitle" = "Cancel Planning";
 "PlanningCreationCancelAlertDescription" = "Are you sure? All inserted data will be lost.";
 "PlanningCreationKeepCreatingAction" = "Keep creating";
 
 // MARK: Planning List
-
 "PlanningTitle" = "Planning";
 "FirstSegmentedControl" = "Outcome";
 "SecondSegmentedControl" = "Income";
 "AddButton" = "Create a new template";
+
+// MARK: Item
+"ItemName" = "Item name";
+"PayWith" = "Pay with";
+"NewItem" = "New item";
+
+// MARK: Recurrency Types
+"Never" = "Never";
+"Daily" = "Daily";
+"Weekly" = "Weekly";
+"EachTwoWeeks" = "Each two weeks";
+"Monthly" = "Monthly";
+"Anually" = "Anually";

@@ -7,7 +7,6 @@
 */
 
 // MARK: Dashboard
-
 "GreetingsLabel" = "Olá, ";
 "BalanceLabel" = "Saldo atual";
 "WalletLabel" = "Carteira";
@@ -17,6 +16,8 @@
 "TransactionsHeader" = "Transações recentes";
 
 // MARK: Wallet Creation
+"WalletName" = "Nome da carteira";
+"NewWallet" = "Nova carteira";
 "WalletCreationCancelAlertTitle" = "Cancelar nova Carteira";
 "WalletCreationCancelAlertDescription" = "Você tem certeza? Todos os dados inseridos serão perdidos.";
 "WalletCreationKeepCreatingAction" = "Coninuar criando";
@@ -26,17 +27,33 @@
 "WalletDeleteAlertDescription" = "Você tem certeza? Todos os dados inseridos nessa carteira serão perdidos.";
 
 // MARK: Shared
+"Ready" = "Pronto";
 "Delete" = "Apagar";
 "Cancel" = "Cancelar";
+"Description" = "Descrição";
+"Planning" = "Planejamento";
 
 // MARK: Planning Detail
+"OptionalDescription" = "Descrição é opcional";
 "PlanningCreationCancelAlertTitle" = "Cancelar novo Planejamento";
 "PlanningCreationCancelAlertDescription" = "Você tem certeza? Todos os dados inseridos serão perdidos.";
 "PlanningCreationKeepCreatingAction" = "Coninuar criando";
 
 // MARK: Planning List
-
 "PlanningTitle" = "Planejar";
 "FirstSegmentedControl" = "Despesas";
 "SecondSegmentedControl" = "Ganhos";
 "AddButton" = "Criar novo planejamento";
+
+// MARK: Item
+"ItemName" = "Nome do item";
+"PayWith" = "Pagar com";
+"NewItem" = "Novo item";
+
+// MARK: Recurrency Types
+"Never" = "Nunca";
+"Daily" = "Diariamente";
+"Weekly" = "Semanalmente";
+"EachTwoWeeks" = "Quinzenalmente";
+"Monthly" = "Mensalmente";
+"Anually" = "Anualmente";

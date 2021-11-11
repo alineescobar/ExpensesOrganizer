@@ -12,15 +12,23 @@ protocol RecurrencyTypeDelegate: AnyObject {
 }
 
 enum RecurrencyTypes: String, CaseIterable {
-    case never = "Sem recorrência",
-         everyDay = "Diário",
-         everyWeek = "Semanal",
-         eachTwoWeeks = "Quinzenal",
-         eachMonth = "Mensal",
-         eachYear = "Anual"
+    case never = "Never",
+         everyDay = "Daily",
+         everyWeek = "Weekly",
+         eachTwoWeeks = "EachTwoWeeks",
+         eachMonth = "Monthly",
+         eachYear = "Anually"
     
     static var allCases: [RecurrencyTypes] {
         return [.never, .everyDay, .everyWeek, .eachTwoWeeks, .eachMonth, .eachYear]
+    }
+    
+    func localizedString() -> String {
+        return NSLocalizedString(self.rawValue, comment: "")
+    }
+
+    static func getTitleFor(title: RecurrencyTypes) -> String {
+        return title.localizedString()
     }
 }
 
@@ -52,7 +60,7 @@ extension RecurrencyViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let recurrencyType = recurrencyTypes[indexPath.row]
         selectedRecurrencyType = recurrencyType
-        tableView.reloadData()
+        self.dismiss(animated: true)
     }
 }
 extension RecurrencyViewController: UITableViewDataSource {
@@ -70,22 +78,22 @@ extension RecurrencyViewController: UITableViewDataSource {
         
         switch recurrencyType {
         case .never:
-            cell.recurrencyTypeLabel.text = recurrencyType.rawValue
+            cell.recurrencyTypeLabel.text = RecurrencyTypes.getTitleFor(title: recurrencyType)
             cell.recurrencyTypeCheckImage.alpha = selectedRecurrencyType == recurrencyType ? 1.0 : 0
         case .everyDay:
-            cell.recurrencyTypeLabel.text = recurrencyType.rawValue
+            cell.recurrencyTypeLabel.text = RecurrencyTypes.getTitleFor(title: recurrencyType)
             cell.recurrencyTypeCheckImage.alpha = selectedRecurrencyType == recurrencyType ? 1.0 : 0
         case .everyWeek:
-            cell.recurrencyTypeLabel.text = recurrencyType.rawValue
+            cell.recurrencyTypeLabel.text = RecurrencyTypes.getTitleFor(title: recurrencyType)
             cell.recurrencyTypeCheckImage.alpha = selectedRecurrencyType == recurrencyType ? 1.0 : 0
         case .eachTwoWeeks:
-            cell.recurrencyTypeLabel.text = recurrencyType.rawValue
+            cell.recurrencyTypeLabel.text = RecurrencyTypes.getTitleFor(title: recurrencyType)
             cell.recurrencyTypeCheckImage.alpha = selectedRecurrencyType == recurrencyType ? 1.0 : 0
         case .eachMonth:
-            cell.recurrencyTypeLabel.text = recurrencyType.rawValue
+            cell.recurrencyTypeLabel.text = RecurrencyTypes.getTitleFor(title: recurrencyType)
             cell.recurrencyTypeCheckImage.alpha = selectedRecurrencyType == recurrencyType ? 1.0 : 0
         case .eachYear:
-            cell.recurrencyTypeLabel.text = recurrencyType.rawValue
+            cell.recurrencyTypeLabel.text = RecurrencyTypes.getTitleFor(title: recurrencyType)
             cell.recurrencyTypeCheckImage.alpha = selectedRecurrencyType == recurrencyType ? 1.0 : 0
         }
         return cell

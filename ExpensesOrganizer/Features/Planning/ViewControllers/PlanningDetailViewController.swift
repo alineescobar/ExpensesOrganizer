@@ -36,6 +36,7 @@ class PlanningDetailViewController: UIViewController {
     
     private let planningDetailCategories: [PlanningDetailCategory] = PlanningDetailCategory.allCases
     private let planningItems: [PlanningDetailCategory] = PlanningDetailCategory.items
+    private let items: [Item] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,19 +45,21 @@ class PlanningDetailViewController: UIViewController {
         isModalInPresentation = true
         tableView.delegate = self
         tableView.dataSource = self
+        readyButton.setTitle(NSLocalizedString("Ready", comment: ""), for: .normal)
+        cancelButton.setTitle(NSLocalizedString("Cancel", comment: ""), for: .normal)
         
         // Do any additional setup after loading the view.
     }
     
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
+    // TODO: Persist data on items array
      override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
+//         guard let indexPath = sender as? IndexPath else {
+//             return
+//         }
+         let itemViewController = segue.destination as? ItemViewController
+//         itemViewController?.item = items[indexPath.row]
+         itemViewController?.itemDelegate = self
      }
-     */
     
     func showCancelPlanningAlert() {
         let alert = UIAlertController(title: NSLocalizedString("PlanningCreationCancelAlertTitle", comment: ""),
@@ -110,7 +113,7 @@ extension PlanningDetailViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 1 {
-            performSegue(withIdentifier: "planningItem", sender: nil)
+            performSegue(withIdentifier: "planningItem", sender: indexPath)
         }
     }
 }
@@ -137,6 +140,7 @@ extension PlanningDetailViewController: UITableViewDataSource {
                 else {
                     return UITableViewCell()
                 }
+                cell.planningDescriptionTextField.text = NSLocalizedString("OptionalDescription", comment: "")
                 return cell
                 
             case .planningTotalBalance:
@@ -188,8 +192,14 @@ extension PlanningDetailViewController: UIGestureRecognizerDelegate {
     }
 }
 
-extension PlanningDetailViewController: PlanningItemDelagate {
+extension PlanningDetailViewController: PlanningItemDelegate {
     func notificationSwitchDidChange(value: Bool, item: Item) {
         // TODO: Update item notification value
+    }
+}
+
+extension PlanningDetailViewController: ItemDelegate {
+    func updateItem() {
+        tableView.reloadData()
     }
 }

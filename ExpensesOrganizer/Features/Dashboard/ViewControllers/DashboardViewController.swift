@@ -132,7 +132,7 @@ extension DashboardViewController: UITableViewDataSource {
             }
             cell.balanceDelegate = self
             cell.showGraphicsImage.image = isShowingGraphics ? UIImage(systemName: "chevron.up") : UIImage(systemName: "chevron.down")
-            cell.hideBalanceButton.setImage(isShowingBalance ? UIImage(systemName: "eye") : UIImage(systemName: "eyebrow"), for: .normal)
+            cell.hideBalanceButton.setImage(isShowingBalance ? UIImage(named: "Eye") : UIImage(named: "EyeClosed"), for: .normal)
             cell.balanceLabel.alpha = isShowingBalance ? 1 : 0
             cell.balanceStackView.setBackgroundColor(color: isShowingBalance ? UIColor.clear : UIColor.lightGray)
             let balance = 2234.5
