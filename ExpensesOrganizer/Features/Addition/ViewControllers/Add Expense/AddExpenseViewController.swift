@@ -77,12 +77,16 @@ extension AddExpenseViewController: UITableViewDataSource {
                 return UITableViewCell()
             }
             
+            cell.planningDelegate = self
+            
             return cell
             
         case .paymentMethod:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: AddExpensePaymentCell.identifier, for: indexPath) as? AddExpensePaymentCell else {
                 return UITableViewCell()
             }
+            
+            cell.planningDelegate = self
             
             return cell
             
@@ -110,7 +114,13 @@ extension AddExpenseViewController: UIViewControllerTransitioningDelegate {
     func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {
 
         let presentationController = CustomSizePresentationController(presentedViewController: presented, presenting: presentingViewController)
-        presentationController.heightMultiplier = 0.5
+        
+        if presented is AddExpenseColectionViewController {
+            presentationController.heightMultiplier = 0.43
+        } else {
+            presentationController.heightMultiplier = 0.5
+        }
+        
         return presentationController
     }
     
@@ -119,7 +129,17 @@ extension AddExpenseViewController: UIViewControllerTransitioningDelegate {
     }
 }
 
-extension AddExpenseViewController: PlanningCellDelegate, RecurrencyTypeDelegate, CalendarDelegate {
+extension AddExpenseViewController: PlanningCellDelegate, RecurrencyTypeDelegate, CalendarDelegate, CollectionDelegate {
+    
+    func openCollection() {
+        let storyboard = UIStoryboard(name: "Addition", bundle: nil)
+        let pvc = storyboard.instantiateViewController(withIdentifier: "open-expense-collection-segue") as? AddExpenseColectionViewController
+        
+        pvc?.modalPresentationStyle = .custom
+        pvc?.transitioningDelegate = self
+
+        present(pvc ?? UIViewController(), animated: true)
+    }
     
     func didTapRecurrency() {
         let storyboard = UIStoryboard(name: "Addition", bundle: nil)
