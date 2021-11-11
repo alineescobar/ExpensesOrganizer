@@ -13,6 +13,7 @@ protocol WalletSelectionCellDelegate: AnyObject {
 
 class WalletSelectionTableViewCell: UITableViewCell {
     @IBOutlet weak var walletSelectionStackView: UIStackView!
+    @IBOutlet weak var payWithLabel: UILabel!
     @IBOutlet weak var selectedWalletLabel: UILabel!
     @IBOutlet weak var walletImageView: UIImageView!
     weak var walletSelectionDelegate: WalletSelectionCellDelegate?

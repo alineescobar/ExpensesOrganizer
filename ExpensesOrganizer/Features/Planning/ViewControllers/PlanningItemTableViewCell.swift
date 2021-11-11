@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol PlanningItemDelagate: AnyObject {
+protocol PlanningItemDelegate: AnyObject {
     func notificationSwitchDidChange(value: Bool, item: Item)
 }
 
@@ -22,7 +22,7 @@ class PlanningItemTableViewCell: UITableViewCell {
     @IBOutlet weak var itemValueLabel: UILabel!
     @IBOutlet weak var itemRecurrencyLabel: UILabel!
     @IBOutlet weak var notificationLabel: UILabel!
-    weak var planningItemDelegate: PlanningItemDelagate?
+    weak var planningItemDelegate: PlanningItemDelegate?
     var item: Item?
     
     override func awakeFromNib() {

@@ -7,11 +7,15 @@
 
 import UIKit
 
+protocol ItemDelegate: AnyObject {
+    func updateItem()
+}
+
 enum ItemCategory: CaseIterable {
-    case currency, description, wallet, planning
+    case currency, description, wallets, planning
     
     static var allCases: [ItemCategory] {
-        return [.currency, .description, .wallet, .planning]
+        return [.currency, .description, .wallets, .planning]
     }
 }
 
@@ -22,10 +26,16 @@ class ItemViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     @IBAction private func cancelAction(_ sender: UIButton) {
+        self.dismiss(animated: true)
     }
     @IBAction private func readyAction(_ sender: UIButton) {
+        itemDelegate?.updateItem()
+        self.dismiss(animated: true)
     }
     
+    var item: Item?
+    weak var itemDelegate: ItemDelegate?
+    private var selectedWallet: Wallet?
     private var selectedRecurrencyType: RecurrencyTypes = .never
     private var selectedDate: Date = Date()
     private let interactor = Interactor()
@@ -34,9 +44,17 @@ class ItemViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
+        readyButton.setTitle(NSLocalizedString("Ready", comment: ""), for: .normal)
+        cancelButton.setTitle(NSLocalizedString("Cancel", comment: ""), for: .normal)
         tableView.delegate = self
         tableView.dataSource = self
         
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        // Update item on CoreData
+        itemDelegate?.updateItem()
     }
     
     /*
@@ -53,17 +71,18 @@ class ItemViewController: UIViewController {
 
 extension ItemViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        let itemCategory = itemCategories[indexPath.row]
-//
-//        switch itemCategory {
-//        case .currency:
-//            return 81
-//        case .description:
-//            return 167
-//        case .planning:
-//            return 121
-//        }
-        return UITableView.automaticDimension
+        let itemCategory = itemCategories[indexPath.row]
+
+        switch itemCategory {
+        case .currency:
+            return 81
+        case .description:
+            return 167
+        case .wallets:
+            return 121
+        case .planning:
+            return 121
+        }
     }
 }
 
@@ -84,14 +103,17 @@ extension ItemViewController: UITableViewDataSource {
             else {
                 return UITableViewCell()
             }
+            cell.descriptionLabel.text = NSLocalizedString("ItemName", comment: "")
             return cell
         
-        case .wallet:
+        case .wallets:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "walletCell", for: indexPath) as? WalletSelectionTableViewCell
             else {
                 return UITableViewCell()
             }
-            cell.selectedWalletLabel.text = "Pagar com" // Change to localized string
+            cell.payWithLabel.text = NSLocalizedString("PayWith", comment: "")
+            cell.walletSelectionDelegate = self
+            cell.selectedWalletLabel.text = selectedWallet?.name ?? "No meu bolso"
             return cell
             
         case .planning:
@@ -101,10 +123,12 @@ extension ItemViewController: UITableViewDataSource {
             }
             let formatter = DateFormatter()
             formatter.dateStyle = .medium
+            let date = formatter.string(from: selectedDate)
             
+            cell.dateLabel.text = date.substring(toIndex: date.count - 4)
             cell.planningDelegate = self
-            cell.recurrencyLabel.text = selectedRecurrencyType.rawValue
-            cell.dateLabel.text = formatter.string(from: selectedDate)
+            cell.planningLabel.text = NSLocalizedString("Planning", comment: "")
+            cell.recurrencyLabel.text = RecurrencyTypes.getTitleFor(title: selectedRecurrencyType)
             
             return cell
         }
@@ -118,7 +142,19 @@ extension ItemViewController: UITableViewDataSource {
 
 extension ItemViewController: UIViewControllerTransitioningDelegate {
     func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {
-        return HalfSizePresentationController(presentedViewController: presented, presenting: presentingViewController)
+        guard let viewTitle = presented.title else {
+            return UIPresentationController(presentedViewController: presented, presenting: presentingViewController)
+        }
+        
+        let viewController = CustomSizePresentationController(presentedViewController: presented, presenting: presentingViewController)
+        
+        if viewTitle == "Calendar" || viewTitle == "Recurrency" {
+            viewController.heightMultiplier = 0.5
+        } else {
+            // TODO: Make a logic that sets the height depending on the number of wallets
+            viewController.heightMultiplier = 0.35
+        }
+            return viewController
     }
     
     func interactionControllerForDismissal(using animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
@@ -152,6 +188,19 @@ extension ItemViewController: PlanningCellDelegate {
     }
 }
 
+extension ItemViewController: WalletSelectionCellDelegate {
+    func didTapWalletSelection() {
+        let storyboard = UIStoryboard(name: "Item", bundle: nil)
+        let pvc = storyboard.instantiateViewController(withIdentifier: "WalletSelectionViewController") as? WalletSelectionViewController
+        
+        pvc?.modalPresentationStyle = .custom
+        pvc?.transitioningDelegate = self
+        pvc?.walletSelectionDelegate = self
+        
+        present(pvc ?? UIViewController(), animated: true)
+    }
+}
+
 extension ItemViewController: UIGestureRecognizerDelegate {
     func hideKeyboardWhenTappedAround() {
         let tap = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
@@ -176,6 +225,13 @@ extension ItemViewController: RecurrencyTypeDelegate {
 extension ItemViewController: CalendarDelegate {
     func sendDate(date: Date) {
         selectedDate = date
+        tableView.reloadData()
+    }
+}
+
+extension ItemViewController: WalletSelectionDelegate {
+    func didTapWallet(wallet: Wallet) {
+        selectedWallet = wallet
         tableView.reloadData()
     }
 }
