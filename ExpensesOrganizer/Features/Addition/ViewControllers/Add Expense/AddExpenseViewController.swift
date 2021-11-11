@@ -109,7 +109,9 @@ extension AddExpenseViewController: UIViewControllerTransitioningDelegate {
     
     func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {
 
-        return HalfSizePresentationController(presentedViewController: presented, presenting: presentingViewController)
+        let presentationController = CustomSizePresentationController(presentedViewController: presented, presenting: presentingViewController)
+        presentationController.heightMultiplier = 0.5
+        return presentationController
     }
     
     func interactionControllerForDismissal(using animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {

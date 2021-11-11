@@ -86,6 +86,8 @@ extension AddIncomeViewController: UITableViewDataSource {
                 return UITableViewCell()
             }
             
+            cell.planningDelegate = self
+            
             return cell
             
         case .planning:
@@ -111,12 +113,15 @@ extension AddIncomeViewController: UITableViewDataSource {
 extension AddIncomeViewController: UIViewControllerTransitioningDelegate {
     func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {
 
-//        if presented is AddIncomeColectionViewController {
-//            // FIXME: carregar o numero de itens a serem mostrandos em presenting e calcular por funcao um valor de height.
-//            return CustomSizePresentationController(presentedViewController: presented, presenting: presentingViewController, height: 370)
-//        }
+        let presentationController = CustomSizePresentationController(presentedViewController: presented, presenting: presentingViewController)
         
-        return HalfSizePresentationController(presentedViewController: presented, presenting: presentingViewController)
+        if presented is AddIncomeColectionViewController {
+            presentationController.heightMultiplier = 0.43
+        } else {
+            presentationController.heightMultiplier = 0.5
+        }
+        
+        return presentationController
     }
     
     func interactionControllerForDismissal(using animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {

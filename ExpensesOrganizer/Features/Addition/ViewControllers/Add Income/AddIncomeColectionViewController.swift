@@ -38,34 +38,6 @@ class AddIncomeColectionViewController: UIViewController {
     }
 }
 
-extension AddIncomeColectionViewController: UICollectionViewDelegateFlowLayout {
- 
-    func collectionView(_ collectionView: UICollectionView,
-                        layout collectionViewLayout: UICollectionViewLayout,
-                        insetForSectionAt section: Int) -> UIEdgeInsets {
-
-        return UIEdgeInsets(top: 1.0, left: .zero, bottom: 1.0, right: .zero)
-    }
-    
-    func collectionView(_ collectionView: UICollectionView,
-                        layout collectionViewLayout: UICollectionViewLayout,
-                        sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let leftPadding = collectionView.contentInset.left
-        let rightPadding = collectionView.contentInset.right
-        
-        let itemsPerRow: CGFloat = 4
-        let itemHeight: CGFloat = 87
-        
-        let totalPadding = leftPadding + rightPadding
-        
-        let availableWidth = collectionView.bounds.width - totalPadding
-        
-        let itemWidth = availableWidth / itemsPerRow
-
-        return CGSize(width: itemWidth, height: itemHeight)
-    }
-}
-
 extension AddIncomeColectionViewController: UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -82,4 +54,22 @@ extension AddIncomeColectionViewController: UICollectionViewDataSource {
 
         return cell
     }
+}
+
+extension AddIncomeColectionViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        insetForSectionAt section: Int) -> UIEdgeInsets {
+        
+        return UIEdgeInsets(top: 1.0, left: 24.0, bottom: 1.0, right: 24.0)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        return CGSize(width: 84, height: 87)
+    }
+
+//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+//        performSegue(withIdentifier: "planningDetail", sender: nil)
+//    }
 }
