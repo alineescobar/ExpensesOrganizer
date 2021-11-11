@@ -34,6 +34,7 @@
 "Description" = "Description";
 "Planning" = "Planning";
 "Done" = "Done";
+"All ready" = "All ready";
 
 // MARK: Planning Detail
 "OptionalDescription" = "Description is optional";

@@ -33,6 +33,7 @@
 "Description" = "Descrição";
 "Planning" = "Planejamento";
 "Done" = "Pronto";
+"All ready" = "Prontinho";
 
 // MARK: Planning Detail
 "OptionalDescription" = "Descrição é opcional";
