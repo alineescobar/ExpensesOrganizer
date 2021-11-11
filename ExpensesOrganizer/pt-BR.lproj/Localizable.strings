@@ -32,6 +32,8 @@
 "Cancel" = "Cancelar";
 "Description" = "Descrição";
 "Planning" = "Planejamento";
+"AllRight" = "Tudo certo por aqui!";
+"OKConfirmation" = "Prontinho";
 
 // MARK: Planning Detail
 "OptionalDescription" = "Descrição é opcional";
@@ -49,6 +51,8 @@
 "ItemName" = "Nome do item";
 "PayWith" = "Pagar com";
 "NewItem" = "Novo item";
+"UpdatedItem" = "Seu item foi atualizado com sucesso.";
+"NewItemCreated" = "Seu novo item foi adicionado com sucesso.";
 
 // MARK: Recurrency Types
 "Never" = "Nunca";

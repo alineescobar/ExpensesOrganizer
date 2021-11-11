@@ -33,6 +33,8 @@
 "Cancel" = "Cancel";
 "Description" = "Description";
 "Planning" = "Planning";
+"AllRight" = "Everything's right around here!";
+"OKConfirmation" = "Okey dokey";
 
 // MARK: Planning Detail
 "OptionalDescription" = "Description is optional";
@@ -50,6 +52,8 @@
 "ItemName" = "Item name";
 "PayWith" = "Pay with";
 "NewItem" = "New item";
+"UpdatedItem" = "Your item was successfully updated.";
+"NewItemCreated" = "Your new item was successfully added.";
 
 // MARK: Recurrency Types
 "Never" = "Never";

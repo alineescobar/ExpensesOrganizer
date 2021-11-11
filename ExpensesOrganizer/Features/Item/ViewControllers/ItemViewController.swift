@@ -20,6 +20,11 @@ enum ItemCategory: CaseIterable {
 }
 
 class ItemViewController: UIViewController {
+    @IBOutlet weak var navigationBarStackView: UIStackView!
+    @IBOutlet weak var conclusionView: UIView!
+    @IBOutlet weak var firstConclusionLabel: UILabel!
+    @IBOutlet weak var secondConclusionLabel: UILabel!
+    @IBOutlet weak var readyConclusionButton: UIButton!
     @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var readyButton: UIButton!
     @IBOutlet weak var itemNameLabel: UILabel!
@@ -29,10 +34,18 @@ class ItemViewController: UIViewController {
         self.dismiss(animated: true)
     }
     @IBAction private func readyAction(_ sender: UIButton) {
+        UIView.animate(withDuration: 1, delay: 0, options: [.beginFromCurrentState]) {
+            self.navigationBarStackView.alpha = 0
+            self.tableView.alpha = 0
+            self.conclusionView.alpha = 1
+        }
         itemDelegate?.updateItem()
+    }
+    @IBAction private func readyConclusionAction(_ sender: UIButton) {
         self.dismiss(animated: true)
     }
     
+    var isEditingItem: Bool = false
     var item: Item?
     weak var itemDelegate: ItemDelegate?
     private var selectedWallet: Wallet?
@@ -48,7 +61,10 @@ class ItemViewController: UIViewController {
         cancelButton.setTitle(NSLocalizedString("Cancel", comment: ""), for: .normal)
         tableView.delegate = self
         tableView.dataSource = self
-        
+        conclusionView.alpha = 0
+        firstConclusionLabel.text = NSLocalizedString("AllRight", comment: "")
+        secondConclusionLabel.text = isEditingItem ? NSLocalizedString("UpdatedItem", comment: "") : NSLocalizedString("NewItemCreated", comment: "")
+        readyConclusionButton.setTitle(NSLocalizedString("OKConfirmation", comment: ""), for: .normal)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
