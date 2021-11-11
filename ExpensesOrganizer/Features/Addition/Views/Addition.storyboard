@@ -308,11 +308,11 @@
                                             <outlet property="titleLabel" destination="Ot9-mR-Esb" id="3A8-t6-MuK"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="add-income-planning-cell" rowHeight="75" id="fIC-14-5j4" customClass="AddIncomePlanningCell" customModule="ExpensesOrganizer" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="412.5" width="414" height="75"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="add-income-planning-cell" rowHeight="107" id="fIC-14-5j4" customClass="AddIncomePlanningCell" customModule="ExpensesOrganizer" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="412.5" width="414" height="107"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fIC-14-5j4" id="5tI-6C-DPU">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="75"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="107"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Planejamento" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iVe-UY-oCU">
@@ -367,7 +367,7 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="iVe-UY-oCU" firstAttribute="top" secondItem="5tI-6C-DPU" secondAttribute="top" id="JuL-VA-aow"/>
-                                                <constraint firstAttribute="bottom" secondItem="0q9-Ee-WtQ" secondAttribute="bottom" constant="8" id="KfV-kw-kJB"/>
+                                                <constraint firstAttribute="bottom" secondItem="0q9-Ee-WtQ" secondAttribute="bottom" constant="40" id="KfV-kw-kJB"/>
                                                 <constraint firstAttribute="trailing" secondItem="iVe-UY-oCU" secondAttribute="trailing" constant="24" id="Phj-zv-Xjj"/>
                                                 <constraint firstAttribute="trailing" secondItem="0q9-Ee-WtQ" secondAttribute="trailing" constant="24" id="UQL-DJ-Fnf"/>
                                                 <constraint firstItem="0q9-Ee-WtQ" firstAttribute="top" secondItem="iVe-UY-oCU" secondAttribute="bottom" constant="23" id="bos-Wh-AFQ"/>
@@ -873,11 +873,11 @@
                                             <outlet property="titleLabel" destination="yNF-vL-YVd" id="ap3-ye-Qyc"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="add-expense-planning-cell" rowHeight="75" id="1Qj-cT-Hey" customClass="AddExpensePlanningCell" customModule="ExpensesOrganizer" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="412.5" width="414" height="75"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="add-expense-planning-cell" rowHeight="107" id="1Qj-cT-Hey" customClass="AddExpensePlanningCell" customModule="ExpensesOrganizer" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="412.5" width="414" height="107"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="1Qj-cT-Hey" id="0sL-yj-jTG">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="75"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="107"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Planejamento" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rbE-R7-1jH">
@@ -937,7 +937,7 @@
                                                 <constraint firstItem="rbE-R7-1jH" firstAttribute="top" secondItem="0sL-yj-jTG" secondAttribute="top" id="4kE-da-49i"/>
                                                 <constraint firstItem="70G-Uc-1nx" firstAttribute="top" secondItem="rbE-R7-1jH" secondAttribute="bottom" constant="23" id="AFB-zI-c64"/>
                                                 <constraint firstAttribute="trailing" secondItem="rbE-R7-1jH" secondAttribute="trailing" constant="24" id="Swu-4J-88W"/>
-                                                <constraint firstAttribute="bottom" secondItem="70G-Uc-1nx" secondAttribute="bottom" constant="8" id="oT4-xx-WOb"/>
+                                                <constraint firstAttribute="bottom" secondItem="70G-Uc-1nx" secondAttribute="bottom" constant="40" id="oT4-xx-WOb"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
