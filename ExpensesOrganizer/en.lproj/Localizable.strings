@@ -54,6 +54,8 @@
 "NewItem" = "New item";
 "UpdatedItem" = "Your item was successfully updated.";
 "NewItemCreated" = "Your new item was successfully added.";
+"ItemEditionCancelAlertTitle" = "Cancel Item edition";
+"ItemKeepEditingAction" = "Keep editing";
 
 // MARK: Recurrency Types
 "Never" = "Never";
