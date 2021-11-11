@@ -45,6 +45,7 @@
 		71737920273AEAE2007D83CC /* AddIncomeColectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7173791F273AEAE2007D83CC /* AddIncomeColectionViewController.swift */; };
 		71CD631427359B8B007A3D75 /* AddExpenseRecurrencyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71CD631327359B8B007A3D75 /* AddExpenseRecurrencyViewController.swift */; };
 		71CD631627359B9C007A3D75 /* AddExpenseCalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71CD631527359B9C007A3D75 /* AddExpenseCalendarViewController.swift */; };
+		71DDB4FF273D904300D527A6 /* AddExpenseColectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71DDB4FE273D904300D527A6 /* AddExpenseColectionViewController.swift */; };
 		71FED85427330E1700B90A5A /* AddExpenseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71FED85327330E1700B90A5A /* AddExpenseViewController.swift */; };
 		71FED85627330E3500B90A5A /* AddIncomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71FED85527330E3500B90A5A /* AddIncomeViewController.swift */; };
 		71FED85D2733147000B90A5A /* AddExpenseValueCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71FED85C2733147000B90A5A /* AddExpenseValueCell.swift */; };
@@ -139,6 +140,7 @@
 		7173791F273AEAE2007D83CC /* AddIncomeColectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddIncomeColectionViewController.swift; sourceTree = "<group>"; };
 		71CD631327359B8B007A3D75 /* AddExpenseRecurrencyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExpenseRecurrencyViewController.swift; sourceTree = "<group>"; };
 		71CD631527359B9C007A3D75 /* AddExpenseCalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExpenseCalendarViewController.swift; sourceTree = "<group>"; };
+		71DDB4FE273D904300D527A6 /* AddExpenseColectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExpenseColectionViewController.swift; sourceTree = "<group>"; };
 		71FED85327330E1700B90A5A /* AddExpenseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExpenseViewController.swift; sourceTree = "<group>"; };
 		71FED85527330E3500B90A5A /* AddIncomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddIncomeViewController.swift; sourceTree = "<group>"; };
 		71FED85C2733147000B90A5A /* AddExpenseValueCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExpenseValueCell.swift; sourceTree = "<group>"; };
@@ -316,6 +318,7 @@
 				7140E5B42735101800685927 /* AddExpenseAllDoneViewController.swift */,
 				71CD631327359B8B007A3D75 /* AddExpenseRecurrencyViewController.swift */,
 				71CD631527359B9C007A3D75 /* AddExpenseCalendarViewController.swift */,
+				71DDB4FE273D904300D527A6 /* AddExpenseColectionViewController.swift */,
 				710269112735CF9C00D62DEE /* Cells */,
 			);
 			path = "Add Expense";
@@ -752,6 +755,7 @@
 				F19FF1A5272882FB0041F5E3 /* AddWalletCollectionViewCell.swift in Sources */,
 				1665562B271A0E0000DE83F4 /* DashboardViewController.swift in Sources */,
 				710269182737325F00D62DEE /* AddExpenseCategoriesCell.swift in Sources */,
+				71DDB4FF273D904300D527A6 /* AddExpenseColectionViewController.swift in Sources */,
 				07E20F3027345B370087835E /* AddWalletInsideTableViewCell.swift in Sources */,
 				F196D500272201F300CCAF81 /* ButtonsTableViewCell.swift in Sources */,
 				16B2D71B271E0EA800E7BB84 /* Template+CoreDataClass.swift in Sources */,
