@@ -111,10 +111,10 @@ extension AddIncomeViewController: UITableViewDataSource {
 extension AddIncomeViewController: UIViewControllerTransitioningDelegate {
     func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {
 
-        if presenting is AddIncomeColectionViewController {
-            // FIXME: carregar o numero de itens a serem mostrandos em presenting e calcular por funcao um valor de height.
-            return CustomSizePresentationController(presentedViewController: presented, presenting: presentingViewController, height: 370)
-        }
+//        if presented is AddIncomeColectionViewController {
+//            // FIXME: carregar o numero de itens a serem mostrandos em presenting e calcular por funcao um valor de height.
+//            return CustomSizePresentationController(presentedViewController: presented, presenting: presentingViewController, height: 370)
+//        }
         
         return HalfSizePresentationController(presentedViewController: presented, presenting: presentingViewController)
     }

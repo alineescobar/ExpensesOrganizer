@@ -43,7 +43,6 @@
 		7140E5B52735101800685927 /* AddExpenseAllDoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7140E5B42735101800685927 /* AddExpenseAllDoneViewController.swift */; };
 		7140E5B72735102C00685927 /* AddIncomeAllDoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7140E5B62735102C00685927 /* AddIncomeAllDoneViewController.swift */; };
 		71737920273AEAE2007D83CC /* AddIncomeColectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7173791F273AEAE2007D83CC /* AddIncomeColectionViewController.swift */; };
-		718B188B273C39500076694C /* CustomSizePresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718B188A273C39500076694C /* CustomSizePresentationController.swift */; };
 		71CD631427359B8B007A3D75 /* AddExpenseRecurrencyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71CD631327359B8B007A3D75 /* AddExpenseRecurrencyViewController.swift */; };
 		71CD631627359B9C007A3D75 /* AddExpenseCalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71CD631527359B9C007A3D75 /* AddExpenseCalendarViewController.swift */; };
 		71FED85427330E1700B90A5A /* AddExpenseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71FED85327330E1700B90A5A /* AddExpenseViewController.swift */; };
@@ -136,7 +135,6 @@
 		7140E5B42735101800685927 /* AddExpenseAllDoneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExpenseAllDoneViewController.swift; sourceTree = "<group>"; };
 		7140E5B62735102C00685927 /* AddIncomeAllDoneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddIncomeAllDoneViewController.swift; sourceTree = "<group>"; };
 		7173791F273AEAE2007D83CC /* AddIncomeColectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddIncomeColectionViewController.swift; sourceTree = "<group>"; };
-		718B188A273C39500076694C /* CustomSizePresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSizePresentationController.swift; sourceTree = "<group>"; };
 		71CD631327359B8B007A3D75 /* AddExpenseRecurrencyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExpenseRecurrencyViewController.swift; sourceTree = "<group>"; };
 		71CD631527359B9C007A3D75 /* AddExpenseCalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExpenseCalendarViewController.swift; sourceTree = "<group>"; };
 		71FED85327330E1700B90A5A /* AddExpenseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExpenseViewController.swift; sourceTree = "<group>"; };
@@ -349,7 +347,6 @@
 				16ADD0522735C3AA00FF6718 /* Buttons */,
 				F196D52027247D0200CCAF81 /* Extensions.swift */,
 				F153F46527344630004F06CC /* HalfSizePresentationController.swift */,
-				718B188A273C39500076694C /* CustomSizePresentationController.swift */,
 				71FED87727345CEB00B90A5A /* Fonts */,
 			);
 			path = Shared;
@@ -769,7 +766,6 @@
 				16D0B26627287A72007BE30E /* TransactionsViewController.swift in Sources */,
 				710269162735D40700D62DEE /* AddIncomeCalendarViewController.swift in Sources */,
 				16655627271A0E0000DE83F4 /* AppDelegate.swift in Sources */,
-				718B188B273C39500076694C /* CustomSizePresentationController.swift in Sources */,
 				7140E5B52735101800685927 /* AddExpenseAllDoneViewController.swift in Sources */,
 				71CD631427359B8B007A3D75 /* AddExpenseRecurrencyViewController.swift in Sources */,
 				71FED86C273325A800B90A5A /* AddIncomeValueCell.swift in Sources */,
