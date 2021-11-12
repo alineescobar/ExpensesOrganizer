@@ -36,7 +36,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="os5-se-bgi">
-                                <rect key="frame" x="127.5" y="71" width="159" height="32"/>
+                                <rect key="frame" x="24" y="71" width="366" height="32"/>
                                 <segments>
                                     <segment title="Despesas"/>
                                     <segment title="Ganhos"/>
@@ -62,12 +62,13 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="LHx-cE-JJv" firstAttribute="top" secondItem="os5-se-bgi" secondAttribute="bottom" constant="27" id="72V-QV-PvT"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="os5-se-bgi" secondAttribute="trailing" constant="24" id="DSO-rF-L4i"/>
                             <constraint firstItem="f5x-de-Zge" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="IA0-Tr-gB5"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="f5x-de-Zge" secondAttribute="bottom" id="PNH-hx-HUg"/>
                             <constraint firstItem="f5x-de-Zge" firstAttribute="top" secondItem="os5-se-bgi" secondAttribute="bottom" constant="27" id="XPg-ZN-IPv"/>
                             <constraint firstItem="LHx-cE-JJv" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="XZf-NQ-V1S"/>
                             <constraint firstItem="LHx-cE-JJv" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="dQV-hk-00E"/>
-                            <constraint firstItem="os5-se-bgi" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="ofk-or-ffO"/>
+                            <constraint firstItem="os5-se-bgi" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="24" id="kHZ-hH-iCj"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="LHx-cE-JJv" secondAttribute="bottom" id="ru9-6l-nxy"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="f5x-de-Zge" secondAttribute="trailing" id="uLm-wm-rIH"/>
                             <constraint firstItem="os5-se-bgi" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="27" id="wbc-nX-Ycm"/>
