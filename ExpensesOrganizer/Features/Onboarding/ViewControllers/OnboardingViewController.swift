@@ -31,7 +31,7 @@ class OnboardingViewController: UIViewController {
         
         guard let image1 = UIImage(named: "Onboarding-5") else {
             return }
-        guard let image2 = UIImage(named: "Onboarding-7") else {
+        guard let image2 = UIImage(named: "Onboarding-4") else {
             return }
         guard let image3 = UIImage(named: "Onboarding-1") else {
             return }
