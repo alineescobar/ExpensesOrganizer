@@ -19,8 +19,8 @@ class AddIncomeAllDoneViewController: UIViewController {
         doneButton.layer.cornerRadius = 8
         doneButton.setTitle(NSLocalizedString("All ready", comment: ""), for: .normal)
         
-        titleLabel.text = NSLocalizedString("addition-expense-done-header", comment: "")
-        bodyLabel.text = NSLocalizedString("addition-expense-done-body", comment: "")
+        titleLabel.text = NSLocalizedString("addition-income-done-header", comment: "")
+        bodyLabel.text = NSLocalizedString("addition-income-done-body", comment: "")
         
         if let pvc = navigationController?.parent as? AdditionViewController {
             pvc.segmentedControl.isHidden = true
