@@ -6,8 +6,8 @@
 //
 
 import UIKit
-
-class PlanningViewController: UIViewController, UICollectionViewDelegate {
+//    swiftlint:disable line_length
+class PlanningViewController: UIViewController, UICollectionViewDelegate, UIViewControllerTransitioningDelegate {
     
     @IBOutlet weak var planningCollectionView: UICollectionView!
     private let roundButtonID: String = "RoundButtonCollectionViewCell"
@@ -82,7 +82,8 @@ extension PlanningViewController: UICollectionViewDelegateFlowLayout {
         return CGSize(width: 84, height: 87)
     }
 
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "planningDetail", sender: nil)
-    }
+//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+//    }
 }
+
+//    swiftlint:enable line_length

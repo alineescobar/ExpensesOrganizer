@@ -247,6 +247,7 @@
                         <outlet property="doneButton" destination="cx5-92-ky8" id="VaQ-Re-eFd"/>
                         <outlet property="segmentedControl" destination="MEp-af-rZ4" id="epn-yk-rbJ"/>
                         <outlet property="tableView" destination="wZP-lm-JPZ" id="Hh7-D7-k0I"/>
+                        <segue destination="g4F-RU-r3P" kind="presentation" identifier="walletSelection" id="fge-ze-Hgu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -256,14 +257,14 @@
         <!--Planning Selection Wallet View Controller-->
         <scene sceneID="Dhh-Al-n4X">
             <objects>
-                <viewController id="g4F-RU-r3P" customClass="PlanningSelectionWalletViewController" customModule="ExpensesOrganizer" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WalletSelection" id="g4F-RU-r3P" customClass="PlanningSelectionWalletViewController" customModule="ExpensesOrganizer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6ye-No-tj7">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="FTW-l5-PRu">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <rect key="frame" x="0.0" y="69" width="414" height="739"/>
+                                <color key="backgroundColor" name="TertiaryBrandColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="b1e-SR-cvR">
                                     <size key="itemSize" width="128" height="128"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -271,7 +272,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="I1x-oX-Q4A">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="walletSelectionCell" id="I1x-oX-Q4A">
                                         <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="f01-so-EMc">
@@ -281,20 +282,40 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wWy-gT-DpO">
+                                <rect key="frame" x="173" y="24" width="68" height="5"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="68" id="JLD-pg-7p5"/>
+                                    <constraint firstAttribute="height" constant="5" id="Qdm-YS-pNb"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="NO"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="dmV-Xu-gm5"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="TertiaryBrandColor"/>
                         <constraints>
-                            <constraint firstItem="dmV-Xu-gm5" firstAttribute="trailing" secondItem="FTW-l5-PRu" secondAttribute="trailing" id="4NC-71-aYt"/>
-                            <constraint firstItem="dmV-Xu-gm5" firstAttribute="bottom" secondItem="FTW-l5-PRu" secondAttribute="bottom" id="8ln-Cr-xJv"/>
-                            <constraint firstItem="FTW-l5-PRu" firstAttribute="leading" secondItem="dmV-Xu-gm5" secondAttribute="leading" id="QT7-Oe-7Ni"/>
-                            <constraint firstItem="FTW-l5-PRu" firstAttribute="top" secondItem="dmV-Xu-gm5" secondAttribute="top" id="T75-hC-0Tf"/>
+                            <constraint firstItem="FTW-l5-PRu" firstAttribute="bottom" secondItem="dmV-Xu-gm5" secondAttribute="bottom" id="EDZ-d3-beo"/>
+                            <constraint firstItem="FTW-l5-PRu" firstAttribute="leading" secondItem="dmV-Xu-gm5" secondAttribute="leading" id="UXp-J9-xw7"/>
+                            <constraint firstItem="FTW-l5-PRu" firstAttribute="top" secondItem="wWy-gT-DpO" secondAttribute="bottom" constant="40" id="Vdc-we-hvZ"/>
+                            <constraint firstItem="wWy-gT-DpO" firstAttribute="centerX" secondItem="6ye-No-tj7" secondAttribute="centerX" id="WP5-NS-400"/>
+                            <constraint firstItem="wWy-gT-DpO" firstAttribute="top" secondItem="dmV-Xu-gm5" secondAttribute="top" constant="24" id="c3N-qh-IGO"/>
+                            <constraint firstItem="FTW-l5-PRu" firstAttribute="trailing" secondItem="dmV-Xu-gm5" secondAttribute="trailing" id="xxm-HQ-mCL"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="pullIndicator" destination="wWy-gT-DpO" id="gsT-nP-Uwe"/>
+                        <outlet property="walletsCollectionView" destination="FTW-l5-PRu" id="Iu2-qo-S0F"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aL8-14-Wnb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1064" y="-188"/>
+            <point key="canvasLocation" x="1063.768115942029" y="-188.16964285714286"/>
         </scene>
     </scenes>
     <resources>

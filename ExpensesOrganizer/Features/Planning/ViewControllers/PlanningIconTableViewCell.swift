@@ -13,7 +13,6 @@ class PlanningIconTableViewCell: UITableViewCell {
     
     @IBOutlet weak var planningIconImage: UIImageView!
     
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         // MARK: Planning Icon label

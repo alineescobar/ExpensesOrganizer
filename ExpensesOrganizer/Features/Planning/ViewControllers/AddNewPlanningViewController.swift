@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+//    swiftlint:disable line_length
 enum NewPlanningCategories: CaseIterable {
     case name, payment, icon, button
     
@@ -22,6 +22,7 @@ class AddNewPlanningViewController: UIViewController, UITableViewDelegate {
     @IBOutlet weak var doneButton: UIButton!
     @IBOutlet weak var cancelButton: UIButton!
     private let newPlanningCategories: [NewPlanningCategories] = NewPlanningCategories.allCases
+    private let interactor = Interactor()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -123,7 +124,29 @@ extension AddNewPlanningViewController: UITableViewDataSource {
         }
     }
     
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        let
-//    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let indexPath = indexPath.row
+        
+        if indexPath == 1 {
+            let storyboard = UIStoryboard(name: "AddNewPlanning", bundle: nil)
+            let pvc = storyboard.instantiateViewController(withIdentifier: "WalletSelection") as? PlanningSelectionWalletViewController
+            pvc?.modalPresentationStyle = .custom
+            pvc?.transitioningDelegate = self
+            present(pvc ?? UIViewController(), animated: true)
+        }
+    }
 }
+
+extension AddNewPlanningViewController: UIViewControllerTransitioningDelegate {
+    func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {
+        let viewController = CustomSizePresentationController(presentedViewController: presented, presenting: presentingViewController)
+        viewController.heightMultiplier = 0.40
+        return viewController
+    }
+    
+    func interactionControllerForDismissal(using animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
+        interactor.hasStarted ? interactor : .none
+    }
+}
+
+//    swiftlint:enable line_length
