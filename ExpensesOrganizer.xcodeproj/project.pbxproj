@@ -801,11 +801,9 @@
 				16904838273DB3C40011A11D /* NewPlanningButtonTableViewCell.swift in Sources */,
 				16B2D715271E0EA800E7BB84 /* Transaction+CoreDataClass.swift in Sources */,
 				16D0B26627287A72007BE30E /* TransactionsViewController.swift in Sources */,
-<<<<<<< HEAD
 				16904830273C5C550011A11D /* AddNewPlanningViewController.swift in Sources */,
 				16655627271A0E0000DE83F4 /* AppDelegate.swift in Sources */,
 				1690483A273EDBC30011A11D /* PlanningSelectionWalletViewController.swift in Sources */,
-=======
 				710269162735D40700D62DEE /* AddIncomeCalendarViewController.swift in Sources */,
 				16655627271A0E0000DE83F4 /* AppDelegate.swift in Sources */,
 				7140E5B52735101800685927 /* AddExpenseAllDoneViewController.swift in Sources */,
@@ -813,7 +811,6 @@
 				71FED86C273325A800B90A5A /* AddIncomeValueCell.swift in Sources */,
 				71FED870273325E100B90A5A /* AddIncomeCategoryCell.swift in Sources */,
 				71737920273AEAE2007D83CC /* AddIncomeColectionViewController.swift in Sources */,
->>>>>>> main
 				16655631271A0E0000DE83F4 /* ExpensesOrganizer.xcdatamodeld in Sources */,
 				F1BBB942273C5FF300B5746D /* WalletSelectionViewController.swift in Sources */,
 				F1FA9979273B2B910034483E /* TotalPlanningBalanceTableViewCell.swift in Sources */,
