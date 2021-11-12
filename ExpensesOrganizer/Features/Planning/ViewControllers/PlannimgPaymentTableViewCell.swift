@@ -9,10 +9,9 @@ import UIKit
 
 class PlannimgPaymentTableViewCell: UITableViewCell {
 
-    
     @IBOutlet weak var planningPaymentLabel: UILabel!
     
-    @IBOutlet weak var planningPaymentTextField: UITextField!
+    @IBOutlet weak var planningPaymentWallet: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -21,7 +20,7 @@ class PlannimgPaymentTableViewCell: UITableViewCell {
         
         // MARK: Planning payment text field
 //        planningPaymentTextField.placeholder = NSLocalizedString("PlanningCreationPlanningNamePlaceholder", comment: "")
-        planningPaymentTextField.tintColor = UIColor(red: 0.6, green: 0.6, blue: 0.6, alpha: 1)
+//        planningPaymentTextField.tintColor = UIColor(red: 0.6, green: 0.6, blue: 0.6, alpha: 1)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
