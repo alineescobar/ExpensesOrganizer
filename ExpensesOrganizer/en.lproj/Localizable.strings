@@ -34,7 +34,7 @@
 "Description" = "Description";
 "Planning" = "Planning";
 "Done" = "Done";
-"All ready" = "All ready";
+"All ready" = "Okey dokey";
 
 // MARK: Planning Detail
 "OptionalDescription" = "Description is optional";
@@ -56,7 +56,7 @@
 "addition-income-wallet" = "Add in";
 "addition-income-planning" = "Planning";
 "addition-income-done-header" = "Everything is fine!";
-"addition-income-done-body" = "Your expense has been successfully added.";
+"addition-income-done-body" = "Your income has been successfully added.";
 
 // MARK: Addition Expense
 "addition-expense-segmented-title" = "Expenses";
@@ -66,7 +66,7 @@
 "addition-expense-wallet" = "Pay with";
 "addition-expense-planning" = "Planning";
 "addition-expense-done-header" = "Everything is fine!";
-"addition-expense-done-body" = "Your income has been successfully added.";
+"addition-expense-done-body" = "Your expense has been successfully added.";
 
 // MARK: Item
 "ItemName" = "Item name";
