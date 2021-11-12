@@ -37,6 +37,7 @@ class OnboardingViewController: UIViewController {
             return }
         guard let image3 = UIImage(named: "Onboarding-1") else {
             return }
+        NSLocalizedString("BalanceLabel", comment: "")
         slides = [
             OnboardingSlide(title: "controle", description: "Aqui voce pode controlar seus gastos registrando cada entrada e saida de valores.", image: image1),
             OnboardingSlide(title: "planeje", description: "Nunca foi tão facil se planejar, aqui voce pode adicionar seus próprios itens em diferentes planejamentos e aproveitar os nossos prontos também!", image: image2),

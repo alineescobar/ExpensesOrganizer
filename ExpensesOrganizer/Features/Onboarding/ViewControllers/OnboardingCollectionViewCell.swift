@@ -14,31 +14,29 @@ class OnboardingCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var descriptionLabel: UILabel!
     let gradientLayer = CAGradientLayer()
     
-    func setup(_ slide:OnboardingSlide) {
+    func setup(_ slide: OnboardingSlide) {
             slideImage.image = slide.image
             titleLabel.text = slide.title
             descriptionLabel.text = slide.description
     }
 }
 
-
 @IBDesignable
 public class Gradient: UIView {
-    @IBInspectable var startColor:   UIColor = .black { didSet { updateColors() }}
-    @IBInspectable var endColor:     UIColor = .white { didSet { updateColors() }}
-    @IBInspectable var startLocation: Double =   0.05 { didSet { updateLocations() }}
-    @IBInspectable var endLocation:   Double =   0.95 { didSet { updateLocations() }}
-    @IBInspectable var horizontalMode:  Bool =  false { didSet { updatePoints() }}
-    @IBInspectable var diagonalMode:    Bool =  false { didSet { updatePoints() }}
+    @IBInspectable var startColor: UIColor = .black { didSet { updateColors() } }
+    @IBInspectable var endColor: UIColor = .white { didSet { updateColors() } }
+    @IBInspectable var startLocation: Double = 0.05 { didSet { updateLocations() } }
+    @IBInspectable var endLocation: Double = 0.95 { didSet { updateLocations() } }
+    @IBInspectable var horizontalMode: Bool = false { didSet { updatePoints() } }
+    @IBInspectable var diagonalMode: Bool = false { didSet { updatePoints() } }
 
     override public class var layerClass: AnyClass { CAGradientLayer.self }
 
-    var gradientLayer : CAGradientLayer {
-        guard let layer = layer as? CAGradientLayer else { fatalError() }
+    var gradientLayer: CAGradientLayer {
+        guard let layer = layer as? CAGradientLayer else { fatalError("error at gradient class") }
         return layer
     }
     
-
     func updatePoints() {
         if horizontalMode {
             gradientLayer.startPoint = diagonalMode ? .init(x: 1, y: 0) : .init(x: 0, y: 0.5)
