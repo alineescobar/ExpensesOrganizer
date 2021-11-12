@@ -108,7 +108,7 @@
                                                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="50,00" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UQi-GF-QnR">
                                                             <rect key="frame" x="0.0" y="0.0" width="328" height="40"/>
                                                             <color key="textColor" name="TertiaryBrandColor"/>
-                                                            <fontDescription key="fontDescription" name="WorkSans-SemiBold" family="Work Sans" pointSize="50"/>
+                                                            <fontDescription key="fontDescription" name="WorkSans-Bold" family="Work Sans" pointSize="48"/>
                                                             <textInputTraits key="textInputTraits"/>
                                                         </textField>
                                                         <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" verticalHuggingPriority="246" horizontalCompressionResistancePriority="743" verticalCompressionResistancePriority="735" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z8t-ns-nnK">
@@ -590,7 +590,7 @@
                                 <fontDescription key="fontDescription" name="WorkSans-SemiBold" family="Work Sans" pointSize="17"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="Prontinho">
-                                    <color key="titleColor" systemColor="systemGray6Color"/>
+                                    <color key="titleColor" name="WhiteStateColor"/>
                                 </state>
                                 <connections>
                                     <action selector="doneAction:" destination="F2A-pe-i2m" eventType="touchUpInside" id="iAO-3l-5BF"/>
@@ -671,10 +671,10 @@
                                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Cc6-vT-LMr">
                                                     <rect key="frame" x="24" y="23" width="366" height="40"/>
                                                     <subviews>
-                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="50,00" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Aw0-un-lu9">
+                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="50,00" textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Aw0-un-lu9">
                                                             <rect key="frame" x="0.0" y="0.0" width="328" height="40"/>
                                                             <color key="textColor" name="TertiaryBrandColor"/>
-                                                            <fontDescription key="fontDescription" name="WorkSans-SemiBold" family="Work Sans" pointSize="50"/>
+                                                            <fontDescription key="fontDescription" name="WorkSans-Bold" family="Work Sans" pointSize="48"/>
                                                             <textInputTraits key="textInputTraits"/>
                                                         </textField>
                                                         <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" verticalHuggingPriority="246" horizontalCompressionResistancePriority="743" verticalCompressionResistancePriority="735" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NVY-eE-eYT">
@@ -980,7 +980,7 @@
                                         <fontDescription key="fontDescription" name="WorkSans-SemiBold" family="Work Sans" pointSize="17"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" title="Pronto">
-                                            <color key="titleColor" systemColor="systemGray6Color"/>
+                                            <color key="titleColor" name="WhiteStateColor"/>
                                         </state>
                                         <connections>
                                             <segue destination="Rfg-Jl-Vfa" kind="show" identifier="open-expense-alldone-segue" id="PU0-bf-dGv"/>
@@ -1032,7 +1032,7 @@
                                 <fontDescription key="fontDescription" name="WorkSans-SemiBold" family="Work Sans" pointSize="17"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="Prontinho">
-                                    <color key="titleColor" systemColor="systemGray6Color"/>
+                                    <color key="titleColor" name="WhiteStateColor"/>
                                 </state>
                                 <connections>
                                     <action selector="doneAction:" destination="Rfg-Jl-Vfa" eventType="touchUpInside" id="awG-2F-WPV"/>
@@ -1180,6 +1180,7 @@
                         </connections>
                     </view>
                     <connections>
+                        <outlet property="containerView" destination="cmK-Cl-xf0" id="HVO-nV-wJJ"/>
                         <outlet property="datePicker" destination="gSF-SX-LTy" id="MdK-zC-kCd"/>
                     </connections>
                 </viewController>
@@ -1417,6 +1418,7 @@
                         </connections>
                     </view>
                     <connections>
+                        <outlet property="containerView" destination="tMH-HN-58h" id="4Vz-Oj-509"/>
                         <outlet property="datePicker" destination="M22-LD-QHZ" id="nlD-7E-5we"/>
                     </connections>
                 </viewController>
@@ -1461,9 +1463,6 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemGray6Color">
-            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
