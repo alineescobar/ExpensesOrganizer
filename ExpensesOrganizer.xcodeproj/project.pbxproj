@@ -12,6 +12,9 @@
 		07E20F2E272C80F90087835E /* BalanceInsideTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E20F2D272C80F90087835E /* BalanceInsideTableViewCell.swift */; };
 		07E20F3027345B370087835E /* AddWalletInsideTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E20F2F27345B370087835E /* AddWalletInsideTableViewCell.swift */; };
 		07E20F3227345B7E0087835E /* WalletsInsideTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E20F3127345B7E0087835E /* WalletsInsideTableViewCell.swift */; };
+		16279ACB273F01C1005A01B8 /* RoundButonWithoutLabelCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16279AC9273F01C1005A01B8 /* RoundButonWithoutLabelCollectionViewCell.swift */; };
+		16279ACC273F01C1005A01B8 /* RoundButonWithoutLabelCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 16279ACA273F01C1005A01B8 /* RoundButonWithoutLabelCollectionViewCell.xib */; };
+		16279ACE273F03EE005A01B8 /* PlanningIconSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16279ACD273F03EE005A01B8 /* PlanningIconSelectionViewController.swift */; };
 		16655627271A0E0000DE83F4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16655626271A0E0000DE83F4 /* AppDelegate.swift */; };
 		16655629271A0E0000DE83F4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16655628271A0E0000DE83F4 /* SceneDelegate.swift */; };
 		1665562B271A0E0000DE83F4 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1665562A271A0E0000DE83F4 /* DashboardViewController.swift */; };
@@ -110,6 +113,9 @@
 		07E20F2D272C80F90087835E /* BalanceInsideTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalanceInsideTableViewCell.swift; sourceTree = "<group>"; };
 		07E20F2F27345B370087835E /* AddWalletInsideTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWalletInsideTableViewCell.swift; sourceTree = "<group>"; };
 		07E20F3127345B7E0087835E /* WalletsInsideTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletsInsideTableViewCell.swift; sourceTree = "<group>"; };
+		16279AC9273F01C1005A01B8 /* RoundButonWithoutLabelCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundButonWithoutLabelCollectionViewCell.swift; sourceTree = "<group>"; };
+		16279ACA273F01C1005A01B8 /* RoundButonWithoutLabelCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RoundButonWithoutLabelCollectionViewCell.xib; sourceTree = "<group>"; };
+		16279ACD273F03EE005A01B8 /* PlanningIconSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanningIconSelectionViewController.swift; sourceTree = "<group>"; };
 		16655623271A0E0000DE83F4 /* ExpensesOrganizer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExpensesOrganizer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		16655626271A0E0000DE83F4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		16655628271A0E0000DE83F4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -262,6 +268,7 @@
 		16ADD0532735C3C000FF6718 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				16279ACA273F01C1005A01B8 /* RoundButonWithoutLabelCollectionViewCell.xib */,
 				16ADD0582735C53600FF6718 /* RoundButtonCollectionViewCell.xib */,
 			);
 			path = Views;
@@ -271,6 +278,7 @@
 			isa = PBXGroup;
 			children = (
 				16ADD0572735C53600FF6718 /* RoundButtonCollectionViewCell.swift */,
+				16279AC9273F01C1005A01B8 /* RoundButonWithoutLabelCollectionViewCell.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -508,6 +516,7 @@
 				16904835273DA1280011A11D /* PlanningIconTableViewCell.swift */,
 				16904837273DB3C40011A11D /* NewPlanningButtonTableViewCell.swift */,
 				16904839273EDBC30011A11D /* PlanningSelectionWalletViewController.swift */,
+				16279ACD273F03EE005A01B8 /* PlanningIconSelectionViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -722,6 +731,7 @@
 				16655633271A0E0400DE83F4 /* Assets.xcassets in Resources */,
 				F196D510272476A800CCAF81 /* Wallets.storyboard in Resources */,
 				F1FA997E273B44850034483E /* Item.storyboard in Resources */,
+				16279ACC273F01C1005A01B8 /* RoundButonWithoutLabelCollectionViewCell.xib in Resources */,
 				F19FF1A8272888E80041F5E3 /* WalletDetail.storyboard in Resources */,
 				1665562E271A0E0000DE83F4 /* Dashboard.storyboard in Resources */,
 				F196D51E2724776E00CCAF81 /* Addition.storyboard in Resources */,
@@ -765,6 +775,7 @@
 				F196D52127247D0200CCAF81 /* Extensions.swift in Sources */,
 				71FED8662733159F00B90A5A /* AddExpensePlanningCell.swift in Sources */,
 				71FED8622733151200B90A5A /* AddExpenseCategoryCell.swift in Sources */,
+				16279ACB273F01C1005A01B8 /* RoundButonWithoutLabelCollectionViewCell.swift in Sources */,
 				16B2D713271E0EA800E7BB84 /* Goal+CoreDataClass.swift in Sources */,
 				71FED85D2733147000B90A5A /* AddExpenseValueCell.swift in Sources */,
 				710F1DC82729C8D6005C06E1 /* GraphicsTableViewCell.swift in Sources */,
@@ -827,6 +838,7 @@
 				71CD631627359B9C007A3D75 /* AddExpenseCalendarViewController.swift in Sources */,
 				F196D512272476BE00CCAF81 /* WalletsViewController.swift in Sources */,
 				71FED8642733153000B90A5A /* AddExpensePaymentCell.swift in Sources */,
+				16279ACE273F03EE005A01B8 /* PlanningIconSelectionViewController.swift in Sources */,
 				7140E5B72735102C00685927 /* AddIncomeAllDoneViewController.swift in Sources */,
 				71FED8722733260F00B90A5A /* AddIncomeWalletCell.swift in Sources */,
 				F196D5162724771C00CCAF81 /* GoalsViewController.swift in Sources */,

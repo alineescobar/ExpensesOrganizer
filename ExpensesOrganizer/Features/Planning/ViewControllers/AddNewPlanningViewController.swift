@@ -133,6 +133,12 @@ extension AddNewPlanningViewController: UITableViewDataSource {
             pvc?.modalPresentationStyle = .custom
             pvc?.transitioningDelegate = self
             present(pvc ?? UIViewController(), animated: true)
+        } else if indexPath == 2 {
+//            let storyboard = UIStoryboard(name: "AddNewPlanning", bundle: nil)
+//            let pvc = storyboard.instantiateViewController(withIdentifier: "WalletSelection") as? PlanningSelectionWalletViewController
+//            pvc?.modalPresentationStyle = .custom
+//            pvc?.transitioningDelegate = self
+//            present(pvc ?? UIViewController(), animated: true)
         }
     }
 }
