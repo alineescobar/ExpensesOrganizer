@@ -50,7 +50,10 @@ extension AddIncomeColectionViewController: UICollectionViewDataSource {
         }
         
         cell.categoryNameLabel.text = "Mirela"
+        cell.categoryNameLabel.textColor = .white
+        cell.background.backgroundColor = UIColor.white.withAlphaComponent(0.4)
         cell.categoryImage.image = UIImage(systemName: "eyebrow")
+        cell.tintColor = .white
 
         return cell
     }
