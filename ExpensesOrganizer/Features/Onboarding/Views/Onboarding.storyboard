@@ -9,6 +9,20 @@
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="WorkSans-Bold.ttf">
+            <string>WorkSans-Bold</string>
+        </array>
+        <array key="WorkSans-Medium.ttf">
+            <string>WorkSans-Medium</string>
+        </array>
+        <array key="WorkSans-Regular.ttf">
+            <string>WorkSans-Regular</string>
+        </array>
+        <array key="WorkSans-SemiBold.ttf">
+            <string>WorkSans-SemiBold</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Onboarding View Controller-->
         <scene sceneID="s0d-6b-0kx">
@@ -39,7 +53,7 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="414" height="753"/>
                                                 </imageView>
                                                 <view contentMode="scaleToFill" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="A5h-WN-csz" customClass="Gradient" customModule="ExpensesOrganizer" customModuleProvider="target">
-                                                    <rect key="frame" x="0.0" y="398" width="414" height="263.5"/>
+                                                    <rect key="frame" x="0.0" y="399.5" width="414" height="263.5"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="color" keyPath="startColor">
@@ -51,17 +65,17 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </view>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="hSr-HZ-PMW">
-                                                    <rect key="frame" x="0.0" y="661.5" width="414" height="91.5"/>
+                                                    <rect key="frame" x="0.0" y="663" width="414" height="90"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FTw-Cl-yMg">
-                                                            <rect key="frame" x="24" y="0.0" width="366" height="48"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                                            <rect key="frame" x="24" y="0.0" width="366" height="47"/>
+                                                            <fontDescription key="fontDescription" name="WorkSans-Bold" family="Work Sans" pointSize="40"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aId-oM-iTw">
-                                                            <rect key="frame" x="24" y="72" width="366" height="19.5"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                            <rect key="frame" x="24" y="71" width="366" height="19"/>
+                                                            <fontDescription key="fontDescription" name="WorkSans-Regular" family="Work Sans" pointSize="16"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
@@ -113,9 +127,10 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="Ygo-pg-UAL"/>
                                         </constraints>
+                                        <fontDescription key="fontDescription" name="WorkSans-SemiBold" family="Work Sans" pointSize="16"/>
                                         <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                        <state key="normal" title="Button"/>
+                                        <state key="normal" title="Próximo"/>
                                         <connections>
                                             <action selector="nextButtonAction:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="rMU-j5-HCl"/>
                                         </connections>
@@ -125,9 +140,11 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dae-Rq-85p">
                                 <rect key="frame" x="343" y="68" width="35" height="30"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" title="Pular"/>
+                                <state key="normal" title="Pular">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
-                                    <segue destination="Qel-Dc-Lfh" kind="presentation" identifier="" modalPresentationStyle="fullScreen" modalTransitionStyle="flipHorizontal" id="8Fm-jZ-pmF"/>
+                                    <segue destination="Qel-Dc-Lfh" kind="presentation" identifier="onboarding-done" modalPresentationStyle="fullScreen" modalTransitionStyle="flipHorizontal" id="8Fm-jZ-pmF"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -158,7 +175,7 @@
         <!--Last Onboarding Screen View Controller-->
         <scene sceneID="Kcg-JD-DNM">
             <objects>
-                <viewController storyboardIdentifier="LastOnboardingID" id="Qel-Dc-Lfh" customClass="LastOnboardingScreenViewController" customModule="ExpensesOrganizer" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LastOnboardingID" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Qel-Dc-Lfh" customClass="LastOnboardingScreenViewController" customModule="ExpensesOrganizer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0yR-cF-IKc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -170,36 +187,36 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="LaU-bm-YIf">
-                                <rect key="frame" x="24" y="512.5" width="366" height="335.5"/>
+                                <rect key="frame" x="24" y="511" width="366" height="337"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="59" translatesAutoresizingMaskIntoConstraints="NO" id="H0c-9h-2d2">
-                                        <rect key="frame" x="0.0" y="0.0" width="366" height="126.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="366" height="125"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Cy-op-goc">
-                                                <rect key="frame" x="0.0" y="0.0" width="94" height="48"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="109" height="47"/>
+                                                <fontDescription key="fontDescription" name="WorkSans-Bold" family="Work Sans" pointSize="40"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="smL-8U-wRZ">
-                                                <rect key="frame" x="0.0" y="107" width="39.5" height="19.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                <rect key="frame" x="0.0" y="106" width="43" height="19"/>
+                                                <fontDescription key="fontDescription" name="WorkSans-Regular" family="Work Sans" pointSize="16"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="22" translatesAutoresizingMaskIntoConstraints="NO" id="t4d-Bi-zVp">
-                                        <rect key="frame" x="0.0" y="166.5" width="366" height="89"/>
+                                        <rect key="frame" x="0.0" y="165" width="366" height="92"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Seu nome" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I0f-sD-exX">
-                                                <rect key="frame" x="0.0" y="0.0" width="76.5" height="20.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="98.5" height="23.5"/>
+                                                <fontDescription key="fontDescription" name="WorkSans-Medium" family="Work Sans" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="22" translatesAutoresizingMaskIntoConstraints="NO" id="ocu-T8-o34">
-                                                <rect key="frame" x="0.0" y="42.5" width="366" height="46.5"/>
+                                                <rect key="frame" x="0.0" y="45.5" width="366" height="46.5"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="Fjp-jv-U9x">
                                                         <rect key="frame" x="0.0" y="0.0" width="366" height="24"/>
@@ -215,7 +232,7 @@
                                                             </imageView>
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Pode ser um apelido também" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Mau-sW-RfD">
                                                                 <rect key="frame" x="42" y="0.0" width="324" height="24"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                <fontDescription key="fontDescription" name="WorkSans-Regular" family="Work Sans" pointSize="16"/>
                                                                 <textInputTraits key="textInputTraits"/>
                                                             </textField>
                                                         </subviews>
@@ -242,11 +259,12 @@
                                         </constraints>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0U1-gs-7BY">
-                                        <rect key="frame" x="0.0" y="295.5" width="366" height="40"/>
+                                        <rect key="frame" x="0.0" y="297" width="366" height="40"/>
                                         <color key="backgroundColor" systemColor="systemRedColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="8J4-rG-wh9"/>
                                         </constraints>
+                                        <fontDescription key="fontDescription" name="WorkSans-SemiBold" family="Work Sans" pointSize="16"/>
                                         <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" title="Pronto"/>

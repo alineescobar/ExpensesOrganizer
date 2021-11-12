@@ -14,20 +14,22 @@ class OnboardingViewController: UIViewController {
     var slides: [OnboardingSlide] = []
     
     var currentPage = 0 {
-         didSet {
-             pageControl.currentPage = currentPage
-             if currentPage == slides.count - 1 {
-                 nextButton.setTitle("pronto", for: .normal)
-             } else {
-                 nextButton.setTitle("proximo", for: .normal)
-             }
-         }
-     }
+        didSet {
+            pageControl.currentPage = currentPage
+            if currentPage == slides.count - 1 {
+                nextButton.setTitle("pronto", for: .normal)
+            } else {
+                nextButton.setTitle("proximo", for: .normal)
+            }
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.delegate = self
         collectionView.dataSource = self
+        
+        nextButton.layer.cornerRadius = 8
         
         guard let image1 = UIImage(named: "Onboarding-5") else {
             return }
@@ -40,20 +42,16 @@ class OnboardingViewController: UIViewController {
             OnboardingSlide(title: "planeje", description: "Nunca foi tão facil se planejar, aqui voce pode adicionar seus próprios itens em diferentes planejamentos e aproveitar os nossos prontos também!", image: image2),
             OnboardingSlide(title: "economize", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Convallis vestibulum augue massa sed aenean.", image: image3)
         ]
-        
     }
+    
     @IBAction private func nextButtonAction(_ sender: UIButton) {
-        if currentPage == 3 {
-                guard let controller = storyboard?.instantiateViewController(identifier: "LastOnboardingID") as? UINavigationController else {
-                        return }
-                    // controller.modalPresentationStyle = .fullScreen
-                    // controller.modalTransitionStyle = .flipHorizontal
-                    present(controller, animated: true, completion: nil)
-                } else {
-                    currentPage += 1
-                    let indexPath = IndexPath(item: currentPage, section: 0)
-                    collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
-                }
+        if currentPage == 2 {
+            performSegue(withIdentifier: "onboarding-done", sender: nil)
+        } else {
+            currentPage += 1
+            let indexPath = IndexPath(item: currentPage, section: 0)
+            collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
+        }
     }
 }
 
@@ -72,11 +70,11 @@ extension OnboardingViewController: UICollectionViewDelegate, UICollectionViewDa
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-            return CGSize(width: collectionView.frame.width, height: collectionView.frame.height)
-        }
+        return CGSize(width: collectionView.frame.width, height: collectionView.frame.height)
+    }
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-            let width = scrollView.frame.width
-            currentPage = Int(scrollView.contentOffset.x / width)
-        }
+        let width = scrollView.frame.width
+        currentPage = Int(scrollView.contentOffset.x / width)
+    }
 }
