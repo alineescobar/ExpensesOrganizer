@@ -11,13 +11,27 @@ class LastOnboardingScreenViewController: UIViewController {
 
     @IBOutlet weak var image: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var descriptionLabel: UIStackView!
+    @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var insertNameField: UITextField!
     @IBOutlet weak var readyButton: UIButton!
     
+    var name = "null"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        titleLabel.text = NSLocalizedString("LetsGo", comment: "")
+        descriptionLabel.text = NSLocalizedString("LetsGoDescription", comment: "")
+        nameLabel.text = NSLocalizedString("Name", comment: "")
+        //insertNameField.text = NSLocalizedString("FieldDescription", comment: "")
+        readyButton.setTitle(NSLocalizedString("DoneButton", comment: ""), for: .normal)
+        readyButton.layer.cornerRadius = 8
+        name = insertNameField.text ?? String("aaa")
     }
 
+    @IBAction private func readyButtonAction(_ sender: UIButton) {
+        UserDefaults.standard.setValue(name, forKey: "nameValue")
+        print(name)
+        performSegue(withIdentifier: "dashboardSegue", sender: nil)
+    }
 }

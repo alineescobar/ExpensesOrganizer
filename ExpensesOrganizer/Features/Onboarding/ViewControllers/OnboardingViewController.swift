@@ -13,16 +13,7 @@ class OnboardingViewController: UIViewController {
     @IBOutlet weak var pageControl: UIPageControl!
     var slides: [OnboardingSlide] = []
     
-    var currentPage = 0 {
-        didSet {
-            pageControl.currentPage = currentPage
-            if currentPage == slides.count - 1 {
-                nextButton.setTitle("pronto", for: .normal)
-            } else {
-                nextButton.setTitle("proximo", for: .normal)
-            }
-        }
-    }
+    var currentPage = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,18 +22,19 @@ class OnboardingViewController: UIViewController {
         
         nextButton.layer.cornerRadius = 8
         
-        guard let image1 = UIImage(named: "Onboarding-5") else {
+        guard let image1 = UIImage(named: "Onboarding-6") else {
             return }
         guard let image2 = UIImage(named: "Onboarding-4") else {
             return }
-        guard let image3 = UIImage(named: "Onboarding-1") else {
+        guard let image3 = UIImage(named: "Onboarding") else {
             return }
-        NSLocalizedString("BalanceLabel", comment: "")
+
         slides = [
-            OnboardingSlide(title: "controle", description: "Aqui voce pode controlar seus gastos registrando cada entrada e saida de valores.", image: image1),
-            OnboardingSlide(title: "planeje", description: "Nunca foi tão facil se planejar, aqui voce pode adicionar seus próprios itens em diferentes planejamentos e aproveitar os nossos prontos também!", image: image2),
-            OnboardingSlide(title: "economize", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Convallis vestibulum augue massa sed aenean.", image: image3)
+            OnboardingSlide(title: NSLocalizedString("Control", comment: ""), description: NSLocalizedString("ControlDescription", comment: ""), image: image1),
+            OnboardingSlide(title: NSLocalizedString("Plan", comment: ""), description: NSLocalizedString("PlanDescription", comment: ""), image: image2),
+            OnboardingSlide(title: NSLocalizedString("Save", comment: ""), description: NSLocalizedString("SaveDescription", comment: ""), image: image3)
         ]
+        nextButton.setTitle(NSLocalizedString("NextButton", comment: ""), for: .normal)
     }
     
     @IBAction private func nextButtonAction(_ sender: UIButton) {

@@ -130,7 +130,6 @@
                                         <fontDescription key="fontDescription" name="WorkSans-SemiBold" family="Work Sans" pointSize="16"/>
                                         <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                        <state key="normal" title="Próximo"/>
                                         <connections>
                                             <action selector="nextButtonAction:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="rMU-j5-HCl"/>
                                         </connections>
@@ -144,7 +143,7 @@
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <segue destination="Qel-Dc-Lfh" kind="presentation" identifier="onboarding-done" modalPresentationStyle="fullScreen" modalTransitionStyle="flipHorizontal" id="8Fm-jZ-pmF"/>
+                                    <segue destination="Qel-Dc-Lfh" kind="presentation" identifier="onboarding-done" modalPresentationStyle="fullScreen" modalTransitionStyle="coverVertical" id="8Fm-jZ-pmF"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -187,19 +186,19 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="LaU-bm-YIf">
-                                <rect key="frame" x="24" y="511" width="366" height="337"/>
+                                <rect key="frame" x="24" y="546" width="366" height="302"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="59" translatesAutoresizingMaskIntoConstraints="NO" id="H0c-9h-2d2">
-                                        <rect key="frame" x="0.0" y="0.0" width="366" height="125"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="H0c-9h-2d2">
+                                        <rect key="frame" x="0.0" y="0.0" width="366" height="90"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Cy-op-goc">
-                                                <rect key="frame" x="0.0" y="0.0" width="109" height="47"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="98" height="47"/>
                                                 <fontDescription key="fontDescription" name="WorkSans-Bold" family="Work Sans" pointSize="40"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="smL-8U-wRZ">
-                                                <rect key="frame" x="0.0" y="106" width="43" height="19"/>
+                                                <rect key="frame" x="0.0" y="71" width="39.5" height="19"/>
                                                 <fontDescription key="fontDescription" name="WorkSans-Regular" family="Work Sans" pointSize="16"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -207,10 +206,10 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="22" translatesAutoresizingMaskIntoConstraints="NO" id="t4d-Bi-zVp">
-                                        <rect key="frame" x="0.0" y="165" width="366" height="92"/>
+                                        <rect key="frame" x="0.0" y="130" width="366" height="92"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Seu nome" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I0f-sD-exX">
-                                                <rect key="frame" x="0.0" y="0.0" width="98.5" height="23.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="91" height="23.5"/>
                                                 <fontDescription key="fontDescription" name="WorkSans-Medium" family="Work Sans" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -259,7 +258,7 @@
                                         </constraints>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0U1-gs-7BY">
-                                        <rect key="frame" x="0.0" y="297" width="366" height="40"/>
+                                        <rect key="frame" x="0.0" y="262" width="366" height="40"/>
                                         <color key="backgroundColor" systemColor="systemRedColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="8J4-rG-wh9"/>
@@ -268,6 +267,10 @@
                                         <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" title="Pronto"/>
+                                        <connections>
+                                            <action selector="readyButtonAction:" destination="Qel-Dc-Lfh" eventType="touchUpInside" id="eFT-IT-q4f"/>
+                                            <segue destination="aoE-u8-lfA" kind="presentation" identifier="dashboardSegue" modalPresentationStyle="fullScreen" id="CbQ-hC-5gk"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -290,7 +293,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="yhJ-aa-5Kg"/>
                     <connections>
-                        <outlet property="descriptionLabel" destination="H0c-9h-2d2" id="BI3-jM-85V"/>
+                        <outlet property="descriptionLabel" destination="smL-8U-wRZ" id="RE9-cv-5N7"/>
                         <outlet property="image" destination="fNT-Fi-zsd" id="Zax-Er-xYY"/>
                         <outlet property="insertNameField" destination="Mau-sW-RfD" id="lOj-Vj-8Tt"/>
                         <outlet property="nameLabel" destination="I0f-sD-exX" id="3Rz-2D-D8p"/>
@@ -301,6 +304,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Oyf-fI-sVu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="808.69565217391312" y="103.79464285714285"/>
+        </scene>
+        <!--Dashboard-->
+        <scene sceneID="Pae-Ab-BYp">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Dashboard" id="aoE-u8-lfA" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IiQ-U2-P7T" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1591" y="150"/>
         </scene>
     </scenes>
     <resources>
