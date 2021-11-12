@@ -16,6 +16,7 @@ class PlanningNAmeTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // MARK: Name label
         planningNameLabel.text = NSLocalizedString("PlanningCreationPlanningName", comment: "")
+        planningNameLabel.textColor = UIColor(named: "TertiaryBrandColor")
         
         // MARK: Name text field
         planningNameTextField.placeholder = NSLocalizedString("PlanningCreationPlanningNamePlaceholder", comment: "")

@@ -31,9 +31,9 @@ class AddNewPlanningViewController: UIViewController, UITableViewDelegate {
         
         // MARK: Navigation Visuals
         self.navigationItem.title = NSLocalizedString("AddPlanningTitle", comment: "")
-        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "WorkSans-Bold", size: 20) as Any]
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "WorkSans-Bold", size: 20) as Any, NSAttributedString.Key.foregroundColor: UIColor(named: "TertiaryBrandColor") as Any]
         self.navigationController?.navigationBar.topItem?.title = " "
-        self.navigationController?.navigationBar.tintColor = .black
+        self.navigationController?.navigationBar.tintColor = UIColor(named: "TertiaryBrandColor")
         self.navigationController?.navigationBar.backIndicatorImage = UIImage(systemName: "chevron.left")?.withInsets(UIEdgeInsets(top: 0, left: 15, bottom: 3, right: 0))
         self.navigationController?.navigationBar.backIndicatorTransitionMaskImage = UIImage(systemName: "chevron.left")?.withInsets(UIEdgeInsets(top: 0, left: 15, bottom: 3, right: 0))
         
@@ -41,21 +41,21 @@ class AddNewPlanningViewController: UIViewController, UITableViewDelegate {
         segmentedControl.setTitle(NSLocalizedString("FirstSegmentedControl", comment: ""), forSegmentAt: 0)
         segmentedControl.setTitle(NSLocalizedString("SecondSegmentedControl", comment: ""), forSegmentAt: 1)
         let fontNormal = UIFont(name: "WorkSans-Regular", size: 14)
-        let fontBold = UIFont(name: "WorkSans-SemiBold", size: 14)
-        segmentedControl.setTitleTextAttributes([NSAttributedString.Key.font: fontNormal as Any], for: .normal)
-        segmentedControl.setTitleTextAttributes([NSAttributedString.Key.font: fontBold as Any], for: .selected)
+        let fontBold = UIFont(name: "WorkSans-Medium", size: 14)
+        segmentedControl.setTitleTextAttributes([NSAttributedString.Key.font: fontNormal as Any, NSAttributedString.Key.foregroundColor: UIColor(named: "TertiaryBrandColor") as Any], for: .normal)
+        segmentedControl.setTitleTextAttributes([NSAttributedString.Key.font: fontBold as Any, NSAttributedString.Key.foregroundColor: UIColor(named: "TertiaryBrandColor") as Any], for: .selected)
         
         // MARK: Cancel button
-        cancelButton.layer.cornerRadius = 19
+        cancelButton.layer.cornerRadius = 8
         cancelButton.layer.borderWidth = 2
-        cancelButton.layer.borderColor = UIColor(red: 0.6, green: 0.6, blue: 0.6, alpha: 1).cgColor
+        cancelButton.layer.borderColor = UIColor(named: "GraySuport1StateColor")?.cgColor
         cancelButton.setTitle(NSLocalizedString("Cancel", comment: ""), for: .normal)
-        cancelButton.tintColor = UIColor(red: 0.6, green: 0.6, blue: 0.6, alpha: 1)
         
         // MARK: Done button
-        doneButton.layer.cornerRadius = 19
+        doneButton.layer.cornerRadius = 8
         doneButton.layer.borderWidth = 2
-        doneButton.layer.backgroundColor = UIColor.black.cgColor
+        doneButton.layer.borderColor = UIColor(named: "PrimaryBrandColor")?.cgColor
+        doneButton.backgroundColor = UIColor(named: "PrimaryBrandColor")
         doneButton.setTitle(NSLocalizedString("Done", comment: ""), for: .normal)
         doneButton.tintColor = .white
     }

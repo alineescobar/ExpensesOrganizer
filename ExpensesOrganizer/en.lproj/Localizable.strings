@@ -56,6 +56,7 @@
 "PlanningCreationPayWith"= "Pay with";
 "PlanningCreationIcon"= "Template icon";
 "PlanningCreationButtonLabel" = "Create a new item";
+
 // MARK: Addition Income
 "addition-income-segmented-title" = "Incomes";
 "addition-income-name" = "Income name";

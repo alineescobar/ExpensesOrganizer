@@ -14,7 +14,7 @@ class NewPlanningButtonTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // MARK: Planning new item button
-        newPlanningButton.backgroundColor = .black
+        newPlanningButton.backgroundColor = UIColor(named: "PrimaryBrandColor")
         newPlanningButton.layer.cornerRadius = 20
         newPlanningButton.setTitle(NSLocalizedString("PlanningCreationButtonLabel", comment: ""), for: .normal)
     }

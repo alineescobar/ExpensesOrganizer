@@ -55,6 +55,7 @@
 "PlanningCreationPayWith"= "Pagar com";
 "PlanningCreationIcon"= "Ícone do planejamento";
 "PlanningCreationButtonLabel" = "Criar novo item";
+
 // MARK: Item
 "ItemName" = "Nome do item";
 "PayWith" = "Pagar com";

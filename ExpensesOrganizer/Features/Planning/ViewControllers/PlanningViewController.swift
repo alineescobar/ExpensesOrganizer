@@ -18,9 +18,9 @@ class PlanningViewController: UIViewController, UICollectionViewDelegate {
         super.viewDidLoad()
         // MARK: Navigation Visuals
         self.navigationItem.title = NSLocalizedString("PlanningTitle", comment: "")
-        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "WorkSans-Bold", size: 20) as Any]
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "WorkSans-Bold", size: 20) as Any, NSAttributedString.Key.foregroundColor: UIColor(named: "TertiaryBrandColor") as Any]
         self.navigationController?.navigationBar.topItem?.title = " "
-        self.navigationController?.navigationBar.tintColor = .black
+        self.navigationController?.navigationBar.tintColor = UIColor(named: "TertiaryBrandColor")
         self.navigationController?.navigationBar.backIndicatorImage = UIImage(systemName: "chevron.left")?.withInsets(UIEdgeInsets(top: 0, left: 15, bottom: 3, right: 0))
         self.navigationController?.navigationBar.backIndicatorTransitionMaskImage = UIImage(systemName: "chevron.left")?.withInsets(UIEdgeInsets(top: 0, left: 15, bottom: 3, right: 0))
         
@@ -28,7 +28,7 @@ class PlanningViewController: UIViewController, UICollectionViewDelegate {
         setUpCollection()
         
         // MARK: Adding a new planning button
-        newPlanningButton.backgroundColor = .black
+        newPlanningButton.backgroundColor = UIColor(named: "TertiaryBrandColor")
         newPlanningButton.layer.cornerRadius = 20
         newPlanningButton.setTitle(NSLocalizedString("AddButton", comment: ""), for: .normal)
         
@@ -36,9 +36,9 @@ class PlanningViewController: UIViewController, UICollectionViewDelegate {
         segmentedControl.setTitle(NSLocalizedString("FirstSegmentedControl", comment: ""), forSegmentAt: 0)
         segmentedControl.setTitle(NSLocalizedString("SecondSegmentedControl", comment: ""), forSegmentAt: 1)
         let fontNormal = UIFont(name: "WorkSans-Regular", size: 14)
-        let fontBold = UIFont(name: "WorkSans-SemiBold", size: 14)
-        segmentedControl.setTitleTextAttributes([NSAttributedString.Key.font: fontNormal as Any], for: .normal)
-        segmentedControl.setTitleTextAttributes([NSAttributedString.Key.font: fontBold as Any], for: .selected)
+        let fontBold = UIFont(name: "WorkSans-Medium", size: 14)
+        segmentedControl.setTitleTextAttributes([NSAttributedString.Key.font: fontNormal as Any, NSAttributedString.Key.foregroundColor: UIColor(named: "TertiaryBrandColor") as Any], for: .normal)
+        segmentedControl.setTitleTextAttributes([NSAttributedString.Key.font: fontBold as Any, NSAttributedString.Key.foregroundColor: UIColor(named: "TertiaryBrandColor") as Any], for: .selected)
 
     }
     private func setUpCollection() {
