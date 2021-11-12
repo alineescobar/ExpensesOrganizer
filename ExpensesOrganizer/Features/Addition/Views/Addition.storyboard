@@ -671,7 +671,7 @@
                                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Cc6-vT-LMr">
                                                     <rect key="frame" x="24" y="23" width="366" height="40"/>
                                                     <subviews>
-                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="50,00" textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Aw0-un-lu9">
+                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="50,00" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Aw0-un-lu9">
                                                             <rect key="frame" x="0.0" y="0.0" width="328" height="40"/>
                                                             <color key="textColor" name="TertiaryBrandColor"/>
                                                             <fontDescription key="fontDescription" name="WorkSans-Bold" family="Work Sans" pointSize="48"/>
