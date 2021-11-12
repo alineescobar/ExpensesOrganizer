@@ -36,7 +36,7 @@ class AddExpenseViewController: UIViewController {
         doneButton.setTitle(NSLocalizedString("Done", comment: ""), for: .normal)
         
         cancellButton.layer.cornerRadius = 8
-        cancellButton.layer.borderColor = UIColor.label.cgColor
+        cancellButton.layer.borderColor = UIColor(named: "GraySuport1StateColor")?.cgColor
         cancellButton.layer.borderWidth = 2.0
         cancellButton.setTitle(NSLocalizedString("Cancel", comment: ""), for: .normal)
         

@@ -36,7 +36,7 @@ class AddIncomeViewController: UIViewController {
         doneButton.setTitle(NSLocalizedString("Done", comment: ""), for: .normal)
 
         cancellButton.layer.cornerRadius = 8
-        cancellButton.layer.borderColor = UIColor.label.cgColor
+        cancellButton.layer.borderColor = UIColor(named: "GraySuport1StateColor")?.cgColor
         cancellButton.layer.borderWidth = 2.0
         cancellButton.setTitle(NSLocalizedString("Cancel", comment: ""), for: .normal)
         
@@ -147,7 +147,7 @@ extension AddIncomeViewController: PlanningCellDelegate, RecurrencyTypeDelegate,
 
     func didTapRecurrency() {
         let storyboard = UIStoryboard(name: "Addition", bundle: nil)
-        let pvc = storyboard.instantiateViewController(withIdentifier: "AddExpenseRecurrencyViewController") as? AddExpenseRecurrencyViewController
+        let pvc = storyboard.instantiateViewController(withIdentifier: "AddIncomeRecurrencyViewController") as? AddIncomeRecurrencyViewController
 
         pvc?.modalPresentationStyle = .custom
         pvc?.transitioningDelegate = self
@@ -159,7 +159,7 @@ extension AddIncomeViewController: PlanningCellDelegate, RecurrencyTypeDelegate,
 
     func didTapCalendar() {
         let storyboard = UIStoryboard(name: "Addition", bundle: nil)
-        let pvc = storyboard.instantiateViewController(withIdentifier: "AddExpenseCalendarViewController") as? AddExpenseCalendarViewController
+        let pvc = storyboard.instantiateViewController(withIdentifier: "AddIncomeCalendarViewController") as? AddIncomeCalendarViewController
 
         pvc?.modalPresentationStyle = .custom
         pvc?.transitioningDelegate = self

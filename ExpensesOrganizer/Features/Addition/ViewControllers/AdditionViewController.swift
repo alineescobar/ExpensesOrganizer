@@ -20,8 +20,8 @@ class AdditionViewController: UIViewController {
         
         let font: Any = UIFont(name: "WorkSans-Medium", size: 14) as Any
         
-        segmentedControl.setTitleTextAttributes([NSAttributedString.Key.font: font], for: .normal)
-
+        segmentedControl.setTitleTextAttributes([NSAttributedString.Key.font: font,
+                                                 NSAttributedString.Key.foregroundColor: UIColor(named: "TertiaryBrandColor") as Any], for: .normal)
     }
     
     @IBAction private func switchViews(_ sender: UISegmentedControl) {

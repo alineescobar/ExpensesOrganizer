@@ -5,6 +5,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Image references" minToolsVersion="12.0"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -106,6 +107,7 @@
                                                     <subviews>
                                                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="50,00" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UQi-GF-QnR">
                                                             <rect key="frame" x="0.0" y="0.0" width="328" height="40"/>
+                                                            <color key="textColor" name="TertiaryBrandColor"/>
                                                             <fontDescription key="fontDescription" name="WorkSans-SemiBold" family="Work Sans" pointSize="50"/>
                                                             <textInputTraits key="textInputTraits"/>
                                                         </textField>
@@ -118,7 +120,7 @@
                                                             <color key="tintColor" systemColor="labelColor"/>
                                                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                             <state key="normal">
-                                                                <color key="titleColor" systemColor="labelColor"/>
+                                                                <color key="titleColor" name="TertiaryBrandColor"/>
                                                                 <imageReference key="image" image="Backspace" symbolScale="large"/>
                                                             </state>
                                                             <connections>
@@ -149,7 +151,7 @@
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Of4-b0-e1d">
                                                     <rect key="frame" x="24" y="0.5" width="366" height="0.5"/>
-                                                    <color key="backgroundColor" systemColor="labelColor"/>
+                                                    <color key="backgroundColor" name="GraySuport2StateColor"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="0.5" id="vig-O7-cI1"/>
                                                     </constraints>
@@ -172,7 +174,7 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nome do ganho" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UOO-cC-f9a">
                                                     <rect key="frame" x="24" y="0.0" width="366" height="42"/>
                                                     <fontDescription key="fontDescription" name="WorkSans-Medium" family="Work Sans" pointSize="20"/>
-                                                    <nil key="textColor"/>
+                                                    <color key="textColor" name="TertiaryBrandColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="WF2-QM-AKU">
@@ -180,7 +182,7 @@
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PencilLine" translatesAutoresizingMaskIntoConstraints="NO" id="RhB-fi-gTh">
                                                             <rect key="frame" x="0.0" y="0.0" width="17" height="17"/>
-                                                            <color key="tintColor" systemColor="labelColor"/>
+                                                            <color key="tintColor" name="TertiaryBrandColor"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="17" id="9yX-Bx-zlG"/>
                                                                 <constraint firstAttribute="width" constant="17" id="ZSS-2N-N7j"/>
@@ -220,7 +222,7 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Categoria" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GH4-kv-5qS">
                                                     <rect key="frame" x="24" y="0.0" width="366" height="24"/>
                                                     <fontDescription key="fontDescription" name="WorkSans-Medium" family="Work Sans" pointSize="20"/>
-                                                    <nil key="textColor"/>
+                                                    <color key="textColor" name="TertiaryBrandColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="fua-0p-Y9h">
@@ -228,7 +230,7 @@
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="752" image="Atom" translatesAutoresizingMaskIntoConstraints="NO" id="7se-44-pDA">
                                                             <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
-                                                            <color key="tintColor" systemColor="labelColor"/>
+                                                            <color key="tintColor" name="TertiaryBrandColor"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="20" id="7gi-2D-x7g"/>
                                                                 <constraint firstAttribute="width" constant="20" id="X7p-Ov-sw0"/>
@@ -237,7 +239,7 @@
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" text="Outros" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cgz-ML-jcW">
                                                             <rect key="frame" x="32" y="0.0" width="334" height="20"/>
                                                             <fontDescription key="fontDescription" name="WorkSans-Regular" family="Work Sans" pointSize="17"/>
-                                                            <nil key="textColor"/>
+                                                            <color key="textColor" name="TertiaryBrandColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
@@ -269,7 +271,7 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Adicionar em" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ot9-mR-Esb">
                                                     <rect key="frame" x="24" y="0.0" width="366" height="24"/>
                                                     <fontDescription key="fontDescription" name="WorkSans-Medium" family="Work Sans" pointSize="20"/>
-                                                    <nil key="textColor"/>
+                                                    <color key="textColor" name="TertiaryBrandColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="VkE-4R-TBN">
@@ -277,7 +279,7 @@
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="752" image="Wallet" translatesAutoresizingMaskIntoConstraints="NO" id="hAS-Ft-tFs">
                                                             <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
-                                                            <color key="tintColor" systemColor="labelColor"/>
+                                                            <color key="tintColor" name="TertiaryBrandColor"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="20" id="6jK-qa-1PH"/>
                                                                 <constraint firstAttribute="height" constant="20" id="meN-Nn-gkJ"/>
@@ -286,7 +288,7 @@
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" text="Principal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JvT-me-6wx">
                                                             <rect key="frame" x="32" y="0.0" width="334" height="20"/>
                                                             <fontDescription key="fontDescription" name="WorkSans-Regular" family="Work Sans" pointSize="17"/>
-                                                            <nil key="textColor"/>
+                                                            <color key="textColor" name="TertiaryBrandColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
@@ -318,7 +320,7 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Planejamento" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iVe-UY-oCU">
                                                     <rect key="frame" x="24" y="0.0" width="366" height="24"/>
                                                     <fontDescription key="fontDescription" name="WorkSans-Medium" family="Work Sans" pointSize="20"/>
-                                                    <nil key="textColor"/>
+                                                    <color key="textColor" name="TertiaryBrandColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="0q9-Ee-WtQ">
@@ -329,7 +331,7 @@
                                                             <subviews>
                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ArrowsClockwise" translatesAutoresizingMaskIntoConstraints="NO" id="gsb-yt-kFV">
                                                                     <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
-                                                                    <color key="tintColor" systemColor="labelColor"/>
+                                                                    <color key="tintColor" name="TertiaryBrandColor"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" constant="20" id="IEs-6Y-59E"/>
                                                                         <constraint firstAttribute="height" constant="20" id="OOx-6b-vLS"/>
@@ -338,7 +340,7 @@
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nunca" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FUC-68-mEK">
                                                                     <rect key="frame" x="41" y="0.0" width="138.5" height="20"/>
                                                                     <fontDescription key="fontDescription" name="WorkSans-Regular" family="Work Sans" pointSize="17"/>
-                                                                    <nil key="textColor"/>
+                                                                    <color key="textColor" name="TertiaryBrandColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                             </subviews>
@@ -348,7 +350,7 @@
                                                             <subviews>
                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Calendar" translatesAutoresizingMaskIntoConstraints="NO" id="gIH-fs-gDm">
                                                                     <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
-                                                                    <color key="tintColor" systemColor="labelColor"/>
+                                                                    <color key="tintColor" name="TertiaryBrandColor"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" constant="20" id="I9O-0z-xDC"/>
                                                                         <constraint firstAttribute="height" constant="20" id="PGq-ED-16Z"/>
@@ -358,7 +360,7 @@
                                                                     <rect key="frame" x="41" y="0.0" width="137.5" height="20"/>
                                                                     <fontDescription key="fontDescription" name="WorkSans-Regular" family="Work Sans" pointSize="17"/>
                                                                     <nil key="textColor"/>
-                                                                    <nil key="highlightedColor"/>
+                                                                    <color key="highlightedColor" name="TertiaryBrandColor"/>
                                                                 </label>
                                                             </subviews>
                                                         </stackView>
@@ -397,7 +399,7 @@
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" title="Cancelar">
-                                            <color key="titleColor" systemColor="labelColor"/>
+                                            <color key="titleColor" name="GraySuport1StateColor"/>
                                         </state>
                                         <connections>
                                             <action selector="cancellButton:" destination="8fW-bf-dI9" eventType="touchUpInside" id="uEJ-Rh-DhR"/>
@@ -405,14 +407,14 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HzJ-js-YtR">
                                         <rect key="frame" x="188.5" y="0.0" width="161.5" height="38"/>
-                                        <color key="backgroundColor" systemColor="labelColor"/>
+                                        <color key="backgroundColor" name="PrimaryBrandColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="38" id="Y8b-X7-dpO"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="WorkSans-SemiBold" family="Work Sans" pointSize="17"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" title="Pronto">
-                                            <color key="titleColor" systemColor="systemGray6Color"/>
+                                            <color key="titleColor" name="WhiteStateColor"/>
                                         </state>
                                         <connections>
                                             <segue destination="F2A-pe-i2m" kind="show" identifier="open-income-alldone-segue" id="L7L-uy-mQF"/>
@@ -457,7 +459,7 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LuC-H1-0ti">
                                 <rect key="frame" x="173.5" y="24" width="67" height="5"/>
-                                <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
+                                <color key="backgroundColor" name="WhiteStateColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="5" id="TRZ-au-HSf"/>
                                     <constraint firstAttribute="width" constant="67" id="koV-38-Mly"/>
@@ -471,7 +473,7 @@
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="APZ-7Z-n1J">
                                 <rect key="frame" x="0.0" y="53" width="414" height="626"/>
-                                <color key="backgroundColor" systemColor="systemGray5Color"/>
+                                <color key="backgroundColor" name="TertiaryBrandColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="tMc-Zy-uN8">
                                     <size key="itemSize" width="128" height="128"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -491,7 +493,7 @@
                             </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="MQl-sH-Nst"/>
-                        <color key="backgroundColor" systemColor="systemGray5Color"/>
+                        <color key="backgroundColor" name="TertiaryBrandColor"/>
                         <constraints>
                             <constraint firstItem="APZ-7Z-n1J" firstAttribute="trailing" secondItem="MQl-sH-Nst" secondAttribute="trailing" id="Kga-08-pJC"/>
                             <constraint firstItem="APZ-7Z-n1J" firstAttribute="leading" secondItem="MQl-sH-Nst" secondAttribute="leading" id="eET-9V-Cpl"/>
@@ -519,7 +521,7 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6GZ-Lm-owN">
                                 <rect key="frame" x="173.5" y="24" width="67" height="5"/>
-                                <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
+                                <color key="backgroundColor" name="WhiteStateColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="5" id="Lwc-yb-rp2"/>
                                     <constraint firstAttribute="width" constant="67" id="ZAP-zq-i8t"/>
@@ -533,7 +535,7 @@
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="cPs-hJ-GVl">
                                 <rect key="frame" x="0.0" y="53" width="414" height="626"/>
-                                <color key="backgroundColor" systemColor="systemGray5Color"/>
+                                <color key="backgroundColor" name="TertiaryBrandColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="rvc-y3-iVy">
                                     <size key="itemSize" width="128" height="128"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -553,7 +555,7 @@
                             </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="wdo-az-f3R"/>
-                        <color key="backgroundColor" systemColor="systemGray5Color"/>
+                        <color key="backgroundColor" name="TertiaryBrandColor"/>
                         <constraints>
                             <constraint firstItem="6GZ-Lm-owN" firstAttribute="centerX" secondItem="ytv-6U-4kQ" secondAttribute="centerX" id="Czv-eD-vuE"/>
                             <constraint firstItem="cPs-hJ-GVl" firstAttribute="trailing" secondItem="wdo-az-f3R" secondAttribute="trailing" id="N41-2C-PdQ"/>
@@ -581,7 +583,7 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mD7-g4-8dZ">
                                 <rect key="frame" x="32" y="663" width="350" height="38"/>
-                                <color key="backgroundColor" systemColor="labelColor"/>
+                                <color key="backgroundColor" name="PrimaryBrandColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="38" id="xqI-ud-85n"/>
                                 </constraints>
@@ -603,20 +605,20 @@
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tudo certo por aqui!" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M9S-TU-2r0">
                                                 <rect key="frame" x="0.0" y="0.0" width="338.5" height="40"/>
                                                 <fontDescription key="fontDescription" name="WorkSans-Bold" family="Work Sans" pointSize="34"/>
-                                                <nil key="textColor"/>
+                                                <color key="textColor" name="TertiaryBrandColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Seu ganho foi adicionado com sucesso." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Nz-rY-hTk">
                                                 <rect key="frame" x="0.0" y="61" width="303.5" height="56.5"/>
                                                 <fontDescription key="fontDescription" name="WorkSans-SemiBold" family="Work Sans" pointSize="24"/>
-                                                <nil key="textColor"/>
+                                                <color key="textColor" name="TertiaryBrandColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
                                     </stackView>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SmileyWink" translatesAutoresizingMaskIntoConstraints="NO" id="vYI-i1-QCV">
                                         <rect key="frame" x="123" y="201.5" width="120" height="120"/>
-                                        <color key="tintColor" systemColor="labelColor"/>
+                                        <color key="tintColor" name="TertiaryBrandColor"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="120" id="Eyo-Ju-DCb"/>
                                             <constraint firstAttribute="height" constant="120" id="jbx-Eb-h2j"/>
@@ -671,6 +673,7 @@
                                                     <subviews>
                                                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="50,00" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Aw0-un-lu9">
                                                             <rect key="frame" x="0.0" y="0.0" width="328" height="40"/>
+                                                            <color key="textColor" name="TertiaryBrandColor"/>
                                                             <fontDescription key="fontDescription" name="WorkSans-SemiBold" family="Work Sans" pointSize="50"/>
                                                             <textInputTraits key="textInputTraits"/>
                                                         </textField>
@@ -683,7 +686,7 @@
                                                             <color key="tintColor" systemColor="labelColor"/>
                                                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                             <state key="normal">
-                                                                <color key="titleColor" systemColor="labelColor"/>
+                                                                <color key="titleColor" name="TertiaryBrandColor"/>
                                                                 <imageReference key="image" image="Backspace" symbolScale="large"/>
                                                             </state>
                                                             <connections>
@@ -715,7 +718,7 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nome da despesa" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xN9-zA-Vvj">
                                                     <rect key="frame" x="24" y="0.0" width="366" height="42"/>
                                                     <fontDescription key="fontDescription" name="WorkSans-Medium" family="Work Sans" pointSize="20"/>
-                                                    <nil key="textColor"/>
+                                                    <color key="textColor" name="TertiaryBrandColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="5zr-8U-H0W">
@@ -723,7 +726,7 @@
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PencilLine" translatesAutoresizingMaskIntoConstraints="NO" id="KjS-CY-G78">
                                                             <rect key="frame" x="0.0" y="0.0" width="17" height="17"/>
-                                                            <color key="tintColor" systemColor="labelColor"/>
+                                                            <color key="tintColor" name="TertiaryBrandColor"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="17" id="N4F-Ia-eCv"/>
                                                                 <constraint firstAttribute="width" constant="17" id="h0U-kC-U8G"/>
@@ -762,7 +765,7 @@
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ft7-hj-idf">
                                                     <rect key="frame" x="24" y="0.5" width="366" height="0.5"/>
-                                                    <color key="backgroundColor" systemColor="labelColor"/>
+                                                    <color key="backgroundColor" name="GraySuport2StateColor"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="0.5" id="g0V-mz-g1h"/>
                                                     </constraints>
@@ -785,7 +788,7 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Categoria" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dx8-rd-hCn">
                                                     <rect key="frame" x="24" y="0.0" width="366" height="24"/>
                                                     <fontDescription key="fontDescription" name="WorkSans-Medium" family="Work Sans" pointSize="20"/>
-                                                    <nil key="textColor"/>
+                                                    <color key="textColor" name="TertiaryBrandColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="BRh-h8-MDc">
@@ -793,7 +796,7 @@
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="752" image="Atom" translatesAutoresizingMaskIntoConstraints="NO" id="dEc-KH-NfX">
                                                             <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
-                                                            <color key="tintColor" systemColor="labelColor"/>
+                                                            <color key="tintColor" name="TertiaryBrandColor"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="20" id="bZO-qQ-B6C"/>
                                                                 <constraint firstAttribute="width" constant="20" id="tEd-Ei-rVU"/>
@@ -802,7 +805,7 @@
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" text="Outros" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pjk-j3-dHu">
                                                             <rect key="frame" x="32" y="0.0" width="334" height="20"/>
                                                             <fontDescription key="fontDescription" name="WorkSans-Regular" family="Work Sans" pointSize="17"/>
-                                                            <nil key="textColor"/>
+                                                            <color key="textColor" name="TertiaryBrandColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
@@ -834,7 +837,7 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pagar com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yNF-vL-YVd">
                                                     <rect key="frame" x="24" y="0.0" width="366" height="24"/>
                                                     <fontDescription key="fontDescription" name="WorkSans-Medium" family="Work Sans" pointSize="20"/>
-                                                    <nil key="textColor"/>
+                                                    <color key="textColor" name="TertiaryBrandColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="CDK-db-cEJ">
@@ -842,7 +845,7 @@
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="752" image="Wallet" translatesAutoresizingMaskIntoConstraints="NO" id="HDN-up-k41">
                                                             <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
-                                                            <color key="tintColor" systemColor="labelColor"/>
+                                                            <color key="tintColor" name="TertiaryBrandColor"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="20" id="qzY-VY-bHl"/>
                                                                 <constraint firstAttribute="height" constant="20" id="zL2-Zn-DjX"/>
@@ -851,7 +854,7 @@
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" text="Principal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cMC-ux-1qT">
                                                             <rect key="frame" x="32" y="0.0" width="334" height="20"/>
                                                             <fontDescription key="fontDescription" name="WorkSans-Regular" family="Work Sans" pointSize="17"/>
-                                                            <nil key="textColor"/>
+                                                            <color key="textColor" name="TertiaryBrandColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
@@ -883,7 +886,7 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Planejamento" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rbE-R7-1jH">
                                                     <rect key="frame" x="24" y="0.0" width="366" height="24"/>
                                                     <fontDescription key="fontDescription" name="WorkSans-Medium" family="Work Sans" pointSize="20"/>
-                                                    <nil key="textColor"/>
+                                                    <color key="textColor" name="TertiaryBrandColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="70G-Uc-1nx">
@@ -894,7 +897,7 @@
                                                             <subviews>
                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ArrowsClockwise" translatesAutoresizingMaskIntoConstraints="NO" id="5qM-Mx-yue">
                                                                     <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
-                                                                    <color key="tintColor" systemColor="labelColor"/>
+                                                                    <color key="tintColor" name="TertiaryBrandColor"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" constant="20" id="f6P-Ns-WZL"/>
                                                                         <constraint firstAttribute="height" constant="20" id="kU2-JF-McI"/>
@@ -903,7 +906,7 @@
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nunca" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NvS-U9-AGK">
                                                                     <rect key="frame" x="41" y="0.0" width="138.5" height="20"/>
                                                                     <fontDescription key="fontDescription" name="WorkSans-Regular" family="Work Sans" pointSize="17"/>
-                                                                    <nil key="textColor"/>
+                                                                    <color key="textColor" name="TertiaryBrandColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                             </subviews>
@@ -913,7 +916,7 @@
                                                             <subviews>
                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Calendar" translatesAutoresizingMaskIntoConstraints="NO" id="gvL-rj-gnj">
                                                                     <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
-                                                                    <color key="tintColor" systemColor="labelColor"/>
+                                                                    <color key="tintColor" name="TertiaryBrandColor"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="20" id="738-0e-XBl"/>
                                                                         <constraint firstAttribute="width" constant="20" id="pMe-Mf-6hv"/>
@@ -922,7 +925,7 @@
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="247" verticalHuggingPriority="251" horizontalCompressionResistancePriority="752" text="25 Out" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="toK-pB-Vsh">
                                                                     <rect key="frame" x="41" y="0.0" width="137.5" height="20"/>
                                                                     <fontDescription key="fontDescription" name="WorkSans-Regular" family="Work Sans" pointSize="17"/>
-                                                                    <nil key="textColor"/>
+                                                                    <color key="textColor" name="TertiaryBrandColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                             </subviews>
@@ -962,7 +965,7 @@
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" title="Cancelar">
-                                            <color key="titleColor" systemColor="labelColor"/>
+                                            <color key="titleColor" name="GraySuport1StateColor"/>
                                         </state>
                                         <connections>
                                             <action selector="cancellButton:" destination="rbo-ha-FuY" eventType="touchUpInside" id="rWc-Cf-wg0"/>
@@ -970,7 +973,7 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TkP-4F-u25">
                                         <rect key="frame" x="188.5" y="0.0" width="161.5" height="38"/>
-                                        <color key="backgroundColor" systemColor="labelColor"/>
+                                        <color key="backgroundColor" name="PrimaryBrandColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="38" id="awc-7B-XnK"/>
                                         </constraints>
@@ -1022,7 +1025,7 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="REn-9U-fqd">
                                 <rect key="frame" x="32" y="663" width="350" height="38"/>
-                                <color key="backgroundColor" systemColor="labelColor"/>
+                                <color key="backgroundColor" name="PrimaryBrandColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="38" id="r8k-HT-zoe"/>
                                 </constraints>
@@ -1044,20 +1047,20 @@
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tudo certo por aqui!" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QOQ-Mr-XTt">
                                                 <rect key="frame" x="0.0" y="0.0" width="338.5" height="40"/>
                                                 <fontDescription key="fontDescription" name="WorkSans-Bold" family="Work Sans" pointSize="34"/>
-                                                <nil key="textColor"/>
+                                                <color key="textColor" name="TertiaryBrandColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sua despesa foi adicionada com sucesso." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZI3-IZ-yAN">
                                                 <rect key="frame" x="0.0" y="61" width="328" height="56.5"/>
                                                 <fontDescription key="fontDescription" name="WorkSans-SemiBold" family="Work Sans" pointSize="24"/>
-                                                <nil key="textColor"/>
+                                                <color key="textColor" name="TertiaryBrandColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
                                     </stackView>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SmileyWink" translatesAutoresizingMaskIntoConstraints="NO" id="ebg-dz-r7P">
                                         <rect key="frame" x="123" y="201.5" width="120" height="120"/>
-                                        <color key="tintColor" systemColor="labelColor"/>
+                                        <color key="tintColor" name="TertiaryBrandColor"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="120" id="9mw-4o-cgv"/>
                                             <constraint firstAttribute="height" constant="120" id="QnZ-JW-J1S"/>
@@ -1131,7 +1134,7 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kgb-5I-Fj0">
                                 <rect key="frame" x="173.5" y="20" width="67" height="5"/>
-                                <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
+                                <color key="backgroundColor" name="WhiteStateColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="5" id="0SJ-WV-zWo"/>
                                     <constraint firstAttribute="width" constant="67" id="1l3-4G-WdN"/>
@@ -1143,22 +1146,34 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="NO"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" style="inline" translatesAutoresizingMaskIntoConstraints="NO" id="gSF-SX-LTy">
-                                <rect key="frame" x="23.5" y="65" width="367.5" height="614"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </datePicker>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cmK-Cl-xf0">
+                                <rect key="frame" x="24" y="35" width="366" height="380"/>
+                                <subviews>
+                                    <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" style="inline" translatesAutoresizingMaskIntoConstraints="NO" id="gSF-SX-LTy">
+                                        <rect key="frame" x="10" y="0.0" width="346" height="380"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="tintColor" name="SecondaryBrandColor"/>
+                                    </datePicker>
+                                </subviews>
+                                <color key="backgroundColor" red="0.39930272100000003" green="0.44534051419999998" blue="0.50183552499999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="gSF-SX-LTy" firstAttribute="top" secondItem="cmK-Cl-xf0" secondAttribute="top" id="00o-Uh-FwR"/>
+                                    <constraint firstAttribute="trailing" secondItem="gSF-SX-LTy" secondAttribute="trailing" constant="10" id="ALS-zY-bCe"/>
+                                    <constraint firstAttribute="bottom" secondItem="gSF-SX-LTy" secondAttribute="bottom" id="GcU-gD-Iy9"/>
+                                    <constraint firstItem="gSF-SX-LTy" firstAttribute="leading" secondItem="cmK-Cl-xf0" secondAttribute="leading" constant="10" id="YsM-vK-LRK"/>
+                                    <constraint firstAttribute="height" constant="380" id="l4E-bs-MCW"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="j2n-k5-IaN"/>
-                        <color key="backgroundColor" systemColor="systemGray5Color"/>
+                        <color key="backgroundColor" name="TertiaryBrandColor"/>
                         <gestureRecognizers/>
                         <constraints>
-                            <constraint firstItem="gSF-SX-LTy" firstAttribute="top" secondItem="Kgb-5I-Fj0" secondAttribute="bottom" constant="40" id="6oj-X5-bMx"/>
-                            <constraint firstItem="j2n-k5-IaN" firstAttribute="trailing" secondItem="gSF-SX-LTy" secondAttribute="trailing" constant="23" id="DIQ-tU-yGT"/>
+                            <constraint firstItem="cmK-Cl-xf0" firstAttribute="leading" secondItem="j2n-k5-IaN" secondAttribute="leading" constant="24" id="4hG-eW-4Zw"/>
+                            <constraint firstItem="cmK-Cl-xf0" firstAttribute="top" secondItem="Kgb-5I-Fj0" secondAttribute="bottom" constant="10" id="D8v-0h-SiV"/>
                             <constraint firstItem="Kgb-5I-Fj0" firstAttribute="centerX" secondItem="j2n-k5-IaN" secondAttribute="centerX" id="Ot6-No-D1I"/>
+                            <constraint firstItem="j2n-k5-IaN" firstAttribute="trailing" secondItem="cmK-Cl-xf0" secondAttribute="trailing" constant="24" id="PlI-cJ-B5O"/>
                             <constraint firstItem="Kgb-5I-Fj0" firstAttribute="top" secondItem="j2n-k5-IaN" secondAttribute="top" constant="20" id="Rqf-wD-PZ5"/>
-                            <constraint firstAttribute="bottomMargin" secondItem="gSF-SX-LTy" secondAttribute="bottom" id="a5v-J6-uU7"/>
-                            <constraint firstItem="gSF-SX-LTy" firstAttribute="leading" secondItem="j2n-k5-IaN" secondAttribute="leading" constant="23.5" id="ghp-U3-rP9"/>
                         </constraints>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="Xo1-nl-S3z" appends="YES" id="Jwv-xm-hd8"/>
@@ -1171,7 +1186,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XLO-fe-6pU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <panGestureRecognizer minimumNumberOfTouches="1" id="Xo1-nl-S3z"/>
             </objects>
-            <point key="canvasLocation" x="1654" y="784"/>
+            <point key="canvasLocation" x="1653.6231884057972" y="783.81696428571422"/>
         </scene>
         <!--Add Expense Recurrency View Controller-->
         <scene sceneID="Xgv-fJ-CQt">
@@ -1183,7 +1198,7 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n2Y-PR-nIS">
                                 <rect key="frame" x="173.5" y="25" width="67" height="5"/>
-                                <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
+                                <color key="backgroundColor" name="WhiteStateColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="67" id="2Aq-Td-HUx"/>
                                     <constraint firstAttribute="height" constant="5" id="3uD-Cb-sLV"/>
@@ -1197,8 +1212,8 @@
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="2fS-4s-guS">
                                 <rect key="frame" x="0.0" y="40" width="414" height="639"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <color key="separatorColor" systemColor="opaqueSeparatorColor"/>
+                                <color key="backgroundColor" name="TertiaryBrandColor"/>
+                                <color key="separatorColor" name="TertiaryBrandColor"/>
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="recurrencyTypeCell" rowHeight="54" id="RLn-6Q-vzP" customClass="RecurrencyTypeTableViewCell" customModule="ExpensesOrganizer" customModuleProvider="target">
@@ -1214,15 +1229,17 @@
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nunca" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KkS-z2-AVC">
                                                             <rect key="frame" x="0.0" y="0.0" width="49.5" height="28"/>
                                                             <fontDescription key="fontDescription" name="WorkSans-Regular" family="Work Sans" pointSize="16"/>
-                                                            <nil key="textColor"/>
+                                                            <color key="textColor" name="WhiteStateColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkmark" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="NOz-lU-OBk">
                                                             <rect key="frame" x="323.5" y="2" width="18.5" height="24.5"/>
                                                         </imageView>
                                                     </subviews>
+                                                    <color key="tintColor" name="WhiteStateColor"/>
                                                 </stackView>
                                             </subviews>
+                                            <color key="backgroundColor" red="0.39930272100000003" green="0.44534051419999998" blue="0.50183552499999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstAttribute="bottom" secondItem="GKX-0A-MUc" secondAttribute="bottom" constant="13" id="NXP-vO-LNm"/>
@@ -1240,7 +1257,7 @@
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="NSi-mn-cMR"/>
-                        <color key="backgroundColor" systemColor="systemGray5Color"/>
+                        <color key="backgroundColor" name="TertiaryBrandColor"/>
                         <constraints>
                             <constraint firstItem="2fS-4s-guS" firstAttribute="top" secondItem="n2Y-PR-nIS" secondAttribute="bottom" constant="10" id="94k-kd-HPC"/>
                             <constraint firstItem="2fS-4s-guS" firstAttribute="leading" secondItem="NSi-mn-cMR" secondAttribute="leading" id="Qfo-2A-JWh"/>
@@ -1268,7 +1285,7 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XwQ-9w-uSh">
                                 <rect key="frame" x="173.5" y="25" width="67" height="5"/>
-                                <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
+                                <color key="backgroundColor" name="WhiteStateColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="67" id="2IV-aq-y9p"/>
                                     <constraint firstAttribute="height" constant="5" id="yJu-jl-R00"/>
@@ -1299,11 +1316,12 @@
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nunca" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j0f-cV-lUE">
                                                             <rect key="frame" x="0.0" y="0.0" width="49.5" height="28"/>
                                                             <fontDescription key="fontDescription" name="WorkSans-Regular" family="Work Sans" pointSize="16"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
+                                                            <color key="textColor" name="WhiteStateColor"/>
+                                                            <color key="highlightedColor" name="WhiteStateColor"/>
                                                         </label>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkmark" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="gKp-rz-U0A">
                                                             <rect key="frame" x="323.5" y="2" width="18.5" height="24.5"/>
+                                                            <color key="tintColor" name="WhiteStateColor"/>
                                                         </imageView>
                                                     </subviews>
                                                 </stackView>
@@ -1316,6 +1334,7 @@
                                                 <constraint firstAttribute="bottom" secondItem="5e3-5M-ogR" secondAttribute="bottom" constant="13" id="wXa-8Q-JEN"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.40342968699999998" green="0.44114786389999999" blue="0.48975789549999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
                                             <outlet property="recurrencyTypeCheckImage" destination="gKp-rz-U0A" id="TDA-Sy-DZU"/>
                                             <outlet property="recurrencyTypeLabel" destination="j0f-cV-lUE" id="gnz-TY-2at"/>
@@ -1325,7 +1344,7 @@
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="oH1-be-L8w"/>
-                        <color key="backgroundColor" systemColor="systemGray5Color"/>
+                        <color key="backgroundColor" name="TertiaryBrandColor"/>
                         <constraints>
                             <constraint firstItem="oH1-be-L8w" firstAttribute="trailing" secondItem="Ct4-mO-Lfz" secondAttribute="trailing" id="2Ac-wp-bou"/>
                             <constraint firstItem="oH1-be-L8w" firstAttribute="bottom" secondItem="Ct4-mO-Lfz" secondAttribute="bottom" id="3al-PQ-PPO"/>
@@ -1353,7 +1372,7 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SKT-cx-TFN">
                                 <rect key="frame" x="173.5" y="20" width="67" height="5"/>
-                                <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
+                                <color key="backgroundColor" name="WhiteStateColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="5" id="VPI-au-WaE"/>
                                     <constraint firstAttribute="width" constant="67" id="b0e-aE-pbm"/>
@@ -1365,22 +1384,33 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="NO"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" style="inline" translatesAutoresizingMaskIntoConstraints="NO" id="M22-LD-QHZ">
-                                <rect key="frame" x="23.5" y="65" width="367.5" height="614"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </datePicker>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tMH-HN-58h">
+                                <rect key="frame" x="24" y="35" width="366" height="380"/>
+                                <subviews>
+                                    <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" style="inline" translatesAutoresizingMaskIntoConstraints="NO" id="M22-LD-QHZ">
+                                        <rect key="frame" x="10" y="0.0" width="346" height="380"/>
+                                        <color key="tintColor" name="SecondaryBrandColor"/>
+                                    </datePicker>
+                                </subviews>
+                                <color key="backgroundColor" red="0.40342968699999998" green="0.44114786389999999" blue="0.48975789549999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="M22-LD-QHZ" firstAttribute="leading" secondItem="tMH-HN-58h" secondAttribute="leading" constant="10" id="8pa-Sc-Xmv"/>
+                                    <constraint firstAttribute="height" constant="380" id="GVr-73-XPb"/>
+                                    <constraint firstAttribute="bottom" secondItem="M22-LD-QHZ" secondAttribute="bottom" id="Oep-fg-qYj"/>
+                                    <constraint firstItem="M22-LD-QHZ" firstAttribute="top" secondItem="tMH-HN-58h" secondAttribute="top" id="dju-mP-EAP"/>
+                                    <constraint firstAttribute="trailing" secondItem="M22-LD-QHZ" secondAttribute="trailing" constant="10" id="unM-mq-YTK"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6ym-Ye-0Lp"/>
-                        <color key="backgroundColor" systemColor="systemGray5Color"/>
+                        <color key="backgroundColor" name="TertiaryBrandColor"/>
                         <gestureRecognizers/>
                         <constraints>
-                            <constraint firstItem="M22-LD-QHZ" firstAttribute="top" secondItem="SKT-cx-TFN" secondAttribute="bottom" constant="40" id="00r-5o-gWd"/>
                             <constraint firstItem="SKT-cx-TFN" firstAttribute="centerX" secondItem="6ym-Ye-0Lp" secondAttribute="centerX" id="4rg-cQ-bnQ"/>
                             <constraint firstItem="SKT-cx-TFN" firstAttribute="top" secondItem="6ym-Ye-0Lp" secondAttribute="top" constant="20" id="6du-va-eib"/>
-                            <constraint firstItem="6ym-Ye-0Lp" firstAttribute="trailing" secondItem="M22-LD-QHZ" secondAttribute="trailing" constant="23" id="DoH-Kw-2vn"/>
-                            <constraint firstItem="M22-LD-QHZ" firstAttribute="leading" secondItem="6ym-Ye-0Lp" secondAttribute="leading" constant="23.5" id="EOg-ZA-2v0"/>
-                            <constraint firstAttribute="bottomMargin" secondItem="M22-LD-QHZ" secondAttribute="bottom" id="zD2-Ls-ZYX"/>
+                            <constraint firstItem="tMH-HN-58h" firstAttribute="top" secondItem="SKT-cx-TFN" secondAttribute="bottom" constant="10" id="Wn6-mP-Yl7"/>
+                            <constraint firstItem="6ym-Ye-0Lp" firstAttribute="trailing" secondItem="tMH-HN-58h" secondAttribute="trailing" constant="24" id="ctB-Ry-5Dp"/>
+                            <constraint firstItem="tMH-HN-58h" firstAttribute="leading" secondItem="6ym-Ye-0Lp" secondAttribute="leading" constant="24" id="iNZ-Aq-I2Q"/>
                         </constraints>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="K2d-1i-tgv" appends="YES" id="iI0-au-Wua"/>
@@ -1393,7 +1423,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AuK-IZ-flZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <panGestureRecognizer minimumNumberOfTouches="1" id="K2d-1i-tgv"/>
             </objects>
-            <point key="canvasLocation" x="1628" y="113"/>
+            <point key="canvasLocation" x="1627.536231884058" y="112.83482142857142"/>
         </scene>
     </scenes>
     <resources>
@@ -1405,6 +1435,24 @@
         <image name="SmileyWink" width="160" height="160"/>
         <image name="Wallet" width="25" height="24"/>
         <image name="checkmark" catalog="system" width="128" height="114"/>
+        <namedColor name="GraySuport1StateColor">
+            <color red="0.40000000000000002" green="0.40000000000000002" blue="0.42352941176470588" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="GraySuport2StateColor">
+            <color red="0.68627450980392157" green="0.71764705882352942" blue="0.74509803921568629" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="PrimaryBrandColor">
+            <color red="0.14509803921568629" green="0.16862745098039217" blue="0.39215686274509803" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="SecondaryBrandColor">
+            <color red="0.92156862745098034" green="0.0" blue="0.10588235294117647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="TertiaryBrandColor">
+            <color red="0.035294117647058823" green="0.094117647058823528" blue="0.1803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="WhiteStateColor">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
@@ -1413,9 +1461,6 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemGray5Color">
-            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGray6Color">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
