@@ -7,7 +7,7 @@
 
 import UIKit
 
-class OnboardingViewController: UIViewController{
+class OnboardingViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var nextButton: UIButton!
     @IBOutlet weak var pageControl: UIPageControl!
@@ -29,21 +29,22 @@ class OnboardingViewController: UIViewController{
         collectionView.delegate = self
         collectionView.dataSource = self
         
-        guard let image1 = UIImage(named: "Onboarding-4") else {
+        guard let image1 = UIImage(named: "Onboarding-5") else {
             return }
         guard let image2 = UIImage(named: "Onboarding-7") else {
             return }
-        guard let image3 = UIImage(named: "Onboarding") else {
+        guard let image3 = UIImage(named: "Onboarding-1") else {
             return }
         slides = [
             OnboardingSlide(title: "controle", description: "Aqui voce pode controlar seus gastos registrando cada entrada e saida de valores.", image: image1),
             OnboardingSlide(title: "planeje", description: "Nunca foi tão facil se planejar, aqui voce pode adicionar seus próprios itens em diferentes planejamentos e aproveitar os nossos prontos também!", image: image2),
             OnboardingSlide(title: "economize", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Convallis vestibulum augue massa sed aenean.", image: image3)
         ]
+        
     }
     @IBAction private func nextButtonAction(_ sender: UIButton) {
-        if currentPage == slides.count - 1 {
-                    guard let controller = storyboard?.instantiateViewController(identifier: "LastOnboardingID") as? UINavigationController else {
+        if currentPage == 3 {
+                guard let controller = storyboard?.instantiateViewController(identifier: "LastOnboardingID") as? UINavigationController else {
                         return }
                     // controller.modalPresentationStyle = .fullScreen
                     // controller.modalTransitionStyle = .flipHorizontal

@@ -35,8 +35,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="753"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Evz-4a-daC">
-                                                    <rect key="frame" x="0.0" y="-46" width="414" height="553"/>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Evz-4a-daC">
+                                                    <rect key="frame" x="0.0" y="-45.5" width="414" height="552.5"/>
                                                 </imageView>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A5h-WN-csz">
                                                     <rect key="frame" x="0.0" y="432" width="414" height="128"/>
@@ -46,6 +46,9 @@
                                                     <rect key="frame" x="355" y="8" width="35" height="30"/>
                                                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                     <state key="normal" title="Pular"/>
+                                                    <connections>
+                                                        <segue destination="Qel-Dc-Lfh" kind="presentation" identifier="" modalPresentationStyle="fullScreen" modalTransitionStyle="flipHorizontal" id="8Fm-jZ-pmF"/>
+                                                    </connections>
                                                 </button>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="hSr-HZ-PMW">
                                                     <rect key="frame" x="24" y="661.5" width="366" height="91.5"/>
@@ -78,7 +81,7 @@
                                                 <constraint firstItem="Evz-4a-daC" firstAttribute="leading" secondItem="ezU-AZ-qnH" secondAttribute="leading" id="IMz-9O-wVK"/>
                                                 <constraint firstAttribute="trailing" secondItem="Evz-4a-daC" secondAttribute="trailing" id="NUL-XD-uYq"/>
                                                 <constraint firstAttribute="trailing" secondItem="dae-Rq-85p" secondAttribute="trailing" constant="24" id="Rzm-y6-g43"/>
-                                                <constraint firstItem="Evz-4a-daC" firstAttribute="topMargin" secondItem="ezU-AZ-qnH" secondAttribute="top" constant="-0.5" id="Uge-5L-UaV"/>
+                                                <constraint firstItem="Evz-4a-daC" firstAttribute="topMargin" secondItem="ezU-AZ-qnH" secondAttribute="top" id="Uge-5L-UaV"/>
                                                 <constraint firstAttribute="bottom" secondItem="Evz-4a-daC" secondAttribute="bottom" constant="246" id="ddu-7X-uu4"/>
                                                 <constraint firstItem="dae-Rq-85p" firstAttribute="top" secondItem="ezU-AZ-qnH" secondAttribute="top" constant="8" id="eYd-m0-di4"/>
                                                 <constraint firstAttribute="bottom" secondItem="A5h-WN-csz" secondAttribute="bottom" constant="193" id="eux-1N-vRI"/>
@@ -90,6 +93,7 @@
                                         <size key="customSize" width="414" height="753"/>
                                         <connections>
                                             <outlet property="descriptionLabel" destination="aId-oM-iTw" id="wYe-QG-ePg"/>
+                                            <outlet property="gradientView" destination="A5h-WN-csz" id="ap0-sl-OI1"/>
                                             <outlet property="skipButton" destination="dae-Rq-85p" id="cRe-Hm-evt"/>
                                             <outlet property="slideImage" destination="Evz-4a-daC" id="5C8-Xw-Zig"/>
                                             <outlet property="titleLabel" destination="FTw-Cl-yMg" id="eEg-YN-yfi"/>
@@ -100,15 +104,15 @@
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="fr0-W5-P7C">
                                 <rect key="frame" x="25" y="774" width="365" height="40"/>
                                 <subviews>
-                                    <pageControl opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" numberOfPages="4" translatesAutoresizingMaskIntoConstraints="NO" id="fcC-rM-spL">
-                                        <rect key="frame" x="0.0" y="0.0" width="172.5" height="40"/>
+                                    <pageControl opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="fcC-rM-spL">
+                                        <rect key="frame" x="0.0" y="0.0" width="155.5" height="40"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="pageIndicatorTintColor" systemColor="systemGray2Color"/>
                                         <color key="currentPageIndicatorTintColor" systemColor="systemRedColor"/>
                                     </pageControl>
                                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WBr-Vq-rOi">
-                                        <rect key="frame" x="222.5" y="0.0" width="142.5" height="40"/>
+                                        <rect key="frame" x="205.5" y="0.0" width="159.5" height="40"/>
                                         <color key="backgroundColor" systemColor="systemRedColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="Ygo-pg-UAL"/>
@@ -153,7 +157,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fNT-Fi-zsd">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Onboarding-3" translatesAutoresizingMaskIntoConstraints="NO" id="fNT-Fi-zsd">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="564"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="LaU-bm-YIf">
@@ -236,6 +240,15 @@
                             <constraint firstItem="DCR-zu-nvw" firstAttribute="bottom" secondItem="fNT-Fi-zsd" secondAttribute="bottom" constant="298" id="u4J-YG-aNJ"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="yhJ-aa-5Kg"/>
+                    <connections>
+                        <outlet property="descriptionLabel" destination="H0c-9h-2d2" id="BI3-jM-85V"/>
+                        <outlet property="image" destination="fNT-Fi-zsd" id="Zax-Er-xYY"/>
+                        <outlet property="insertNameField" destination="Mau-sW-RfD" id="lOj-Vj-8Tt"/>
+                        <outlet property="nameLabel" destination="I0f-sD-exX" id="3Rz-2D-D8p"/>
+                        <outlet property="readyButton" destination="0U1-gs-7BY" id="R5s-3x-mGb"/>
+                        <outlet property="titleLabel" destination="1Cy-op-goc" id="U58-Vv-P2X"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Oyf-fI-sVu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -243,6 +256,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Onboarding-3" width="1266" height="844"/>
         <image name="PencilLine" width="24" height="24"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
