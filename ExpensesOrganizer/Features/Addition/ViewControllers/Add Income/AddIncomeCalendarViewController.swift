@@ -19,6 +19,7 @@ class AddIncomeCalendarViewController: UIViewController {
         datePicker.setDate(selectedDate, animated: true)
         datePicker.setValue(UIColor.white, forKeyPath: "textColor")
         containerView.layer.cornerRadius = 13
+        overrideUserInterfaceStyle = .dark
     }
     
     override func viewWillDisappear(_ animated: Bool) {
