@@ -1,7 +1,11 @@
 {
   "images" : [
     {
+<<<<<<< HEAD
       "filename" : "Atomatom.svg",
+=======
+      "filename" : "Atom.svg",
+>>>>>>> main
       "idiom" : "universal",
       "scale" : "1x"
     },
@@ -17,5 +21,11 @@
   "info" : {
     "author" : "xcode",
     "version" : 1
+<<<<<<< HEAD
+=======
+  },
+  "properties" : {
+    "template-rendering-intent" : "template"
+>>>>>>> main
   }
 }

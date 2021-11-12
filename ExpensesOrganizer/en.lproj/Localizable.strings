@@ -17,6 +17,8 @@
 "TransactionsHeader" = "Latest transactions";
 
 // MARK: Wallet Creation
+"WalletName" = "Wallet name";
+"NewWallet" = "New wallet";
 "WalletCreationCancelAlertTitle" = "Cancel new Wallet";
 "WalletCreationCancelAlertDescription" = "Are you sure? All inserted data will be lost.";
 "WalletCreationKeepCreatingAction" = "Keep creating";
@@ -26,13 +28,19 @@
 "WalletDeleteAlertDescription" = "Are you sure? All data inserted in this wallet will be lost.";
 
 // MARK: Shared
+"Ready" = "Ready";
 "Delete" = "Delete";
 "Cancel" = "Cancel";
 "FirstSegmentedControl" = "Outcome";
 "SecondSegmentedControl" = "Income";
 "Done" = "Done";
+"Description" = "Description";
+"Planning" = "Planning";
+"Done" = "Done";
+"All ready" = "Okey dokey";
 
 // MARK: Planning Detail
+"OptionalDescription" = "Description is optional";
 "PlanningCreationCancelAlertTitle" = "Cancel Planning";
 "PlanningCreationCancelAlertDescription" = "Are you sure? All inserted data will be lost.";
 "PlanningCreationKeepCreatingAction" = "Keep creating";
@@ -48,3 +56,35 @@
 "PlanningCreationPayWith"= "Pay with";
 "PlanningCreationIcon"= "Template icon";
 "PlanningCreationButtonLabel" = "Create a new item";
+// MARK: Addition Income
+"addition-income-segmented-title" = "Incomes";
+"addition-income-name" = "Income name";
+"addition-income-name-placeholder" = "The name is optional";
+"addition-income-category" = "Category";
+"addition-income-wallet" = "Add in";
+"addition-income-planning" = "Planning";
+"addition-income-done-header" = "Everything is fine!";
+"addition-income-done-body" = "Your income has been successfully added.";
+
+// MARK: Addition Expense
+"addition-expense-segmented-title" = "Expenses";
+"addition-expense-name" = "Expense name";
+"addition-expense-name-placeholder" = "The name is optional";
+"addition-expense-category" = "Category";
+"addition-expense-wallet" = "Pay with";
+"addition-expense-planning" = "Planning";
+"addition-expense-done-header" = "Everything is fine!";
+"addition-expense-done-body" = "Your expense has been successfully added.";
+
+// MARK: Item
+"ItemName" = "Item name";
+"PayWith" = "Pay with";
+"NewItem" = "New item";
+
+// MARK: Recurrency Types
+"Never" = "Never";
+"Daily" = "Daily";
+"Weekly" = "Weekly";
+"EachTwoWeeks" = "Each two weeks";
+"Monthly" = "Monthly";
+"Anually" = "Anually";

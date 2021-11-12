@@ -39,8 +39,8 @@ class WalletCreationViewController: UIViewController {
         isModalInPresentation = true
         tableView.delegate = self
         tableView.dataSource = self
-
-        // Do any additional setup after loading the view.
+        readyButton.setTitle(NSLocalizedString("Ready", comment: ""), for: .normal)
+        newWalletLabel.text = NSLocalizedString("NewWallet", comment: "")
     }
     
     func showCancelWalletAlert() {
@@ -92,6 +92,8 @@ extension WalletCreationViewController: UITableViewDataSource {
             else {
                 return UITableViewCell()
             }
+            cell.walletNameTextField.placeholder = NSLocalizedString("WalletName", comment: "")
+            cell.descriptionLabel.text = NSLocalizedString("Description", comment: "")
             return cell
             
         case .planning:
@@ -103,8 +105,10 @@ extension WalletCreationViewController: UITableViewDataSource {
             formatter.dateStyle = .medium
             
             cell.planningDelegate = self
-            cell.recurrencyLabel.text = selectedRecurrencyType.rawValue
-            cell.dateLabel.text = formatter.string(from: selectedDate)
+            cell.recurrencyLabel.text = RecurrencyTypes.getTitleFor(title: selectedRecurrencyType)
+            let date = formatter.string(from: selectedDate)
+            cell.dateLabel.text = date.substring(toIndex: date.count - 4)
+            cell.planningLabel.text = NSLocalizedString("Planning", comment: "")
             
             return cell
         }
@@ -118,7 +122,9 @@ extension WalletCreationViewController: UITableViewDataSource {
 
 extension WalletCreationViewController: UIViewControllerTransitioningDelegate {
     func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {
-        return HalfSizePresentationController(presentedViewController: presented, presenting: presentingViewController)
+        let viewController = CustomSizePresentationController(presentedViewController: presented, presenting: presentingViewController)
+        viewController.heightMultiplier = 0.5
+        return viewController
     }
     
     func interactionControllerForDismissal(using animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
