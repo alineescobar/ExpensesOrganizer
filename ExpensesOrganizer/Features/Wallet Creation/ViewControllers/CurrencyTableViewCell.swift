@@ -7,8 +7,12 @@
 
 import UIKit
 
-class CurrencyTableViewCell: UITableViewCell {
+protocol CurrencyDelegate: AnyObject {
+    func currencyValueHasChanged(currency: Double)
+}
 
+class CurrencyTableViewCell: UITableViewCell {
+    weak var currencyDelegate: CurrencyDelegate?
     @IBOutlet private weak var currencyTextField: UITextField!
     @IBOutlet weak var backspaceButton: UIButton!
     
@@ -17,8 +21,9 @@ class CurrencyTableViewCell: UITableViewCell {
             if textFieldText.isEmpty {
                 return
             }
-           textFieldText.remove(at: textFieldText.index(before: textFieldText.endIndex))
+            textFieldText.remove(at: textFieldText.index(before: textFieldText.endIndex))
             currencyTextField.text = textFieldText
+            myTextFieldDidChange(currencyTextField)
         }
     }
     
@@ -28,10 +33,10 @@ class CurrencyTableViewCell: UITableViewCell {
         currencyTextField.delegate = self
         currencyTextField.addTarget(self, action: #selector(myTextFieldDidChange), for: .editingChanged)
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        
         // Configure the view for the selected state
     }
     
@@ -39,9 +44,11 @@ class CurrencyTableViewCell: UITableViewCell {
     func myTextFieldDidChange(_ textField: UITextField) {
         if let amountString = currencyTextField.text?.currencyInputFormatting() {
             currencyTextField.text = amountString
+            var currencyWithoutCommas: String = currencyTextField.text?.replacingOccurrences(of: Locale.current.groupingSeparator ?? ",", with: "") ?? ""
+            currencyWithoutCommas = currencyWithoutCommas.replacingOccurrences(of: Locale.current.decimalSeparator ?? ".", with: ".")
+            currencyDelegate?.currencyValueHasChanged(currency: Double(currencyWithoutCommas) ?? 0.0)
         }
     }
-
 }
 
 extension CurrencyTableViewCell: UITextFieldDelegate {

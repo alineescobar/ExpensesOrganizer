@@ -21,6 +21,10 @@
 "WalletCreationCancelAlertTitle" = "Cancelar nova Carteira";
 "WalletCreationCancelAlertDescription" = "Você tem certeza? Todos os dados inseridos serão perdidos.";
 "WalletCreationKeepCreatingAction" = "Coninuar criando";
+"EmptyBalanceAlertTitle" = "Saldo vazio";
+"EmptyBalanceAlertDescription" = "Você precisa definir um valor de saldo para sua carteira!";
+"WalletSavingErrorAlertTitle" = "Erro ao salvar Carteira";
+"WalletSavingErrorAlertDescription" = "Houve um problema ao salvar sua carteira, por favor, tente novamente.";
 
 // MARK: Wallet Detail
 "WalletDeleteAlertTitle" = "Apagar Carteira";
@@ -32,6 +36,9 @@
 "Cancel" = "Cancelar";
 "Description" = "Descrição";
 "Planning" = "Planejamento";
+"Ok" = "Certo";
+"WalletsFetchFailedAlertTitle" = "Erro ao encontrar Carteiras";
+"WalletsFetchFailedAlertDescription" = "Houve um problema ao procurar suas carteiras. Por favor, tente novamente mais tarde.";
 
 // MARK: Planning Detail
 "OptionalDescription" = "Descrição é opcional";

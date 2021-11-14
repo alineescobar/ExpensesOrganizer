@@ -22,6 +22,10 @@
 "WalletCreationCancelAlertTitle" = "Cancel new Wallet";
 "WalletCreationCancelAlertDescription" = "Are you sure? All inserted data will be lost.";
 "WalletCreationKeepCreatingAction" = "Keep creating";
+"EmptyBalanceAlertTitle" = "Empty balance";
+"EmptyBalanceAlertDescription" = "You need to set a value to your wallet's balance!";
+"WalletSavingErrorAlertTitle" = "Error saving Wallet";
+"WalletSavingErrorAlertDescription" = "There was a problem saving your wallet, please try again.";
 
 // MARK: Wallet Detail
 "WalletDeleteAlertTitle" = "Delete Wallet";
@@ -33,6 +37,9 @@
 "Cancel" = "Cancel";
 "Description" = "Description";
 "Planning" = "Planning";
+"Ok" = "OK";
+"WalletsFetchFailedAlertTitle" = "Error finding Wallets";
+"WalletsFetchFailedAlertDescription" = "There was a problem finding your wallets. Please, try again later.";
 
 // MARK: Planning Detail
 "OptionalDescription" = "Description is optional";

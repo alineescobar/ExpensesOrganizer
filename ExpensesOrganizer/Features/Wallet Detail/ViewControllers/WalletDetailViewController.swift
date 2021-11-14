@@ -124,7 +124,7 @@ extension WalletDetailViewController: UITableViewDataSource {
             else {
                 return UITableViewCell()
             }
-            cell.walletNameTextField.placeholder = NSLocalizedString("WalletName", comment: "")
+            cell.descriptionTextField.placeholder = NSLocalizedString("WalletName", comment: "")
             cell.descriptionLabel.text = NSLocalizedString("Description", comment: "")
             return cell
             
