@@ -147,7 +147,13 @@ extension AddNewPlanningViewController: UITableViewDataSource {
 extension AddNewPlanningViewController: UIViewControllerTransitioningDelegate {
     func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {
         let viewController = CustomSizePresentationController(presentedViewController: presented, presenting: presentingViewController)
-        viewController.heightMultiplier = 0.40
+        
+        if presented is PlanningSelectionWalletViewController {
+            viewController.heightMultiplier = 0.40
+        } else if presented is PlanningIconSelectionViewController {
+            viewController.heightMultiplier = 0.60
+        }
+        
         return viewController
     }
     
