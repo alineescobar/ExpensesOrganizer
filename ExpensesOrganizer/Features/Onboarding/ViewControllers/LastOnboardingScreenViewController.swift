@@ -16,8 +16,6 @@ class LastOnboardingScreenViewController: UIViewController {
     @IBOutlet weak var insertNameField: UITextField!
     @IBOutlet weak var readyButton: UIButton!
     
-    var name = ""
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         titleLabel.text = NSLocalizedString("LetsGo", comment: "")
@@ -26,14 +24,13 @@ class LastOnboardingScreenViewController: UIViewController {
 //        insertNameField.text = NSLocalizedString("FieldDescription", comment: "")
         readyButton.setTitle(NSLocalizedString("DoneButton", comment: ""), for: .normal)
         readyButton.layer.cornerRadius = 8
-        name = insertNameField.text ?? ""
         
         insertNameField.delegate = self
         hideKeyboardWhenTappedAround()
     }
 
     @IBAction private func readyButtonAction(_ sender: UIButton) {
-        OnboardingPersistence.setUserName(name)
+        OnboardingPersistence.setUserName(insertNameField.text ?? "[user]")
         OnboardingPersistence.setOnboardingCompleted(true)
 
         performSegue(withIdentifier: "dashboardSegue", sender: nil)

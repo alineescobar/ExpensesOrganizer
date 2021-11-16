@@ -122,7 +122,7 @@ extension DashboardViewController: UITableViewDataSource {
             else {
                 return UITableViewCell()
             }
-            cell.nameLabel.text = NSLocalizedString("GreetingsLabel", comment: "") + "Aline"
+            cell.nameLabel.text = NSLocalizedString("GreetingsLabel", comment: "") + (OnboardingPersistence.getUserName())
             return cell
             
         case .balance:
