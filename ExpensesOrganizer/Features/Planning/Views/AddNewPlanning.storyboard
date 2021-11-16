@@ -285,7 +285,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="7RT-s7-5aK">
-                                <rect key="frame" x="0.0" y="69" width="414" height="739"/>
+                                <rect key="frame" x="24" y="69" width="366" height="739"/>
                                 <color key="backgroundColor" name="TertiaryBrandColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="qta-1E-tTl">
                                     <size key="itemSize" width="128" height="128"/>
@@ -308,10 +308,10 @@
                         <viewLayoutGuide key="safeArea" id="eMZ-by-jUw"/>
                         <color key="backgroundColor" name="TertiaryBrandColor"/>
                         <constraints>
-                            <constraint firstItem="7RT-s7-5aK" firstAttribute="leading" secondItem="eMZ-by-jUw" secondAttribute="leading" id="Bn2-8w-7RM"/>
                             <constraint firstItem="7RT-s7-5aK" firstAttribute="top" secondItem="kdr-Qf-MDm" secondAttribute="bottom" constant="40" id="S7j-HM-DqO"/>
-                            <constraint firstItem="eMZ-by-jUw" firstAttribute="trailing" secondItem="7RT-s7-5aK" secondAttribute="trailing" id="TGV-ek-gZn"/>
+                            <constraint firstAttribute="trailing" secondItem="7RT-s7-5aK" secondAttribute="trailing" constant="24" id="ZPR-3D-Hha"/>
                             <constraint firstItem="eMZ-by-jUw" firstAttribute="bottom" secondItem="7RT-s7-5aK" secondAttribute="bottom" id="ds7-8x-Py2"/>
+                            <constraint firstItem="7RT-s7-5aK" firstAttribute="leading" secondItem="eMZ-by-jUw" secondAttribute="leading" constant="24" id="qEQ-rK-fYY"/>
                             <constraint firstItem="kdr-Qf-MDm" firstAttribute="centerX" secondItem="qxL-Pv-Fjr" secondAttribute="centerX" id="qKm-oi-B6B"/>
                             <constraint firstItem="kdr-Qf-MDm" firstAttribute="top" secondItem="eMZ-by-jUw" secondAttribute="top" constant="24" id="sJa-J0-0iV"/>
                         </constraints>
