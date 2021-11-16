@@ -7,10 +7,89 @@
 */
 
 // MARK: Dashboard
-
 "GreetingsLabel" = "Olá, ";
 "BalanceLabel" = "Saldo atual";
 "WalletLabel" = "Carteira";
 "GoalsLabel" = "Metas";
 "PlanningLabel" = "Planejar";
 "AddLabel" = "Adicionar";
+"TransactionsHeader" = "Transações recentes";
+
+// MARK: Wallet Creation
+"WalletName" = "Nome da carteira";
+"NewWallet" = "Nova carteira";
+"WalletCreationCancelAlertTitle" = "Cancelar nova Carteira";
+"WalletCreationCancelAlertDescription" = "Você tem certeza? Todos os dados inseridos serão perdidos.";
+"WalletCreationKeepCreatingAction" = "Coninuar criando";
+"EmptyBalanceAlertTitle" = "Saldo vazio";
+"EmptyBalanceAlertDescription" = "Você precisa definir um valor de saldo para sua carteira!";
+"WalletSavingErrorAlertTitle" = "Erro ao salvar Carteira";
+"WalletSavingErrorAlertDescription" = "Houve um problema ao salvar sua carteira, por favor, tente novamente.";
+
+// MARK: Wallet Detail
+"WalletDeleteAlertTitle" = "Apagar Carteira";
+"WalletDeleteAlertDescription" = "Você tem certeza? Todos os dados inseridos nessa carteira serão perdidos.";
+"WalletDeletingErrorAlertTitle" = "Error ao apagar Carteira";
+"WalletDeletingErrorAlertDescription" = "Houve um problema ao apagar sua carteira, por favor, tente novamente.";
+
+// MARK: Shared
+"Ready" = "Pronto";
+"Delete" = "Apagar";
+"Cancel" = "Cancelar";
+"Description" = "Descrição";
+"Planning" = "Planejamento";
+"Done" = "Pronto";
+"AllRight" = "Tudo certo por aqui!";
+"OKConfirmation" = "Prontinho";
+"Ok" = "Certo";
+"WalletsFetchFailedAlertTitle" = "Erro ao encontrar Carteiras";
+"WalletsFetchFailedAlertDescription" = "Houve um problema ao procurar suas carteiras. Por favor, tente novamente mais tarde.";
+
+// MARK: Planning Detail
+"OptionalDescription" = "Descrição é opcional";
+"PlanningCreationCancelAlertTitle" = "Cancelar novo Planejamento";
+"PlanningCreationCancelAlertDescription" = "Você tem certeza? Todos os dados inseridos serão perdidos.";
+"PlanningCreationKeepCreatingAction" = "Coninuar criando";
+
+// MARK: Planning List
+"PlanningTitle" = "Planejar";
+"FirstSegmentedControl" = "Despesas";
+"SecondSegmentedControl" = "Ganhos";
+"AddButton" = "Criar novo planejamento";
+
+// MARK: Item
+"ItemName" = "Nome do item";
+"PayWith" = "Pagar com";
+"NewItem" = "Novo item";
+"UpdatedItem" = "Seu item foi atualizado com sucesso.";
+"NewItemCreated" = "Seu novo item foi adicionado com sucesso.";
+"ItemEditionCancelAlertTitle" = "Cancelar edição de Item";
+"ItemKeepEditingAction" = "Continuar editando";
+
+// MARK: Recurrency Types
+"Never" = "Nunca";
+"Daily" = "Diariamente";
+"Weekly" = "Semanalmente";
+"EachTwoWeeks" = "Quinzenalmente";
+"Monthly" = "Mensalmente";
+"Anually" = "Anualmente";
+
+// MARK: Addition Income
+"addition-income-segmented-title" = "Ganhos";
+"addition-income-name" = "Nome do ganho";
+"addition-income-name-placeholder" = "O nome é opcional";
+"addition-income-category" = "Categoria";
+"addition-income-wallet" = "Adicionar em";
+"addition-income-planning" = "Planejamento";
+"addition-income-done-header" = "Tudo certo por aqui!";
+"addition-income-done-body" = "Seu ganho foi adicionado com sucesso.";
+
+// MARK: Addition Expense
+"addition-expense-segmented-title" = "Despesas";
+"addition-expense-name" = "Nome da despesa";
+"addition-expense-name-placeholder" = "O nome é opcional";
+"addition-expense-category" = "Categoria";
+"addition-expense-wallet" = "Pagar com";
+"addition-expense-planning" = "Planejamento";
+"addition-expense-done-header" = "Tudo certo por aqui!";
+"addition-expense-done-body" = "Sua despesa foi adicionada com sucesso.";

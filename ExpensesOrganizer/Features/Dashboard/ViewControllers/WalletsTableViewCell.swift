@@ -34,7 +34,8 @@ extension WalletsTableViewCell: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if indexPath.section == 0 {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "walletCellID", for: indexPath) as? WalletCollectionViewCell
-            cell?.balanceLabel.text = "$0"
+            let balance: Double = 6434
+            cell?.balanceLabel.attributedText = getFormattedBalance(balance: balance, smallTextSize: 13.6, type: .card)
             cell?.walletTitleLabel.text = "minha carteira"
             return cell ?? UICollectionViewCell()
         } else {

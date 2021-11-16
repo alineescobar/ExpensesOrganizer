@@ -22,6 +22,7 @@ class DashboardViewController: UIViewController {
     @IBOutlet weak var mainTableView: UITableView!
     private var initialBackgroundViewHeight: Double = -1
     private let customCellId = "TransactionCell"
+    private let graphicsCellId = "GraphicsTableViewCell"
     private let customCellHeader = "TransactionsHeaderCell"
     private var isShowingGraphics: Bool = false
     private var isShowingBalance: Bool = false
@@ -37,6 +38,7 @@ class DashboardViewController: UIViewController {
         mainTableView.register(UINib(nibName: customCellId, bundle: nil), forCellReuseIdentifier: customCellId)
         mainTableView.register(UINib(nibName: customCellHeader, bundle: nil), forCellReuseIdentifier: customCellHeader)
         initialBackgroundViewHeight = backgroundViewHeightConstraint.constant
+        mainTableView.register(UINib(nibName: graphicsCellId, bundle: nil), forCellReuseIdentifier: graphicsCellId)
         // Do any additional setup after loading the view.
     }
     
@@ -96,7 +98,6 @@ extension DashboardViewController: UITableViewDelegate {
             UIView.animate(withDuration: isShowingGraphics ? 0.1 : 0.3) {
                 self.backgroundViewHeightConstraint.constant += heightOffset
                 self.initialBackgroundViewHeight += heightOffset
-//                self.backgroundViewHeightConstraint.constant = self.isShowingGraphics ? 549 : 399
                 self.view.layoutIfNeeded()
             }
             mainTableView.reloadRows(at: [indexPath], with: .automatic)
@@ -130,19 +131,16 @@ extension DashboardViewController: UITableViewDataSource {
                 return UITableViewCell()
             }
             cell.balanceDelegate = self
-            cell.currencyLabel.text = Locale.current.localizedCurrencySymbol(forCurrencyCode: Locale.current.currencyCode ?? "R$")
             cell.showGraphicsImage.image = isShowingGraphics ? UIImage(systemName: "chevron.up") : UIImage(systemName: "chevron.down")
-            cell.hideBalanceButton.setImage(isShowingBalance ? UIImage(systemName: "eye") : UIImage(systemName: "eyebrow"), for: .normal)
-            cell.currencyLabel.alpha = isShowingBalance ? 1 : 0
-            cell.balanceRoundedLabel.alpha = isShowingBalance ? 1 : 0
-            cell.balanceDecimalLabel.alpha = isShowingBalance ? 1 : 0
-            cell.balanceStackView.backgroundColor = isShowingBalance ? UIColor.clear : UIColor.lightGray
-            // TODO: Set balance value based on user's Locale
-            // balance = ...
+            cell.hideBalanceButton.setImage(isShowingBalance ? UIImage(named: "Eye") : UIImage(named: "EyeClosed"), for: .normal)
+            cell.balanceLabel.alpha = isShowingBalance ? 1 : 0
+            cell.balanceStackView.setBackgroundColor(color: isShowingBalance ? UIColor.clear : UIColor.lightGray)
+            let balance = 2234.5
+            cell.balanceLabel.attributedText = getFormattedBalance(balance: balance, smallTextSize: 13.6, type: .screen)
             return cell
             
         case .graphics:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "graphicsCell", for: indexPath) as? GraphicsTableViewCell
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: graphicsCellId, for: indexPath) as? GraphicsTableViewCell
             else {
                 return UITableViewCell()
             }
@@ -200,7 +198,7 @@ extension DashboardViewController: UITableViewDataSource {
 extension DashboardViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let yOffset = scrollView.contentOffset.y
-        isStatsBarHidden = yOffset > 0 ? true : false
+        isStatsBarHidden = yOffset > 0
         setNeedsStatusBarAppearanceUpdate()
         backgroundViewHeightConstraint.constant = initialBackgroundViewHeight - yOffset
         view.layoutIfNeeded()
