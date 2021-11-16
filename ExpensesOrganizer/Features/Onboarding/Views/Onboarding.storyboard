@@ -4,7 +4,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
-        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -70,20 +69,17 @@
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FTw-Cl-yMg">
                                                             <rect key="frame" x="24" y="0.0" width="366" height="47"/>
-                                                            <color key="backgroundColor" name="SuccessStateColor"/>
                                                             <fontDescription key="fontDescription" name="WorkSans-Bold" family="Work Sans" pointSize="40"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aId-oM-iTw">
                                                             <rect key="frame" x="24" y="71" width="366" height="19"/>
-                                                            <color key="backgroundColor" red="0.72941176470000002" green="0.35294117650000001" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <fontDescription key="fontDescription" name="WorkSans-Regular" family="Work Sans" pointSize="16"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
-                                                    <color key="backgroundColor" systemColor="tintColor"/>
                                                     <constraints>
                                                         <constraint firstItem="FTw-Cl-yMg" firstAttribute="leading" secondItem="hSr-HZ-PMW" secondAttribute="leading" constant="24" id="OTw-cl-bsx"/>
                                                         <constraint firstItem="aId-oM-iTw" firstAttribute="leading" secondItem="hSr-HZ-PMW" secondAttribute="leading" constant="24" id="Tyx-Iq-3dh"/>
@@ -322,9 +318,6 @@
         <image name="Linear gradient" width="390" height="844"/>
         <image name="Onboarding-3" width="1266" height="844"/>
         <image name="PencilLine" width="24" height="24"/>
-        <namedColor name="SuccessStateColor">
-            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
@@ -336,9 +329,6 @@
         </systemColor>
         <systemColor name="systemRedColor">
             <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="tintColor">
-            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
