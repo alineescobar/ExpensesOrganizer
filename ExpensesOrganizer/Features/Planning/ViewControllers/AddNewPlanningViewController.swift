@@ -66,6 +66,14 @@ class AddNewPlanningViewController: UIViewController, UITableViewDelegate {
         doneButton.tintColor = .white
     }
     
+    @IBAction private func newPlanningButton(_ sender: Any) {
+        performSegue(withIdentifier: "item", sender: nil)
+    }
+    
+    @IBAction private func cancelButton(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
     func fetchAllWallets() -> [Wallet] {
         var wallets = [Wallet()]
         do {

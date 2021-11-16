@@ -184,6 +184,9 @@
                                                     <state key="normal" title="Button" image="plus" catalog="system">
                                                         <color key="titleColor" name="WhiteStateColor"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="newPlanningButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="LOA-GI-qnT"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -212,6 +215,9 @@
                                         <state key="normal" title="Button">
                                             <color key="titleColor" name="GraySuport1StateColor"/>
                                         </state>
+                                        <connections>
+                                            <action selector="cancelButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="u9E-du-Q7x"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cx5-92-ky8">
                                         <rect key="frame" x="188" y="0.0" width="164" height="38"/>
@@ -249,11 +255,12 @@
                         <outlet property="tableView" destination="wZP-lm-JPZ" id="Hh7-D7-k0I"/>
                         <segue destination="g4F-RU-r3P" kind="presentation" identifier="walletSelection" id="fge-ze-Hgu"/>
                         <segue destination="wUo-BB-rmR" kind="presentation" identifier="iconsSelection" id="HVT-Vk-Nev"/>
+                        <segue destination="kPN-V4-3pD" kind="presentation" identifier="item" id="q4d-14-M1h"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="137.68115942028987" y="120.53571428571428"/>
+            <point key="canvasLocation" x="262" y="222"/>
         </scene>
         <!--Planning Icon Selection View Controller-->
         <scene sceneID="Od0-5X-VRZ">
@@ -311,11 +318,22 @@
                     </view>
                     <connections>
                         <outlet property="iconsCollectionView" destination="7RT-s7-5aK" id="wod-2k-zh7"/>
+                        <outlet property="pullIndicator" destination="kdr-Qf-MDm" id="Ykz-Bd-CLm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vud-AO-XlC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1069" y="467"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="URE-Ud-fMr">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Item" id="kPN-V4-3pD" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="UNo-Ee-jBw"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RQV-A6-tX3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="554" y="637"/>
         </scene>
         <!--Planning Selection Wallet View Controller-->
         <scene sceneID="Dhh-Al-n4X">

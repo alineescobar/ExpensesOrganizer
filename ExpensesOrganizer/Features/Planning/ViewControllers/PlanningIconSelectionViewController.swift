@@ -13,6 +13,7 @@ protocol IconDelegate: AnyObject {
 
 class PlanningIconSelectionViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
 
+    @IBOutlet weak var pullIndicator: UIView!
     @IBOutlet weak var iconsCollectionView: UICollectionView!
     weak var iconDelegate: IconDelegate?
     private let roundButtonID: String = "RoundButonWithoutLabelCollectionViewCell"
@@ -21,6 +22,8 @@ class PlanningIconSelectionViewController: UIViewController, UICollectionViewDel
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpCollection()
+        pullIndicator.layer.cornerRadius = pullIndicator.frame.height / 2
+
     }
     
     private func setUpCollection() {
