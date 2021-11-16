@@ -37,6 +37,9 @@
 "Ready" = "Ready";
 "Delete" = "Delete";
 "Cancel" = "Cancel";
+"FirstSegmentedControl" = "Outcome";
+"SecondSegmentedControl" = "Income";
+"Done" = "Done";
 "Description" = "Description";
 "Planning" = "Planning";
 "Done" = "Done";
@@ -54,9 +57,20 @@
 
 // MARK: Planning List
 "PlanningTitle" = "Planning";
-"FirstSegmentedControl" = "Outcome";
-"SecondSegmentedControl" = "Income";
 "AddButton" = "Create a new template";
+
+// MARK: Planning Add
+"AddPlanningTitle" = "New template";
+"PlanningCreationPlanningName" = "Template name";
+"PlanningCreationPlanningNamePlaceholder" = "New template's name";
+"PlanningCreationPayWith"= "Pay with";
+"PlanningCreationIcon"= "Template icon";
+"PlanningCreationButtonLabel" = "Create a new item";
+
+// MARK: alert section of this screen
+"title" = "Alert!";
+"message" = "Looks like you don't have any wallets to display.";
+
 
 // MARK: Addition Income
 "addition-income-segmented-title" = "Incomes";

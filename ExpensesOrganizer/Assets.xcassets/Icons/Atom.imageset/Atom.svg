@@ -1,6 +1,5 @@
-<svg id="Raw" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
-  <rect width="256" height="256" fill="none"/>
-  <ellipse cx="128" cy="128" rx="44" ry="116" transform="translate(-53.01934 128) rotate(-45)" stroke-width="16" stroke="#000" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-  <ellipse cx="128" cy="128" rx="116" ry="44" transform="translate(-53.01934 128) rotate(-45)" stroke-width="16" stroke="#000" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-  <circle cx="128" cy="128" r="12"/>
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M19.6898 19.6903C21.3007 18.0794 19.1638 13.3306 14.9168 9.08369C10.6699 4.83674 5.92116 2.69981 4.31025 4.31072C2.69934 5.92164 4.83627 10.6704 9.08322 14.9173C13.3302 19.1643 18.0789 21.3012 19.6898 19.6903Z" stroke="#09182E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M14.9168 14.9163C19.1638 10.6694 21.3007 5.92062 19.6898 4.3097C18.0789 2.69879 13.3302 4.83572 9.08322 9.08267C4.83627 13.3296 2.69934 18.0784 4.31025 19.6893C5.92116 21.3002 10.6699 19.1633 14.9168 14.9163Z" stroke="#09182E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M12 13.125C12.6213 13.125 13.125 12.6213 13.125 12C13.125 11.3787 12.6213 10.875 12 10.875C11.3787 10.875 10.875 11.3787 10.875 12C10.875 12.6213 11.3787 13.125 12 13.125Z" fill="#09182E"/>
 </svg>
