@@ -24,7 +24,8 @@ class AddNewPlanningViewController: UIViewController, UITableViewDelegate {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var doneButton: UIButton!
     @IBOutlet weak var cancelButton: UIButton!
-    private var selectedIcon: String = "House"
+    private var selectedIcon: String = "Atom"
+    private var selectedWallet: Wallet?
     private let newPlanningCategories: [NewPlanningCategories] = NewPlanningCategories.allCases
     private let interactor = Interactor()
     
@@ -33,7 +34,7 @@ class AddNewPlanningViewController: UIViewController, UITableViewDelegate {
         
         tableView.delegate = self
         tableView.dataSource = self
-        
+
         // MARK: Navigation Visuals
         self.navigationItem.title = NSLocalizedString("AddPlanningTitle", comment: "")
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "WorkSans-Bold", size: 20) as Any, NSAttributedString.Key.foregroundColor: UIColor(named: "TertiaryBrandColor") as Any]
@@ -100,6 +101,8 @@ extension AddNewPlanningViewController: UITableViewDataSource {
                 return UITableViewCell()
             }
             cell.selectionStyle = .none
+
+            cell.planningPaymentWallet.text = selectedWallet?.name == nil ? NSLocalizedString("WalletName", comment: "") : selectedWallet?.name
             return cell
             
         case .icon:
@@ -144,7 +147,7 @@ extension AddNewPlanningViewController: UITableViewDataSource {
         if indexPath == 1 {
             let allWallets = fetchAllWallets()
             if allWallets.count < 1 {
-                let alert = UIAlertController(title: "Alert", message: "You appear to do not have any wallets to display :c", preferredStyle: .alert)
+                let alert = UIAlertController(title: NSLocalizedString("title", comment: ""), message: NSLocalizedString("message", comment: ""), preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "OK", style: .default))
                 self.present(alert, animated: true, completion: nil)
             } else {
@@ -152,7 +155,7 @@ extension AddNewPlanningViewController: UITableViewDataSource {
                 let pvc = storyboard.instantiateViewController(withIdentifier: "WalletSelection") as? PlanningSelectionWalletViewController
                 pvc?.modalPresentationStyle = .custom
                 pvc?.transitioningDelegate = self
-                
+                pvc?.planningWalletSelectionDelegate = self
                 present(pvc ?? UIViewController(), animated: true)
             }
         } else if indexPath == 2 {
@@ -187,10 +190,15 @@ extension AddNewPlanningViewController: UIViewControllerTransitioningDelegate {
 extension AddNewPlanningViewController: IconDelegate {
     func sendIcon(iconName: String) {
         selectedIcon = iconName
-        print("passou aqui ")
-        print(selectedIcon)
         tableView.reloadData()
     }
 }
 
+extension AddNewPlanningViewController: PlanningWalletSelectionDelegate {
+    
+    func sendWallet(wallet: Wallet) {
+        selectedWallet = wallet
+        tableView.reloadData()
+    }
+}
 //    swiftlint:enable line_length

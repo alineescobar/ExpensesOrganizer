@@ -57,6 +57,11 @@
 "PlanningCreationIcon"= "Template icon";
 "PlanningCreationButtonLabel" = "Create a new item";
 
+// MARK: alert section of this screen
+"title" = "Alert!";
+"message" = "Looks like you don't have any wallets to display.";
+
+
 // MARK: Addition Income
 "addition-income-segmented-title" = "Incomes";
 "addition-income-name" = "Income name";

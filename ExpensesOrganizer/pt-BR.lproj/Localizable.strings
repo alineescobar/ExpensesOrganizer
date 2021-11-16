@@ -56,6 +56,10 @@
 "PlanningCreationIcon"= "Ícone do planejamento";
 "PlanningCreationButtonLabel" = "Criar novo item";
 
+// MARK: alert section of this screen
+"title" = "Aviso!";
+"message" = "Parece que você não tem nenhuma carteira.";
+ 
 // MARK: Item
 "ItemName" = "Nome do item";
 "PayWith" = "Pagar com";

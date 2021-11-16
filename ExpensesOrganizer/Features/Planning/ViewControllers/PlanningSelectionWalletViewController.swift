@@ -8,7 +8,7 @@
 import CoreData
 import UIKit
 
-protocol walletSelectionDelegate: AnyObject {
+protocol PlanningWalletSelectionDelegate: AnyObject {
     func sendWallet(wallet: Wallet)
 }
 
@@ -19,7 +19,8 @@ class PlanningSelectionWalletViewController: UIViewController, UICollectionViewD
     @IBOutlet weak var walletsCollectionView: UICollectionView!
     private let roundButtonID: String = "RoundButtonCollectionViewCell"
     @IBOutlet weak var pullIndicator: UIView!
-    weak var walletSelectionDelegate: walletSelectionDelegate?
+    
+    weak var planningWalletSelectionDelegate: PlanningWalletSelectionDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,11 +28,6 @@ class PlanningSelectionWalletViewController: UIViewController, UICollectionViewD
         setUpCollection()
         pullIndicator.layer.cornerRadius = pullIndicator.frame.height / 2
         
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        walletSelectionDelegate?.sendWallet(wallet: Wallet())
     }
     
     private func setUpCollection() {
@@ -71,7 +67,7 @@ extension PlanningSelectionWalletViewController: UICollectionViewDelegateFlowLay
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 20
+        return fetchAllWallets().count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -97,8 +93,8 @@ extension PlanningSelectionWalletViewController: UICollectionViewDelegateFlowLay
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let wallets = fetchAllWallets()
         let wallet = wallets[indexPath.item]
-        walletSelectionDelegate = (wallet as! walletSelectionDelegate)
-        self.dismiss(animated: true)
+        planningWalletSelectionDelegate?.sendWallet(wallet: wallet)
+        dismiss(animated: true, completion: nil)
     }
 }
 // swiftlint:enable force_cast
