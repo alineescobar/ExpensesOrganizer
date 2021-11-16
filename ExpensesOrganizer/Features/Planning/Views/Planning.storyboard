@@ -62,7 +62,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="newPlanningButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="0Ds-bW-0gv"/>
+                                    <segue destination="g2M-jh-xmS" kind="show" identifier="newPlanning" id="8zc-7j-hHH"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -105,6 +105,16 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UA2-7c-V9y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="612" y="60"/>
+        </scene>
+        <!--AddNewPlanning-->
+        <scene sceneID="Yeo-xP-EEh">
+            <objects>
+                <viewControllerPlaceholder storyboardName="AddNewPlanning" id="g2M-jh-xmS" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="Tjs-Po-ngp"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eKj-R5-ffs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="588" y="153"/>
         </scene>
     </scenes>
     <resources>
