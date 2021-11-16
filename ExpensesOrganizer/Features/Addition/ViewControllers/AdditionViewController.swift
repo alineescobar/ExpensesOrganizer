@@ -9,10 +9,36 @@ import CoreData
 import UIKit
 
 class AdditionViewController: UIViewController {
-<<<<<<< HEAD
-    //    swiftlint:disable force_cast
-        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+
+    @IBOutlet weak var firstView: UIView!
+    @IBOutlet weak var secondView: UIView!
+    @IBOutlet weak var segmentedControl: UISegmentedControl!
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        segmentedControl.setTitle(NSLocalizedString("addition-expense-segmented-title", comment: ""), forSegmentAt: 0)
+        segmentedControl.setTitle(NSLocalizedString("addition-income-segmented-title", comment: ""), forSegmentAt: 1)
+        
+        let font: Any = UIFont(name: "WorkSans-Medium", size: 14) as Any
+        
+        segmentedControl.setTitleTextAttributes([NSAttributedString.Key.font: font,
+                                                 NSAttributedString.Key.foregroundColor: UIColor(named: "TertiaryBrandColor") as Any], for: .normal)
+    }
+    
+    @IBAction private func switchViews(_ sender: UISegmentedControl) {
+        if sender.selectedSegmentIndex == 0 {
+            firstView.isHidden = true
+            secondView.isHidden = false
+        } else {
+            firstView.isHidden = false
+            secondView.isHidden = true
+        }
+    }
+
+    // swiftlint:disable force_cast
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    // swiftlint:enable force_cast
     func fetchItem(name: String) -> Item? {
         do {
             let request = Item.fetchRequest() as NSFetchRequest<Item>
@@ -65,7 +91,6 @@ class AdditionViewController: UIViewController {
         }
     }
     // swiftlint: enable function_parameter_count
-    
     func createTemplate(name: String, templateDescription: String?, item: Item?, templateID: UUID) {
         let newTemplate = Template(context: context)
         newTemplate.name = name
@@ -95,38 +120,5 @@ class AdditionViewController: UIViewController {
             print(error.localizedDescription)
         }
     }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-    }
-    
-=======
-    @IBOutlet weak var firstView: UIView!
-    @IBOutlet weak var secondView: UIView!
-    @IBOutlet weak var segmentedControl: UISegmentedControl!
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        segmentedControl.setTitle(NSLocalizedString("addition-expense-segmented-title", comment: ""), forSegmentAt: 0)
-        segmentedControl.setTitle(NSLocalizedString("addition-income-segmented-title", comment: ""), forSegmentAt: 1)
-        
-        let font: Any = UIFont(name: "WorkSans-Medium", size: 14) as Any
-        
-        segmentedControl.setTitleTextAttributes([NSAttributedString.Key.font: font,
-                                                 NSAttributedString.Key.foregroundColor: UIColor(named: "TertiaryBrandColor") as Any], for: .normal)
-    }
-    
-    @IBAction private func switchViews(_ sender: UISegmentedControl) {
-        if sender.selectedSegmentIndex == 0 {
-            firstView.isHidden = true
-            secondView.isHidden = false
-        } else {
-            firstView.isHidden = false
-            secondView.isHidden = true
-        }
-    }
->>>>>>> main
 }
-//    swiftlint:enable force_cast
+
