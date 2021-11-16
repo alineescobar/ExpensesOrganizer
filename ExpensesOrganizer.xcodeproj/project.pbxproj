@@ -51,6 +51,7 @@
 		71CD631427359B8B007A3D75 /* AddExpenseRecurrencyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71CD631327359B8B007A3D75 /* AddExpenseRecurrencyViewController.swift */; };
 		71CD631627359B9C007A3D75 /* AddExpenseCalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71CD631527359B9C007A3D75 /* AddExpenseCalendarViewController.swift */; };
 		71D21EDF27441FDD0042AAED /* OnboardingPersistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71D21EDE27441FDD0042AAED /* OnboardingPersistence.swift */; };
+		71D21EE2274449870042AAED /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 71D21EE1274449870042AAED /* IQKeyboardManagerSwift */; };
 		71DDB4FF273D904300D527A6 /* AddExpenseColectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71DDB4FE273D904300D527A6 /* AddExpenseColectionViewController.swift */; };
 		71FED85427330E1700B90A5A /* AddExpenseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71FED85327330E1700B90A5A /* AddExpenseViewController.swift */; };
 		71FED85627330E3500B90A5A /* AddIncomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71FED85527330E3500B90A5A /* AddIncomeViewController.swift */; };
@@ -210,6 +211,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				710F1DC52729C55F005C06E1 /* Charts in Frameworks */,
+				71D21EE2274449870042AAED /* IQKeyboardManagerSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -688,6 +690,7 @@
 			name = ExpensesOrganizer;
 			packageProductDependencies = (
 				710F1DC42729C55F005C06E1 /* Charts */,
+				71D21EE1274449870042AAED /* IQKeyboardManagerSwift */,
 			);
 			productName = ExpensesOrganizer;
 			productReference = 16655623271A0E0000DE83F4 /* ExpensesOrganizer.app */;
@@ -720,6 +723,7 @@
 			mainGroup = 1665561A271A0E0000DE83F4;
 			packageReferences = (
 				710F1DC32729C55F005C06E1 /* XCRemoteSwiftPackageReference "charts" */,
+				71D21EE0274449870042AAED /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
 			);
 			productRefGroup = 16655624271A0E0000DE83F4 /* Products */;
 			projectDirPath = "";
@@ -1105,6 +1109,14 @@
 				version = 3.5.0;
 			};
 		};
+		71D21EE0274449870042AAED /* XCRemoteSwiftPackageReference "IQKeyboardManager" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hackiftekhar/IQKeyboardManager.git";
+			requirement = {
+				kind = exactVersion;
+				version = 6.5.9;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1112,6 +1124,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 710F1DC32729C55F005C06E1 /* XCRemoteSwiftPackageReference "charts" */;
 			productName = Charts;
+		};
+		71D21EE1274449870042AAED /* IQKeyboardManagerSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 71D21EE0274449870042AAED /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
+			productName = IQKeyboardManagerSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 

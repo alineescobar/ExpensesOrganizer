@@ -22,7 +22,7 @@ class OnboardingViewController: UIViewController {
         
         nextButton.layer.cornerRadius = 8
         
-        guard let image1 = UIImage(named: "Onboarding-6") else {
+        guard let image1 = UIImage(named: "Onboarding-7") else {
             return }
         guard let image2 = UIImage(named: "Onboarding-4") else {
             return }
