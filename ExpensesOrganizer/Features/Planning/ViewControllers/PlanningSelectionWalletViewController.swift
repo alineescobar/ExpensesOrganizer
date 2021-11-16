@@ -19,8 +19,9 @@ class PlanningSelectionWalletViewController: UIViewController, UICollectionViewD
     @IBOutlet weak var walletsCollectionView: UICollectionView!
     private let roundButtonID: String = "RoundButtonCollectionViewCell"
     @IBOutlet weak var pullIndicator: UIView!
-    
+    // swiftlint:disable identifier_name
     weak var planningWalletSelectionDelegate: PlanningWalletSelectionDelegate?
+    // swiftlint:enable identifier_name
     
     override func viewDidLoad() {
         super.viewDidLoad()
