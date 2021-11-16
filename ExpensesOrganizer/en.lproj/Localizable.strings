@@ -37,6 +37,9 @@
 "Cancel" = "Cancel";
 "Description" = "Description";
 "Planning" = "Planning";
+"Done" = "Done";
+"AllRight" = "Everything's right around here!";
+"OKConfirmation" = "Okey dokey";
 "Ok" = "OK";
 "WalletsFetchFailedAlertTitle" = "Error finding Wallets";
 "WalletsFetchFailedAlertDescription" = "There was a problem finding your wallets. Please, try again later.";
@@ -53,10 +56,34 @@
 "SecondSegmentedControl" = "Income";
 "AddButton" = "Create a new template";
 
+// MARK: Addition Income
+"addition-income-segmented-title" = "Incomes";
+"addition-income-name" = "Income name";
+"addition-income-name-placeholder" = "The name is optional";
+"addition-income-category" = "Category";
+"addition-income-wallet" = "Add in";
+"addition-income-planning" = "Planning";
+"addition-income-done-header" = "Everything is fine!";
+"addition-income-done-body" = "Your income has been successfully added.";
+
+// MARK: Addition Expense
+"addition-expense-segmented-title" = "Expenses";
+"addition-expense-name" = "Expense name";
+"addition-expense-name-placeholder" = "The name is optional";
+"addition-expense-category" = "Category";
+"addition-expense-wallet" = "Pay with";
+"addition-expense-planning" = "Planning";
+"addition-expense-done-header" = "Everything is fine!";
+"addition-expense-done-body" = "Your expense has been successfully added.";
+
 // MARK: Item
 "ItemName" = "Item name";
 "PayWith" = "Pay with";
 "NewItem" = "New item";
+"UpdatedItem" = "Your item was successfully updated.";
+"NewItemCreated" = "Your new item was successfully added.";
+"ItemEditionCancelAlertTitle" = "Cancel Item edition";
+"ItemKeepEditingAction" = "Keep editing";
 
 // MARK: Recurrency Types
 "Never" = "Never";

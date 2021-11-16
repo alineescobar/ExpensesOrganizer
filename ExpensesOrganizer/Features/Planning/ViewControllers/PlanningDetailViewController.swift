@@ -59,6 +59,7 @@ class PlanningDetailViewController: UIViewController {
          let itemViewController = segue.destination as? ItemViewController
 //         itemViewController?.item = items[indexPath.row]
          itemViewController?.itemDelegate = self
+         itemViewController?.isEditingItem = true
      }
     
     func showCancelPlanningAlert() {

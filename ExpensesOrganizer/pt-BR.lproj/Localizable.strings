@@ -36,6 +36,9 @@
 "Cancel" = "Cancelar";
 "Description" = "Descrição";
 "Planning" = "Planejamento";
+"Done" = "Pronto";
+"AllRight" = "Tudo certo por aqui!";
+"OKConfirmation" = "Prontinho";
 "Ok" = "Certo";
 "WalletsFetchFailedAlertTitle" = "Erro ao encontrar Carteiras";
 "WalletsFetchFailedAlertDescription" = "Houve um problema ao procurar suas carteiras. Por favor, tente novamente mais tarde.";
@@ -56,6 +59,10 @@
 "ItemName" = "Nome do item";
 "PayWith" = "Pagar com";
 "NewItem" = "Novo item";
+"UpdatedItem" = "Seu item foi atualizado com sucesso.";
+"NewItemCreated" = "Seu novo item foi adicionado com sucesso.";
+"ItemEditionCancelAlertTitle" = "Cancelar edição de Item";
+"ItemKeepEditingAction" = "Continuar editando";
 
 // MARK: Recurrency Types
 "Never" = "Nunca";
@@ -64,3 +71,23 @@
 "EachTwoWeeks" = "Quinzenalmente";
 "Monthly" = "Mensalmente";
 "Anually" = "Anualmente";
+
+// MARK: Addition Income
+"addition-income-segmented-title" = "Ganhos";
+"addition-income-name" = "Nome do ganho";
+"addition-income-name-placeholder" = "O nome é opcional";
+"addition-income-category" = "Categoria";
+"addition-income-wallet" = "Adicionar em";
+"addition-income-planning" = "Planejamento";
+"addition-income-done-header" = "Tudo certo por aqui!";
+"addition-income-done-body" = "Seu ganho foi adicionado com sucesso.";
+
+// MARK: Addition Expense
+"addition-expense-segmented-title" = "Despesas";
+"addition-expense-name" = "Nome da despesa";
+"addition-expense-name-placeholder" = "O nome é opcional";
+"addition-expense-category" = "Categoria";
+"addition-expense-wallet" = "Pagar com";
+"addition-expense-planning" = "Planejamento";
+"addition-expense-done-header" = "Tudo certo por aqui!";
+"addition-expense-done-body" = "Sua despesa foi adicionada com sucesso.";

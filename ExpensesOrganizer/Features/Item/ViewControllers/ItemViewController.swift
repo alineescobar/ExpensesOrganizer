@@ -20,19 +20,32 @@ enum ItemCategory: CaseIterable {
 }
 
 class ItemViewController: UIViewController {
+    @IBOutlet weak var navigationBarStackView: UIStackView!
+    @IBOutlet weak var conclusionView: UIView!
+    @IBOutlet weak var firstConclusionLabel: UILabel!
+    @IBOutlet weak var secondConclusionLabel: UILabel!
+    @IBOutlet weak var readyConclusionButton: UIButton!
     @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var readyButton: UIButton!
     @IBOutlet weak var itemNameLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     
     @IBAction private func cancelAction(_ sender: UIButton) {
-        self.dismiss(animated: true)
+        showCancelItemAlert()
     }
     @IBAction private func readyAction(_ sender: UIButton) {
+        UIView.animate(withDuration: 1, delay: 0, options: [.beginFromCurrentState]) {
+            self.navigationBarStackView.alpha = 0
+            self.tableView.alpha = 0
+            self.conclusionView.alpha = 1
+        }
         itemDelegate?.updateItem()
+    }
+    @IBAction private func readyConclusionAction(_ sender: UIButton) {
         self.dismiss(animated: true)
     }
     
+    var isEditingItem: Bool = false
     var item: Item?
     weak var itemDelegate: ItemDelegate?
     private var selectedWallet: Wallet?
@@ -46,15 +59,36 @@ class ItemViewController: UIViewController {
         self.hideKeyboardWhenTappedAround()
         readyButton.setTitle(NSLocalizedString("Ready", comment: ""), for: .normal)
         cancelButton.setTitle(NSLocalizedString("Cancel", comment: ""), for: .normal)
+        presentationController?.delegate = self
+        isModalInPresentation = true
         tableView.delegate = self
         tableView.dataSource = self
-        
+        conclusionView.alpha = 0
+        firstConclusionLabel.text = NSLocalizedString("AllRight", comment: "")
+        secondConclusionLabel.text = isEditingItem ? NSLocalizedString("UpdatedItem", comment: "") : NSLocalizedString("NewItemCreated", comment: "")
+        readyConclusionButton.setTitle(NSLocalizedString("OKConfirmation", comment: ""), for: .normal)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         // Update item on CoreData
         itemDelegate?.updateItem()
+    }
+    
+    func showCancelItemAlert() {
+        let alert = UIAlertController(title: NSLocalizedString("ItemEditionCancelAlertTitle", comment: ""),
+                                      message: NSLocalizedString("PlanningCreationCancelAlertDescription", comment: ""),
+                                      preferredStyle: .alert)
+
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .destructive, handler: { _ in
+            // TODO: Delete Wallet object from CoreData
+            self.dismiss(animated: true)
+        }))
+        
+        alert.addAction(UIAlertAction(title: NSLocalizedString("ItemKeepEditingAction", comment: ""), style: .cancel, handler: { _ in
+        }))
+
+        self.present(alert, animated: true)
     }
     
     /*
@@ -121,11 +155,13 @@ extension ItemViewController: UITableViewDataSource {
             else {
                 return UITableViewCell()
             }
+
             let formatter = DateFormatter()
-            formatter.dateStyle = .medium
+            let format = DateFormatter.dateFormat(fromTemplate: "dMMM", options: 0, locale: Locale.current)
+            formatter.dateFormat = format
             let date = formatter.string(from: selectedDate)
             
-            cell.dateLabel.text = date.substring(toIndex: date.count - 4)
+            cell.dateLabel.text = date
             cell.planningDelegate = self
             cell.planningLabel.text = NSLocalizedString("Planning", comment: "")
             cell.recurrencyLabel.text = RecurrencyTypes.getTitleFor(title: selectedRecurrencyType)
@@ -159,6 +195,12 @@ extension ItemViewController: UIViewControllerTransitioningDelegate {
     
     func interactionControllerForDismissal(using animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
         interactor.hasStarted ? interactor : .none
+    }
+}
+
+extension ItemViewController: UIAdaptivePresentationControllerDelegate {
+    func presentationControllerDidAttemptToDismiss(_ presentationController: UIPresentationController) {
+        showCancelItemAlert()
     }
 }
 

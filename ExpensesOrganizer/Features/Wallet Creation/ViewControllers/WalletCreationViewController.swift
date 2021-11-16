@@ -156,13 +156,16 @@ extension WalletCreationViewController: UITableViewDataSource {
             else {
                 return UITableViewCell()
             }
-            let formatter = DateFormatter()
-            formatter.dateStyle = .medium
             
             cell.planningDelegate = self
             cell.recurrencyLabel.text = RecurrencyTypes.getTitleFor(title: selectedRecurrencyType)
+            
+            let formatter = DateFormatter()
+            let format = DateFormatter.dateFormat(fromTemplate: "dMMM", options: 0, locale: Locale.current)
+            formatter.dateFormat = format
             let date = formatter.string(from: selectedDate)
-            cell.dateLabel.text = date.substring(toIndex: date.count - 4)
+            cell.dateLabel.text = date
+            
             cell.planningLabel.text = NSLocalizedString("Planning", comment: "")
             
             return cell

@@ -19,6 +19,9 @@
         <array key="WorkSans-Regular.ttf">
             <string>WorkSans-Regular</string>
         </array>
+        <array key="WorkSans-SemiBold.ttf">
+            <string>WorkSans-SemiBold</string>
+        </array>
     </customFonts>
     <scenes>
         <!--Item View Controller-->
@@ -322,23 +325,104 @@
                                     </button>
                                 </subviews>
                             </stackView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6SH-S5-gK7">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="185" translatesAutoresizingMaskIntoConstraints="NO" id="Z3a-6J-Qdb">
+                                        <rect key="frame" x="0.0" y="268.5" width="414" height="577.5"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="64" translatesAutoresizingMaskIntoConstraints="NO" id="h1H-O0-AhL">
+                                                <rect key="frame" x="24" y="0.0" width="366" height="352.5"/>
+                                                <subviews>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="o9J-83-pft">
+                                                        <rect key="frame" x="14" y="0.0" width="338.5" height="128.5"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalCompressionResistancePriority="757" verticalCompressionResistancePriority="757" text="Tudo certo por aqui!" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lEM-0M-LFy">
+                                                                <rect key="frame" x="0.0" y="0.0" width="338.5" height="40"/>
+                                                                <fontDescription key="fontDescription" name="WorkSans-Bold" family="Work Sans" pointSize="34"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalCompressionResistancePriority="753" verticalCompressionResistancePriority="754" text="Seu item foi atualizado com sucesso." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Plw-Kv-m3a">
+                                                                <rect key="frame" x="0.0" y="72" width="280" height="56.5"/>
+                                                                <fontDescription key="fontDescription" name="WorkSans-SemiBold" family="Work Sans" pointSize="24"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SmileyWink" translatesAutoresizingMaskIntoConstraints="NO" id="y9H-05-yn8">
+                                                        <rect key="frame" x="103" y="192.5" width="160" height="160"/>
+                                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="y9H-05-yn8" secondAttribute="height" multiplier="1:1" id="PuZ-m0-ONG"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                </subviews>
+                                            </stackView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1bF-d9-3S2">
+                                                <rect key="frame" x="31" y="537.5" width="352" height="40"/>
+                                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="gRf-qH-WP5"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="WorkSans-Medium" family="Work Sans" pointSize="16"/>
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" title="Prontinho"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="NO"/>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="8"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="readyConclusionAction:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="FHJ-LU-hqZ"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="h1H-O0-AhL" firstAttribute="leading" secondItem="Z3a-6J-Qdb" secondAttribute="leading" constant="24" id="H3j-uu-w3r"/>
+                                            <constraint firstAttribute="trailing" secondItem="1bF-d9-3S2" secondAttribute="trailing" constant="31" id="R5o-vw-uwG"/>
+                                            <constraint firstItem="1bF-d9-3S2" firstAttribute="leading" secondItem="Z3a-6J-Qdb" secondAttribute="leading" constant="31" id="ecs-vu-Pq2"/>
+                                            <constraint firstAttribute="trailing" secondItem="h1H-O0-AhL" secondAttribute="trailing" constant="24" id="z8B-f3-byt"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="Z3a-6J-Qdb" secondAttribute="bottom" constant="50" id="1Ch-lY-tjr"/>
+                                    <constraint firstItem="Z3a-6J-Qdb" firstAttribute="top" relation="greaterThanOrEqual" secondItem="6SH-S5-gK7" secondAttribute="top" constant="30" id="9qR-NG-EuY"/>
+                                    <constraint firstItem="Z3a-6J-Qdb" firstAttribute="leading" secondItem="6SH-S5-gK7" secondAttribute="leading" id="AjX-C6-HiY"/>
+                                    <constraint firstAttribute="trailing" secondItem="Z3a-6J-Qdb" secondAttribute="trailing" id="mIo-zz-2ci"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="6SH-S5-gK7" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="1gp-bt-cJf"/>
                             <constraint firstItem="5ju-MR-d35" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" constant="32" id="2g8-u7-xIQ"/>
+                            <constraint firstAttribute="bottom" secondItem="6SH-S5-gK7" secondAttribute="bottom" id="D7K-4C-Xwz"/>
                             <constraint firstItem="WHk-LJ-awE" firstAttribute="top" secondItem="5ju-MR-d35" secondAttribute="bottom" constant="-20" id="DFB-Te-b75"/>
+                            <constraint firstItem="6SH-S5-gK7" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="OiT-Xh-pRS"/>
                             <constraint firstAttribute="bottom" secondItem="WHk-LJ-awE" secondAttribute="bottom" id="fuK-g0-OAH"/>
                             <constraint firstAttribute="trailing" secondItem="5ju-MR-d35" secondAttribute="trailing" constant="24" id="igC-3v-Fzo"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="WHk-LJ-awE" secondAttribute="trailing" id="jTf-Wv-r0Z"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="6SH-S5-gK7" secondAttribute="trailing" id="kL3-EI-jSp"/>
                             <constraint firstItem="WHk-LJ-awE" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" id="qvF-ba-cDy"/>
                             <constraint firstItem="5ju-MR-d35" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" constant="24" id="tXr-OE-wm2"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="cancelButton" destination="LQx-zK-94z" id="HLK-Y9-8st"/>
+                        <outlet property="conclusionView" destination="6SH-S5-gK7" id="0l5-K4-i4h"/>
+                        <outlet property="firstConclusionLabel" destination="lEM-0M-LFy" id="76d-IT-o63"/>
                         <outlet property="itemNameLabel" destination="R2K-je-oyZ" id="Goy-dc-Z6m"/>
+                        <outlet property="navigationBarStackView" destination="5ju-MR-d35" id="oGk-St-bqE"/>
                         <outlet property="readyButton" destination="c1k-Ra-YTk" id="oaK-ju-Lak"/>
+                        <outlet property="readyConclusionButton" destination="1bF-d9-3S2" id="ix6-x4-yU7"/>
+                        <outlet property="secondConclusionLabel" destination="Plw-Kv-m3a" id="Wlg-gi-eZU"/>
                         <outlet property="tableView" destination="WHk-LJ-awE" id="RQV-Hp-Xj0"/>
                         <segue destination="7qf-rE-xTZ" kind="presentation" identifier="calendar" id="C1o-OY-XCq"/>
                         <segue destination="HKS-uo-azC" kind="presentation" identifier="recurrency" id="fet-Ks-5xs"/>
@@ -558,6 +642,7 @@
         <image name="Backspace" width="32" height="32"/>
         <image name="Calendar" width="25" height="24"/>
         <image name="PencilLine" width="24" height="24"/>
+        <image name="SmileyWink" width="160" height="160"/>
         <image name="Wallet" width="25" height="24"/>
         <image name="checkmark" catalog="system" width="128" height="114"/>
         <systemColor name="opaqueSeparatorColor">
