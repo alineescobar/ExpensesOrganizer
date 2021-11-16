@@ -34,7 +34,10 @@ class OnboardingViewController: UIViewController {
             OnboardingSlide(title: NSLocalizedString("Plan", comment: ""), description: NSLocalizedString("PlanDescription", comment: ""), image: image2),
             OnboardingSlide(title: NSLocalizedString("Save", comment: ""), description: NSLocalizedString("SaveDescription", comment: ""), image: image3)
         ]
+        
         nextButton.setTitle(NSLocalizedString("NextButton", comment: ""), for: .normal)
+        
+        pageControl.currentPage = 0
     }
     
     @IBAction private func nextButtonAction(_ sender: UIButton) {
@@ -45,6 +48,8 @@ class OnboardingViewController: UIViewController {
             let indexPath = IndexPath(item: currentPage, section: 0)
             collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
         }
+        
+        pageControl.currentPage = currentPage
     }
 }
 
