@@ -27,11 +27,27 @@ class LastOnboardingScreenViewController: UIViewController {
         readyButton.setTitle(NSLocalizedString("DoneButton", comment: ""), for: .normal)
         readyButton.layer.cornerRadius = 8
         name = insertNameField.text ?? String("aaa")
+        
+        hideKeyboardWhenTappedAround()
     }
 
     @IBAction private func readyButtonAction(_ sender: UIButton) {
         UserDefaults.standard.setValue(name, forKey: "nameValue")
         print(name)
         performSegue(withIdentifier: "dashboardSegue", sender: nil)
+    }
+}
+
+extension LastOnboardingScreenViewController: UIGestureRecognizerDelegate {
+    func hideKeyboardWhenTappedAround() {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        tap.delegate = self
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc
+    func dismissKeyboard() {
+        view.endEditing(true)
     }
 }
