@@ -20,11 +20,17 @@ class OnboardingPersistence {
         defaults.set(show, forKey: showOnboardingKey)
     }
     
-    static func getUserName() -> String? {
-        return defaults.string(forKey: userNameKey)
+    static func getUserName() -> String {
+        let name = defaults.string(forKey: userNameKey)
+        
+        if name == nil || name?.isEmpty ?? true {
+            return "Expenseer"
+        } else {
+            return name ?? "Expenseer"
+        }
     }
     
     static func setUserName(_ name: String?) {
-        defaults.set(name?.isEmpty ?? true ? nil : name, forKey: userNameKey)
+        defaults.set(name, forKey: userNameKey)
     }
 }
