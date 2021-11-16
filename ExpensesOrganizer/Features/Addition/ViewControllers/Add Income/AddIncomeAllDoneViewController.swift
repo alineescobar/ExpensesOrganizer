@@ -17,7 +17,7 @@ class AddIncomeAllDoneViewController: UIViewController {
         super.viewDidLoad()
 
         doneButton.layer.cornerRadius = 8
-        doneButton.setTitle(NSLocalizedString("All ready", comment: ""), for: .normal)
+        doneButton.setTitle(NSLocalizedString("OKConfirmation", comment: ""), for: .normal)
         
         titleLabel.text = NSLocalizedString("addition-income-done-header", comment: "")
         bodyLabel.text = NSLocalizedString("addition-income-done-body", comment: "")

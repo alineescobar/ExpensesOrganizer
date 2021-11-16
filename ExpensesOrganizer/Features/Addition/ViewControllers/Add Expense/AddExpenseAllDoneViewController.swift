@@ -17,7 +17,7 @@ class AddExpenseAllDoneViewController: UIViewController {
         super.viewDidLoad()
 
         doneButton.layer.cornerRadius = 8
-        doneButton.setTitle(NSLocalizedString("All ready", comment: ""), for: .normal)
+        doneButton.setTitle(NSLocalizedString("OKConfirmation", comment: ""), for: .normal)
         
         titleLabel.text = NSLocalizedString("addition-expense-done-header", comment: "")
         bodyLabel.text = NSLocalizedString("addition-expense-done-body", comment: "")
