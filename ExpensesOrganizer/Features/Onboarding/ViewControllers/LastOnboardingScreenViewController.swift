@@ -16,25 +16,35 @@ class LastOnboardingScreenViewController: UIViewController {
     @IBOutlet weak var insertNameField: UITextField!
     @IBOutlet weak var readyButton: UIButton!
     
-    var name = "null"
+    var name = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
         titleLabel.text = NSLocalizedString("LetsGo", comment: "")
         descriptionLabel.text = NSLocalizedString("LetsGoDescription", comment: "")
         nameLabel.text = NSLocalizedString("Name", comment: "")
-        //insertNameField.text = NSLocalizedString("FieldDescription", comment: "")
+//        insertNameField.text = NSLocalizedString("FieldDescription", comment: "")
         readyButton.setTitle(NSLocalizedString("DoneButton", comment: ""), for: .normal)
         readyButton.layer.cornerRadius = 8
-        name = insertNameField.text ?? String("aaa")
+        name = insertNameField.text ?? ""
         
+        insertNameField.delegate = self
         hideKeyboardWhenTappedAround()
     }
 
     @IBAction private func readyButtonAction(_ sender: UIButton) {
-        UserDefaults.standard.setValue(name, forKey: "nameValue")
-        print(name)
+        OnboardingPersistence.setUserName(name)
+        OnboardingPersistence.setOnboardingCompleted(true)
+
         performSegue(withIdentifier: "dashboardSegue", sender: nil)
+        
+    }
+}
+
+extension LastOnboardingScreenViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
     }
 }
 
