@@ -43,6 +43,7 @@ class WalletDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.hideKeyboardWhenTappedAround()
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(UINib(nibName: customCellId, bundle: nil), forCellReuseIdentifier: customCellId)
@@ -123,6 +124,8 @@ extension WalletDetailViewController: UITableViewDataSource {
             else {
                 return UITableViewCell()
             }
+            cell.walletNameTextField.placeholder = NSLocalizedString("WalletName", comment: "")
+            cell.descriptionLabel.text = NSLocalizedString("Description", comment: "")
             return cell
             
         case .planning:
@@ -131,11 +134,14 @@ extension WalletDetailViewController: UITableViewDataSource {
                 return UITableViewCell()
             }
             let formatter = DateFormatter()
-            formatter.dateStyle = .medium
+            let format = DateFormatter.dateFormat(fromTemplate: "dMMM", options: 0, locale: Locale.current)
+            formatter.dateFormat = format
+            let date = formatter.string(from: selectedDate)
             
+            cell.dateLabel.text = date
+            cell.planningLabel.text = NSLocalizedString("Planning", comment: "")
             cell.planningDelegate = self
-            cell.recurrencyLabel.text = selectedRecurrencyType.rawValue
-            cell.dateLabel.text = formatter.string(from: selectedDate)
+            cell.recurrencyLabel.text = RecurrencyTypes.getTitleFor(title: selectedRecurrencyType)
             
             return cell
         case .actionableCell:
@@ -178,7 +184,9 @@ extension WalletDetailViewController: UITableViewDataSource {
 
 extension WalletDetailViewController: UIViewControllerTransitioningDelegate {
     func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {
-        return HalfSizePresentationController(presentedViewController: presented, presenting: presentingViewController)
+        let viewController = CustomSizePresentationController(presentedViewController: presented, presenting: presentingViewController)
+        viewController.heightMultiplier = 0.5
+        return viewController
     }
     
     func interactionControllerForDismissal(using animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
@@ -209,6 +217,20 @@ extension WalletDetailViewController: PlanningCellDelegate {
         pvc?.selectedDate = selectedDate
         
         present(pvc ?? UIViewController(), animated: true)
+    }
+}
+
+extension WalletDetailViewController: UIGestureRecognizerDelegate {
+    func hideKeyboardWhenTappedAround() {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        tap.delegate = self
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc
+    func dismissKeyboard() {
+        view.endEditing(true)
     }
 }
 

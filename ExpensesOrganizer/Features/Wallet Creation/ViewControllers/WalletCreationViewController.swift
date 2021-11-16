@@ -34,12 +34,13 @@ class WalletCreationViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.hideKeyboardWhenTappedAround()
         presentationController?.delegate = self
         isModalInPresentation = true
         tableView.delegate = self
         tableView.dataSource = self
-
-        // Do any additional setup after loading the view.
+        readyButton.setTitle(NSLocalizedString("Ready", comment: ""), for: .normal)
+        newWalletLabel.text = NSLocalizedString("NewWallet", comment: "")
     }
     
     func showCancelWalletAlert() {
@@ -91,6 +92,8 @@ extension WalletCreationViewController: UITableViewDataSource {
             else {
                 return UITableViewCell()
             }
+            cell.walletNameTextField.placeholder = NSLocalizedString("WalletName", comment: "")
+            cell.descriptionLabel.text = NSLocalizedString("Description", comment: "")
             return cell
             
         case .planning:
@@ -98,12 +101,17 @@ extension WalletCreationViewController: UITableViewDataSource {
             else {
                 return UITableViewCell()
             }
-            let formatter = DateFormatter()
-            formatter.dateStyle = .medium
             
             cell.planningDelegate = self
-            cell.recurrencyLabel.text = selectedRecurrencyType.rawValue
-            cell.dateLabel.text = formatter.string(from: selectedDate)
+            cell.recurrencyLabel.text = RecurrencyTypes.getTitleFor(title: selectedRecurrencyType)
+            
+            let formatter = DateFormatter()
+            let format = DateFormatter.dateFormat(fromTemplate: "dMMM", options: 0, locale: Locale.current)
+            formatter.dateFormat = format
+            let date = formatter.string(from: selectedDate)
+            cell.dateLabel.text = date
+            
+            cell.planningLabel.text = NSLocalizedString("Planning", comment: "")
             
             return cell
         }
@@ -117,7 +125,9 @@ extension WalletCreationViewController: UITableViewDataSource {
 
 extension WalletCreationViewController: UIViewControllerTransitioningDelegate {
     func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {
-        return HalfSizePresentationController(presentedViewController: presented, presenting: presentingViewController)
+        let viewController = CustomSizePresentationController(presentedViewController: presented, presenting: presentingViewController)
+        viewController.heightMultiplier = 0.5
+        return viewController
     }
     
     func interactionControllerForDismissal(using animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
@@ -151,6 +161,26 @@ extension WalletCreationViewController: PlanningCellDelegate {
     }
 }
 
+extension WalletCreationViewController: UIAdaptivePresentationControllerDelegate {
+    func presentationControllerDidAttemptToDismiss(_ presentationController: UIPresentationController) {
+        showCancelWalletAlert()
+    }
+}
+
+extension WalletCreationViewController: UIGestureRecognizerDelegate {
+    func hideKeyboardWhenTappedAround() {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        tap.delegate = self
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc
+    func dismissKeyboard() {
+        view.endEditing(true)
+    }
+}
+
 extension WalletCreationViewController: RecurrencyTypeDelegate {
     func sendRecurrencyType(recurrencyType: RecurrencyTypes) {
         selectedRecurrencyType = recurrencyType
@@ -162,11 +192,5 @@ extension WalletCreationViewController: CalendarDelegate {
     func sendDate(date: Date) {
         selectedDate = date
         tableView.reloadData()
-    }
-}
-
-extension WalletCreationViewController: UIAdaptivePresentationControllerDelegate {
-    func presentationControllerDidAttemptToDismiss(_ presentationController: UIPresentationController) {
-        showCancelWalletAlert()
     }
 }

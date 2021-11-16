@@ -1,5 +1,5 @@
 //
-//  HalfSizePresentationController.swift
+//  CustomSizePresentationController.swift
 //  ExpensesOrganizer
 //
 //  Created by Diego Henrique on 04/11/21.
@@ -7,8 +7,9 @@
 
 import UIKit
 
-class HalfSizePresentationController: UIPresentationController {
+class CustomSizePresentationController: UIPresentationController {
     let blurEffectView: UIVisualEffectView!
+    var heightMultiplier: CGFloat = -1
     var tapGestureRecognizer: UITapGestureRecognizer = UITapGestureRecognizer()
     var panGestureRecognizer: UIPanGestureRecognizer = UIPanGestureRecognizer()
     var interactor: Interactor = Interactor()
@@ -91,7 +92,7 @@ class HalfSizePresentationController: UIPresentationController {
         guard let bounds = containerView?.bounds else {
             return .zero
         }
-        return CGRect(x: 0, y: bounds.height / 2, width: bounds.width, height: bounds.height / 2)
+        return CGRect(x: 0, y: bounds.height - (bounds.height * heightMultiplier), width: bounds.width, height: bounds.height * heightMultiplier)
     }
 }
 

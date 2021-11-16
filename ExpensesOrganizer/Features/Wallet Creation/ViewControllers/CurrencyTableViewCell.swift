@@ -25,6 +25,7 @@ class CurrencyTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        currencyTextField.delegate = self
         currencyTextField.addTarget(self, action: #selector(myTextFieldDidChange), for: .editingChanged)
     }
 
@@ -41,4 +42,11 @@ class CurrencyTableViewCell: UITableViewCell {
         }
     }
 
+}
+
+extension CurrencyTableViewCell: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
 }
