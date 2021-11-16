@@ -165,7 +165,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="planningIconImage" destination="KgD-ir-BUo" id="4c4-XX-XCl"/>
+                                            <outlet property="planningIcon" destination="KgD-ir-BUo" id="J1K-uT-2PU"/>
                                             <outlet property="planningIconLabel" destination="7Ne-a8-NvT" id="GIW-6h-M08"/>
                                         </connections>
                                     </tableViewCell>
@@ -382,7 +382,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Atom" width="25" height="24"/>
+        <image name="Atom" width="24" height="24"/>
         <image name="PencilLine" width="24" height="24"/>
         <image name="Wallet" width="25" height="24"/>
         <image name="plus" catalog="system" width="128" height="113"/>

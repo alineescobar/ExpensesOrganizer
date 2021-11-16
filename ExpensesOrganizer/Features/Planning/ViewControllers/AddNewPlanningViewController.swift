@@ -21,6 +21,7 @@ class AddNewPlanningViewController: UIViewController, UITableViewDelegate {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var doneButton: UIButton!
     @IBOutlet weak var cancelButton: UIButton!
+    private var selectedIcon: String = "House"
     private let newPlanningCategories: [NewPlanningCategories] = NewPlanningCategories.allCases
     private let interactor = Interactor()
     
@@ -60,7 +61,7 @@ class AddNewPlanningViewController: UIViewController, UITableViewDelegate {
         doneButton.setTitle(NSLocalizedString("Done", comment: ""), for: .normal)
         doneButton.tintColor = .white
     }
-
+    
 }
 
 extension AddNewPlanningViewController: UITableViewDataSource {
@@ -95,6 +96,8 @@ extension AddNewPlanningViewController: UITableViewDataSource {
                 return UITableViewCell()
             }
             cell.selectionStyle = .none
+            cell.planningIcon.image = UIImage(named: selectedIcon)
+            cell.planningIcon.tintColor = UIColor(named: "TertiaryBrandColor")
             return cell
             
         case .button:
@@ -106,7 +109,6 @@ extension AddNewPlanningViewController: UITableViewDataSource {
             cell.selectionStyle = .none
             return cell
         }
-        
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -132,6 +134,7 @@ extension AddNewPlanningViewController: UITableViewDataSource {
             let pvc = storyboard.instantiateViewController(withIdentifier: "WalletSelection") as? PlanningSelectionWalletViewController
             pvc?.modalPresentationStyle = .custom
             pvc?.transitioningDelegate = self
+            
             present(pvc ?? UIViewController(), animated: true)
             
         } else if indexPath == 2 {
@@ -139,6 +142,7 @@ extension AddNewPlanningViewController: UITableViewDataSource {
             let pvc = storyboard.instantiateViewController(withIdentifier: "iconsSelection") as? PlanningIconSelectionViewController
             pvc?.modalPresentationStyle = .custom
             pvc?.transitioningDelegate = self
+            pvc?.iconDelegate = self
             present(pvc ?? UIViewController(), animated: true)
         }
     }
@@ -159,6 +163,15 @@ extension AddNewPlanningViewController: UIViewControllerTransitioningDelegate {
     
     func interactionControllerForDismissal(using animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
         interactor.hasStarted ? interactor : .none
+    }
+}
+
+extension AddNewPlanningViewController: IconDelegate {
+    func sendIcon(iconName: String) {
+        selectedIcon = iconName
+        print("passou aqui ")
+        print(selectedIcon)
+        tableView.reloadData()
     }
 }
 
