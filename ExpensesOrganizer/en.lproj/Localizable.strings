@@ -30,6 +30,8 @@
 // MARK: Wallet Detail
 "WalletDeleteAlertTitle" = "Delete Wallet";
 "WalletDeleteAlertDescription" = "Are you sure? All data inserted in this wallet will be lost.";
+"WalletDeletingErrorAlertTitle" = "Error deleting Wallet";
+"WalletDeletingErrorAlertDescription" = "There was a problem deleting your wallet, please try again.";
 
 // MARK: Shared
 "Ready" = "Ready";

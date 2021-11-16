@@ -29,6 +29,8 @@
 // MARK: Wallet Detail
 "WalletDeleteAlertTitle" = "Apagar Carteira";
 "WalletDeleteAlertDescription" = "Você tem certeza? Todos os dados inseridos nessa carteira serão perdidos.";
+"WalletDeletingErrorAlertTitle" = "Error ao apagar Carteira";
+"WalletDeletingErrorAlertDescription" = "Houve um problema ao apagar sua carteira, por favor, tente novamente.";
 
 // MARK: Shared
 "Ready" = "Pronto";

@@ -13,7 +13,7 @@ protocol CurrencyDelegate: AnyObject {
 
 class CurrencyTableViewCell: UITableViewCell {
     weak var currencyDelegate: CurrencyDelegate?
-    @IBOutlet private weak var currencyTextField: UITextField!
+    @IBOutlet weak var currencyTextField: UITextField!
     @IBOutlet weak var backspaceButton: UIButton!
     
     @IBAction private func backspaceAction(_ sender: UIButton) {
@@ -32,6 +32,7 @@ class CurrencyTableViewCell: UITableViewCell {
         // Initialization code
         currencyTextField.delegate = self
         currencyTextField.addTarget(self, action: #selector(myTextFieldDidChange), for: .editingChanged)
+        currencyTextField.placeholder = String(format: "%.2f", 10.0).currencyInputFormatting()
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {

@@ -8,15 +8,10 @@
 import UIKit
 
 enum WalletsCategory: CaseIterable {
-    case balance, graphics, wallets, addWallet
+    case balance, graphics, wallet, addWallet
     
     static var allCases: [WalletsCategory] {
         return [.balance, .graphics]
-        //        TODO: create logic behind the transactions cells.
-    }
-    
-    static var walletsCases: [WalletsCategory] {
-        return [.wallets, .wallets, .wallets, .wallets, .addWallet]
     }
 }
 
@@ -30,6 +25,7 @@ class WalletsViewController: UIViewController {
     private var isShowingBalance: Bool = false
     private var initialBackgroundViewHeight: Double = -1
     private var wallets: [Wallet] = []
+    private var totalBalance: Double = 0.0
     let navigationFont = UIFont(name: "WorkSans-SemiBold", size: 20)
     
     override func viewDidLoad() {
@@ -51,6 +47,7 @@ class WalletsViewController: UIViewController {
         }
         do {
             wallets = try context.fetch(Wallet.fetchRequest())
+            getTotalBalance()
         } catch {
             showWalletsFetchFailedAlert()
         }
@@ -67,9 +64,23 @@ class WalletsViewController: UIViewController {
         self.present(alert, animated: true)
     }
     
+    func getTotalBalance() {
+        totalBalance = 0.0
+        for wallet in wallets {
+            totalBalance += wallet.value
+        }
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let walletCreationViewController = segue.destination as? WalletCreationViewController
-        walletCreationViewController?.modalHandlerDelegate = self
+        guard let index = sender as? Int else {
+            let walletCreationViewController = segue.destination as? WalletCreationViewController
+            walletCreationViewController?.modalHandlerDelegate = self
+            return
+        }
+        
+        let walletDetailViewController = segue.destination as? WalletDetailViewController
+        walletDetailViewController?.wallet = wallets[index]
+        walletDetailViewController?.modalHandlerDelegate = self
     }
     
 }
@@ -111,7 +122,7 @@ extension WalletsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 1 {
             if indexPath.row != wallets.count {
-                self.performSegue(withIdentifier: "walletDetailSegue", sender: nil)
+                self.performSegue(withIdentifier: "walletDetailSegue", sender: indexPath.row)
             }
         }
     }
@@ -140,8 +151,7 @@ extension WalletsViewController: UITableViewDataSource {
                 cell.currentBalanceButton.setImage(isShowingBalance ? UIImage(systemName: "eye") : UIImage(systemName: "eyebrow"), for: .normal)
                 cell.balanceLabel.alpha = isShowingBalance ? 1 : 0
                 cell.stackJustForBalance.setBackgroundColor(color: isShowingBalance ? UIColor.clear : UIColor.lightGray)
-                let balance = 2234.5
-                cell.balanceLabel.attributedText = getFormattedBalance(balance: balance, smallTextSize: 13.6, type: .screen)
+                cell.balanceLabel.attributedText = getFormattedBalance(balance: totalBalance, smallTextSize: 13.6, type: .screen)
                 cell.selectionStyle = .none
                 return cell
             case .graphics:
@@ -160,7 +170,6 @@ extension WalletsViewController: UITableViewDataSource {
                 else {
                     return UITableViewCell()
                 }
-                cell.walletsDelegate = self
                 cell.selectionStyle = .none
                 return cell
             } else {
@@ -169,7 +178,6 @@ extension WalletsViewController: UITableViewDataSource {
                     return UITableViewCell()
                 }
                 cell.walletNameLabel.text = wallets[indexPath.row].name
-                cell.walletsDelegate = self
                 cell.balanceInsideLabel.attributedText = getFormattedBalance(balance: wallets[indexPath.row].value, smallTextSize: 13.6, type: .card)
                 cell.selectionStyle = .none
                 return cell
@@ -190,17 +198,6 @@ extension WalletsViewController: UIScrollViewDelegate {
     }
 }
 
-extension WalletsViewController: WalletsCellDelegate {
-    func didTapWallet(index: Int) {
-        // TODO: Put Wallet object on sender (through its index)
-        performSegue(withIdentifier: "walletDetail", sender: nil)
-    }
-    
-    func didTapAddWallet() {
-        performSegue(withIdentifier: "addWallet", sender: nil)
-    }
-}
-
 extension WalletsViewController: BalanceCellDelegate {
     func didTapBalanceButton() {
         isShowingBalance = !isShowingBalance
@@ -216,6 +213,7 @@ extension WalletsViewController: ModalHandlerDelegate {
         do {
             wallets = try context.fetch(Wallet.fetchRequest())
             DispatchQueue.main.async {
+                self.getTotalBalance()
                 self.walletsTableView.reloadData()
             }
         } catch {

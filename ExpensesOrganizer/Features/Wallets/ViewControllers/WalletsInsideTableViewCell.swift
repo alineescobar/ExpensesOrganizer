@@ -15,8 +15,6 @@ class WalletsInsideTableViewCell: UITableViewCell {
     @IBOutlet weak var walletInside: UIStackView!
     @IBOutlet weak var walletAllContrains: UIStackView!
     
-    weak var walletsDelegate: WalletsCellDelegate?
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         walletInside.layoutMargins = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 0)
