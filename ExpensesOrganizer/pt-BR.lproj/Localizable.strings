@@ -21,10 +21,16 @@
 "WalletCreationCancelAlertTitle" = "Cancelar nova Carteira";
 "WalletCreationCancelAlertDescription" = "Você tem certeza? Todos os dados inseridos serão perdidos.";
 "WalletCreationKeepCreatingAction" = "Coninuar criando";
+"EmptyBalanceAlertTitle" = "Saldo vazio";
+"EmptyBalanceAlertDescription" = "Você precisa definir um valor de saldo para sua carteira!";
+"WalletSavingErrorAlertTitle" = "Erro ao salvar Carteira";
+"WalletSavingErrorAlertDescription" = "Houve um problema ao salvar sua carteira, por favor, tente novamente.";
 
 // MARK: Wallet Detail
 "WalletDeleteAlertTitle" = "Apagar Carteira";
 "WalletDeleteAlertDescription" = "Você tem certeza? Todos os dados inseridos nessa carteira serão perdidos.";
+"WalletDeletingErrorAlertTitle" = "Error ao apagar Carteira";
+"WalletDeletingErrorAlertDescription" = "Houve um problema ao apagar sua carteira, por favor, tente novamente.";
 
 // MARK: Shared
 "Ready" = "Pronto";
@@ -35,6 +41,9 @@
 "Done" = "Pronto";
 "AllRight" = "Tudo certo por aqui!";
 "OKConfirmation" = "Prontinho";
+"Ok" = "Certo";
+"WalletsFetchFailedAlertTitle" = "Erro ao encontrar Carteiras";
+"WalletsFetchFailedAlertDescription" = "Houve um problema ao procurar suas carteiras. Por favor, tente novamente mais tarde.";
 
 // MARK: Planning Detail
 "OptionalDescription" = "Descrição é opcional";

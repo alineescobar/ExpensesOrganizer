@@ -22,10 +22,16 @@
 "WalletCreationCancelAlertTitle" = "Cancel new Wallet";
 "WalletCreationCancelAlertDescription" = "Are you sure? All inserted data will be lost.";
 "WalletCreationKeepCreatingAction" = "Keep creating";
+"EmptyBalanceAlertTitle" = "Empty balance";
+"EmptyBalanceAlertDescription" = "You need to set a value to your wallet's balance!";
+"WalletSavingErrorAlertTitle" = "Error saving Wallet";
+"WalletSavingErrorAlertDescription" = "There was a problem saving your wallet, please try again.";
 
 // MARK: Wallet Detail
 "WalletDeleteAlertTitle" = "Delete Wallet";
 "WalletDeleteAlertDescription" = "Are you sure? All data inserted in this wallet will be lost.";
+"WalletDeletingErrorAlertTitle" = "Error deleting Wallet";
+"WalletDeletingErrorAlertDescription" = "There was a problem deleting your wallet, please try again.";
 
 // MARK: Shared
 "Ready" = "Ready";
@@ -36,6 +42,9 @@
 "Done" = "Done";
 "AllRight" = "Everything's right around here!";
 "OKConfirmation" = "Okey dokey";
+"Ok" = "OK";
+"WalletsFetchFailedAlertTitle" = "Error finding Wallets";
+"WalletsFetchFailedAlertDescription" = "There was a problem finding your wallets. Please, try again later.";
 
 // MARK: Planning Detail
 "OptionalDescription" = "Description is optional";

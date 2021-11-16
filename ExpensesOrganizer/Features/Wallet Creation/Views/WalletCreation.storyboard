@@ -103,6 +103,9 @@
                                                                     <rect key="frame" x="42" y="2" width="324" height="20.5"/>
                                                                     <fontDescription key="fontDescription" name="WorkSans-Regular" family="Work Sans" pointSize="16"/>
                                                                     <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
+                                                                    <connections>
+                                                                        <action selector="didTextFieldEditingChanged:" destination="rPu-Yl-5ZM" eventType="editingChanged" id="Jk9-42-7GH"/>
+                                                                    </connections>
                                                                 </textField>
                                                             </subviews>
                                                         </stackView>
@@ -129,9 +132,9 @@
                                         <connections>
                                             <outlet property="cellImageView" destination="pq8-s7-6FR" id="fuC-Zv-2pj"/>
                                             <outlet property="descriptionLabel" destination="eCN-eZ-d1n" id="W0c-mU-IlL"/>
+                                            <outlet property="descriptionTextField" destination="UR6-fh-Fs0" id="MDN-qb-T5m"/>
                                             <outlet property="imageTextFieldStackView" destination="7j6-Gt-OqV" id="lOR-8F-1ex"/>
                                             <outlet property="lineView" destination="dqN-Pr-8E7" id="cCS-il-87Q"/>
-                                            <outlet property="walletNameTextField" destination="UR6-fh-Fs0" id="qUf-7B-lTF"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="planningCell" rowHeight="121" id="rnp-8y-0PO" customClass="PlanningTableViewCell" customModule="ExpensesOrganizer" customModuleProvider="target">
