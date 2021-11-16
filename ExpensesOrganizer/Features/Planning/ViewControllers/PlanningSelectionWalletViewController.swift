@@ -28,6 +28,7 @@ class PlanningSelectionWalletViewController: UIViewController, UICollectionViewD
         pullIndicator.layer.cornerRadius = pullIndicator.frame.height / 2
         
     }
+    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         walletSelectionDelegate?.sendWallet(wallet: Wallet())

@@ -16,7 +16,10 @@ enum NewPlanningCategories: CaseIterable {
 }
 
 class AddNewPlanningViewController: UIViewController, UITableViewDelegate {
-
+    // swiftlint:disable force_cast
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    // swiftlint:enable force_cast
+    
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var doneButton: UIButton!
@@ -27,7 +30,7 @@ class AddNewPlanningViewController: UIViewController, UITableViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         tableView.delegate = self
         tableView.dataSource = self
         
@@ -62,6 +65,15 @@ class AddNewPlanningViewController: UIViewController, UITableViewDelegate {
         doneButton.tintColor = .white
     }
     
+    func fetchAllWallets() -> [Wallet] {
+        var wallets = [Wallet()]
+        do {
+            wallets = try context.fetch(Wallet.fetchRequest())
+        } catch {
+            print(error.localizedDescription)
+        }
+        return wallets
+    }
 }
 
 extension AddNewPlanningViewController: UITableViewDataSource {
@@ -81,7 +93,7 @@ extension AddNewPlanningViewController: UITableViewDataSource {
             }
             cell.selectionStyle = .none
             return cell
-        
+            
         case .payment:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "planningPayment", for: indexPath) as? PlannimgPaymentTableViewCell
             else {
@@ -130,13 +142,19 @@ extension AddNewPlanningViewController: UITableViewDataSource {
         let indexPath = indexPath.row
         
         if indexPath == 1 {
-            let storyboard = UIStoryboard(name: "AddNewPlanning", bundle: nil)
-            let pvc = storyboard.instantiateViewController(withIdentifier: "WalletSelection") as? PlanningSelectionWalletViewController
-            pvc?.modalPresentationStyle = .custom
-            pvc?.transitioningDelegate = self
-            
-            present(pvc ?? UIViewController(), animated: true)
-            
+            let allWallets = fetchAllWallets()
+            if allWallets.count < 1 {
+                let alert = UIAlertController(title: "Alert", message: "You appear to do not have any wallets to display :c", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .default))
+                self.present(alert, animated: true, completion: nil)
+            } else {
+                let storyboard = UIStoryboard(name: "AddNewPlanning", bundle: nil)
+                let pvc = storyboard.instantiateViewController(withIdentifier: "WalletSelection") as? PlanningSelectionWalletViewController
+                pvc?.modalPresentationStyle = .custom
+                pvc?.transitioningDelegate = self
+                
+                present(pvc ?? UIViewController(), animated: true)
+            }
         } else if indexPath == 2 {
             let storyboard = UIStoryboard(name: "AddNewPlanning", bundle: nil)
             let pvc = storyboard.instantiateViewController(withIdentifier: "iconsSelection") as? PlanningIconSelectionViewController
