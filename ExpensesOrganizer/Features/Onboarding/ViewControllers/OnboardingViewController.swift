@@ -11,6 +11,7 @@ class OnboardingViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var nextButton: UIButton!
     @IBOutlet weak var pageControl: UIPageControl!
+    @IBOutlet weak var skipButton: UIButton!
     var slides: [OnboardingSlide] = []
     
     var currentPage = 0
@@ -22,11 +23,11 @@ class OnboardingViewController: UIViewController {
         
         nextButton.layer.cornerRadius = 8
         
-        guard let image1 = UIImage(named: "moeda") else {
+        guard let image1 = UIImage(named: "Group1") else {
             return }
-        guard let image2 = UIImage(named: "calculadora") else {
+        guard let image2 = UIImage(named: "Onboarding-2") else {
             return }
-        guard let image3 = UIImage(named: "porquinho") else {
+        guard let image3 = UIImage(named: "Group2") else {
             return }
 
         slides = [
@@ -36,6 +37,7 @@ class OnboardingViewController: UIViewController {
         ]
         
         nextButton.setTitle(NSLocalizedString("NextButton", comment: ""), for: .normal)
+        skipButton.setTitle(NSLocalizedString("SkipButton", comment: ""), for: .normal)
         
         pageControl.currentPage = 0
     }
