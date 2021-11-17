@@ -133,6 +133,22 @@ extension DashboardViewController: UITableViewDelegate {
     }
 }
 
+struct TransactionMock {
+    var name: String
+    var tag: String
+    var price: String
+    var date: String
+    var imageName: String
+    
+    static var mock = [
+        TransactionMock(name: "Netflix", tag: "Subscription", price: "-50,00", date: "9:41 AM", imageName: "play.tv"),
+        TransactionMock(name: "Zaffari", tag: "Market", price: "-400,00", date: "7 nov", imageName: "cart"),
+        TransactionMock(name: "College", tag: "Education", price: "-2800,00", date: "28 out", imageName: "graduationcap"),
+        TransactionMock(name: "Udemy", tag: "Education", price: "-29,50", date: "20 out", imageName: "graduationcap"),
+        TransactionMock(name: "Alura", tag: "Education", price: "-270,50", date: "20 out", imageName: "graduationcap")
+    ]
+}
+
 extension DashboardViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let dashboardCategory = dashboardCategories[indexPath.row]
@@ -198,12 +214,15 @@ extension DashboardViewController: UITableViewDataSource {
                 return UITableViewCell()
             }
             
+            let mock = TransactionMock.mock[indexPath.row - 6]
+            
             cell.selectionStyle = .none
             cell.backgroundColor = UIColor(red: 0.898, green: 0.898, blue: 0.898, alpha: 1)
-            cell.transactionName.text = "Netflix"
-            cell.transactionTag.text = "Assinatura"
-            cell.transactionDate.text = "20 out"
-            cell.transactionPrice.text = "-9,50"
+            cell.transactionName.text = mock.name
+            cell.transactionTag.text = mock.tag
+            cell.transactionDate.text = mock.date
+            cell.transactionPrice.text = mock.price
+            cell.transactionImage.image = UIImage(systemName: mock.imageName)
             
             return cell
             

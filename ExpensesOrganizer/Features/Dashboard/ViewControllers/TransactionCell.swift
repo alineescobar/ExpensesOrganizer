@@ -14,16 +14,17 @@ class TransactionCell: UITableViewCell {
     @IBOutlet weak var transactionDate: UILabel!
     @IBOutlet weak var transactionTag: UILabel!
     @IBOutlet weak var transactionPrice: UILabel!
+    @IBOutlet weak var containerView: UIView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
+        containerView.layer.cornerRadius = 8
+        containerView.makeShadow(color: UIColor.black, width: 1, height: 2, radius: 2, opacity: 0.2)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
     
 }
