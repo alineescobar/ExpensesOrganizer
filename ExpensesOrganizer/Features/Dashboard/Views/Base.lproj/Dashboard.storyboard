@@ -355,7 +355,7 @@
                                             <subviews>
                                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Ato-Qu-NSl">
                                                     <rect key="frame" x="0.0" y="0.0" width="414" height="110"/>
-                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                    <color key="backgroundColor" red="0.8980392157" green="0.8980392157" blue="0.8980392157" alpha="1" colorSpace="calibratedRGB"/>
                                                     <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="13c-1A-QXC">
                                                         <size key="itemSize" width="195" height="104"/>
                                                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -405,7 +405,7 @@
                                                                     <constraint firstAttribute="bottom" secondItem="qxb-nA-SWL" secondAttribute="bottom" constant="16" id="dlB-px-TiS"/>
                                                                 </constraints>
                                                             </collectionViewCellContentView>
-                                                            <color key="backgroundColor" systemColor="systemGray6Color"/>
+                                                            <color key="backgroundColor" name="WhiteStateColor"/>
                                                             <size key="customSize" width="168" height="104"/>
                                                             <connections>
                                                                 <outlet property="balanceLabel" destination="jGG-WN-fu3" id="a9L-OD-0oU"/>
@@ -457,7 +457,7 @@
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="0.89803921568627454" green="0.89803921568627454" blue="0.89803921568627454" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="rbi-wG-tAo" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="DPV-DT-BJK"/>
                             <constraint firstItem="rbi-wG-tAo" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="-68" id="LuF-G2-guD"/>

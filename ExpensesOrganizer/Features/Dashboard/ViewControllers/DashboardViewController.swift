@@ -52,6 +52,8 @@ class DashboardViewController: UIViewController {
         } catch {
             print("erro ao carregar as wallets")
         }
+        
+        view.backgroundColor = UIColor(red: 0.898, green: 0.898, blue: 0.898, alpha: 1)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -197,6 +199,7 @@ extension DashboardViewController: UITableViewDataSource {
             }
             
             cell.selectionStyle = .none
+            cell.backgroundColor = UIColor(red: 0.898, green: 0.898, blue: 0.898, alpha: 1)
             cell.transactionName.text = "Netflix"
             cell.transactionTag.text = "Assinatura"
             cell.transactionDate.text = "20 out"
@@ -209,6 +212,7 @@ extension DashboardViewController: UITableViewDataSource {
                 return UITableViewCell()
             }
             cell.selectionStyle = .none
+            cell.backgroundColor = UIColor(red: 0.898, green: 0.898, blue: 0.898, alpha: 1)
             
             cell.transactionsDelegate = self
             

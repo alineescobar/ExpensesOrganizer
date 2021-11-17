@@ -24,6 +24,7 @@ class WalletsTableViewCell: UITableViewCell {
         super.awakeFromNib()
         walletsCollectionView.delegate = self
         walletsCollectionView.dataSource = self
+        walletsCollectionView.backgroundColor = UIColor(red: 0.898, green: 0.898, blue: 0.898, alpha: 1)
         
         fetchWallets()
     }

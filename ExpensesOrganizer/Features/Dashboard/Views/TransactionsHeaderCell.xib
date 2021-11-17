@@ -23,15 +23,17 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Transações recentes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LZf-hz-wa5">
-                        <rect key="frame" x="24" y="0.0" width="202" height="24"/>
+                        <rect key="frame" x="24" y="0.0" width="202" height="32"/>
                         <fontDescription key="fontDescription" name="WorkSans-Medium" family="Work Sans" pointSize="20"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ypd-KW-0tj">
-                        <rect key="frame" x="272" y="0.0" width="24" height="24"/>
+                        <rect key="frame" x="264" y="0.0" width="32" height="32"/>
                         <constraints>
+                            <constraint firstAttribute="width" constant="32" id="2JS-h7-QJf"/>
                             <constraint firstAttribute="width" secondItem="ypd-KW-0tj" secondAttribute="height" multiplier="1:1" id="Lf6-Lu-7Dc"/>
+                            <constraint firstAttribute="height" constant="32" id="Y0h-ax-kgX"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="10"/>
                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
