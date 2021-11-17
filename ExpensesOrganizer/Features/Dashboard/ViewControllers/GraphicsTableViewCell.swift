@@ -21,8 +21,8 @@ class GraphicsTableViewCell: UITableViewCell, ChartViewDelegate {
         self.clipsToBounds = false
         chartView.delegate = self
         
-        chartView.backgroundColor = .systemGray5
-        chartView.gridBackgroundColor = .systemGray5
+        chartView.backgroundColor = .clear
+        chartView.gridBackgroundColor = .clear
         
         chartView.rightAxis.enabled = false
         chartView.leftAxis.enabled = false
@@ -33,7 +33,8 @@ class GraphicsTableViewCell: UITableViewCell, ChartViewDelegate {
         chartView.xAxis.gridColor = .clear
         chartView.leftAxis.gridColor = .clear
         chartView.rightAxis.gridColor = .clear
-        chartView.xAxis.labelFont = UIFont.systemFont(ofSize: 18, weight: .semibold)
+        chartView.xAxis.labelFont = UIFont(name: "WorkSans-SemiBold", size: 18) ?? UIFont.systemFont(ofSize: 18, weight: .semibold)
+        chartView.xAxis.labelTextColor = .white
         chartView.xAxis.avoidFirstLastClippingEnabled = true
         chartView.xAxis.valueFormatter = IndexAxisValueFormatter(values: months)
         chartView.xAxis.granularity = 1
@@ -55,8 +56,8 @@ class GraphicsTableViewCell: UITableViewCell, ChartViewDelegate {
         set1.mode = .cubicBezier
         set1.lineWidth = 3
         set1.drawCirclesEnabled = false
-        set1.setColor(.darkGray)
-        set1.circleColors = [.darkGray]
+        set1.setColor(.white)
+        set1.circleColors = [.white]
         set1.drawVerticalHighlightIndicatorEnabled = false
         set1.drawHorizontalHighlightIndicatorEnabled = false
         set1.drawValuesEnabled = false
