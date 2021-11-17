@@ -24,7 +24,7 @@ class LastOnboardingScreenViewController: UIViewController {
 //        insertNameField.text = NSLocalizedString("FieldDescription", comment: "")
         readyButton.setTitle(NSLocalizedString("DoneButton", comment: ""), for: .normal)
         readyButton.layer.cornerRadius = 8
-        
+        insertNameField.placeholder = NSLocalizedString("FieldDescription", comment: "")
         insertNameField.delegate = self
         hideKeyboardWhenTappedAround()
     }

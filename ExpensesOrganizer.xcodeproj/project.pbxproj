@@ -868,6 +868,7 @@
 				077CAFF827273759007D58C1 /* WalletsTableViewCell.swift in Sources */,
 				16904838273DB3C40011A11D /* NewPlanningButtonTableViewCell.swift in Sources */,
 				07B88B76273C543900D484E5 /* OnboardingCollectionViewCell.swift in Sources */,
+				16904838273DB3C40011A11D /* NewPlanningButtonTableViewCell.swift in Sources */,
 				16B2D715271E0EA800E7BB84 /* Transaction+CoreDataClass.swift in Sources */,
 				16D0B26627287A72007BE30E /* TransactionsViewController.swift in Sources */,
 				16904830273C5C550011A11D /* AddNewPlanningViewController.swift in Sources */,
