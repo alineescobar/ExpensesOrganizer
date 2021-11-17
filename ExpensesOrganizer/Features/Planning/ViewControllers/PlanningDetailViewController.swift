@@ -34,6 +34,8 @@ class PlanningDetailViewController: UIViewController {
         self.dismiss(animated: true)
     }
     
+    weak var modalHandlerDelegate: ModalHandlerDelegate?
+    var template: Template?
     private let planningDetailCategories: [PlanningDetailCategory] = PlanningDetailCategory.allCases
     private let planningItems: [PlanningDetailCategory] = PlanningDetailCategory.items
     private let items: [Item] = []

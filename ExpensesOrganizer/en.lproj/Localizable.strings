@@ -49,6 +49,21 @@
 "WalletsFetchFailedAlertTitle" = "Error finding Wallets";
 "WalletsFetchFailedAlertDescription" = "There was a problem finding your wallets. Please, try again later.";
 
+// MARK: Onboarding
+"Control" = "Control";
+"Plan" = "Plan";
+"Save" = "Save";
+"LetsGo" = "Lets Go";
+"ControlDescription" = "Here you can control your expenses by recording each entry and exit of values.";
+"PlanDescription" = "Planning has never been so easy, here you can add your own items in different planning and enjoy our ready-made items too!";
+"SaveDescription" = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Convallis vestibulum augue massa sed aenean.";
+"LetsGoDescription" = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Convallis vestibulum augue massa sed aenean.";
+"Name" = "Your name";
+"FieldDescription" = "Could be your nickname";
+"SkipButton" = "Skip";
+"NextButton" = "Next";
+"DoneButton" = "Done";
+
 // MARK: Planning Detail
 "OptionalDescription" = "Description is optional";
 "PlanningCreationCancelAlertTitle" = "Cancel Planning";
@@ -108,3 +123,49 @@
 "EachTwoWeeks" = "Each two weeks";
 "Monthly" = "Monthly";
 "Anually" = "Anually";
+
+// MARK: Templates
+"Property" = "Property";
+"Rent" = "Rent";
+"CondoFee" = "Condo fee";
+"Internet" = "Internet";
+"Power" = "Power";
+"Water" = "Water";
+"Gas" = "Gas";
+"Phone" = "Phone";
+"Market" = "Market";
+"PropertyTax" = "Municipal Property Tax";
+"PropertyInsurance" = "Property insurance";
+"Car" = "Car";
+"Insurance" = "Insurance";
+"VehiclePropertyTax" = "Motor Vehicle Property Tax";
+"Gasoline" = "Gasoline";
+"TuneUp" = "Tune-up";
+"Garage" = "Garage";
+"Leisure" = "Leisure";
+"StreamingServices" = "Streaming services";
+"Delivery" = "Delivery";
+"DinnerAndEvents" = "Events, dinners and related";
+"Gym" = "Gym";
+"Study" = "Study";
+"School" = "School";
+"College" = "College";
+"Course" = "Courses";
+"Business" = "Business";
+"Rent" = "Rent";
+"Employees" = "Employees";
+"Pets" = "Pets";
+"Food" = "Food";
+"Veterinary" = "Veterinary";
+"Neuteruing" = "Neutering";
+"Toys" = "Toys";
+"Medicine" = "Medicine";
+"Others" = "Others";
+"iCloudStoragePlan" = "iCloud storage plan";
+"Salary" = "Salary";
+"FringeBenefits" = "Fringe benefits";
+"Profits" = "Profits";
+"Stocks" = "Stocks";
+"FixedIncomes" = "Fixed incomes";
+"VariableIncomes" = "Variable incomes";
+"Cashback" = "Cashback";
