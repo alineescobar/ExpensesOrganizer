@@ -38,14 +38,7 @@ class WalletCreationViewController: UIViewController {
             guard let context = self.context else {
                 return
             }
-            // Template
-//            let propertyTemplate = Template(context: context)
-//            propertyTemplate.name = NSLocalizedString("Property", comment: "")
-//            propertyTemplate.paymentMethod = nil
-//            propertyTemplate.templateID = UUID()
-//            propertyTemplate.templateIconName = "House"
             
-            // Items
             let newWallet = Wallet(context: context)
             newWallet.name = walletName
             newWallet.value = walletBalance
