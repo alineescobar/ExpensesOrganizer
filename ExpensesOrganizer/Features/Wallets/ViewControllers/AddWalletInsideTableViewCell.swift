@@ -11,8 +11,6 @@ class AddWalletInsideTableViewCell: UITableViewCell {
 
     @IBOutlet weak var addWalletButton: UIButton!
     
-    weak var walletsDelegate: WalletsCellDelegate?
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         addWalletButton.layer.cornerRadius = 20

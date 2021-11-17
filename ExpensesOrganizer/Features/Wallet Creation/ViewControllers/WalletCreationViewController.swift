@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol ModalHandlerDelegate: AnyObject {
+    func modalDismissed()
+}
+
 enum WalletCreationCategory: CaseIterable {
     case currency, description, planning
     
@@ -16,6 +20,9 @@ enum WalletCreationCategory: CaseIterable {
 }
 
 class WalletCreationViewController: UIViewController {
+    private let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext
+    private var walletBalance: Double = 0.0
+    private var walletName: String = ""
     private var selectedRecurrencyType: RecurrencyTypes = .never
     private var selectedDate: Date = Date()
     private let interactor = Interactor()
@@ -23,9 +30,33 @@ class WalletCreationViewController: UIViewController {
     @IBOutlet weak var newWalletLabel: UILabel!
     @IBOutlet private weak var tableView: UITableView!
     @IBOutlet private weak var readyButton: UIButton!
-
+    weak var modalHandlerDelegate: ModalHandlerDelegate?
+    
     @IBAction private func readyAction(_ sender: UIButton) {
         // TODO: Create Wallet object on CoreData and verify data integrity
+        if !walletBalance.isZero {
+            guard let context = self.context else {
+                return
+            }
+            let newWallet = Wallet(context: context)
+            newWallet.name = walletName
+            newWallet.value = walletBalance
+            newWallet.walletID = UUID()
+            newWallet.recurrenceDate = selectedDate
+            newWallet.recurrencyType = selectedRecurrencyType.rawValue
+            do {
+                try context.save()
+            } catch {
+                showWalletSavingErrorAlert()
+                return
+            }
+            self.dismiss(animated: true) {
+                self.modalHandlerDelegate?.modalDismissed()
+            }
+        } else {
+            showEmptyBalanceAlert()
+        }
+        
     }
     
     @IBAction private func backButtonAction(_ sender: UIButton) {
@@ -47,7 +78,7 @@ class WalletCreationViewController: UIViewController {
         let alert = UIAlertController(title: NSLocalizedString("WalletCreationCancelAlertTitle", comment: ""),
                                       message: NSLocalizedString("WalletCreationCancelAlertDescription", comment: ""),
                                       preferredStyle: .alert)
-
+        
         alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .destructive, handler: { _ in
             // TODO: Delete Wallet object from CoreData
             self.dismiss(animated: true)
@@ -55,7 +86,29 @@ class WalletCreationViewController: UIViewController {
         
         alert.addAction(UIAlertAction(title: NSLocalizedString("WalletCreationKeepCreatingAction", comment: ""), style: .cancel, handler: { _ in
         }))
-
+        
+        self.present(alert, animated: true)
+    }
+    
+    func showEmptyBalanceAlert() {
+        let alert = UIAlertController(title: NSLocalizedString("EmptyBalanceAlertTitle", comment: ""),
+                                      message: NSLocalizedString("EmptyBalanceAlertDescription", comment: ""),
+                                      preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Ok", comment: ""), style: .default, handler: { _ in
+        }))
+        
+        self.present(alert, animated: true)
+    }
+    
+    func showWalletSavingErrorAlert() {
+        let alert = UIAlertController(title: NSLocalizedString("WalletSavingErrorAlertTitle", comment: ""),
+                                      message: NSLocalizedString("WalletSavingErrorAlertDescription", comment: ""),
+                                      preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Ok", comment: ""), style: .default, handler: { _ in
+        }))
+        
         self.present(alert, animated: true)
     }
 }
@@ -85,6 +138,7 @@ extension WalletCreationViewController: UITableViewDataSource {
             else {
                 return UITableViewCell()
             }
+            cell.currencyDelegate = self
             return cell
             
         case .description:
@@ -92,7 +146,8 @@ extension WalletCreationViewController: UITableViewDataSource {
             else {
                 return UITableViewCell()
             }
-            cell.walletNameTextField.placeholder = NSLocalizedString("WalletName", comment: "")
+            cell.descriptionDelegate = self
+            cell.descriptionTextField.placeholder = NSLocalizedString("WalletName", comment: "")
             cell.descriptionLabel.text = NSLocalizedString("Description", comment: "")
             return cell
             
@@ -178,6 +233,18 @@ extension WalletCreationViewController: UIGestureRecognizerDelegate {
     @objc
     func dismissKeyboard() {
         view.endEditing(true)
+    }
+}
+
+extension WalletCreationViewController: DescriptionDelegate {
+    func descriptionDidChanged(description: String) {
+        walletName = description.isEmpty ? "Principal" : description
+    }
+}
+
+extension WalletCreationViewController: CurrencyDelegate {
+    func currencyValueHasChanged(currency: Double) {
+        walletBalance = currency
     }
 }
 
