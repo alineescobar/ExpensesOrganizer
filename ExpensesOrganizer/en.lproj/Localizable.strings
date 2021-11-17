@@ -49,6 +49,21 @@
 "WalletsFetchFailedAlertTitle" = "Error finding Wallets";
 "WalletsFetchFailedAlertDescription" = "There was a problem finding your wallets. Please, try again later.";
 
+// MARK: Onboarding
+"Control" = "Control";
+"Plan" = "Plan";
+"Save" = "Save";
+"LetsGo" = "Lets Go";
+"ControlDescription" = "Here you can control your expenses by recording each entry and exit of values.";
+"PlanDescription" = "Planning has never been so easy, here you can add your own items in different planning and enjoy our ready-made items too!";
+"SaveDescription" = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Convallis vestibulum augue massa sed aenean.";
+"LetsGoDescription" = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Convallis vestibulum augue massa sed aenean.";
+"Name" = "Your name";
+"FieldDescription" = "Could be your nickname";
+"SkipButton" = "Skip";
+"NextButton" = "Next";
+"DoneButton" = "Done";
+
 // MARK: Planning Detail
 "OptionalDescription" = "Description is optional";
 "PlanningCreationCancelAlertTitle" = "Cancel Planning";

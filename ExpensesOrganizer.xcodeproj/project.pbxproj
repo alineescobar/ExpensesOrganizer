@@ -7,8 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		077626EF273D8D7C002B691E /* OnboardingSlide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077626EE273D8D7C002B691E /* OnboardingSlide.swift */; };
+		077626F2273DBC01002B691E /* LastOnboardingScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077626F1273DBC01002B691E /* LastOnboardingScreenViewController.swift */; };
 		077CAFF827273759007D58C1 /* WalletsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077CAFF727273759007D58C1 /* WalletsTableViewCell.swift */; };
 		077CAFFA27274147007D58C1 /* WalletCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077CAFF927274147007D58C1 /* WalletCollectionViewCell.swift */; };
+		07B88B72273C391600D484E5 /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07B88B71273C391600D484E5 /* Onboarding.storyboard */; };
+		07B88B74273C397300D484E5 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B88B73273C397300D484E5 /* OnboardingViewController.swift */; };
+		07B88B76273C543900D484E5 /* OnboardingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B88B75273C543900D484E5 /* OnboardingCollectionViewCell.swift */; };
 		07E20F2E272C80F90087835E /* BalanceInsideTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E20F2D272C80F90087835E /* BalanceInsideTableViewCell.swift */; };
 		07E20F3027345B370087835E /* AddWalletInsideTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E20F2F27345B370087835E /* AddWalletInsideTableViewCell.swift */; };
 		07E20F3227345B7E0087835E /* WalletsInsideTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E20F3127345B7E0087835E /* WalletsInsideTableViewCell.swift */; };
@@ -55,6 +60,8 @@
 		71737920273AEAE2007D83CC /* AddIncomeColectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7173791F273AEAE2007D83CC /* AddIncomeColectionViewController.swift */; };
 		71CD631427359B8B007A3D75 /* AddExpenseRecurrencyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71CD631327359B8B007A3D75 /* AddExpenseRecurrencyViewController.swift */; };
 		71CD631627359B9C007A3D75 /* AddExpenseCalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71CD631527359B9C007A3D75 /* AddExpenseCalendarViewController.swift */; };
+		71D21EDF27441FDD0042AAED /* OnboardingPersistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71D21EDE27441FDD0042AAED /* OnboardingPersistence.swift */; };
+		71D21EE2274449870042AAED /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 71D21EE1274449870042AAED /* IQKeyboardManagerSwift */; };
 		71DDB4FF273D904300D527A6 /* AddExpenseColectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71DDB4FE273D904300D527A6 /* AddExpenseColectionViewController.swift */; };
 		71FED85427330E1700B90A5A /* AddExpenseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71FED85327330E1700B90A5A /* AddExpenseViewController.swift */; };
 		71FED85627330E3500B90A5A /* AddIncomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71FED85527330E3500B90A5A /* AddIncomeViewController.swift */; };
@@ -108,8 +115,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		077626EE273D8D7C002B691E /* OnboardingSlide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingSlide.swift; sourceTree = "<group>"; };
+		077626F1273DBC01002B691E /* LastOnboardingScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastOnboardingScreenViewController.swift; sourceTree = "<group>"; };
 		077CAFF727273759007D58C1 /* WalletsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletsTableViewCell.swift; sourceTree = "<group>"; };
 		077CAFF927274147007D58C1 /* WalletCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletCollectionViewCell.swift; sourceTree = "<group>"; };
+		07B88B71273C391600D484E5 /* Onboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
+		07B88B73273C397300D484E5 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
+		07B88B75273C543900D484E5 /* OnboardingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCollectionViewCell.swift; sourceTree = "<group>"; };
 		07E20F2D272C80F90087835E /* BalanceInsideTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalanceInsideTableViewCell.swift; sourceTree = "<group>"; };
 		07E20F2F27345B370087835E /* AddWalletInsideTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWalletInsideTableViewCell.swift; sourceTree = "<group>"; };
 		07E20F3127345B7E0087835E /* WalletsInsideTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletsInsideTableViewCell.swift; sourceTree = "<group>"; };
@@ -160,6 +172,7 @@
 		7173791F273AEAE2007D83CC /* AddIncomeColectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddIncomeColectionViewController.swift; sourceTree = "<group>"; };
 		71CD631327359B8B007A3D75 /* AddExpenseRecurrencyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExpenseRecurrencyViewController.swift; sourceTree = "<group>"; };
 		71CD631527359B9C007A3D75 /* AddExpenseCalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExpenseCalendarViewController.swift; sourceTree = "<group>"; };
+		71D21EDE27441FDD0042AAED /* OnboardingPersistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPersistence.swift; sourceTree = "<group>"; };
 		71DDB4FE273D904300D527A6 /* AddExpenseColectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExpenseColectionViewController.swift; sourceTree = "<group>"; };
 		71FED85327330E1700B90A5A /* AddExpenseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExpenseViewController.swift; sourceTree = "<group>"; };
 		71FED85527330E3500B90A5A /* AddIncomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddIncomeViewController.swift; sourceTree = "<group>"; };
@@ -218,12 +231,50 @@
 			buildActionMask = 2147483647;
 			files = (
 				710F1DC52729C55F005C06E1 /* Charts in Frameworks */,
+				71D21EE2274449870042AAED /* IQKeyboardManagerSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		077626F0273D8E28002B691E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				077626EE273D8D7C002B691E /* OnboardingSlide.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		07B88B6E273C389400D484E5 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				07B88B6F273C38B600D484E5 /* Views */,
+				07B88B70273C38C100D484E5 /* ViewControllers */,
+				077626F0273D8E28002B691E /* Model */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		07B88B6F273C38B600D484E5 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				07B88B71273C391600D484E5 /* Onboarding.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		07B88B70273C38C100D484E5 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				07B88B73273C397300D484E5 /* OnboardingViewController.swift */,
+				07B88B75273C543900D484E5 /* OnboardingCollectionViewCell.swift */,
+				077626F1273DBC01002B691E /* LastOnboardingScreenViewController.swift */,
+				71D21EDE27441FDD0042AAED /* OnboardingPersistence.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
 		1665561A271A0E0000DE83F4 = {
 			isa = PBXGroup;
 			children = (
@@ -385,6 +436,7 @@
 			isa = PBXGroup;
 			children = (
 				F1FA997C273B447A0034483E /* Item */,
+				07B88B6E273C389400D484E5 /* Onboarding */,
 				16D0B25F27287A0D007BE30E /* Transactions */,
 				F19FF1AD272889300041F5E3 /* Wallet Creation */,
 				F19FF1A6272888D70041F5E3 /* Wallet Detail */,
@@ -668,6 +720,7 @@
 			name = ExpensesOrganizer;
 			packageProductDependencies = (
 				710F1DC42729C55F005C06E1 /* Charts */,
+				71D21EE1274449870042AAED /* IQKeyboardManagerSwift */,
 			);
 			productName = ExpensesOrganizer;
 			productReference = 16655623271A0E0000DE83F4 /* ExpensesOrganizer.app */;
@@ -700,6 +753,7 @@
 			mainGroup = 1665561A271A0E0000DE83F4;
 			packageReferences = (
 				710F1DC32729C55F005C06E1 /* XCRemoteSwiftPackageReference "charts" */,
+				71D21EE0274449870042AAED /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
 			);
 			productRefGroup = 16655624271A0E0000DE83F4 /* Products */;
 			projectDirPath = "";
@@ -728,6 +782,7 @@
 				1690482E273C5A670011A11D /* AddNewPlanning.storyboard in Resources */,
 				F196D51A2724774500CCAF81 /* Planning.storyboard in Resources */,
 				71FED87F27345F9000B90A5A /* WorkSans-Regular.ttf in Resources */,
+				07B88B72273C391600D484E5 /* Onboarding.storyboard in Resources */,
 				16655633271A0E0400DE83F4 /* Assets.xcassets in Resources */,
 				F196D510272476A800CCAF81 /* Wallets.storyboard in Resources */,
 				F1FA997E273B44850034483E /* Item.storyboard in Resources */,
@@ -791,6 +846,8 @@
 				710269182737325F00D62DEE /* AddExpenseCategoriesCell.swift in Sources */,
 				71DDB4FF273D904300D527A6 /* AddExpenseColectionViewController.swift in Sources */,
 				07E20F3027345B370087835E /* AddWalletInsideTableViewCell.swift in Sources */,
+				07B88B74273C397300D484E5 /* OnboardingViewController.swift in Sources */,
+				077626EF273D8D7C002B691E /* OnboardingSlide.swift in Sources */,
 				F196D500272201F300CCAF81 /* ButtonsTableViewCell.swift in Sources */,
 				16B2D71B271E0EA800E7BB84 /* Template+CoreDataClass.swift in Sources */,
 				710F1DD0272B2743005C06E1 /* PillMarker.swift in Sources */,
@@ -809,6 +866,7 @@
 				07E20F2E272C80F90087835E /* BalanceInsideTableViewCell.swift in Sources */,
 				16D0B25D27286CDA007BE30E /* TransactionsHeaderCell.swift in Sources */,
 				077CAFF827273759007D58C1 /* WalletsTableViewCell.swift in Sources */,
+				07B88B76273C543900D484E5 /* OnboardingCollectionViewCell.swift in Sources */,
 				16904838273DB3C40011A11D /* NewPlanningButtonTableViewCell.swift in Sources */,
 				16B2D715271E0EA800E7BB84 /* Transaction+CoreDataClass.swift in Sources */,
 				16D0B26627287A72007BE30E /* TransactionsViewController.swift in Sources */,
@@ -816,6 +874,7 @@
 				16655627271A0E0000DE83F4 /* AppDelegate.swift in Sources */,
 				1690483A273EDBC30011A11D /* PlanningSelectionWalletViewController.swift in Sources */,
 				710269162735D40700D62DEE /* AddIncomeCalendarViewController.swift in Sources */,
+				077626F2273DBC01002B691E /* LastOnboardingScreenViewController.swift in Sources */,
 				16655627271A0E0000DE83F4 /* AppDelegate.swift in Sources */,
 				7140E5B52735101800685927 /* AddExpenseAllDoneViewController.swift in Sources */,
 				71CD631427359B8B007A3D75 /* AddExpenseRecurrencyViewController.swift in Sources */,
@@ -832,6 +891,7 @@
 				F153F4642733BF2D004F06CC /* RecurrencyViewController.swift in Sources */,
 				16655629271A0E0000DE83F4 /* SceneDelegate.swift in Sources */,
 				71FED85627330E3500B90A5A /* AddIncomeViewController.swift in Sources */,
+				71D21EDF27441FDD0042AAED /* OnboardingPersistence.swift in Sources */,
 				F196D5182724773C00CCAF81 /* PlanningViewController.swift in Sources */,
 				077CAFFA27274147007D58C1 /* WalletCollectionViewCell.swift in Sources */,
 				71FED85427330E1700B90A5A /* AddExpenseViewController.swift in Sources */,
@@ -1090,6 +1150,14 @@
 				version = 3.5.0;
 			};
 		};
+		71D21EE0274449870042AAED /* XCRemoteSwiftPackageReference "IQKeyboardManager" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hackiftekhar/IQKeyboardManager.git";
+			requirement = {
+				kind = exactVersion;
+				version = 6.5.9;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1097,6 +1165,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 710F1DC32729C55F005C06E1 /* XCRemoteSwiftPackageReference "charts" */;
 			productName = Charts;
+		};
+		71D21EE1274449870042AAED /* IQKeyboardManagerSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 71D21EE0274449870042AAED /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
+			productName = IQKeyboardManagerSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 
