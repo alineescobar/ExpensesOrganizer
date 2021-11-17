@@ -49,9 +49,8 @@ class DashboardViewController: UIViewController {
         
         do {
             wallets = try context.fetch(Wallet.fetchRequest())
-//            getTotalBalance()
         } catch {
-            print("!!!")
+            print("erro ao carregar as wallets")
         }
     }
     
@@ -69,16 +68,17 @@ class DashboardViewController: UIViewController {
         return isStatsBarHidden
     }
 
-/*    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let destination = sender as? DashboardSegueCategory else { return }
-
-        switch destination {
-        case .wallet:
-            let timeToWaterViewController = segue.destination as?
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let index = sender as? Int else {
+            let walletCreationViewController = segue.destination as? WalletCreationViewController
+            walletCreationViewController?.modalHandlerDelegate = self
+            return
         }
-
+        
+        let walletDetailViewController = segue.destination as? WalletDetailViewController
+        walletDetailViewController?.wallet = wallets[index]
+        walletDetailViewController?.modalHandlerDelegate = self
     }
- */
     
 }
 
@@ -177,6 +177,8 @@ extension DashboardViewController: UITableViewDataSource {
                 return UITableViewCell()
             }
             cell.walletsDelegate = self
+            cell.fetchWallets()
+            cell.walletsCollectionView.reloadData()
             return cell
 
         case .transaction:
@@ -249,8 +251,7 @@ extension DashboardViewController: ButtonsCellDelegate {
 
 extension DashboardViewController: WalletsCellDelegate {
     func didTapWallet(index: Int) {
-        // TODO: Put Wallet object on sender (through its index)
-        performSegue(withIdentifier: "walletDetail", sender: nil)
+        performSegue(withIdentifier: "walletDetail", sender: index)
     }
     
     func didTapAddWallet() {
@@ -261,5 +262,22 @@ extension DashboardViewController: WalletsCellDelegate {
 extension DashboardViewController: TransactionsHeaderDelegate {
     func didTapButton() {
         performSegue(withIdentifier: "transactions", sender: nil)
+    }
+}
+
+extension DashboardViewController: ModalHandlerDelegate {
+    func modalDismissed() {
+        guard let context = self.context else {
+            return
+        }
+        
+        do {
+            wallets = try context.fetch(Wallet.fetchRequest())
+            DispatchQueue.main.async {
+                self.mainTableView.reloadData()
+            }
+        } catch {
+            print("error while loading table")
+        }
     }
 }
