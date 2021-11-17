@@ -21,20 +21,32 @@
 "WalletCreationCancelAlertTitle" = "Cancelar nova Carteira";
 "WalletCreationCancelAlertDescription" = "Você tem certeza? Todos os dados inseridos serão perdidos.";
 "WalletCreationKeepCreatingAction" = "Coninuar criando";
+"EmptyBalanceAlertTitle" = "Saldo vazio";
+"EmptyBalanceAlertDescription" = "Você precisa definir um valor de saldo para sua carteira!";
+"WalletSavingErrorAlertTitle" = "Erro ao salvar Carteira";
+"WalletSavingErrorAlertDescription" = "Houve um problema ao salvar sua carteira, por favor, tente novamente.";
 
 // MARK: Wallet Detail
 "WalletDeleteAlertTitle" = "Apagar Carteira";
 "WalletDeleteAlertDescription" = "Você tem certeza? Todos os dados inseridos nessa carteira serão perdidos.";
+"WalletDeletingErrorAlertTitle" = "Error ao apagar Carteira";
+"WalletDeletingErrorAlertDescription" = "Houve um problema ao apagar sua carteira, por favor, tente novamente.";
 
 // MARK: Shared
 "Ready" = "Pronto";
 "Delete" = "Apagar";
 "Cancel" = "Cancelar";
+"FirstSegmentedControl" = "Despesas";
+"SecondSegmentedControl" = "Ganhos";
+"Done" = "Pronto";
 "Description" = "Descrição";
 "Planning" = "Planejamento";
 "Done" = "Pronto";
 "AllRight" = "Tudo certo por aqui!";
 "OKConfirmation" = "Prontinho";
+"Ok" = "Certo";
+"WalletsFetchFailedAlertTitle" = "Erro ao encontrar Carteiras";
+"WalletsFetchFailedAlertDescription" = "Houve um problema ao procurar suas carteiras. Por favor, tente novamente mais tarde.";
 
 // MARK: Onboarding
 "Control" = "Controle";
@@ -59,10 +71,20 @@
 
 // MARK: Planning List
 "PlanningTitle" = "Planejar";
-"FirstSegmentedControl" = "Despesas";
-"SecondSegmentedControl" = "Ganhos";
 "AddButton" = "Criar novo planejamento";
 
+// MARK: Planning Add
+"AddPlanningTitle" = "Novo planejamento";
+"PlanningCreationPlanningName" = "Nome do planejamento";
+"PlanningCreationPlanningNamePlaceholder" = "Nome do novo planejamento";
+"PlanningCreationPayWith"= "Pagar com";
+"PlanningCreationIcon"= "Ícone do planejamento";
+"PlanningCreationButtonLabel" = "Criar novo item";
+
+// MARK: alert section of this screen
+"title" = "Aviso!";
+"message" = "Parece que você não tem nenhuma carteira.";
+ 
 // MARK: Item
 "ItemName" = "Nome do item";
 "PayWith" = "Pagar com";

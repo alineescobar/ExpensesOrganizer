@@ -7,17 +7,25 @@
 
 import UIKit
 
-class DescriptionTableViewCell: UITableViewCell {
+protocol DescriptionDelegate: AnyObject {
+    func descriptionDidChanged(description: String)
+}
 
+class DescriptionTableViewCell: UITableViewCell {
+    weak var descriptionDelegate: DescriptionDelegate?
+    @IBOutlet weak var descriptionTextField: UITextField!
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var cellImageView: UIImageView!
-    @IBOutlet weak var walletNameTextField: UITextField!
     @IBOutlet weak var lineView: UIView!
     @IBOutlet weak var imageTextFieldStackView: UIStackView!
     
+    @IBAction private func didTextFieldEditingChanged(_ sender: UITextField) {
+        descriptionDelegate?.descriptionDidChanged(description: sender.text ?? "")
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        walletNameTextField.delegate = self
+        descriptionTextField.delegate = self
         imageTextFieldStackView.layoutMargins = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 0)
         imageTextFieldStackView.isLayoutMarginsRelativeArrangement = true
         // Initialization code
