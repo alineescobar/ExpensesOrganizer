@@ -85,7 +85,7 @@ extension String {
     }
 }
 
-func getFormattedBalance(balance: Double, smallTextSize: CGFloat, type: UIType) -> NSAttributedString {
+func getFormattedBalance(balance: Double, smallTextSize: CGFloat, type: UIType, color: UIColor = UIColor.black) -> NSAttributedString {
     let currency: String = Locale.current.localizedCurrencySymbol(forCurrencyCode: Locale.current.currencyCode ?? "R$") ?? ""
     let formatter = NumberFormatter()
     formatter.numberStyle = .currency
@@ -105,11 +105,11 @@ func getFormattedBalance(balance: Double, smallTextSize: CGFloat, type: UIType) 
         let amountText = NSMutableAttributedString(string: formattedBalance)
         
         amountText.setAttributes([NSAttributedString.Key.font: UIFont(name: "WorkSans-Regular", size: smallTextSize) ?? UIFont.systemFont(ofSize: smallTextSize, weight: .light),
-                                      NSAttributedString.Key.foregroundColor: UIColor.black],
+                                      NSAttributedString.Key.foregroundColor: color],
                                  range: NSRange(location: 0, length: currency.count + 1))
         
         amountText.setAttributes([NSAttributedString.Key.font: UIFont(name: "WorkSans-Regular", size: smallTextSize) ?? UIFont.systemFont(ofSize: smallTextSize, weight: .light),
-                                      NSAttributedString.Key.foregroundColor: UIColor.black],
+                                      NSAttributedString.Key.foregroundColor: color],
                                  range: NSRange(location: formattedBalance.count - 3, length: 3))
        return amountText
     }
