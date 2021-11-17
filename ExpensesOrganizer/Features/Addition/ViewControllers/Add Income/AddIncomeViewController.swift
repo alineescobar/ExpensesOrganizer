@@ -17,9 +17,17 @@ enum AddIncomeCells: CaseIterable {
 
 class AddIncomeViewController: UIViewController {
     
+    // swiftlint:disable force_cast
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    // swiftlint:enable force_cast
+    
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var cancellButton: UIButton!
     @IBOutlet weak var doneButton: UIButton!
+    
+    private var incomeValue: Double = 0.0
+    private var incomeName: String = ""
+    private var incomeCategory: Template?
     
     private var selectedRecurrencyType: RecurrencyTypes = .never
     private var selectedDate: Date = Date()
@@ -46,6 +54,19 @@ class AddIncomeViewController: UIViewController {
     @IBAction private func cancellButton(_ sender: UIButton) {
         navigationController?.dismiss(animated: true, completion: nil)
     }
+    
+    @IBAction private func doneButton(_ sender: UIButton) {
+    }
+    
+    func fetchAllCategories() -> [Template] {
+        var categories = [Template()]
+        do {
+            categories = try context.fetch(Template.fetchRequest())
+        } catch {
+            print(error.localizedDescription)
+        }
+        return categories
+    }
 }
 
 extension AddIncomeViewController: UITableViewDataSource {
@@ -66,7 +87,7 @@ extension AddIncomeViewController: UITableViewDataSource {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: AddIncomeValueCell.identifier, for: indexPath) as? AddIncomeValueCell else {
                 return UITableViewCell()
             }
-            
+            cell.valueDelegate = self
             return cell
             
         case .name:
@@ -74,6 +95,7 @@ extension AddIncomeViewController: UITableViewDataSource {
                 return UITableViewCell()
             }
             
+            cell.incomeNameDelegate = self
             return cell
             
         case .category:
@@ -133,16 +155,24 @@ extension AddIncomeViewController: UIViewControllerTransitioningDelegate {
     }
 }
 
-extension AddIncomeViewController: PlanningCellDelegate, RecurrencyTypeDelegate, CalendarDelegate, CollectionDelegate {
+extension AddIncomeViewController: PlanningCellDelegate, RecurrencyTypeDelegate, CalendarDelegate, CollectionDelegate, IncomeCaterogyDelegate {
     
     func openCollection() {
-        let storyboard = UIStoryboard(name: "Addition", bundle: nil)
-        let pvc = storyboard.instantiateViewController(withIdentifier: "open-income-collection-segue") as? AddIncomeColectionViewController
-        
-        pvc?.modalPresentationStyle = .custom
-        pvc?.transitioningDelegate = self
-
-        present(pvc ?? UIViewController(), animated: true)
+        let allTemplates = fetchAllCategories()
+        print(allTemplates.count)
+        if allTemplates.count < 1 {
+            let alert = UIAlertController(title: NSLocalizedString("title", comment: ""), message: NSLocalizedString("addIncoCategoriesMessage", comment: ""), preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default))
+            self.present(alert, animated: true, completion: nil)
+        } else {
+            let storyboard = UIStoryboard(name: "Addition", bundle: nil)
+            let pvc = storyboard.instantiateViewController(withIdentifier: "open-income-collection-segue") as? AddIncomeColectionViewController
+            
+            pvc?.modalPresentationStyle = .custom
+            pvc?.transitioningDelegate = self
+            pvc?.incomeCategoryDelegate = self
+            present(pvc ?? UIViewController(), animated: true)
+        }
     }
 
     func didTapRecurrency() {
@@ -178,6 +208,10 @@ extension AddIncomeViewController: PlanningCellDelegate, RecurrencyTypeDelegate,
         selectedRecurrencyType = recurrencyType
         tableView.reloadData()
     }
+    
+    func sendIncomeCategory(caterogy: Template) {
+        incomeCategory = caterogy
+    }
 }
 
 extension AddIncomeViewController: UIGestureRecognizerDelegate {
@@ -191,5 +225,17 @@ extension AddIncomeViewController: UIGestureRecognizerDelegate {
     @objc
     func dismissKeyboard() {
         view.endEditing(true)
+    }
+}
+
+extension AddIncomeViewController: ValueDelegate {
+    func sendValue(value: Double) {
+        incomeValue = value
+    }
+}
+
+extension AddIncomeViewController: IncomeNameDelegate {
+    func sendIncomeName(name: String) {
+        incomeName = name
     }
 }

@@ -7,16 +7,34 @@
 
 import UIKit
 
+protocol IncomeCaterogyDelegate: AnyObject {
+    func sendIncomeCategory (caterogy: Template)
+}
+
 class AddIncomeColectionViewController: UIViewController {
+    // swiftlint:disable force_cast
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    // swiftlint:enable force_cast
     
     @IBOutlet weak var collectionView: UICollectionView!
     
     let roundButtonCollectionCellID: String = "RoundButtonCollectionViewCell"
-        
+    weak var incomeCategoryDelegate: IncomeCaterogyDelegate?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setUpCollection()
+    }
+    
+    func fetchAllCategories() -> [Template] {
+        var categories = [Template()]
+        do {
+            categories = try context.fetch(Template.fetchRequest())
+        } catch {
+            print(error.localizedDescription)
+        }
+        return categories
     }
     
     func setUpCollection() {
@@ -72,7 +90,10 @@ extension AddIncomeColectionViewController: UICollectionViewDelegateFlowLayout {
         return CGSize(width: 84, height: 87)
     }
 
-//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        performSegue(withIdentifier: "planningDetail", sender: nil)
-//    }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let categories = fetchAllCategories()
+        let category = categories[indexPath.item]
+        incomeCategoryDelegate?.sendIncomeCategory(caterogy: category)
+        dismiss(animated: true, completion: nil)
+    }
 }

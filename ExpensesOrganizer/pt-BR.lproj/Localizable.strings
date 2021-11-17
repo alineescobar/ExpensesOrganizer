@@ -69,6 +69,7 @@
 // MARK: alert section of this screen
 "title" = "Aviso!";
 "message" = "Parece que você não tem nenhuma carteira.";
+"addIncoCategoriesMessage" = "Parece que você não tem nenhum template.";
  
 // MARK: Item
 "ItemName" = "Nome do item";
