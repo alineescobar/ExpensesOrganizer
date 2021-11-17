@@ -49,6 +49,9 @@
                                     <segment title="Despesas"/>
                                     <segment title="Ganhos"/>
                                 </segments>
+                                <connections>
+                                    <action selector="didChangeOperationType:" destination="Y6W-OH-hqX" eventType="valueChanged" id="8Sd-z0-5hN"/>
+                                </connections>
                             </segmentedControl>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xoA-Ep-Zsu">
                                 <rect key="frame" x="24" y="772" width="366" height="40"/>
