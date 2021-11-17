@@ -57,6 +57,12 @@ class DashboardViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: animated)
+        
+        setNeedsStatusBarAppearanceUpdate()
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        .lightContent
     }
 
     override func viewWillDisappear(_ animated: Bool) {
@@ -139,20 +145,24 @@ extension DashboardViewController: UITableViewDataSource {
             return cell
             
         case .balance:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "balanceCell", for: indexPath) as? BalanceTableViewCell
-            else {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "balanceCell", for: indexPath) as? BalanceTableViewCell else {
                 return UITableViewCell()
             }
+            
             cell.balanceDelegate = self
             cell.showGraphicsImage.image = isShowingGraphics ? UIImage(systemName: "chevron.up") : UIImage(systemName: "chevron.down")
             cell.hideBalanceButton.setImage(isShowingBalance ? UIImage(named: "Eye") : UIImage(named: "EyeClosed"), for: .normal)
+            
             cell.balanceLabel.alpha = isShowingBalance ? 1 : 0
-            cell.balanceStackView.setBackgroundColor(color: isShowingBalance ? UIColor.clear : UIColor.lightGray)
+            cell.balanceStackView.setBackgroundColor(color: isShowingBalance ? UIColor.clear : UIColor.white.withAlphaComponent(0.5))
+            cell.balanceStackView.layer.cornerRadius = 4
+            
             var balance = 0.0
             for wallet in wallets {
                 balance += wallet.value
             }
-            cell.balanceLabel.attributedText = getFormattedBalance(balance: balance, smallTextSize: 13.6, type: .screen)
+            cell.balanceLabel.attributedText = getFormattedBalance(balance: balance, smallTextSize: 13.6, type: .screen, color: UIColor.white)
+            
             return cell
             
         case .graphics:

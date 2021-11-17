@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -31,7 +32,7 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rbi-wG-tAo">
                                 <rect key="frame" x="0.0" y="-68" width="414" height="417"/>
-                                <color key="backgroundColor" systemColor="systemGray5Color"/>
+                                <color key="backgroundColor" name="TertiaryBrandColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="417" id="HLW-5e-aWd"/>
                                 </constraints>
@@ -63,13 +64,13 @@
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hi, Lorena" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AXy-zD-klr">
                                                                     <rect key="frame" x="0.0" y="0.0" width="366" height="23.5"/>
                                                                     <fontDescription key="fontDescription" name="WorkSans-Bold" family="Work Sans" pointSize="20"/>
-                                                                    <nil key="textColor"/>
+                                                                    <color key="textColor" name="WhiteStateColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="18 Out 2021" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZM7-Qp-Hio">
                                                                     <rect key="frame" x="0.0" y="28.5" width="366" height="23.5"/>
                                                                     <fontDescription key="fontDescription" name="WorkSans-Regular" family="Work Sans" pointSize="16"/>
-                                                                    <nil key="textColor"/>
+                                                                    <color key="textColor" name="WhiteStateColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                             </subviews>
@@ -119,10 +120,10 @@
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kHc-ep-N37">
                                                                     <rect key="frame" x="0.0" y="0.0" width="96" height="18"/>
                                                                     <fontDescription key="fontDescription" name="WorkSans-Regular" family="Work Sans" pointSize="14"/>
-                                                                    <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    <color key="tintColor" name="WhiteStateColor"/>
                                                                     <inset key="imageEdgeInsets" minX="10" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                                     <state key="normal" title="Saldo atual" image="Eye">
-                                                                        <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        <color key="titleColor" name="WhiteStateColor"/>
                                                                     </state>
                                                                     <connections>
                                                                         <action selector="hideBalanceAction:" destination="1k7-Eg-Wdf" eventType="touchUpInside" id="6EF-Wy-8Ln"/>
@@ -134,7 +135,7 @@
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="R$ 35.000,23" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3R9-k0-GU6">
                                                                             <rect key="frame" x="0.0" y="0.0" width="311" height="49"/>
                                                                             <fontDescription key="fontDescription" name="WorkSans-Bold" family="Work Sans" pointSize="48"/>
-                                                                            <nil key="textColor"/>
+                                                                            <color key="textColor" name="WhiteStateColor"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                     </subviews>
@@ -143,7 +144,7 @@
                                                         </stackView>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chevron.down" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="4An-9A-pUg">
                                                             <rect key="frame" x="334" y="60" width="20" height="10.5"/>
-                                                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <color key="tintColor" name="WhiteStateColor"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" secondItem="4An-9A-pUg" secondAttribute="height" multiplier="1:1" id="s1V-bU-9IJ"/>
                                                             </constraints>
@@ -215,7 +216,7 @@
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Carteira" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NsU-7c-YGF">
                                                                     <rect key="frame" x="25.5" y="72" width="54.5" height="16"/>
                                                                     <fontDescription key="fontDescription" name="WorkSans-Medium" family="Work Sans" pointSize="14"/>
-                                                                    <nil key="textColor"/>
+                                                                    <color key="textColor" name="WhiteStateColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                             </subviews>
@@ -281,7 +282,7 @@
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Planejar" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fPm-HI-D6f">
                                                                     <rect key="frame" x="24.5" y="72" width="56" height="16"/>
                                                                     <fontDescription key="fontDescription" name="WorkSans-Medium" family="Work Sans" pointSize="14"/>
-                                                                    <nil key="textColor"/>
+                                                                    <color key="textColor" name="WhiteStateColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                             </subviews>
@@ -294,13 +295,13 @@
                                                                     <subviews>
                                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Plus" translatesAutoresizingMaskIntoConstraints="NO" id="mik-vR-Vew">
                                                                             <rect key="frame" x="15" y="15" width="30" height="30"/>
-                                                                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                            <color key="tintColor" name="WhiteStateColor"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="width" secondItem="mik-vR-Vew" secondAttribute="height" multiplier="1:1" id="eWs-dK-nsx"/>
                                                                             </constraints>
                                                                         </imageView>
                                                                     </subviews>
-                                                                    <color key="backgroundColor" systemColor="systemGray2Color"/>
+                                                                    <color key="backgroundColor" name="SecondaryBrandColor"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" secondItem="Vh1-LK-hFv" secondAttribute="height" multiplier="1:1" id="7SB-Vd-ywK"/>
                                                                         <constraint firstAttribute="height" constant="60" id="HUc-aG-cZ8"/>
@@ -314,7 +315,7 @@
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Adicionar" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mVv-C5-XI8">
                                                                     <rect key="frame" x="20.5" y="72" width="64.5" height="16"/>
                                                                     <fontDescription key="fontDescription" name="WorkSans-Medium" family="Work Sans" pointSize="14"/>
-                                                                    <nil key="textColor"/>
+                                                                    <color key="textColor" name="WhiteStateColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                             </subviews>
@@ -580,14 +581,17 @@
         <image name="Wallet" width="25" height="24"/>
         <image name="chevron.down" catalog="system" width="128" height="72"/>
         <image name="person" catalog="system" width="128" height="117"/>
+        <namedColor name="SecondaryBrandColor">
+            <color red="0.92156862745098034" green="0.0" blue="0.10588235294117647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="TertiaryBrandColor">
+            <color red="0.035294117647058823" green="0.094117647058823528" blue="0.1803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="WhiteStateColor">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemGray2Color">
-            <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemGray5Color">
-            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGray6Color">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
