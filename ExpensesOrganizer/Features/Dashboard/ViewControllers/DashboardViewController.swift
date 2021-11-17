@@ -30,6 +30,9 @@ class DashboardViewController: UIViewController {
    
     private let dashboardCategories: [DashboardCategory] = DashboardCategory.allCases
     
+    private let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext
+    private var wallets: [Wallet] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         mainTableView.dataSource = self
@@ -39,7 +42,17 @@ class DashboardViewController: UIViewController {
         mainTableView.register(UINib(nibName: customCellHeader, bundle: nil), forCellReuseIdentifier: customCellHeader)
         initialBackgroundViewHeight = backgroundViewHeightConstraint.constant
         mainTableView.register(UINib(nibName: graphicsCellId, bundle: nil), forCellReuseIdentifier: graphicsCellId)
-        // Do any additional setup after loading the view.
+        
+        guard let context = self.context else {
+            return
+        }
+        
+        do {
+            wallets = try context.fetch(Wallet.fetchRequest())
+//            getTotalBalance()
+        } catch {
+            print("!!!")
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -135,7 +148,10 @@ extension DashboardViewController: UITableViewDataSource {
             cell.hideBalanceButton.setImage(isShowingBalance ? UIImage(named: "Eye") : UIImage(named: "EyeClosed"), for: .normal)
             cell.balanceLabel.alpha = isShowingBalance ? 1 : 0
             cell.balanceStackView.setBackgroundColor(color: isShowingBalance ? UIColor.clear : UIColor.lightGray)
-            let balance = 2234.5
+            var balance = 0.0
+            for wallet in wallets {
+                balance += wallet.value
+            }
             cell.balanceLabel.attributedText = getFormattedBalance(balance: balance, smallTextSize: 13.6, type: .screen)
             return cell
             
