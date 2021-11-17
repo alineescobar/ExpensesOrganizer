@@ -22,11 +22,11 @@ class OnboardingViewController: UIViewController {
         
         nextButton.layer.cornerRadius = 8
         
-        guard let image1 = UIImage(named: "Onboarding-7") else {
+        guard let image1 = UIImage(named: "moeda") else {
             return }
-        guard let image2 = UIImage(named: "Onboarding-4") else {
+        guard let image2 = UIImage(named: "calculadora") else {
             return }
-        guard let image3 = UIImage(named: "Onboarding") else {
+        guard let image3 = UIImage(named: "porquinho") else {
             return }
 
         slides = [
@@ -72,7 +72,7 @@ extension OnboardingViewController: UICollectionViewDelegate, UICollectionViewDa
     }
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        let width = scrollView.frame.width
-        currentPage = Int(scrollView.contentOffset.x / width)
+        currentPage = Int(scrollView.contentOffset.x) / Int(scrollView.frame.width)
+        pageControl.currentPage = currentPage
     }
 }

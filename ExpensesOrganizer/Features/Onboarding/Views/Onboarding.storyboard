@@ -49,7 +49,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="753"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="Evz-4a-daC">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" image="Onboarding-1" translatesAutoresizingMaskIntoConstraints="NO" id="Evz-4a-daC">
                                                     <rect key="frame" x="0.0" y="0.0" width="414" height="565"/>
                                                 </imageView>
                                                 <view contentMode="scaleToFill" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="A5h-WN-csz" customClass="Gradient" customModule="ExpensesOrganizer" customModuleProvider="target">
@@ -143,7 +143,7 @@
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <segue destination="Qel-Dc-Lfh" kind="presentation" identifier="onboarding-done" modalPresentationStyle="fullScreen" modalTransitionStyle="coverVertical" id="8Fm-jZ-pmF"/>
+                                    <segue destination="Qel-Dc-Lfh" kind="presentation" identifier="onboarding-done" modalPresentationStyle="fullScreen" id="8Fm-jZ-pmF"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -174,7 +174,7 @@
         <!--Last Onboarding Screen View Controller-->
         <scene sceneID="Kcg-JD-DNM">
             <objects>
-                <viewController storyboardIdentifier="LastOnboardingID" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Qel-Dc-Lfh" customClass="LastOnboardingScreenViewController" customModule="ExpensesOrganizer" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LastOnboardingID" modalTransitionStyle="crossDissolve" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Qel-Dc-Lfh" customClass="LastOnboardingScreenViewController" customModule="ExpensesOrganizer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0yR-cF-IKc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -316,6 +316,7 @@
     </scenes>
     <resources>
         <image name="Linear gradient" width="390" height="844"/>
+        <image name="Onboarding-1" width="1258" height="843"/>
         <image name="Onboarding-3" width="1266" height="844"/>
         <image name="PencilLine" width="24" height="24"/>
         <systemColor name="systemBackgroundColor">
