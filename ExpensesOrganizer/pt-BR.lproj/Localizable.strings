@@ -48,6 +48,21 @@
 "WalletsFetchFailedAlertTitle" = "Erro ao encontrar Carteiras";
 "WalletsFetchFailedAlertDescription" = "Houve um problema ao procurar suas carteiras. Por favor, tente novamente mais tarde.";
 
+// MARK: Onboarding
+"Control" = "Controle";
+"Plan" = "Planeje";
+"Save" = "Economize";
+"LetsGo" = "Vamos lá";
+"ControlDescription" = "Aqui você pode controlar suas despesas registrando cada entrada e saída de valores.";
+"PlanDescription" = "Planejar nunca foi tão fácil, aqui você pode adicionar seus próprios itens em diferentes planejamentos e desfrutar também de nossos itens prontos!";
+"SaveDescription" = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Convallis vestibulum augue massa sed aenean.";
+"LetsGoDescription" = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Convallis vestibulum augue massa sed aenean.";
+"Name" = "Seu nome";
+"FieldDescription" = "Pode ser um apelido também";
+"SkipButton" = "Pular";
+"NextButton" = "Próximo";
+"DoneButton" = "Pronto";
+
 // MARK: Planning Detail
 "OptionalDescription" = "Descrição é opcional";
 "PlanningCreationCancelAlertTitle" = "Cancelar novo Planejamento";
