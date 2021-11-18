@@ -34,7 +34,7 @@ class WalletsViewController: UIViewController {
         walletsTableView.delegate = self
         initialBackgroundViewHeight = backgroundConstrain.constant
         walletsTableView.register(UINib(nibName: graphicsCellId, bundle: nil), forCellReuseIdentifier: graphicsCellId)
-        self.navigationItem.title = "Carteira"
+        self.navigationItem.title = NSLocalizedString("WalletLabel", comment: "")
         self.navigationController?.navigationBar.backIndicatorImage = UIImage(systemName: "chevron.left")?.withInsets(UIEdgeInsets(top: 0, left: 15, bottom: 3, right: 0))
         self.navigationController?.navigationBar.backIndicatorTransitionMaskImage = UIImage(systemName: "chevron.left")?.withInsets(UIEdgeInsets(top: 0, left: 15, bottom: 3, right: 0))
         self.navigationController?.navigationBar.topItem?.title = " "

@@ -9,7 +9,7 @@
 // MARK: Dashboard
 "GreetingsLabel" = "Olá, ";
 "BalanceLabel" = "Saldo atual";
-"WalletLabel" = "Carteira";
+"WalletLabel" = "Carteiras";
 "GoalsLabel" = "Metas";
 "PlanningLabel" = "Planejar";
 "AddLabel" = "Adicionar";
@@ -28,6 +28,7 @@
 "WalletSavingErrorAlertTitle" = "Erro ao salvar Carteira";
 "WalletSavingErrorAlertDescription" = "Houve um problema ao salvar sua carteira, por favor, tente novamente.";
 "SecondEmptyStateWalletsText" = "Pressione o botão abaixo para adicionar uma carteira.";
+"CreateNewWallet" = "Criar nova carteira";
 
 // MARK: Wallet Detail
 "WalletDeleteAlertTitle" = "Apagar Carteira";

@@ -137,7 +137,7 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dae-Rq-85p">
-                                <rect key="frame" x="337" y="68" width="41" height="31"/>
+                                <rect key="frame" x="341" y="68" width="37" height="31"/>
                                 <fontDescription key="fontDescription" name="WorkSans-Regular" family="Work Sans" pointSize="16"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="Pular">
@@ -194,13 +194,13 @@
                                         <rect key="frame" x="0.0" y="0.0" width="366" height="90"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Cy-op-goc">
-                                                <rect key="frame" x="0.0" y="0.0" width="109" height="47"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="98" height="47"/>
                                                 <fontDescription key="fontDescription" name="WorkSans-Bold" family="Work Sans" pointSize="40"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="smL-8U-wRZ">
-                                                <rect key="frame" x="0.0" y="71" width="43" height="19"/>
+                                                <rect key="frame" x="0.0" y="71" width="39.5" height="19"/>
                                                 <fontDescription key="fontDescription" name="WorkSans-Regular" family="Work Sans" pointSize="16"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -211,7 +211,7 @@
                                         <rect key="frame" x="0.0" y="130" width="366" height="92"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Seu nome" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I0f-sD-exX">
-                                                <rect key="frame" x="0.0" y="0.0" width="98.5" height="23.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="91" height="23.5"/>
                                                 <fontDescription key="fontDescription" name="WorkSans-Medium" family="Work Sans" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
