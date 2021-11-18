@@ -26,6 +26,9 @@ class DescriptionTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         descriptionTextField.delegate = self
+        descriptionLabel.textColor = UIColor(named: "TertiaryBrandColor")
+        descriptionTextField.tintColor = UIColor(red: 0.6, green: 0.6, blue: 0.6, alpha: 1)
+        cellImageView.image?.withTintColor(UIColor(named: "TertiaryBrandColor") ?? UIColor.black)
         imageTextFieldStackView.layoutMargins = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 0)
         imageTextFieldStackView.isLayoutMarginsRelativeArrangement = true
         // Initialization code

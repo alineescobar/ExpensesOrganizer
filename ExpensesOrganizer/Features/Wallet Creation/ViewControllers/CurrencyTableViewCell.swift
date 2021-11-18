@@ -33,6 +33,9 @@ class CurrencyTableViewCell: UITableViewCell {
         currencyTextField.delegate = self
         currencyTextField.addTarget(self, action: #selector(myTextFieldDidChange), for: .editingChanged)
         currencyTextField.placeholder = String(format: "%.2f", 10.0).currencyInputFormatting()
+        currencyTextField.textColor = UIColor(named: "TertiaryBrandColor")
+        backspaceButton.tintColor = UIColor(named: "TertiaryBrandColor")
+        
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {

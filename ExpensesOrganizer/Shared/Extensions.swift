@@ -105,11 +105,11 @@ func getFormattedBalance(balance: Double, smallTextSize: CGFloat, type: UIType, 
         let amountText = NSMutableAttributedString(string: formattedBalance)
         
         amountText.setAttributes([NSAttributedString.Key.font: UIFont(name: "WorkSans-Regular", size: smallTextSize) ?? UIFont.systemFont(ofSize: smallTextSize, weight: .light),
-                                      NSAttributedString.Key.foregroundColor: color],
+                                  NSAttributedString.Key.foregroundColor: type == .screen ? UIColor.white : UIColor(named: "TertiaryBrandColor") as Any],
                                  range: NSRange(location: 0, length: currency.count + 1))
         
         amountText.setAttributes([NSAttributedString.Key.font: UIFont(name: "WorkSans-Regular", size: smallTextSize) ?? UIFont.systemFont(ofSize: smallTextSize, weight: .light),
-                                      NSAttributedString.Key.foregroundColor: color],
+                                      NSAttributedString.Key.foregroundColor: type == .screen ? UIColor.white : UIColor(named: "TertiaryBrandColor") as Any],
                                  range: NSRange(location: formattedBalance.count - 3, length: 3))
        return amountText
     }

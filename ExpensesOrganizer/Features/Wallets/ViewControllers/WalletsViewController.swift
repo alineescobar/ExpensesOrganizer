@@ -35,13 +35,14 @@ class WalletsViewController: UIViewController {
         initialBackgroundViewHeight = backgroundConstrain.constant
         walletsTableView.register(UINib(nibName: graphicsCellId, bundle: nil), forCellReuseIdentifier: graphicsCellId)
         self.navigationItem.title = "Carteira"
-        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 20, weight: .bold)]
         self.navigationController?.navigationBar.backIndicatorImage = UIImage(systemName: "chevron.left")?.withInsets(UIEdgeInsets(top: 0, left: 15, bottom: 3, right: 0))
         self.navigationController?.navigationBar.backIndicatorTransitionMaskImage = UIImage(systemName: "chevron.left")?.withInsets(UIEdgeInsets(top: 0, left: 15, bottom: 3, right: 0))
         self.navigationController?.navigationBar.topItem?.title = " "
-        self.navigationController?.navigationBar.tintColor = UIColor.black
+        self.navigationController?.navigationBar.tintColor = UIColor.white
         navigationController?.navigationBar.barTintColor = UIColor.gray
-        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "WorkSans-SemiBold", size: 20) as Any]
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "WorkSans-SemiBold", size: 20) as Any,
+            NSAttributedString.Key.foregroundColor: UIColor.white]
+        setNeedsStatusBarAppearanceUpdate()
         guard let context = self.context else {
             return
         }
@@ -83,6 +84,9 @@ class WalletsViewController: UIViewController {
         walletDetailViewController?.modalHandlerDelegate = self
     }
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        .lightContent
+    }
 }
 
 extension WalletsViewController: UITableViewDelegate {
@@ -148,7 +152,7 @@ extension WalletsViewController: UITableViewDataSource {
                     return UITableViewCell()
                 }
                 cell.balanceDelegate = self
-                cell.currentBalanceButton.setImage(isShowingBalance ? UIImage(systemName: "eye") : UIImage(systemName: "eyebrow"), for: .normal)
+                cell.currentBalanceButton.setImage(isShowingBalance ? UIImage(named: "Eye") : UIImage(named: "EyeClosed"), for: .normal)
                 cell.balanceLabel.alpha = isShowingBalance ? 1 : 0
                 cell.stackJustForBalance.setBackgroundColor(color: isShowingBalance ? UIColor.clear : UIColor.lightGray)
                 cell.balanceLabel.attributedText = getFormattedBalance(balance: totalBalance, smallTextSize: 13.6, type: .screen)

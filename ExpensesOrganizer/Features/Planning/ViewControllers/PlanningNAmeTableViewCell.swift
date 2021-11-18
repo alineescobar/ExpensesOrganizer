@@ -1,5 +1,5 @@
 //
-//  PlanningNAmeTableViewCell.swift
+//  PlanningNameTableViewCell.swift
 //  ExpensesOrganizer
 //
 //  Created by Aline Osana Escobar on 11/11/21.
@@ -7,10 +7,15 @@
 
 import UIKit
 
-class PlanningNAmeTableViewCell: UITableViewCell {
+class PlanningNameTableViewCell: UITableViewCell {
 
     @IBOutlet weak var planningNameLabel: UILabel!
     @IBOutlet weak var planningNameTextField: UITextField!
+    weak var descriptionDelegate: DescriptionDelegate?
+    
+    @IBAction private func planningNameHasChanged(_ sender: UITextField) {
+        descriptionDelegate?.descriptionDidChanged(description: sender.text ?? "")
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -29,4 +34,11 @@ class PlanningNAmeTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
+}
+
+extension PlanningNameTableViewCell: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
 }

@@ -37,6 +37,7 @@ class DashboardViewController: UIViewController {
         super.viewDidLoad()
         mainTableView.dataSource = self
         mainTableView.delegate = self
+        setNeedsStatusBarAppearanceUpdate()
         
         mainTableView.register(UINib(nibName: customCellId, bundle: nil), forCellReuseIdentifier: customCellId)
         mainTableView.register(UINib(nibName: customCellHeader, bundle: nil), forCellReuseIdentifier: customCellHeader)
@@ -74,6 +75,10 @@ class DashboardViewController: UIViewController {
     
     override var prefersStatusBarHidden: Bool {
         return isStatsBarHidden
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        .lightContent
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

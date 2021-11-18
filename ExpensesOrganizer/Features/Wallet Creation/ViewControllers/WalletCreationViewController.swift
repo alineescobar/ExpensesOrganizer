@@ -38,6 +38,7 @@ class WalletCreationViewController: UIViewController {
             guard let context = self.context else {
                 return
             }
+            
             let newWallet = Wallet(context: context)
             newWallet.name = walletName
             newWallet.value = walletBalance

@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -19,9 +20,21 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ccy-Qu-9yb" userLabel="Background View">
                                 <rect key="frame" x="0.0" y="-68" width="414" height="413"/>
-                                <color key="backgroundColor" systemColor="systemGray5Color"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Ellipse 7" translatesAutoresizingMaskIntoConstraints="NO" id="V74-Vt-Rzu">
+                                        <rect key="frame" x="0.0" y="250" width="196" height="163"/>
+                                    </imageView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Ellipse 6" translatesAutoresizingMaskIntoConstraints="NO" id="rsM-kL-VH1">
+                                        <rect key="frame" x="286" y="22" width="128" height="168"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" name="TertiaryBrandColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="413" id="Ka2-0Z-F9S" userLabel="background Constrain"/>
+                                    <constraint firstItem="rsM-kL-VH1" firstAttribute="top" secondItem="Ccy-Qu-9yb" secondAttribute="topMargin" constant="-30" id="LkQ-pp-1ur"/>
+                                    <constraint firstItem="V74-Vt-Rzu" firstAttribute="leading" secondItem="Ccy-Qu-9yb" secondAttribute="leading" id="Lpy-mJ-uJn"/>
+                                    <constraint firstAttribute="bottom" secondItem="V74-Vt-Rzu" secondAttribute="bottom" id="QOb-r5-rxp"/>
+                                    <constraint firstAttribute="trailing" secondItem="rsM-kL-VH1" secondAttribute="trailing" id="f7t-PR-Vx3"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
@@ -48,10 +61,10 @@
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BLU-co-L6K">
                                                             <rect key="frame" x="0.0" y="0.0" width="97" height="18.5"/>
                                                             <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
-                                                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <color key="tintColor" name="WhiteStateColor"/>
                                                             <inset key="imageEdgeInsets" minX="10" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                             <state key="normal" title="Saldo atual" image="eye" catalog="system">
-                                                                <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <color key="titleColor" name="WhiteStateColor"/>
                                                             </state>
                                                             <connections>
                                                                 <action selector="hideBalanceInsideAction:" destination="mKd-Da-Sa3" eventType="touchUpInside" id="cQ0-Pw-CxO"/>
@@ -63,7 +76,7 @@
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="R$ 35.000,00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YaO-bE-KDR" userLabel="Balance Label">
                                                                     <rect key="frame" x="0.0" y="0.0" width="313.5" height="57.5"/>
                                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="48"/>
-                                                                    <nil key="textColor"/>
+                                                                    <color key="textColor" name="WhiteStateColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                             </subviews>
@@ -114,7 +127,7 @@
                                                             <subviews>
                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Wallet" translatesAutoresizingMaskIntoConstraints="NO" id="ejF-5O-m7r">
                                                                     <rect key="frame" x="0.0" y="0.0" width="18" height="18"/>
-                                                                    <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    <color key="tintColor" name="TertiaryBrandColor"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" secondItem="ejF-5O-m7r" secondAttribute="height" multiplier="1:1" id="bug-U3-eDH"/>
                                                                         <constraint firstAttribute="height" constant="18" id="sPb-Zg-bC1"/>
@@ -127,13 +140,13 @@
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="R$ 5.000,12 " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2EP-yu-uOv">
                                                                             <rect key="frame" x="0.0" y="0.0" width="117.5" height="25.5"/>
                                                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                                                            <nil key="textColor"/>
+                                                                            <color key="textColor" name="TertiaryBrandColor"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No meu bolso" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tv7-0e-uxD">
                                                                             <rect key="frame" x="0.0" y="25.5" width="117.5" height="25.5"/>
                                                                             <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
-                                                                            <nil key="textColor"/>
+                                                                            <color key="textColor" name="TertiaryBrandColor"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                     </subviews>
@@ -147,12 +160,9 @@
                                                                 <constraint firstAttribute="width" secondItem="kWF-Hu-IiE" secondAttribute="height" multiplier="1:1" id="NmE-J3-9vh"/>
                                                                 <constraint firstAttribute="height" constant="50" id="YhO-mx-kv5"/>
                                                             </constraints>
-                                                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <color key="tintColor" name="TertiaryBrandColor"/>
                                                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                             <state key="normal" title="" image="DotsThreeVertical"/>
-                                                            <connections>
-                                                                <segue destination="URw-AU-7QW" kind="presentation" identifier="walletDetailSegue" id="Ybn-kQ-Fzo"/>
-                                                            </connections>
                                                         </button>
                                                     </subviews>
                                                     <color key="backgroundColor" systemColor="systemGray6Color"/>
@@ -187,7 +197,7 @@
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nc7-oN-bxK" userLabel="Criar nova carteira">
                                                     <rect key="frame" x="24" y="26" width="366" height="43"/>
-                                                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="backgroundColor" name="PrimaryBrandColor"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="342" id="dpx-zr-6xn"/>
                                                         <constraint firstAttribute="height" constant="40" id="vKf-00-G01"/>
@@ -233,6 +243,7 @@
                         <outlet property="backgroundConstrain" destination="Ka2-0Z-F9S" id="rUL-7i-AnH"/>
                         <outlet property="backgroundView" destination="Ccy-Qu-9yb" id="0u0-QJ-z91"/>
                         <outlet property="walletsTableView" destination="Ji7-FR-Dof" id="2tB-HC-nSA"/>
+                        <segue destination="URw-AU-7QW" kind="presentation" identifier="walletDetailSegue" id="Mma-4W-cwI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -262,14 +273,22 @@
     </scenes>
     <resources>
         <image name="DotsThreeVertical" width="24" height="25"/>
+        <image name="Ellipse 6" width="128" height="168"/>
+        <image name="Ellipse 7" width="196" height="163"/>
         <image name="Plus" width="25" height="24"/>
         <image name="Wallet" width="25" height="24"/>
         <image name="eye" catalog="system" width="128" height="81"/>
+        <namedColor name="PrimaryBrandColor">
+            <color red="0.14509803921568629" green="0.16862745098039217" blue="0.39215686274509803" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="TertiaryBrandColor">
+            <color red="0.035294117647058823" green="0.094117647058823528" blue="0.1803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="WhiteStateColor">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemGray5Color">
-            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGray6Color">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

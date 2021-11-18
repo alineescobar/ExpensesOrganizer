@@ -72,15 +72,16 @@
 
 // MARK: Planning List
 "PlanningTitle" = "Planning";
-"AddButton" = "Create a new template";
+"AddButton" = "Create a new planning";
 
 // MARK: Planning Add
-"AddPlanningTitle" = "New template";
-"PlanningCreationPlanningName" = "Template name";
-"PlanningCreationPlanningNamePlaceholder" = "New template's name";
+"AddPlanningTitle" = "New planning";
+"PlanningCreationPlanningName" = "Planning name";
+"PlanningCreationPlanningNamePlaceholder" = "New planning's name";
 "PlanningCreationPayWith"= "Pay with";
-"PlanningCreationIcon"= "Template icon";
+"PlanningCreationIcon"= "Planning icon";
 "PlanningCreationButtonLabel" = "Create a new item";
+"NewPlanningCreated" = "Your new planning was successfully added.";
 
 // MARK: alert section of this screen
 "title" = "Alert!";
@@ -123,3 +124,49 @@
 "EachTwoWeeks" = "Each two weeks";
 "Monthly" = "Monthly";
 "Anually" = "Anually";
+
+// MARK: Templates
+"Property" = "Property";
+"Rent" = "Rent";
+"CondoFee" = "Condo fee";
+"Internet" = "Internet";
+"Power" = "Power";
+"Water" = "Water";
+"Gas" = "Gas";
+"Phone" = "Phone";
+"Market" = "Market";
+"PropertyTax" = "Municipal Property Tax";
+"PropertyInsurance" = "Property insurance";
+"Car" = "Car";
+"Insurance" = "Insurance";
+"VehiclePropertyTax" = "Motor Vehicle Property Tax";
+"Gasoline" = "Gasoline";
+"TuneUp" = "Tune-up";
+"Garage" = "Garage";
+"Leisure" = "Leisure";
+"StreamingServices" = "Streaming services";
+"Delivery" = "Delivery";
+"DinnerAndEvents" = "Events, dinners and related";
+"Gym" = "Gym";
+"Study" = "Study";
+"School" = "School";
+"College" = "College";
+"Course" = "Courses";
+"Business" = "Business";
+"Rent" = "Rent";
+"Employees" = "Employees";
+"Pets" = "Pets";
+"Food" = "Food";
+"Veterinary" = "Veterinary";
+"Neuteruing" = "Neutering";
+"Toys" = "Toys";
+"Medicine" = "Medicine";
+"Others" = "Others";
+"iCloudStoragePlan" = "iCloud storage plan";
+"Salary" = "Salary";
+"FringeBenefits" = "Fringe benefits";
+"Profits" = "Profits";
+"Stocks" = "Stocks";
+"FixedIncomes" = "Fixed incomes";
+"VariableIncomes" = "Variable incomes";
+"Cashback" = "Cashback";

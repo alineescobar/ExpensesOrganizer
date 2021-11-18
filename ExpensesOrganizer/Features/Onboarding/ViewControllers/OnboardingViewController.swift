@@ -18,6 +18,7 @@ class OnboardingViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setNeedsStatusBarAppearanceUpdate()
         collectionView.delegate = self
         collectionView.dataSource = self
         
@@ -52,6 +53,10 @@ class OnboardingViewController: UIViewController {
         }
         
         pageControl.currentPage = currentPage
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        .darkContent
     }
 }
 

@@ -8,7 +8,8 @@
 import UIKit
 
 class LastOnboardingScreenViewController: UIViewController {
-
+    
+    private let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext
     @IBOutlet weak var image: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
@@ -18,6 +19,7 @@ class LastOnboardingScreenViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setNeedsStatusBarAppearanceUpdate()
         titleLabel.text = NSLocalizedString("LetsGo", comment: "")
         descriptionLabel.text = NSLocalizedString("LetsGoDescription", comment: "")
         nameLabel.text = NSLocalizedString("Name", comment: "")
@@ -32,10 +34,35 @@ class LastOnboardingScreenViewController: UIViewController {
     @IBAction private func readyButtonAction(_ sender: UIButton) {
         OnboardingPersistence.setUserName(insertNameField.text ?? "[user]")
         OnboardingPersistence.setOnboardingCompleted(true)
-
-        performSegue(withIdentifier: "dashboardSegue", sender: nil)
         
+        guard let context = self.context else {
+            performSegue(withIdentifier: "dashboardSegue", sender: nil)
+            return
+        }
+        
+        setPropertyTemplate(context: context)
+        setCarTemplate(context: context)
+        setLeisureTemplate(context: context)
+        setStudyTemplate(context: context)
+        setBusinessTemplate(context: context)
+        setPetsTemplate(context: context)
+        setEmptyExpenseTemplate(context: context)
+        setSalaryTemplate(context: context)
+        setProfitTemplate(context: context)
+        setEmptyIncomeTemplate(context: context)
+        
+        do {
+            try context.save()
+            performSegue(withIdentifier: "dashboardSegue", sender: nil)
+        } catch {
+            return
+        }
     }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        .darkContent
+    }
+
 }
 
 extension LastOnboardingScreenViewController: UITextFieldDelegate {
