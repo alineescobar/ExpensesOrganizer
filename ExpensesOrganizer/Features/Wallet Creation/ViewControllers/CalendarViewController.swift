@@ -13,6 +13,7 @@ protocol CalendarDelegate: AnyObject {
 
 class CalendarViewController: UIViewController {
 
+    @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var datePicker: UIDatePicker!
     weak var calendarDelegate: CalendarDelegate?
     var selectedDate: Date = Date()
@@ -20,6 +21,8 @@ class CalendarViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         datePicker.setDate(selectedDate, animated: true)
+        containerView.layer.cornerRadius = 13
+        overrideUserInterfaceStyle = .dark
     }
     
     override func viewWillDisappear(_ animated: Bool) {

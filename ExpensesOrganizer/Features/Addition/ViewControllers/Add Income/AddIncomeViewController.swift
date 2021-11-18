@@ -122,11 +122,13 @@ extension AddIncomeViewController: UITableViewDataSource {
             }
             
             let formatter = DateFormatter()
-            formatter.dateStyle = .medium
+            let format = DateFormatter.dateFormat(fromTemplate: "dMMM", options: 0, locale: Locale.current)
+            formatter.dateFormat = format
+            let date = formatter.string(from: selectedDate)
             
+            cell.dateLabel.text = date
             cell.planningDelegate = self
             cell.recurrencyLabel.text = selectedRecurrencyType.rawValue
-            cell.dateLabel.text = formatter.string(from: selectedDate)
             
             return cell
             

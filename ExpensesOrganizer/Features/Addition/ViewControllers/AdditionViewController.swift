@@ -17,8 +17,8 @@ class AdditionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        segmentedControl.setTitle(NSLocalizedString("addition-expense-segmented-title", comment: ""), forSegmentAt: 0)
-        segmentedControl.setTitle(NSLocalizedString("addition-income-segmented-title", comment: ""), forSegmentAt: 1)
+        segmentedControl.setTitle(NSLocalizedString("FirstSegmentedControl", comment: ""), forSegmentAt: 0)
+        segmentedControl.setTitle(NSLocalizedString("SecondSegmentedControl", comment: ""), forSegmentAt: 1)
         
         let font: Any = UIFont(name: "WorkSans-Medium", size: 14) as Any
         

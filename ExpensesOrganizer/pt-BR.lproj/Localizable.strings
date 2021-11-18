@@ -9,11 +9,13 @@
 // MARK: Dashboard
 "GreetingsLabel" = "Olá, ";
 "BalanceLabel" = "Saldo atual";
-"WalletLabel" = "Carteira";
+"WalletLabel" = "Carteiras";
 "GoalsLabel" = "Metas";
 "PlanningLabel" = "Planejar";
 "AddLabel" = "Adicionar";
 "TransactionsHeader" = "Transações recentes";
+"FirstEmptyStateText" = "Nada aqui!";
+"SecondEmptyStateText" = "Pressione o +, para adicionar uma carteira.";
 
 // MARK: Wallet Creation
 "WalletName" = "Nome da carteira";
@@ -25,6 +27,8 @@
 "EmptyBalanceAlertDescription" = "Você precisa definir um valor de saldo para sua carteira!";
 "WalletSavingErrorAlertTitle" = "Erro ao salvar Carteira";
 "WalletSavingErrorAlertDescription" = "Houve um problema ao salvar sua carteira, por favor, tente novamente.";
+"SecondEmptyStateWalletsText" = "Pressione o botão abaixo para adicionar uma carteira.";
+"CreateNewWallet" = "Criar nova carteira";
 
 // MARK: Wallet Detail
 "WalletDeleteAlertTitle" = "Apagar Carteira";
@@ -48,6 +52,21 @@
 "WalletsFetchFailedAlertTitle" = "Erro ao encontrar Carteiras";
 "WalletsFetchFailedAlertDescription" = "Houve um problema ao procurar suas carteiras. Por favor, tente novamente mais tarde.";
 
+// MARK: Onboarding
+"Control" = "Controle";
+"Plan" = "Planeje";
+"Save" = "Economize";
+"LetsGo" = "Vamos lá";
+"ControlDescription" = "Aqui você pode controlar suas despesas registrando cada entrada e saída de valores.";
+"PlanDescription" = "Planejar nunca foi tão fácil, aqui você pode adicionar seus próprios itens em diferentes planejamentos e desfrutar também de nossos itens prontos!";
+"SaveDescription" = "Adicionando seus ganhos e despesas, aprenda a economizar enquanto economiza na vida real.";
+"LetsGoDescription" = "Para o app ficar com a sua essência, vamos colocar seu nome?";
+"Name" = "Seu nome";
+"FieldDescription" = "Pode ser um apelido também";
+"SkipButton" = "Pular";
+"NextButton" = "Próximo";
+"DoneButton" = "Pronto";
+
 // MARK: Planning Detail
 "OptionalDescription" = "Descrição é opcional";
 "PlanningCreationCancelAlertTitle" = "Cancelar novo Planejamento";
@@ -65,6 +84,7 @@
 "PlanningCreationPayWith"= "Pagar com";
 "PlanningCreationIcon"= "Ícone do planejamento";
 "PlanningCreationButtonLabel" = "Criar novo item";
+"NewPlanningCreated" = "Seu novo planejamento foi adicionado com sucesso.";
 
 // MARK: alert section of this screen
 "title" = "Aviso!";
@@ -79,6 +99,7 @@
 "NewItemCreated" = "Seu novo item foi adicionado com sucesso.";
 "ItemEditionCancelAlertTitle" = "Cancelar edição de Item";
 "ItemKeepEditingAction" = "Continuar editando";
+"Notification" = "Notificação";
 
 // MARK: Recurrency Types
 "Never" = "Nunca";
@@ -107,3 +128,49 @@
 "addition-expense-planning" = "Planejamento";
 "addition-expense-done-header" = "Tudo certo por aqui!";
 "addition-expense-done-body" = "Sua despesa foi adicionada com sucesso.";
+
+// MARK: Templates
+"Property" = "Imóvel";
+"Rent" = "Aluguel";
+"CondoFee" = "Taxa de condomínio";
+"Internet" = "Internet";
+"Power" = "Energia";
+"Water" = "Água";
+"Gas" = "Gás";
+"Phone" = "Telefone/Celular";
+"Market" = "Mercado";
+"PropertyTax" = "IPTU";
+"PropertyInsurance" = "Seguro do imóvel";
+"Car" = "Auto";
+"Insurance" = "Seguro";
+"VehiclePropertyTax" = "IPVA";
+"Gasoline" = "Gasolina";
+"TuneUp" = "Manutenção";
+"Garage" = "Garagem";
+"Leisure" = "Lazer";
+"StreamingServices" = "Serviços de streaming";
+"Delivery" = "Delivery";
+"DinnerAndEvents" = "Eventos, jantares e relacionados";
+"Gym" = "Academia";
+"Study" = "Estudo";
+"School" = "Escola";
+"College" = "Faculdade";
+"Course" = "Cursos";
+"Business" = "Empresa";
+"Rent" = "Aluguel";
+"Employees" = "Funcionários";
+"Pets" = "Animais";
+"Food" = "Comida";
+"Veterinary" = "Veterinário";
+"Neuteruing" = "Castração";
+"Toys" = "Brinquedos";
+"Medicine" = "Remédios";
+"Others" = "Outros";
+"iCloudStoragePlan" = "Armazenamento no iCloud";
+"Salary" = "Salário";
+"FringeBenefits" = "Benefícios";
+"Profits" = "Lucros";
+"Stocks" = "Ações";
+"FixedIncomes" = "Renda fixa";
+"VariableIncomes" = "Renda variável";
+"Cashback" = "Cashback";

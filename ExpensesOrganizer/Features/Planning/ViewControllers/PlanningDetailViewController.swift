@@ -20,23 +20,42 @@ enum PlanningDetailCategory: CaseIterable {
 }
 
 class PlanningDetailViewController: UIViewController {
-    
+    private let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext
     @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var readyButton: UIButton!
     @IBOutlet weak var planningNameLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
+    private var templateName: String = ""
+    private var templateDescription: String = ""
     
     @IBAction private func cancelAction(_ sender: UIButton) {
         showCancelPlanningAlert()
     }
     @IBAction private func readyAction(_ sender: UIButton) {
-        // TODO: Save Planning item on CoreData and set notifications
-        self.dismiss(animated: true)
+        // TODO: Set notifications
+        guard let context = self.context else {
+            return
+        }
+        
+        template?.name = templateName
+        template?.templateDescription = templateDescription
+        
+        do {
+            try context.save()
+            modalHandlerDelegate?.modalDismissed()
+            self.dismiss(animated: true)
+        } catch {
+            print(error.localizedDescription)
+            return
+        }
     }
     
+    weak var modalHandlerDelegate: ModalHandlerDelegate?
+    var template: Template?
     private let planningDetailCategories: [PlanningDetailCategory] = PlanningDetailCategory.allCases
     private let planningItems: [PlanningDetailCategory] = PlanningDetailCategory.items
-    private let items: [Item] = []
+    private var items: [Item] = []
+    private var totalBalance: Double = 0.0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,17 +66,22 @@ class PlanningDetailViewController: UIViewController {
         tableView.dataSource = self
         readyButton.setTitle(NSLocalizedString("Ready", comment: ""), for: .normal)
         cancelButton.setTitle(NSLocalizedString("Cancel", comment: ""), for: .normal)
-        
+        guard let template = self.template else {
+            return
+        }
+        planningNameLabel.text = template.name
+        items = template.items?.allObjects as? [Item] ?? []
+        templateName = template.name ?? ""
+        templateDescription = template.templateDescription ?? ""
         // Do any additional setup after loading the view.
     }
     
-    // TODO: Persist data on items array
      override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//         guard let indexPath = sender as? IndexPath else {
-//             return
-//         }
+         guard let indexPath = sender as? IndexPath else {
+             return
+         }
          let itemViewController = segue.destination as? ItemViewController
-//         itemViewController?.item = items[indexPath.row]
+         itemViewController?.item = items[indexPath.row]
          itemViewController?.itemDelegate = self
          itemViewController?.isEditingItem = true
      }
@@ -124,7 +148,7 @@ extension PlanningDetailViewController: UITableViewDataSource {
         if section == 0 {
             return planningDetailCategories.count
         } else {
-            return planningItems.count
+            return items.count
         }
     }
     
@@ -133,6 +157,10 @@ extension PlanningDetailViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let template = self.template else {
+            return UITableViewCell()
+        }
+        
         if indexPath.section == 0 {
             let planningDetailCategory = planningDetailCategories[indexPath.row]
             switch planningDetailCategory {
@@ -141,7 +169,10 @@ extension PlanningDetailViewController: UITableViewDataSource {
                 else {
                     return UITableViewCell()
                 }
-                cell.planningDescriptionTextField.text = NSLocalizedString("OptionalDescription", comment: "")
+                cell.planningIcon.image = UIImage(named: template.templateIconName ?? "Atom")
+                cell.planningTitleTextField.text = templateName
+                cell.planningDescriptionTextField.text = templateDescription.isEmpty ? NSLocalizedString("OptionalDescription", comment: "") : templateDescription
+                cell.planningEditionDelegate = self
                 return cell
                 
             case .planningTotalBalance:
@@ -149,26 +180,35 @@ extension PlanningDetailViewController: UITableViewDataSource {
                 else {
                     return UITableViewCell()
                 }
+                getTotalBalance()
+                cell.balanceLabel.text = template.isExpense ? "- " + String(format: "%.2f", totalBalance).currencyInputFormatting()
+                : "+ " + String(format: "%.2f", totalBalance).currencyInputFormatting()
                 return cell
             default:
                 return UITableViewCell()
             }
         } else {
-            let planningItems = planningItems[indexPath.row]
-            switch planningItems {
-            case .planningItem:
-                guard let cell = tableView.dequeueReusableCell(withIdentifier: "planningItemCell", for: indexPath) as? PlanningItemTableViewCell
-                else {
+            let item = items[indexPath.row]
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "planningItemCell", for: indexPath) as? PlanningItemTableViewCell
+            else {
                     return UITableViewCell()
-                }
-                cell.planningItemDelegate = self
-                return cell
-                
-            default:
-                return UITableViewCell()
             }
+            cell.planningItemDelegate = self
+            cell.itemNameLabel.text = item.name
+            cell.itemValueLabel.text = template.isExpense ? "- " + String(format: "%.2f", item.value).currencyInputFormatting() : "+ " + String(format: "%.2f", item.value).currencyInputFormatting()
+            cell.itemRecurrencyLabel.text = RecurrencyTypes.getTitleFor(title: RecurrencyTypes(rawValue: item.recurrenceType ?? "Never") ?? .never)
+            cell.notificationSwitch.setOn(item.sendsNotification, animated: false)
+            cell.item = item
+            return cell
         }
         
+    }
+    
+    func getTotalBalance() {
+        totalBalance = 0.0
+        for item in items {
+            totalBalance += item.value
+        }
     }
     
 }
@@ -196,11 +236,33 @@ extension PlanningDetailViewController: UIGestureRecognizerDelegate {
 extension PlanningDetailViewController: PlanningItemDelegate {
     func notificationSwitchDidChange(value: Bool, item: Item) {
         // TODO: Update item notification value
+        item.sendsNotification.toggle()
+        
+        guard let context = self.context else {
+            return
+        }
+        
+        do {
+            try context.save()
+        } catch {
+            print(error.localizedDescription)
+            return
+        }
     }
 }
 
 extension PlanningDetailViewController: ItemDelegate {
     func updateItem() {
         tableView.reloadData()
+    }
+}
+
+extension PlanningDetailViewController: PlanningEditionDelegate {
+    func didChangePlanningName(name: String) {
+        templateName = name
+    }
+    
+    func didChangePlanningDescription(description: String) {
+        templateDescription = description
     }
 }

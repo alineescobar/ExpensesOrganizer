@@ -11,6 +11,9 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
+        <array key="WorkSans-Bold.ttf">
+            <string>WorkSans-Bold</string>
+        </array>
         <array key="WorkSans-Medium.ttf">
             <string>WorkSans-Medium</string>
         </array>
@@ -39,9 +42,10 @@
                             </segmentedControl>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="wZP-lm-JPZ">
                                 <rect key="frame" x="0.0" y="137" width="414" height="597"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" name="GraySuport3StateColor"/>
+                                <color key="sectionIndexBackgroundColor" name="GraySuport3StateColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="planningName" rowHeight="126" id="JeJ-0e-jqe" customClass="PlanningNAmeTableViewCell" customModule="ExpensesOrganizer" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="planningName" rowHeight="126" id="JeJ-0e-jqe" customClass="PlanningNameTableViewCell" customModule="ExpensesOrganizer" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="44.5" width="414" height="126"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="JeJ-0e-jqe" id="LoG-yN-jMg">
@@ -59,6 +63,10 @@
                                                     <color key="textColor" name="TertiaryBrandColor"/>
                                                     <fontDescription key="fontDescription" name="WorkSans-Regular" family="Work Sans" pointSize="16"/>
                                                     <textInputTraits key="textInputTraits"/>
+                                                    <connections>
+                                                        <action selector="planningNameHasChanged:" destination="JeJ-0e-jqe" eventType="editingChanged" id="3e7-xg-Lbm"/>
+                                                        <action selector="planningNameHasChanged:" destination="JeJ-0e-jqe" eventType="editingDidEnd" id="irY-MY-73B"/>
+                                                    </connections>
                                                 </textField>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PencilLine" translatesAutoresizingMaskIntoConstraints="NO" id="k6f-Iq-5rL">
                                                     <rect key="frame" x="42" y="68" width="24" height="24"/>
@@ -69,6 +77,7 @@
                                                     </constraints>
                                                 </imageView>
                                             </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="MWi-Yx-h6y" secondAttribute="trailing" constant="24" id="0f1-gP-7Ch"/>
                                                 <constraint firstItem="k6f-Iq-5rL" firstAttribute="top" secondItem="HXV-cp-E5b" secondAttribute="bottom" constant="22" id="4Sl-sm-QjZ"/>
@@ -82,6 +91,7 @@
                                                 <constraint firstItem="HXV-cp-E5b" firstAttribute="top" secondItem="LoG-yN-jMg" secondAttribute="top" constant="16" id="pom-Oj-5e1"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
                                             <outlet property="planningNameLabel" destination="HXV-cp-E5b" id="MFC-KZ-VGW"/>
                                             <outlet property="planningNameTextField" destination="MWi-Yx-h6y" id="roe-Ne-mhd"/>
@@ -115,6 +125,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstItem="eJw-LJ-KRs" firstAttribute="top" secondItem="0g2-C1-aYb" secondAttribute="bottom" constant="22" id="3qc-mU-2OU"/>
                                                 <constraint firstItem="uig-el-Z9C" firstAttribute="top" secondItem="0g2-C1-aYb" secondAttribute="bottom" constant="22" id="8Ju-uN-fTV"/>
@@ -128,6 +139,7 @@
                                                 <constraint firstItem="uig-el-Z9C" firstAttribute="leading" secondItem="4WV-Hg-dMr" secondAttribute="leading" constant="42" id="oQF-YU-8UR"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
                                             <outlet property="planningPaymentLabel" destination="0g2-C1-aYb" id="igy-wT-Vdq"/>
                                             <outlet property="planningPaymentWallet" destination="eJw-LJ-KRs" id="G7I-BL-sGb"/>
@@ -155,6 +167,7 @@
                                                     </constraints>
                                                 </imageView>
                                             </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstAttribute="bottom" secondItem="KgD-ir-BUo" secondAttribute="bottom" constant="34" id="3aj-Y9-z5G"/>
                                                 <constraint firstItem="7Ne-a8-NvT" firstAttribute="leading" secondItem="kvz-N2-TUa" secondAttribute="leading" constant="24" id="VAz-xE-pIM"/>
@@ -164,6 +177,7 @@
                                                 <constraint firstItem="KgD-ir-BUo" firstAttribute="top" secondItem="7Ne-a8-NvT" secondAttribute="bottom" constant="22" id="gnJ-cf-uKo"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
                                             <outlet property="planningIcon" destination="KgD-ir-BUo" id="J1K-uT-2PU"/>
                                             <outlet property="planningIconLabel" destination="7Ne-a8-NvT" id="GIW-6h-M08"/>
@@ -189,6 +203,7 @@
                                                     </connections>
                                                 </button>
                                             </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstItem="Ssm-Hx-vZK" firstAttribute="top" secondItem="Fiv-ae-hPl" secondAttribute="top" constant="40" id="GPp-3r-hRy"/>
                                                 <constraint firstItem="Ssm-Hx-vZK" firstAttribute="leading" secondItem="Fiv-ae-hPl" secondAttribute="leading" constant="24" id="ZT8-eh-Yj4"/>
@@ -196,6 +211,7 @@
                                                 <constraint firstAttribute="bottom" secondItem="Ssm-Hx-vZK" secondAttribute="bottom" id="vMv-EA-USB"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
                                             <outlet property="newPlanningButton" destination="Ssm-Hx-vZK" id="hrc-h8-0VD"/>
                                         </connections>
@@ -224,6 +240,9 @@
                                         <fontDescription key="fontDescription" name="WorkSans-SemiBold" family="Work Sans" pointSize="17"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" title="Button"/>
+                                        <connections>
+                                            <action selector="doneAction:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Rd6-cJ-IUi"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -234,7 +253,7 @@
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="GraySuport3StateColor"/>
                         <constraints>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="wZP-lm-JPZ" secondAttribute="bottom" constant="128" id="6tf-pY-ifo"/>
                             <constraint firstItem="wZP-lm-JPZ" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="70o-e4-pFt"/>
@@ -256,6 +275,7 @@
                         <segue destination="g4F-RU-r3P" kind="presentation" identifier="walletSelection" id="fge-ze-Hgu"/>
                         <segue destination="wUo-BB-rmR" kind="presentation" identifier="iconsSelection" id="HVT-Vk-Nev"/>
                         <segue destination="kPN-V4-3pD" kind="presentation" identifier="item" id="q4d-14-M1h"/>
+                        <segue destination="ZD4-15-mBg" kind="presentation" identifier="additionOk" id="m3e-YX-m4N"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -335,6 +355,95 @@
             </objects>
             <point key="canvasLocation" x="554" y="637"/>
         </scene>
+        <!--Ok Addition View Controller-->
+        <scene sceneID="XBk-Jr-eaa">
+            <objects>
+                <viewController id="ZD4-15-mBg" customClass="OkAdditionViewController" customModule="ExpensesOrganizer" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="xev-FI-B8i">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="185" translatesAutoresizingMaskIntoConstraints="NO" id="8dL-Vg-RL3">
+                                <rect key="frame" x="0.0" y="214.5" width="414" height="577.5"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="64" translatesAutoresizingMaskIntoConstraints="NO" id="Eel-kA-MPF">
+                                        <rect key="frame" x="24" y="0.0" width="366" height="352.5"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="Eks-h9-5o8">
+                                                <rect key="frame" x="14" y="0.0" width="338.5" height="128.5"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalCompressionResistancePriority="757" verticalCompressionResistancePriority="757" text="Tudo certo por aqui!" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JGn-VR-ydb">
+                                                        <rect key="frame" x="0.0" y="0.0" width="338.5" height="40"/>
+                                                        <fontDescription key="fontDescription" name="WorkSans-Bold" family="Work Sans" pointSize="34"/>
+                                                        <color key="textColor" name="TertiaryBrandColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalCompressionResistancePriority="753" verticalCompressionResistancePriority="754" text="Seu item foi atualizado com sucesso." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A4K-W6-sEF">
+                                                        <rect key="frame" x="0.0" y="72" width="280" height="56.5"/>
+                                                        <fontDescription key="fontDescription" name="WorkSans-SemiBold" family="Work Sans" pointSize="24"/>
+                                                        <color key="textColor" name="TertiaryBrandColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SmileyWink" translatesAutoresizingMaskIntoConstraints="NO" id="tzL-wS-Vgf">
+                                                <rect key="frame" x="103" y="192.5" width="160" height="160"/>
+                                                <color key="tintColor" name="TertiaryBrandColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="tzL-wS-Vgf" secondAttribute="height" multiplier="1:1" id="VE9-yp-N6N"/>
+                                                </constraints>
+                                            </imageView>
+                                        </subviews>
+                                    </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qu6-EX-Qwe">
+                                        <rect key="frame" x="31" y="537.5" width="352" height="40"/>
+                                        <color key="backgroundColor" name="PrimaryBrandColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="dEB-B8-ypR"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="WorkSans-Medium" family="Work Sans" pointSize="16"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="Prontinho"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="NO"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="8"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="readyAction:" destination="ZD4-15-mBg" eventType="touchUpInside" id="l8v-us-Ygj"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="Qu6-EX-Qwe" firstAttribute="leading" secondItem="8dL-Vg-RL3" secondAttribute="leading" constant="31" id="chr-xP-iMC"/>
+                                    <constraint firstAttribute="trailing" secondItem="Eel-kA-MPF" secondAttribute="trailing" constant="24" id="nnC-rn-mSL"/>
+                                    <constraint firstAttribute="trailing" secondItem="Qu6-EX-Qwe" secondAttribute="trailing" constant="31" id="uGp-43-pOe"/>
+                                    <constraint firstItem="Eel-kA-MPF" firstAttribute="leading" secondItem="8dL-Vg-RL3" secondAttribute="leading" constant="24" id="ydG-J6-qtn"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="XnK-Vx-tBH"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="8dL-Vg-RL3" secondAttribute="bottom" constant="50" id="Ptt-XO-RMT"/>
+                            <constraint firstItem="8dL-Vg-RL3" firstAttribute="leading" secondItem="xev-FI-B8i" secondAttribute="leading" id="bi5-Ax-luJ"/>
+                            <constraint firstItem="8dL-Vg-RL3" firstAttribute="top" relation="greaterThanOrEqual" secondItem="xev-FI-B8i" secondAttribute="top" constant="30" id="qgz-c4-vLD"/>
+                            <constraint firstAttribute="trailing" secondItem="8dL-Vg-RL3" secondAttribute="trailing" id="uMM-4y-SQP"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="allDoneDescription" destination="A4K-W6-sEF" id="X36-xQ-Vx4"/>
+                        <outlet property="allDoneLabel" destination="JGn-VR-ydb" id="thB-02-pHA"/>
+                        <outlet property="imageView" destination="tzL-wS-Vgf" id="Ynb-Ga-2BX"/>
+                        <outlet property="readyButton" destination="Qu6-EX-Qwe" id="rUE-EQ-NOL"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Th0-jy-HqT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1065" y="-865"/>
+        </scene>
         <!--Planning Selection Wallet View Controller-->
         <scene sceneID="Dhh-Al-n4X">
             <objects>
@@ -402,10 +511,17 @@
     <resources>
         <image name="Atom" width="24" height="24"/>
         <image name="PencilLine" width="24" height="24"/>
+        <image name="SmileyWink" width="160" height="160"/>
         <image name="Wallet" width="25" height="24"/>
         <image name="plus" catalog="system" width="128" height="113"/>
         <namedColor name="GraySuport1StateColor">
             <color red="0.40000000000000002" green="0.40000000000000002" blue="0.42352941176470588" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="GraySuport3StateColor">
+            <color red="0.97254901960784312" green="0.97254901960784312" blue="0.97254901960784312" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="PrimaryBrandColor">
+            <color red="0.14509803921568629" green="0.16862745098039217" blue="0.39215686274509803" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="TertiaryBrandColor">
             <color red="0.035294117647058823" green="0.094117647058823528" blue="0.1803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

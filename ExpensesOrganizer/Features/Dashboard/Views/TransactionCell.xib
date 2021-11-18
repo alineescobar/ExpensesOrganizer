@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -25,16 +26,10 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="74"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="TUF-8e-mdv">
-                        <rect key="frame" x="24" y="12" width="50" height="50"/>
-                        <constraints>
-                            <constraint firstAttribute="width" secondItem="TUF-8e-mdv" secondAttribute="height" multiplier="1:1" id="Zar-nJ-5Lr"/>
-                        </constraints>
-                    </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Netflix" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WeS-kZ-CA6">
                         <rect key="frame" x="94" y="12" width="53" height="19"/>
                         <fontDescription key="fontDescription" name="WorkSans-SemiBold" family="Work Sans" pointSize="16"/>
-                        <nil key="textColor"/>
+                        <color key="textColor" name="TertiaryBrandColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="20 out" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MAm-b5-A2e">
@@ -46,7 +41,7 @@
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="-9,50" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IQT-nf-G8k">
                         <rect key="frame" x="254" y="12" width="42" height="19"/>
                         <fontDescription key="fontDescription" name="WorkSans-SemiBold" family="Work Sans" pointSize="16"/>
-                        <nil key="textColor"/>
+                        <color key="textColor" name="TertiaryBrandColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Assinatura" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L5A-dB-DZg">
@@ -55,24 +50,44 @@
                         <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DiL-0c-bXW">
+                        <rect key="frame" x="24" y="12" width="50" height="50"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="TUF-8e-mdv">
+                                <rect key="frame" x="8" y="8" width="34" height="34"/>
+                                <color key="tintColor" name="TertiaryBrandColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="TUF-8e-mdv" secondAttribute="height" multiplier="1:1" id="Nk9-GP-9TG"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" name="WhiteStateColor"/>
+                        <constraints>
+                            <constraint firstItem="TUF-8e-mdv" firstAttribute="leading" secondItem="DiL-0c-bXW" secondAttribute="leading" constant="8" id="QRd-gh-QSd"/>
+                            <constraint firstAttribute="trailing" secondItem="TUF-8e-mdv" secondAttribute="trailing" constant="8" id="QvW-g9-vVX"/>
+                            <constraint firstAttribute="bottom" secondItem="TUF-8e-mdv" secondAttribute="bottom" constant="8" id="SwM-k8-4s2"/>
+                            <constraint firstItem="TUF-8e-mdv" firstAttribute="top" secondItem="DiL-0c-bXW" secondAttribute="top" constant="8" id="whk-Dx-m0w"/>
+                        </constraints>
+                    </view>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="TUF-8e-mdv" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="24" id="1hI-cs-d9h"/>
-                    <constraint firstAttribute="bottom" secondItem="TUF-8e-mdv" secondAttribute="bottom" constant="12" id="3SK-7k-a3h"/>
                     <constraint firstAttribute="bottom" secondItem="MAm-b5-A2e" secondAttribute="bottom" constant="12" id="4IN-tD-kVv"/>
-                    <constraint firstItem="TUF-8e-mdv" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="12" id="Dco-fc-OM1"/>
+                    <constraint firstItem="DiL-0c-bXW" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="12" id="FJq-Vk-Rur"/>
+                    <constraint firstItem="DiL-0c-bXW" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="24" id="I2h-jz-cC2"/>
                     <constraint firstItem="IQT-nf-G8k" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="12" id="Krr-Bw-gXW"/>
                     <constraint firstAttribute="trailing" secondItem="MAm-b5-A2e" secondAttribute="trailing" constant="24" id="MRI-5K-NYu"/>
                     <constraint firstAttribute="trailing" secondItem="IQT-nf-G8k" secondAttribute="trailing" constant="24" id="PWW-Uj-WXb"/>
+                    <constraint firstItem="L5A-dB-DZg" firstAttribute="leading" secondItem="DiL-0c-bXW" secondAttribute="trailing" constant="20" id="QXu-Z0-i4C"/>
                     <constraint firstAttribute="bottom" secondItem="L5A-dB-DZg" secondAttribute="bottom" constant="12" id="RB2-bV-I91"/>
                     <constraint firstItem="MAm-b5-A2e" firstAttribute="top" secondItem="IQT-nf-G8k" secondAttribute="bottom" constant="8" id="RaZ-Yi-qkC"/>
+                    <constraint firstItem="WeS-kZ-CA6" firstAttribute="leading" secondItem="DiL-0c-bXW" secondAttribute="trailing" constant="20" id="T6y-VR-ZsJ"/>
+                    <constraint firstAttribute="bottom" secondItem="DiL-0c-bXW" secondAttribute="bottom" constant="12" id="UE5-cp-dco"/>
                     <constraint firstItem="WeS-kZ-CA6" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="12" id="WOh-JP-xkq"/>
-                    <constraint firstItem="L5A-dB-DZg" firstAttribute="leading" secondItem="TUF-8e-mdv" secondAttribute="trailing" constant="20" id="aoI-go-yYq"/>
-                    <constraint firstItem="WeS-kZ-CA6" firstAttribute="leading" secondItem="TUF-8e-mdv" secondAttribute="trailing" constant="20" id="jYW-tW-na1"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="containerView" destination="DiL-0c-bXW" id="DLn-FD-A2I"/>
                 <outlet property="transactionDate" destination="MAm-b5-A2e" id="b8u-H1-1vl"/>
                 <outlet property="transactionImage" destination="TUF-8e-mdv" id="XmC-M6-aP5"/>
                 <outlet property="transactionName" destination="WeS-kZ-CA6" id="xr4-f5-vlp"/>
@@ -82,4 +97,12 @@
             <point key="canvasLocation" x="137.68115942028987" y="164.73214285714286"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <namedColor name="TertiaryBrandColor">
+            <color red="0.035294117647058823" green="0.094117647058823528" blue="0.1803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="WhiteStateColor">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
 </document>

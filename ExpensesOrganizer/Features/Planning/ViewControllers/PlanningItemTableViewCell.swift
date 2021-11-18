@@ -18,6 +18,7 @@ class PlanningItemTableViewCell: UITableViewCell {
         }
     }
     
+    @IBOutlet weak var notificationSwitch: UISwitch!
     @IBOutlet weak var itemNameLabel: UILabel!
     @IBOutlet weak var itemValueLabel: UILabel!
     @IBOutlet weak var itemRecurrencyLabel: UILabel!
@@ -27,7 +28,7 @@ class PlanningItemTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        notificationLabel.text = NSLocalizedString("Notification", comment: "")
     }
 
 }

@@ -9,6 +9,8 @@
 		<string>WorkSans-Bold.ttf</string>
 		<string>WorkSans-Medium.ttf</string>
 	</array>
+	<key>UIViewControllerBasedStatusBarAppearance</key>
+	<true/>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
@@ -23,7 +25,7 @@
 					<key>UISceneDelegateClassName</key>
 					<string>$(PRODUCT_MODULE_NAME).SceneDelegate</string>
 					<key>UISceneStoryboardFile</key>
-					<string>Dashboard</string>
+					<string>Onboarding</string>
 				</dict>
 			</array>
 		</dict>
