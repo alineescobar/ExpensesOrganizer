@@ -98,6 +98,7 @@
 "NewItemCreated" = "Seu novo item foi adicionado com sucesso.";
 "ItemEditionCancelAlertTitle" = "Cancelar edição de Item";
 "ItemKeepEditingAction" = "Continuar editando";
+"Notification" = "Notificação";
 
 // MARK: Recurrency Types
 "Never" = "Nunca";

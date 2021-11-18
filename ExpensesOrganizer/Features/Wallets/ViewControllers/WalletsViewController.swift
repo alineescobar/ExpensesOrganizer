@@ -26,6 +26,7 @@ class WalletsViewController: UIViewController {
     private var initialBackgroundViewHeight: Double = -1
     private var wallets: [Wallet] = []
     private var totalBalance: Double = 0.0
+    weak var modalHandlerDelegate: ModalHandlerDelegate?
     let navigationFont = UIFont(name: "WorkSans-SemiBold", size: 20)
     
     override func viewDidLoad() {
@@ -57,6 +58,11 @@ class WalletsViewController: UIViewController {
         super.viewWillAppear(animated)
         
         navigationController?.navigationBar.barStyle = .black
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        modalHandlerDelegate?.modalDismissed()
     }
     
     func showWalletsFetchFailedAlert() {

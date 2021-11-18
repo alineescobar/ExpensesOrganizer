@@ -120,6 +120,7 @@
 "NewItemCreated" = "Your new item was successfully added.";
 "ItemEditionCancelAlertTitle" = "Cancel Item edition";
 "ItemKeepEditingAction" = "Keep editing";
+"Notification" = "Notification";
 
 // MARK: Recurrency Types
 "Never" = "Never";

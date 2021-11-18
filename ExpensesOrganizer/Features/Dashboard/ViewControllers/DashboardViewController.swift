@@ -76,6 +76,12 @@ class DashboardViewController: UIViewController {
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "wallets" {
+            let walletsViewController = segue.destination as? WalletsViewController
+            walletsViewController?.modalHandlerDelegate = self
+            return
+        }
+        
         guard let index = sender as? Int else {
             let walletCreationViewController = segue.destination as? WalletCreationViewController
             walletCreationViewController?.modalHandlerDelegate = self

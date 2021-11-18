@@ -28,6 +28,7 @@ class PlanningItemTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        notificationLabel.text = NSLocalizedString("Notification", comment: "")
     }
 
 }
