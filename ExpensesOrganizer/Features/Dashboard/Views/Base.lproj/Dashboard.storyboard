@@ -222,7 +222,7 @@
                                                                             </constraints>
                                                                         </imageView>
                                                                     </subviews>
-                                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                                    <color key="backgroundColor" name="WhiteStateColor"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="60" id="FqG-2h-bCA"/>
                                                                         <constraint firstAttribute="width" secondItem="TMf-b1-KhQ" secondAttribute="height" multiplier="1:1" id="Jsf-Aa-WZl"/>
@@ -288,7 +288,7 @@
                                                                             </constraints>
                                                                         </imageView>
                                                                     </subviews>
-                                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                                    <color key="backgroundColor" name="WhiteStateColor"/>
                                                                     <constraints>
                                                                         <constraint firstItem="Yo6-Vn-28x" firstAttribute="height" secondItem="q5O-Hj-FeX" secondAttribute="height" multiplier="0.5" id="0kL-KR-kbl"/>
                                                                         <constraint firstAttribute="height" constant="60" id="8FO-c4-BVE"/>
