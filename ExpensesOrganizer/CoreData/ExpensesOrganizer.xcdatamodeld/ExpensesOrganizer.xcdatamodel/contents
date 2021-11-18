@@ -12,6 +12,7 @@
         <attribute name="name" attributeType="String"/>
         <attribute name="recurrenceDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="recurrenceType" optional="YES" attributeType="String"/>
+        <attribute name="sendsNotification" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
         <attribute name="value" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <relationship name="paymentMethod" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Wallet" inverseName="item" inverseEntity="Wallet"/>
         <relationship name="template" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Template" inverseName="items" inverseEntity="Template"/>
@@ -19,6 +20,7 @@
     <entity name="Template" representedClassName=".Template" syncable="YES" codeGenerationType="category">
         <attribute name="isExpense" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="name" attributeType="String"/>
+        <attribute name="templateDescription" optional="YES" attributeType="String"/>
         <attribute name="templateIconName" optional="YES" attributeType="String"/>
         <attribute name="templateID" attributeType="UUID" usesScalarValueType="NO"/>
         <relationship name="items" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Item" inverseName="template" inverseEntity="Item"/>
@@ -37,12 +39,12 @@
         <attribute name="value" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="walletID" attributeType="UUID" usesScalarValueType="NO"/>
         <relationship name="item" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Item" inverseName="paymentMethod" inverseEntity="Item"/>
-        <relationship name="template" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Template" inverseName="paymentMethod" inverseEntity="Template"/>
+        <relationship name="template" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Template" inverseName="paymentMethod" inverseEntity="Template"/>
     </entity>
     <elements>
         <element name="Goal" positionX="153.6805419921875" positionY="-194.7109985351562" width="128" height="133"/>
-        <element name="Item" positionX="-18" positionY="81" width="128" height="119"/>
-        <element name="Template" positionX="-36" positionY="72" width="128" height="119"/>
+        <element name="Item" positionX="-18" positionY="81" width="128" height="134"/>
+        <element name="Template" positionX="-36" positionY="72" width="128" height="134"/>
         <element name="Transaction" positionX="0" positionY="99" width="128" height="89"/>
         <element name="Wallet" positionX="-63" positionY="-18" width="128" height="134"/>
     </elements>

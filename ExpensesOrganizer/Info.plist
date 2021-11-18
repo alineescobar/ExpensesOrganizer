@@ -9,6 +9,8 @@
 		<string>WorkSans-Bold.ttf</string>
 		<string>WorkSans-Medium.ttf</string>
 	</array>
+	<key>UIViewControllerBasedStatusBarAppearance</key>
+	<true/>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>

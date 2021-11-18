@@ -72,15 +72,16 @@
 
 // MARK: Planning List
 "PlanningTitle" = "Planning";
-"AddButton" = "Create a new template";
+"AddButton" = "Create a new planning";
 
 // MARK: Planning Add
-"AddPlanningTitle" = "New template";
-"PlanningCreationPlanningName" = "Template name";
-"PlanningCreationPlanningNamePlaceholder" = "New template's name";
+"AddPlanningTitle" = "New planning";
+"PlanningCreationPlanningName" = "Planning name";
+"PlanningCreationPlanningNamePlaceholder" = "New planning's name";
 "PlanningCreationPayWith"= "Pay with";
-"PlanningCreationIcon"= "Template icon";
+"PlanningCreationIcon"= "Planning icon";
 "PlanningCreationButtonLabel" = "Create a new item";
+"NewPlanningCreated" = "Your new planning was successfully added.";
 
 // MARK: alert section of this screen
 "title" = "Alert!";

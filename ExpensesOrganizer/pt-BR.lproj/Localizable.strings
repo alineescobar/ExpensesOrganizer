@@ -80,6 +80,7 @@
 "PlanningCreationPayWith"= "Pagar com";
 "PlanningCreationIcon"= "Ícone do planejamento";
 "PlanningCreationButtonLabel" = "Criar novo item";
+"NewPlanningCreated" = "Seu novo planejamento foi adicionado com sucesso.";
 
 // MARK: alert section of this screen
 "title" = "Aviso!";

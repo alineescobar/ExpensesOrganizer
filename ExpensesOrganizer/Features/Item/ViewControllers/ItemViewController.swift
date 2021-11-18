@@ -20,6 +20,7 @@ enum ItemCategory: CaseIterable {
 }
 
 class ItemViewController: UIViewController {
+    private let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext
     @IBOutlet weak var navigationBarStackView: UIStackView!
     @IBOutlet weak var conclusionView: UIView!
     @IBOutlet weak var firstConclusionLabel: UILabel!
@@ -34,6 +35,23 @@ class ItemViewController: UIViewController {
         showCancelItemAlert()
     }
     @IBAction private func readyAction(_ sender: UIButton) {
+        
+        item?.name = itemName
+        item?.recurrenceType = selectedRecurrencyType.rawValue
+        item?.paymentMethod = selectedWallet
+        item?.recurrenceDate = selectedDate
+        item?.value = itemValue
+//        guard let context = self.context else {
+//            return
+//        }
+//        
+//        do {
+//            try context.save()
+//
+//        } catch {
+//            print(error.localizedDescription)
+//            return
+//        }
         UIView.animate(withDuration: 1, delay: 0, options: [.beginFromCurrentState]) {
             self.navigationBarStackView.alpha = 0
             self.tableView.alpha = 0
@@ -41,6 +59,7 @@ class ItemViewController: UIViewController {
         }
         itemDelegate?.updateItem()
     }
+    
     @IBAction private func readyConclusionAction(_ sender: UIButton) {
         self.dismiss(animated: true)
     }
@@ -48,6 +67,8 @@ class ItemViewController: UIViewController {
     var isEditingItem: Bool = false
     var item: Item?
     weak var itemDelegate: ItemDelegate?
+    private var itemName: String = ""
+    private var itemValue: Double = 0.0
     private var selectedWallet: Wallet?
     private var selectedRecurrencyType: RecurrencyTypes = .never
     private var selectedDate: Date = Date()
@@ -67,6 +88,17 @@ class ItemViewController: UIViewController {
         firstConclusionLabel.text = NSLocalizedString("AllRight", comment: "")
         secondConclusionLabel.text = isEditingItem ? NSLocalizedString("UpdatedItem", comment: "") : NSLocalizedString("NewItemCreated", comment: "")
         readyConclusionButton.setTitle(NSLocalizedString("OKConfirmation", comment: ""), for: .normal)
+        
+        guard let item = self.item else {
+            return
+        }
+        
+        itemNameLabel.text = isEditingItem ? item.name : NSLocalizedString("NewItem", comment: "")
+        itemValue = item.value
+        itemName = item.name ?? ""
+        selectedDate = item.recurrenceDate ?? Date()
+        selectedRecurrencyType = RecurrencyTypes(rawValue: item.recurrenceType ?? "Never") ?? .never
+        selectedWallet = item.paymentMethod
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -122,6 +154,7 @@ extension ItemViewController: UITableViewDelegate {
 
 extension ItemViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         let itemCategory = itemCategories[indexPath.row]
         
         switch itemCategory {
@@ -130,6 +163,8 @@ extension ItemViewController: UITableViewDataSource {
             else {
                 return UITableViewCell()
             }
+            cell.currencyTextField.text = String(format: "%.2f", itemValue).currencyInputFormatting()
+            cell.currencyDelegate = self
             return cell
             
         case .description:
@@ -138,6 +173,9 @@ extension ItemViewController: UITableViewDataSource {
                 return UITableViewCell()
             }
             cell.descriptionLabel.text = NSLocalizedString("ItemName", comment: "")
+            cell.descriptionTextField.text = itemName
+            cell.descriptionTextField.placeholder = NSLocalizedString("ItemName", comment: "")
+            cell.descriptionDelegate = self
             return cell
         
         case .wallets:
@@ -147,7 +185,7 @@ extension ItemViewController: UITableViewDataSource {
             }
             cell.payWithLabel.text = NSLocalizedString("PayWith", comment: "")
             cell.walletSelectionDelegate = self
-            cell.selectedWalletLabel.text = selectedWallet?.name ?? "No meu bolso"
+            cell.selectedWalletLabel.text = selectedWallet?.name ?? ""
             return cell
             
         case .planning:
@@ -275,5 +313,17 @@ extension ItemViewController: WalletSelectionDelegate {
     func didTapWallet(wallet: Wallet) {
         selectedWallet = wallet
         tableView.reloadData()
+    }
+}
+
+extension ItemViewController: CurrencyDelegate {
+    func currencyValueHasChanged(currency: Double) {
+        itemValue = currency
+    }
+}
+
+extension ItemViewController: DescriptionDelegate {
+    func descriptionDidChanged(description: String) {
+        itemName = description
     }
 }

@@ -37,7 +37,7 @@ class PlanningViewController: UIViewController, UICollectionViewDelegate, UIView
         setUpCollection()
         
         // MARK: Adding a new planning button
-        newPlanningButton.backgroundColor = UIColor(named: "TertiaryBrandColor")
+        newPlanningButton.backgroundColor = UIColor(named: "PrimaryBrandColor")
         newPlanningButton.layer.cornerRadius = 20
         newPlanningButton.setTitle(NSLocalizedString("AddButton", comment: ""), for: .normal)
         
@@ -45,7 +45,7 @@ class PlanningViewController: UIViewController, UICollectionViewDelegate, UIView
         segmentedControl.setTitle(NSLocalizedString("FirstSegmentedControl", comment: ""), forSegmentAt: 0)
         segmentedControl.setTitle(NSLocalizedString("SecondSegmentedControl", comment: ""), forSegmentAt: 1)
         let fontNormal = UIFont(name: "WorkSans-Regular", size: 14)
-        let fontBold = UIFont(name: "WorkSans-Medium", size: 14)
+        let fontBold = UIFont(name: "WorkSans-Semibold", size: 14)
         segmentedControl.setTitleTextAttributes([NSAttributedString.Key.font: fontNormal as Any, NSAttributedString.Key.foregroundColor: UIColor(named: "TertiaryBrandColor") as Any], for: .normal)
         segmentedControl.setTitleTextAttributes([NSAttributedString.Key.font: fontBold as Any, NSAttributedString.Key.foregroundColor: UIColor(named: "TertiaryBrandColor") as Any], for: .selected)
         
@@ -85,7 +85,25 @@ class PlanningViewController: UIViewController, UICollectionViewDelegate, UIView
             print(error.localizedDescription)
         }
     }
-     
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+            guard let index = sender as? Int else {
+                let addNewPlanningViewController = segue.destination as? AddNewPlanningViewController
+                addNewPlanningViewController?.modalHandlerDelegate = self
+                return
+            }
+            
+            if segmentedControl.selectedSegmentIndex == 0 {
+                let planningDetailViewController = segue.destination as? PlanningDetailViewController
+                planningDetailViewController?.template = outcomeTemplates[index]
+                planningDetailViewController?.modalHandlerDelegate = self
+            } else {
+                let planningDetailViewController = segue.destination as? PlanningDetailViewController
+                planningDetailViewController?.template = incomeTemplates[index]
+                planningDetailViewController?.modalHandlerDelegate = self
+            }
+            
+        }
 }
 
 extension PlanningViewController: UICollectionViewDataSource {
@@ -134,4 +152,12 @@ extension PlanningViewController: UICollectionViewDelegateFlowLayout {
     }
 }
 
+extension PlanningViewController: ModalHandlerDelegate {
+    func modalDismissed() {
+        loadTemplates()
+        planningCollectionView.reloadData()
+        self.navigationItem.title = NSLocalizedString("PlanningTitle", comment: "")
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "WorkSans-Bold", size: 20) as Any, NSAttributedString.Key.foregroundColor: UIColor(named: "TertiaryBrandColor") as Any]
+    }
+}
 //    swiftlint:enable line_length
