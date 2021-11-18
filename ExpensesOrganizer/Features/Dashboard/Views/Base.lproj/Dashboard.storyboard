@@ -32,9 +32,29 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rbi-wG-tAo">
                                 <rect key="frame" x="0.0" y="-68" width="414" height="417"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="right_up" translatesAutoresizingMaskIntoConstraints="NO" id="f3q-yG-JIB">
+                                        <rect key="frame" x="234" y="0.0" width="180" height="240"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="240" id="RaY-FG-mho"/>
+                                            <constraint firstAttribute="width" constant="180" id="wNm-37-IWS"/>
+                                        </constraints>
+                                    </imageView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="left_down" translatesAutoresizingMaskIntoConstraints="NO" id="JVp-BQ-YE8">
+                                        <rect key="frame" x="0.0" y="257" width="180" height="160"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="180" id="8PN-AN-rXt"/>
+                                            <constraint firstAttribute="height" constant="160" id="SxF-qJ-cu4"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
                                 <color key="backgroundColor" name="TertiaryBrandColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="417" id="HLW-5e-aWd"/>
+                                    <constraint firstItem="f3q-yG-JIB" firstAttribute="top" secondItem="rbi-wG-tAo" secondAttribute="top" id="dLU-Lc-LHU"/>
+                                    <constraint firstItem="JVp-BQ-YE8" firstAttribute="leading" secondItem="rbi-wG-tAo" secondAttribute="leading" id="sP0-zI-8cN"/>
+                                    <constraint firstAttribute="trailing" secondItem="f3q-yG-JIB" secondAttribute="trailing" id="stD-PH-Zh3"/>
+                                    <constraint firstAttribute="bottom" secondItem="JVp-BQ-YE8" secondAttribute="bottom" id="voN-za-SDO"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
@@ -580,7 +600,9 @@
         <image name="Target" width="25" height="24"/>
         <image name="Wallet" width="25" height="24"/>
         <image name="chevron.down" catalog="system" width="128" height="72"/>
+        <image name="left_down" width="195" height="163"/>
         <image name="person" catalog="system" width="128" height="117"/>
+        <image name="right_up" width="129" height="168"/>
         <namedColor name="SecondaryBrandColor">
             <color red="0.92156862745098034" green="0.0" blue="0.10588235294117647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
