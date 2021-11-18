@@ -152,7 +152,7 @@ extension WalletsViewController: UITableViewDataSource {
                     return UITableViewCell()
                 }
                 cell.balanceDelegate = self
-                cell.currentBalanceButton.setImage(isShowingBalance ? UIImage(systemName: "eye") : UIImage(systemName: "eyebrow"), for: .normal)
+                cell.currentBalanceButton.setImage(isShowingBalance ? UIImage(named: "Eye") : UIImage(named: "EyeClosed"), for: .normal)
                 cell.balanceLabel.alpha = isShowingBalance ? 1 : 0
                 cell.stackJustForBalance.setBackgroundColor(color: isShowingBalance ? UIColor.clear : UIColor.lightGray)
                 cell.balanceLabel.attributedText = getFormattedBalance(balance: totalBalance, smallTextSize: 13.6, type: .screen)

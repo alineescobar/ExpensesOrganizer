@@ -163,9 +163,6 @@
                                                             <color key="tintColor" name="TertiaryBrandColor"/>
                                                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                             <state key="normal" title="" image="DotsThreeVertical"/>
-                                                            <connections>
-                                                                <segue destination="URw-AU-7QW" kind="presentation" identifier="walletDetailSegue" id="Ybn-kQ-Fzo"/>
-                                                            </connections>
                                                         </button>
                                                     </subviews>
                                                     <color key="backgroundColor" systemColor="systemGray6Color"/>
@@ -246,6 +243,7 @@
                         <outlet property="backgroundConstrain" destination="Ka2-0Z-F9S" id="rUL-7i-AnH"/>
                         <outlet property="backgroundView" destination="Ccy-Qu-9yb" id="0u0-QJ-z91"/>
                         <outlet property="walletsTableView" destination="Ji7-FR-Dof" id="2tB-HC-nSA"/>
+                        <segue destination="URw-AU-7QW" kind="presentation" identifier="walletDetailSegue" id="Mma-4W-cwI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
