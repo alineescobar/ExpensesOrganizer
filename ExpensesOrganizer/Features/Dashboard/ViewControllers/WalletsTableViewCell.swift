@@ -17,10 +17,28 @@ class WalletsTableViewCell: UITableViewCell {
     @IBOutlet weak var walletsCollectionView: UICollectionView!
     weak var walletsDelegate: WalletsCellDelegate?
     
+    private let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext
+    private var wallets: [Wallet] = []
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         walletsCollectionView.delegate = self
         walletsCollectionView.dataSource = self
+        walletsCollectionView.backgroundColor = UIColor(red: 0.898, green: 0.898, blue: 0.898, alpha: 1)
+        
+        fetchWallets()
+    }
+    
+    func fetchWallets() {
+        guard let context = self.context else {
+            return
+        }
+        
+        do {
+            wallets = try context.fetch(Wallet.fetchRequest())
+        } catch {
+            print("Erro ao carregar as carteiras.")
+        }
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -33,10 +51,13 @@ class WalletsTableViewCell: UITableViewCell {
 extension WalletsTableViewCell: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if indexPath.section == 0 {
+            let wallet = wallets[indexPath.row]
+            
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "walletCellID", for: indexPath) as? WalletCollectionViewCell
-            let balance: Double = 6434
+            let balance: Double = wallet.value
             cell?.balanceLabel.attributedText = getFormattedBalance(balance: balance, smallTextSize: 13.6, type: .card)
-            cell?.walletTitleLabel.text = "minha carteira"
+            cell?.walletTitleLabel.text = wallet.name
+            
             return cell ?? UICollectionViewCell()
         } else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "addWalletCellID", for: indexPath) as? AddWalletCollectionViewCell
@@ -46,9 +67,9 @@ extension WalletsTableViewCell: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if section == 0 {
-            return 5
+            return wallets.count
         } else {
-            return 1
+            return 1 // botao de +
         }
     }
     

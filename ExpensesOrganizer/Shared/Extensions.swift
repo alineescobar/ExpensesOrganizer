@@ -85,7 +85,7 @@ extension String {
     }
 }
 
-func getFormattedBalance(balance: Double, smallTextSize: CGFloat, type: UIType) -> NSAttributedString {
+func getFormattedBalance(balance: Double, smallTextSize: CGFloat, type: UIType, color: UIColor = UIColor.black) -> NSAttributedString {
     let currency: String = Locale.current.localizedCurrencySymbol(forCurrencyCode: Locale.current.currencyCode ?? "R$") ?? ""
     let formatter = NumberFormatter()
     formatter.numberStyle = .currency
