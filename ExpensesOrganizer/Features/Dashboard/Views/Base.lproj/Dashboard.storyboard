@@ -20,6 +20,9 @@
         <array key="WorkSans-Regular.ttf">
             <string>WorkSans-Regular</string>
         </array>
+        <array key="WorkSans-SemiBold.ttf">
+            <string>WorkSans-SemiBold</string>
+        </array>
     </customFonts>
     <scenes>
         <!--Dashboard View Controller-->
@@ -377,7 +380,7 @@
                                             <subviews>
                                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Ato-Qu-NSl">
                                                     <rect key="frame" x="0.0" y="0.0" width="414" height="110"/>
-                                                    <color key="backgroundColor" red="0.8980392157" green="0.8980392157" blue="0.8980392157" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="backgroundColor" name="GraySuport3StateColor"/>
                                                     <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="13c-1A-QXC">
                                                         <size key="itemSize" width="195" height="104"/>
                                                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -435,8 +438,46 @@
                                                                 <outlet property="walletTitleLabel" destination="GD6-rP-oDz" id="RRl-0V-7Bc"/>
                                                             </connections>
                                                         </collectionViewCell>
+                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="emptyStateID" id="QHM-Jc-P4g" customClass="WalletEmptyStateCollectionViewCell" customModule="ExpensesOrganizer" customModuleProvider="target">
+                                                            <rect key="frame" x="178" y="3" width="195" height="104"/>
+                                                            <autoresizingMask key="autoresizingMask"/>
+                                                            <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="j7P-zp-WpT">
+                                                                <rect key="frame" x="0.0" y="0.0" width="195" height="104"/>
+                                                                <autoresizingMask key="autoresizingMask"/>
+                                                                <subviews>
+                                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="FtS-aR-HMN">
+                                                                        <rect key="frame" x="12" y="12" width="171" height="73"/>
+                                                                        <subviews>
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nada aqui!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ksJ-pJ-Ngy">
+                                                                                <rect key="frame" x="0.0" y="0.0" width="171" height="30.5"/>
+                                                                                <fontDescription key="fontDescription" name="WorkSans-SemiBold" family="Work Sans" pointSize="20"/>
+                                                                                <nil key="textColor"/>
+                                                                                <nil key="highlightedColor"/>
+                                                                            </label>
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pressione o +, para adicionar uma carteira." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1sQ-td-94A">
+                                                                                <rect key="frame" x="0.0" y="30.5" width="171" height="42.5"/>
+                                                                                <fontDescription key="fontDescription" name="WorkSans-Regular" family="Work Sans" pointSize="14"/>
+                                                                                <nil key="textColor"/>
+                                                                                <nil key="highlightedColor"/>
+                                                                            </label>
+                                                                        </subviews>
+                                                                    </stackView>
+                                                                </subviews>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="bottom" secondItem="FtS-aR-HMN" secondAttribute="bottom" constant="19" id="56M-MG-wcZ"/>
+                                                                    <constraint firstItem="FtS-aR-HMN" firstAttribute="top" secondItem="j7P-zp-WpT" secondAttribute="top" constant="12" id="Azc-KW-O2q"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="FtS-aR-HMN" secondAttribute="trailing" constant="12" id="P3w-bl-pHY"/>
+                                                                    <constraint firstItem="FtS-aR-HMN" firstAttribute="leading" secondItem="j7P-zp-WpT" secondAttribute="leading" constant="12" id="niO-dx-Qdc"/>
+                                                                </constraints>
+                                                            </collectionViewCellContentView>
+                                                            <color key="backgroundColor" name="WhiteStateColor"/>
+                                                            <connections>
+                                                                <outlet property="firstEmptyStateLabel" destination="ksJ-pJ-Ngy" id="Ms0-cp-icB"/>
+                                                                <outlet property="secondEmptyStateLabel" destination="1sQ-td-94A" id="qbJ-SV-vg1"/>
+                                                            </connections>
+                                                        </collectionViewCell>
                                                         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="addWalletCellID" id="M7O-ez-ec0" customClass="AddWalletCollectionViewCell" customModule="ExpensesOrganizer" customModuleProvider="target">
-                                                            <rect key="frame" x="178" y="30" width="34" height="50"/>
+                                                            <rect key="frame" x="383" y="30" width="34" height="50"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="CCC-s7-p6u">
                                                                 <rect key="frame" x="0.0" y="0.0" width="34" height="50"/>
@@ -463,6 +504,7 @@
                                                     </cells>
                                                 </collectionView>
                                             </subviews>
+                                            <color key="backgroundColor" name="GraySuport3StateColor"/>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="Ato-Qu-NSl" secondAttribute="trailing" id="HAr-Vz-vTx"/>
                                                 <constraint firstAttribute="bottom" secondItem="Ato-Qu-NSl" secondAttribute="bottom" id="aMG-Mj-5rd"/>
@@ -479,7 +521,7 @@
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" red="0.89803921568627454" green="0.89803921568627454" blue="0.89803921568627454" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" name="GraySuport3StateColor"/>
                         <constraints>
                             <constraint firstItem="rbi-wG-tAo" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="DPV-DT-BJK"/>
                             <constraint firstItem="rbi-wG-tAo" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="-68" id="LuF-G2-guD"/>
@@ -605,6 +647,9 @@
         <image name="left_down" width="195" height="163"/>
         <image name="person" catalog="system" width="128" height="117"/>
         <image name="right_up" width="129" height="168"/>
+        <namedColor name="GraySuport3StateColor">
+            <color red="0.97254901960784312" green="0.97254901960784312" blue="0.97254901960784312" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="SecondaryBrandColor">
             <color red="0.92156862745098034" green="0.0" blue="0.10588235294117647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

@@ -42,7 +42,8 @@
                             </segmentedControl>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="wZP-lm-JPZ">
                                 <rect key="frame" x="0.0" y="137" width="414" height="597"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" name="GraySuport3StateColor"/>
+                                <color key="sectionIndexBackgroundColor" name="GraySuport3StateColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="planningName" rowHeight="126" id="JeJ-0e-jqe" customClass="PlanningNameTableViewCell" customModule="ExpensesOrganizer" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="44.5" width="414" height="126"/>
@@ -76,6 +77,7 @@
                                                     </constraints>
                                                 </imageView>
                                             </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="MWi-Yx-h6y" secondAttribute="trailing" constant="24" id="0f1-gP-7Ch"/>
                                                 <constraint firstItem="k6f-Iq-5rL" firstAttribute="top" secondItem="HXV-cp-E5b" secondAttribute="bottom" constant="22" id="4Sl-sm-QjZ"/>
@@ -89,6 +91,7 @@
                                                 <constraint firstItem="HXV-cp-E5b" firstAttribute="top" secondItem="LoG-yN-jMg" secondAttribute="top" constant="16" id="pom-Oj-5e1"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
                                             <outlet property="planningNameLabel" destination="HXV-cp-E5b" id="MFC-KZ-VGW"/>
                                             <outlet property="planningNameTextField" destination="MWi-Yx-h6y" id="roe-Ne-mhd"/>
@@ -122,6 +125,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstItem="eJw-LJ-KRs" firstAttribute="top" secondItem="0g2-C1-aYb" secondAttribute="bottom" constant="22" id="3qc-mU-2OU"/>
                                                 <constraint firstItem="uig-el-Z9C" firstAttribute="top" secondItem="0g2-C1-aYb" secondAttribute="bottom" constant="22" id="8Ju-uN-fTV"/>
@@ -135,6 +139,7 @@
                                                 <constraint firstItem="uig-el-Z9C" firstAttribute="leading" secondItem="4WV-Hg-dMr" secondAttribute="leading" constant="42" id="oQF-YU-8UR"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
                                             <outlet property="planningPaymentLabel" destination="0g2-C1-aYb" id="igy-wT-Vdq"/>
                                             <outlet property="planningPaymentWallet" destination="eJw-LJ-KRs" id="G7I-BL-sGb"/>
@@ -162,6 +167,7 @@
                                                     </constraints>
                                                 </imageView>
                                             </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstAttribute="bottom" secondItem="KgD-ir-BUo" secondAttribute="bottom" constant="34" id="3aj-Y9-z5G"/>
                                                 <constraint firstItem="7Ne-a8-NvT" firstAttribute="leading" secondItem="kvz-N2-TUa" secondAttribute="leading" constant="24" id="VAz-xE-pIM"/>
@@ -171,6 +177,7 @@
                                                 <constraint firstItem="KgD-ir-BUo" firstAttribute="top" secondItem="7Ne-a8-NvT" secondAttribute="bottom" constant="22" id="gnJ-cf-uKo"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
                                             <outlet property="planningIcon" destination="KgD-ir-BUo" id="J1K-uT-2PU"/>
                                             <outlet property="planningIconLabel" destination="7Ne-a8-NvT" id="GIW-6h-M08"/>
@@ -196,6 +203,7 @@
                                                     </connections>
                                                 </button>
                                             </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstItem="Ssm-Hx-vZK" firstAttribute="top" secondItem="Fiv-ae-hPl" secondAttribute="top" constant="40" id="GPp-3r-hRy"/>
                                                 <constraint firstItem="Ssm-Hx-vZK" firstAttribute="leading" secondItem="Fiv-ae-hPl" secondAttribute="leading" constant="24" id="ZT8-eh-Yj4"/>
@@ -203,6 +211,7 @@
                                                 <constraint firstAttribute="bottom" secondItem="Ssm-Hx-vZK" secondAttribute="bottom" id="vMv-EA-USB"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
                                             <outlet property="newPlanningButton" destination="Ssm-Hx-vZK" id="hrc-h8-0VD"/>
                                         </connections>
@@ -244,7 +253,7 @@
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="GraySuport3StateColor"/>
                         <constraints>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="wZP-lm-JPZ" secondAttribute="bottom" constant="128" id="6tf-pY-ifo"/>
                             <constraint firstItem="wZP-lm-JPZ" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="70o-e4-pFt"/>
@@ -507,6 +516,9 @@
         <image name="plus" catalog="system" width="128" height="113"/>
         <namedColor name="GraySuport1StateColor">
             <color red="0.40000000000000002" green="0.40000000000000002" blue="0.42352941176470588" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="GraySuport3StateColor">
+            <color red="0.97254901960784312" green="0.97254901960784312" blue="0.97254901960784312" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="PrimaryBrandColor">
             <color red="0.14509803921568629" green="0.16862745098039217" blue="0.39215686274509803" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

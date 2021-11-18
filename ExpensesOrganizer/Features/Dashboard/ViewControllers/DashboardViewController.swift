@@ -53,8 +53,6 @@ class DashboardViewController: UIViewController {
         } catch {
             print("erro ao carregar as wallets")
         }
-        
-        view.backgroundColor = UIColor(red: 0.898, green: 0.898, blue: 0.898, alpha: 1)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -142,11 +140,11 @@ struct TransactionMock {
     var imageName: String
     
     static var mock = [
-        TransactionMock(name: "Netflix", tag: "Subscription", price: "-50,00", date: "9:41 AM", imageName: "play.tv"),
-        TransactionMock(name: "Zaffari", tag: "Market", price: "-400,00", date: "7 nov", imageName: "cart"),
-        TransactionMock(name: "College", tag: "Education", price: "-2800,00", date: "28 out", imageName: "graduationcap"),
-        TransactionMock(name: "Udemy", tag: "Education", price: "-29,50", date: "20 out", imageName: "graduationcap"),
-        TransactionMock(name: "Alura", tag: "Education", price: "-270,50", date: "20 out", imageName: "graduationcap")
+        TransactionMock(name: "Netflix", tag: "Subscription", price: "-$50.00", date: "9:41 AM", imageName: "play.tv"),
+        TransactionMock(name: "Zaffari", tag: "Market", price: "-$400.00", date: "7 nov", imageName: "cart"),
+        TransactionMock(name: "College", tag: "Education", price: "-$2,800.00", date: "28 out", imageName: "graduationcap"),
+        TransactionMock(name: "Udemy", tag: "Education", price: "-$29.50", date: "20 out", imageName: "graduationcap"),
+        TransactionMock(name: "Alura", tag: "Education", price: "-$270.50", date: "20 out", imageName: "graduationcap")
     ]
 }
 
@@ -206,6 +204,7 @@ extension DashboardViewController: UITableViewDataSource {
                 return UITableViewCell()
             }
             cell.walletsDelegate = self
+            cell.backgroundColor = UIColor(named: "GraySuport3StateColor")
             cell.fetchWallets()
             cell.walletsCollectionView.reloadData()
             return cell
@@ -218,7 +217,7 @@ extension DashboardViewController: UITableViewDataSource {
             let mock = TransactionMock.mock[indexPath.row - 6]
             
             cell.selectionStyle = .none
-            cell.backgroundColor = UIColor(red: 0.898, green: 0.898, blue: 0.898, alpha: 1)
+            cell.backgroundColor = UIColor(named: "GraySuport3StateColor")
             cell.transactionName.text = mock.name
             cell.transactionTag.text = mock.tag
             cell.transactionDate.text = mock.date
@@ -232,7 +231,7 @@ extension DashboardViewController: UITableViewDataSource {
                 return UITableViewCell()
             }
             cell.selectionStyle = .none
-            cell.backgroundColor = UIColor(red: 0.898, green: 0.898, blue: 0.898, alpha: 1)
+            cell.backgroundColor = UIColor(named: "GraySuport3StateColor")
             
             cell.transactionsDelegate = self
             

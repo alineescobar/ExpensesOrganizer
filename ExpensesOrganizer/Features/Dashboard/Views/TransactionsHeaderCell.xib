@@ -48,11 +48,11 @@
                     </button>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="bottom" secondItem="ypd-KW-0tj" secondAttribute="bottom" constant="26" id="IJU-wS-f9e"/>
+                    <constraint firstAttribute="bottom" secondItem="ypd-KW-0tj" secondAttribute="bottom" constant="10" id="IJU-wS-f9e"/>
                     <constraint firstItem="LZf-hz-wa5" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="24" id="djz-tZ-NMB"/>
                     <constraint firstItem="LZf-hz-wa5" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="iCJ-Qh-bVt"/>
                     <constraint firstAttribute="trailing" secondItem="ypd-KW-0tj" secondAttribute="trailing" constant="24" id="leN-bd-PNn"/>
-                    <constraint firstAttribute="bottom" secondItem="LZf-hz-wa5" secondAttribute="bottom" constant="26" id="q8h-Ci-bD7"/>
+                    <constraint firstAttribute="bottom" secondItem="LZf-hz-wa5" secondAttribute="bottom" constant="10" id="q8h-Ci-bD7"/>
                     <constraint firstItem="ypd-KW-0tj" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="qyY-7I-0VW"/>
                 </constraints>
             </tableViewCellContentView>

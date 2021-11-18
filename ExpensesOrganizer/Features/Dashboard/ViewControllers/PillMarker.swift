@@ -52,7 +52,7 @@ class PillMarker: MarkerImage {
         // add the text
         labelText.draw(with: rectangle, options: .usesLineFragmentOrigin, attributes: attrs, context: nil)
         let circleRect = CGRect(x: point.x - 4, y: point.y - 4, width: 4 * 2, height: 4 * 2)
-                context.setFillColor(color.cgColor)
+        context.setFillColor(UIColor(named: "SecondaryBrandColor")?.cgColor ?? UIColor.white.cgColor)
                 context.fillEllipse(in: circleRect)
                 
                 context.restoreGState()

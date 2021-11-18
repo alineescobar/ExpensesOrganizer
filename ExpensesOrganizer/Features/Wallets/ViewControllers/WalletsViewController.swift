@@ -101,6 +101,13 @@ extension WalletsViewController: UITableViewDelegate {
                 break
             }
         } else {
+            if wallets.isEmpty {
+                if indexPath.row == 0 {
+                    return 120
+                } else {
+                    return UITableView.automaticDimension
+                }
+            }
             if indexPath.row != wallets.count {
                 return 120
             }
@@ -126,6 +133,9 @@ extension WalletsViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 1 {
+            if wallets.isEmpty {
+                return
+            }
             if indexPath.row != wallets.count {
                 self.performSegue(withIdentifier: "walletDetailSegue", sender: indexPath.row)
             }
@@ -138,7 +148,7 @@ extension WalletsViewController: UITableViewDataSource {
         if section == 0 {
             return walletsCategories.count
         } else {
-            return wallets.count + 1
+            return wallets.isEmpty ? 2 : wallets.count + 1
         }
     }
     
@@ -171,6 +181,24 @@ extension WalletsViewController: UITableViewDataSource {
                 return UITableViewCell()
             }
         } else {
+            if wallets.isEmpty {
+                if indexPath.row == 1 {
+                    guard let cell = tableView.dequeueReusableCell(withIdentifier: "AddWalletInsideTableViewCellID", for: indexPath) as? AddWalletInsideTableViewCell
+                    else {
+                        return UITableViewCell()
+                    }
+                    cell.selectionStyle = .none
+                    return cell
+                } else {
+                    guard let cell = tableView.dequeueReusableCell(withIdentifier: "WalletEmptyStateTableViewCellID", for: indexPath) as? WalletEmptyStateTableViewCell
+                    else {
+                        return UITableViewCell()
+                    }
+                    cell.selectionStyle = .none
+                    return cell
+                }
+            }
+            
             if indexPath.row == wallets.count {
                 guard let cell = tableView.dequeueReusableCell(withIdentifier: "AddWalletInsideTableViewCellID", for: indexPath) as? AddWalletInsideTableViewCell
                 else {

@@ -104,6 +104,8 @@
 		F1BBB942273C5FF300B5746D /* WalletSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BBB941273C5FF300B5746D /* WalletSelectionViewController.swift */; };
 		F1BBB9442745763D00B5746D /* Templates.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BBB9432745763D00B5746D /* Templates.swift */; };
 		F1BBB9462746259100B5746D /* OkAdditionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BBB9452746259100B5746D /* OkAdditionViewController.swift */; };
+		F1BBB9482746C9C300B5746D /* WalletEmptyStateCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BBB9472746C9C200B5746D /* WalletEmptyStateCollectionViewCell.swift */; };
+		F1BBB94A2746CECF00B5746D /* WalletEmptyStateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BBB9492746CECF00B5746D /* WalletEmptyStateTableViewCell.swift */; };
 		F1CE7149272C8647002D6020 /* CurrencyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CE7148272C8647002D6020 /* CurrencyTableViewCell.swift */; };
 		F1CE714B272C867C002D6020 /* DescriptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CE714A272C867C002D6020 /* DescriptionTableViewCell.swift */; };
 		F1CE714D272C8776002D6020 /* PlanningTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CE714C272C8776002D6020 /* PlanningTableViewCell.swift */; };
@@ -217,6 +219,8 @@
 		F1BBB941273C5FF300B5746D /* WalletSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletSelectionViewController.swift; sourceTree = "<group>"; };
 		F1BBB9432745763D00B5746D /* Templates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Templates.swift; sourceTree = "<group>"; };
 		F1BBB9452746259100B5746D /* OkAdditionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OkAdditionViewController.swift; sourceTree = "<group>"; };
+		F1BBB9472746C9C200B5746D /* WalletEmptyStateCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletEmptyStateCollectionViewCell.swift; sourceTree = "<group>"; };
+		F1BBB9492746CECF00B5746D /* WalletEmptyStateTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletEmptyStateTableViewCell.swift; sourceTree = "<group>"; };
 		F1CE7148272C8647002D6020 /* CurrencyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyTableViewCell.swift; sourceTree = "<group>"; };
 		F1CE714A272C867C002D6020 /* DescriptionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionTableViewCell.swift; sourceTree = "<group>"; };
 		F1CE714C272C8776002D6020 /* PlanningTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanningTableViewCell.swift; sourceTree = "<group>"; };
@@ -490,6 +494,7 @@
 				16D0B25B27286CDA007BE30E /* TransactionsHeaderCell.swift */,
 				077CAFF727273759007D58C1 /* WalletsTableViewCell.swift */,
 				077CAFF927274147007D58C1 /* WalletCollectionViewCell.swift */,
+				F1BBB9472746C9C200B5746D /* WalletEmptyStateCollectionViewCell.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -619,6 +624,7 @@
 				F196D511272476BE00CCAF81 /* WalletsViewController.swift */,
 				07E20F2D272C80F90087835E /* BalanceInsideTableViewCell.swift */,
 				07E20F2F27345B370087835E /* AddWalletInsideTableViewCell.swift */,
+				F1BBB9492746CECF00B5746D /* WalletEmptyStateTableViewCell.swift */,
 				07E20F3127345B7E0087835E /* WalletsInsideTableViewCell.swift */,
 			);
 			path = ViewControllers;
@@ -905,7 +911,9 @@
 				F1BBB9442745763D00B5746D /* Templates.swift in Sources */,
 				71FED85427330E1700B90A5A /* AddExpenseViewController.swift in Sources */,
 				71CD631627359B9C007A3D75 /* AddExpenseCalendarViewController.swift in Sources */,
+				F1BBB9482746C9C300B5746D /* WalletEmptyStateCollectionViewCell.swift in Sources */,
 				F196D512272476BE00CCAF81 /* WalletsViewController.swift in Sources */,
+				F1BBB94A2746CECF00B5746D /* WalletEmptyStateTableViewCell.swift in Sources */,
 				71FED8642733153000B90A5A /* AddExpensePaymentCell.swift in Sources */,
 				16279ACE273F03EE005A01B8 /* PlanningIconSelectionViewController.swift in Sources */,
 				7140E5B72735102C00685927 /* AddIncomeAllDoneViewController.swift in Sources */,
