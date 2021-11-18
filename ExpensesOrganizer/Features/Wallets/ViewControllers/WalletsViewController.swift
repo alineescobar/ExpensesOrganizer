@@ -42,7 +42,6 @@ class WalletsViewController: UIViewController {
         navigationController?.navigationBar.barTintColor = UIColor.gray
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "WorkSans-SemiBold", size: 20) as Any,
             NSAttributedString.Key.foregroundColor: UIColor.white]
-        setNeedsStatusBarAppearanceUpdate()
         guard let context = self.context else {
             return
         }
@@ -52,6 +51,12 @@ class WalletsViewController: UIViewController {
         } catch {
             showWalletsFetchFailedAlert()
         }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        navigationController?.navigationBar.barStyle = .black
     }
     
     func showWalletsFetchFailedAlert() {
@@ -82,10 +87,6 @@ class WalletsViewController: UIViewController {
         let walletDetailViewController = segue.destination as? WalletDetailViewController
         walletDetailViewController?.wallet = wallets[index]
         walletDetailViewController?.modalHandlerDelegate = self
-    }
-    
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        .lightContent
     }
 }
 
@@ -154,7 +155,8 @@ extension WalletsViewController: UITableViewDataSource {
                 cell.balanceDelegate = self
                 cell.currentBalanceButton.setImage(isShowingBalance ? UIImage(named: "Eye") : UIImage(named: "EyeClosed"), for: .normal)
                 cell.balanceLabel.alpha = isShowingBalance ? 1 : 0
-                cell.stackJustForBalance.setBackgroundColor(color: isShowingBalance ? UIColor.clear : UIColor.lightGray)
+                cell.stackJustForBalance.setBackgroundColor(color: isShowingBalance ? UIColor.clear : UIColor.white.withAlphaComponent(0.5))
+                cell.stackJustForBalance.layer.cornerRadius = 4
                 cell.balanceLabel.attributedText = getFormattedBalance(balance: totalBalance, smallTextSize: 13.6, type: .screen)
                 cell.selectionStyle = .none
                 return cell
