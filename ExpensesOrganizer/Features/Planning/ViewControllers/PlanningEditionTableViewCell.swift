@@ -7,7 +7,13 @@
 
 import UIKit
 
+protocol PlanningEditionDelegate: AnyObject {
+    func didChangePlanningName(name: String)
+    func didChangePlanningDescription(description: String)
+}
+
 class PlanningEditionTableViewCell: UITableViewCell {
+    weak var planningEditionDelegate: PlanningEditionDelegate?
     @IBOutlet weak var circleView: UIView!
     @IBOutlet weak var planningIcon: UIImageView!
     @IBOutlet weak var planningTitleTextField: UITextField!
@@ -18,6 +24,14 @@ class PlanningEditionTableViewCell: UITableViewCell {
     }
     @IBAction private func planningDescriptionEditionAction(_ sender: UIButton) {
         planningDescriptionTextField.becomeFirstResponder()
+    }
+    
+    @IBAction private func didChangePlanningName(_ sender: UITextField) {
+        planningEditionDelegate?.didChangePlanningName(name: sender.text ?? "")
+    }
+    
+    @IBAction private func didChangePlanningDescription(_ sender: UITextField) {
+        planningEditionDelegate?.didChangePlanningDescription(description: sender.text ?? "")
     }
     
     override func awakeFromNib() {

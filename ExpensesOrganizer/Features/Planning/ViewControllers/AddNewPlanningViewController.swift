@@ -28,6 +28,7 @@ class AddNewPlanningViewController: UIViewController, UITableViewDelegate {
     private var selectedWallet: Wallet?
     private let newPlanningCategories: [NewPlanningCategories] = NewPlanningCategories.allCases
     private let interactor = Interactor()
+    weak var modalHandlerDelegate: ModalHandlerDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -72,6 +73,11 @@ class AddNewPlanningViewController: UIViewController, UITableViewDelegate {
     
     @IBAction private func cancelButton(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
+    }
+    
+    @IBAction private func doneAction(_ sender: UIButton) {
+        // TODO: Save new Template
+        modalHandlerDelegate?.modalDismissed()
     }
     
     func fetchAllWallets() -> [Wallet] {

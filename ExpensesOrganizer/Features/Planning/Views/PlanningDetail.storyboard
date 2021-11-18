@@ -103,6 +103,9 @@
                                                                     <rect key="frame" x="0.0" y="0.0" width="66" height="30"/>
                                                                     <fontDescription key="fontDescription" name="WorkSans-Medium" family="Work Sans" pointSize="20"/>
                                                                     <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                                                    <connections>
+                                                                        <action selector="didChangePlanningName:" destination="Nbu-Da-WTE" eventType="editingChanged" id="tBI-hu-4XT"/>
+                                                                    </connections>
                                                                 </textField>
                                                                 <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="754" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Amt-2h-CLt">
                                                                     <rect key="frame" x="74" y="0.0" width="24" height="30"/>
@@ -122,6 +125,9 @@
                                                                     <rect key="frame" x="0.0" y="0.0" width="164" height="30"/>
                                                                     <fontDescription key="fontDescription" name="WorkSans-Regular" family="Work Sans" pointSize="16"/>
                                                                     <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                                                    <connections>
+                                                                        <action selector="didChangePlanningDescription:" destination="Nbu-Da-WTE" eventType="editingChanged" id="7Zj-Cf-o2L"/>
+                                                                    </connections>
                                                                 </textField>
                                                                 <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="754" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rhr-cp-6k7">
                                                                     <rect key="frame" x="172" y="0.0" width="24" height="30"/>
@@ -273,6 +279,7 @@
                                             <outlet property="itemRecurrencyLabel" destination="nmm-tN-PDd" id="jk3-n7-V7P"/>
                                             <outlet property="itemValueLabel" destination="bC4-9H-0tO" id="gjM-iJ-2SS"/>
                                             <outlet property="notificationLabel" destination="7eP-cF-aua" id="SEs-hA-QNl"/>
+                                            <outlet property="notificationSwitch" destination="Puf-ke-Ct1" id="GSl-pK-qTS"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

@@ -71,7 +71,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="backspaceButton" destination="Jer-EX-KAV" id="st2-cS-Qll"/>
-                                            <outlet property="currencyTextField" destination="4PZ-92-hwa" id="tBz-qm-VBI"/>
+                                            <outlet property="currencyTextField" destination="4PZ-92-hwa" id="vZL-CK-Y7N"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="descriptionCell" rowHeight="167" id="xXj-b4-C9l" customClass="DescriptionTableViewCell" customModule="ExpensesOrganizer" customModuleProvider="target">
@@ -105,7 +105,7 @@
                                                                     <fontDescription key="fontDescription" name="WorkSans-Regular" family="Work Sans" pointSize="16"/>
                                                                     <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
                                                                     <connections>
-                                                                        <action selector="didTextFieldEditingChanged:" destination="xXj-b4-C9l" eventType="editingDidEnd" id="GkC-Yk-Blu"/>
+                                                                        <action selector="didTextFieldEditingChanged:" destination="xXj-b4-C9l" eventType="editingDidEnd" id="SpC-vB-RHj"/>
                                                                     </connections>
                                                                 </textField>
                                                             </subviews>
@@ -133,7 +133,7 @@
                                         <connections>
                                             <outlet property="cellImageView" destination="OqD-IX-wgI" id="99D-v6-fP8"/>
                                             <outlet property="descriptionLabel" destination="IqB-XD-qJF" id="SQa-eD-KHO"/>
-                                            <outlet property="descriptionTextField" destination="LZR-nM-hmk" id="2oa-nV-Lj4"/>
+                                            <outlet property="descriptionTextField" destination="LZR-nM-hmk" id="QLZ-GR-eni"/>
                                             <outlet property="imageTextFieldStackView" destination="fxm-gw-R2o" id="iv0-2L-rUp"/>
                                             <outlet property="lineView" destination="vCD-iZ-C2C" id="oQ8-JZ-gEi"/>
                                         </connections>
