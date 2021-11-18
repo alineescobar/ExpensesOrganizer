@@ -76,10 +76,6 @@ class DashboardViewController: UIViewController {
     override var prefersStatusBarHidden: Bool {
         return isStatsBarHidden
     }
-    
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        .lightContent
-    }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let index = sender as? Int else {
@@ -184,7 +180,7 @@ extension DashboardViewController: UITableViewDataSource {
             for wallet in wallets {
                 balance += wallet.value
             }
-            cell.balanceLabel.attributedText = getFormattedBalance(balance: balance, smallTextSize: 13.6, type: .screen, color: UIColor.white)
+            cell.balanceLabel.attributedText = getFormattedBalance(balance: balance, smallTextSize: 13.6, type: .screen)
             
             return cell
             
