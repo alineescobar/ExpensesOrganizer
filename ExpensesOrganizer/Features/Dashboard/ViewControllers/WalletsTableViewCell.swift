@@ -24,7 +24,7 @@ class WalletsTableViewCell: UITableViewCell {
         super.awakeFromNib()
         walletsCollectionView.delegate = self
         walletsCollectionView.dataSource = self
-        walletsCollectionView.backgroundColor = UIColor(red: 0.898, green: 0.898, blue: 0.898, alpha: 1)
+        walletsCollectionView.backgroundColor = UIColor(named: "GraySuport3StateColor")
         
         fetchWallets()
     }
@@ -51,6 +51,11 @@ class WalletsTableViewCell: UITableViewCell {
 extension WalletsTableViewCell: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if indexPath.section == 0 {
+            if wallets.isEmpty {
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "emptyStateID", for: indexPath) as? WalletEmptyStateCollectionViewCell
+                return cell ?? UICollectionViewCell()
+            }
+            
             let wallet = wallets[indexPath.row]
             
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "walletCellID", for: indexPath) as? WalletCollectionViewCell
@@ -67,7 +72,7 @@ extension WalletsTableViewCell: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if section == 0 {
-            return wallets.count
+            return wallets.isEmpty ? 1 : wallets.count
         } else {
             return 1 // botao de +
         }
@@ -87,6 +92,9 @@ extension WalletsTableViewCell: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if indexPath.section == 0 {
+            if wallets.isEmpty {
+                return
+            }
             walletsDelegate?.didTapWallet(index: indexPath.row)
         } else {
             walletsDelegate?.didTapAddWallet()

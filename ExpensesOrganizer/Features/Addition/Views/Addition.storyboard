@@ -110,7 +110,7 @@
                                                             <rect key="frame" x="0.0" y="0.0" width="328" height="40"/>
                                                             <color key="textColor" name="TertiaryBrandColor"/>
                                                             <fontDescription key="fontDescription" name="WorkSans-Bold" family="Work Sans" pointSize="48"/>
-                                                            <textInputTraits key="textInputTraits"/>
+                                                            <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                         </textField>
                                                         <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" verticalHuggingPriority="246" horizontalCompressionResistancePriority="743" verticalCompressionResistancePriority="735" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z8t-ns-nnK">
                                                             <rect key="frame" x="336" y="5" width="30" height="30"/>
@@ -676,7 +676,7 @@
                                                             <rect key="frame" x="0.0" y="0.0" width="328" height="40"/>
                                                             <color key="textColor" name="TertiaryBrandColor"/>
                                                             <fontDescription key="fontDescription" name="WorkSans-Bold" family="Work Sans" pointSize="48"/>
-                                                            <textInputTraits key="textInputTraits"/>
+                                                            <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                         </textField>
                                                         <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" verticalHuggingPriority="246" horizontalCompressionResistancePriority="743" verticalCompressionResistancePriority="735" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NVY-eE-eYT">
                                                             <rect key="frame" x="336" y="5" width="30" height="30"/>

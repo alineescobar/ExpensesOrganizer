@@ -53,6 +53,11 @@ class PlanningViewController: UIViewController, UICollectionViewDelegate, UIView
         loadTemplates()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.navigationBar.barStyle = .default
+    }
+    
     private func setUpCollection() {
         planningCollectionView.register(UINib(nibName: roundButtonID, bundle: nil), forCellWithReuseIdentifier: roundButtonID)
         planningCollectionView.delegate = self

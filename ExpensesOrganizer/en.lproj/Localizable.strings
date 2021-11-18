@@ -15,6 +15,8 @@
 "PlanningLabel" = "Plan";
 "AddLabel" = "Add";
 "TransactionsHeader" = "Latest transactions";
+"FirstEmptyStateText" = "Nothing here!";
+"SecondEmptyStateText" = "Press the + button to add a wallet.";
 
 // MARK: Wallet Creation
 "WalletName" = "Wallet name";
@@ -26,6 +28,7 @@
 "EmptyBalanceAlertDescription" = "You need to set a value to your wallet's balance!";
 "WalletSavingErrorAlertTitle" = "Error saving Wallet";
 "WalletSavingErrorAlertDescription" = "There was a problem saving your wallet, please try again.";
+"SecondEmptyStateWalletsText" = "Press the button button below to add a wallet.";
 
 // MARK: Wallet Detail
 "WalletDeleteAlertTitle" = "Delete Wallet";
@@ -53,11 +56,11 @@
 "Control" = "Control";
 "Plan" = "Plan";
 "Save" = "Save";
-"LetsGo" = "Lets Go";
+"LetsGo" = "Let's Go";
 "ControlDescription" = "Here you can control your expenses by recording each entry and exit of values.";
 "PlanDescription" = "Planning has never been so easy, here you can add your own items in different planning and enjoy our ready-made items too!";
-"SaveDescription" = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Convallis vestibulum augue massa sed aenean.";
-"LetsGoDescription" = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Convallis vestibulum augue massa sed aenean.";
+"SaveDescription" = "Adding your earnings and expenses, learning to save while saving in real life.";
+"LetsGoDescription" = "For the app to have its essence, let's put your name?";
 "Name" = "Your name";
 "FieldDescription" = "Could be your nickname";
 "SkipButton" = "Skip";
@@ -100,7 +103,7 @@
 
 // MARK: Addition Expense
 "addition-expense-segmented-title" = "Expenses";
-"addition-expense-name" = "Expense name";
+"addition-expense-name" = "Outcome name";
 "addition-expense-name-placeholder" = "The name is optional";
 "addition-expense-category" = "Category";
 "addition-expense-wallet" = "Pay with";
