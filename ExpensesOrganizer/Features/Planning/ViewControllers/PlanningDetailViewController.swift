@@ -170,8 +170,8 @@ extension PlanningDetailViewController: UITableViewDataSource {
                     return UITableViewCell()
                 }
                 cell.planningIcon.image = UIImage(named: template.templateIconName ?? "Atom")
-                cell.planningTitleTextField.text = template.name
-                cell.planningDescriptionTextField.text = template.templateDescription ?? NSLocalizedString("OptionalDescription", comment: "")
+                cell.planningTitleTextField.text = templateName
+                cell.planningDescriptionTextField.text = templateDescription.isEmpty ? NSLocalizedString("OptionalDescription", comment: "") : templateDescription
                 cell.planningEditionDelegate = self
                 return cell
                 

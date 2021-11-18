@@ -37,7 +37,7 @@ class PlanningViewController: UIViewController, UICollectionViewDelegate, UIView
         setUpCollection()
         
         // MARK: Adding a new planning button
-        newPlanningButton.backgroundColor = UIColor(named: "TertiaryBrandColor")
+        newPlanningButton.backgroundColor = UIColor(named: "PrimaryBrandColor")
         newPlanningButton.layer.cornerRadius = 20
         newPlanningButton.setTitle(NSLocalizedString("AddButton", comment: ""), for: .normal)
         
@@ -45,7 +45,7 @@ class PlanningViewController: UIViewController, UICollectionViewDelegate, UIView
         segmentedControl.setTitle(NSLocalizedString("FirstSegmentedControl", comment: ""), forSegmentAt: 0)
         segmentedControl.setTitle(NSLocalizedString("SecondSegmentedControl", comment: ""), forSegmentAt: 1)
         let fontNormal = UIFont(name: "WorkSans-Regular", size: 14)
-        let fontBold = UIFont(name: "WorkSans-Medium", size: 14)
+        let fontBold = UIFont(name: "WorkSans-Semibold", size: 14)
         segmentedControl.setTitleTextAttributes([NSAttributedString.Key.font: fontNormal as Any, NSAttributedString.Key.foregroundColor: UIColor(named: "TertiaryBrandColor") as Any], for: .normal)
         segmentedControl.setTitleTextAttributes([NSAttributedString.Key.font: fontBold as Any, NSAttributedString.Key.foregroundColor: UIColor(named: "TertiaryBrandColor") as Any], for: .selected)
         

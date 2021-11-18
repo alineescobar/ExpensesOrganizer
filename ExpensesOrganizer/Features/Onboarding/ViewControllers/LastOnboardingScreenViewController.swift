@@ -19,6 +19,7 @@ class LastOnboardingScreenViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setNeedsStatusBarAppearanceUpdate()
         titleLabel.text = NSLocalizedString("LetsGo", comment: "")
         descriptionLabel.text = NSLocalizedString("LetsGoDescription", comment: "")
         nameLabel.text = NSLocalizedString("Name", comment: "")
@@ -57,6 +58,11 @@ class LastOnboardingScreenViewController: UIViewController {
             return
         }
     }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        .darkContent
+    }
+
 }
 
 extension LastOnboardingScreenViewController: UITextFieldDelegate {

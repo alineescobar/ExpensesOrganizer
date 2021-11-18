@@ -39,7 +39,7 @@
         <attribute name="value" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="walletID" attributeType="UUID" usesScalarValueType="NO"/>
         <relationship name="item" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Item" inverseName="paymentMethod" inverseEntity="Item"/>
-        <relationship name="template" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Template" inverseName="paymentMethod" inverseEntity="Template"/>
+        <relationship name="template" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Template" inverseName="paymentMethod" inverseEntity="Template"/>
     </entity>
     <elements>
         <element name="Goal" positionX="153.6805419921875" positionY="-194.7109985351562" width="128" height="133"/>

@@ -12,7 +12,7 @@ protocol WalletSelectionDelegate: AnyObject {
 }
 
 class WalletSelectionViewController: UIViewController {
-
+    let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext
     @IBOutlet weak var collectionView: UICollectionView!
     private let roundButtonID: String = "RoundButtonCollectionViewCell"
     weak var walletSelectionDelegate: WalletSelectionDelegate?
@@ -20,7 +20,8 @@ class WalletSelectionViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        fetchAllWallets()
+        
         // MARK: Collection View Settings
         setUpCollection()
     }
@@ -37,6 +38,18 @@ class WalletSelectionViewController: UIViewController {
         collectionView.setCollectionViewLayout(layout, animated: true)
     }
 
+    func fetchAllWallets() {
+        guard let context = self.context else {
+            return
+        }
+        
+        do {
+            wallets = try context.fetch(Wallet.fetchRequest())
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
+    
     /*
     // MARK: - Navigation
 
@@ -51,13 +64,16 @@ class WalletSelectionViewController: UIViewController {
 
 extension WalletSelectionViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 1
+        return wallets.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: roundButtonID, for: indexPath) as? RoundButtonCollectionViewCell
-        cell?.categoryNameLabel.text = "Mirela"
-        cell?.categoryImage.image = UIImage(systemName: "eyebrow")
+        cell?.categoryNameLabel.text = wallets[indexPath.row].name
+        cell?.categoryNameLabel.textColor = .white
+        cell?.background.backgroundColor = UIColor.white.withAlphaComponent(0.4)
+        cell?.categoryImage.image = UIImage(named: "Wallet")
+        cell?.categoryImage.tintColor = UIColor.white
         return cell ?? UICollectionViewCell()
     }
     
@@ -77,8 +93,7 @@ extension WalletSelectionViewController: UICollectionViewDelegateFlowLayout {
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        // TODO: Persist wallets data
-//        walletSelectionDelegate?.didTapWallet(wallet: wallets[indexPath.row])
+        walletSelectionDelegate?.didTapWallet(wallet: wallets[indexPath.row])
         self.dismiss(animated: true)
     }
 }

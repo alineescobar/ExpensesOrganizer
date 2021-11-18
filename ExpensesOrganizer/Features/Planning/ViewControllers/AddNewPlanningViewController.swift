@@ -24,8 +24,11 @@ class AddNewPlanningViewController: UIViewController, UITableViewDelegate {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var doneButton: UIButton!
     @IBOutlet weak var cancelButton: UIButton!
+    private var createdTemplate: Template?
+    private var planningName: String = ""
     private var selectedIcon: String = "Atom"
     private var selectedWallet: Wallet?
+    private var items: [Item] = []
     private let newPlanningCategories: [NewPlanningCategories] = NewPlanningCategories.allCases
     private let interactor = Interactor()
     weak var modalHandlerDelegate: ModalHandlerDelegate?
@@ -35,7 +38,9 @@ class AddNewPlanningViewController: UIViewController, UITableViewDelegate {
         
         tableView.delegate = self
         tableView.dataSource = self
-
+        
+        createdTemplate = Template(context: context)
+        
         // MARK: Navigation Visuals
         self.navigationItem.title = NSLocalizedString("AddPlanningTitle", comment: "")
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "WorkSans-Bold", size: 20) as Any, NSAttributedString.Key.foregroundColor: UIColor(named: "TertiaryBrandColor") as Any]
@@ -67,17 +72,38 @@ class AddNewPlanningViewController: UIViewController, UITableViewDelegate {
         doneButton.tintColor = .white
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        if self.isMovingFromParent {
+            modalHandlerDelegate?.modalDismissed()
+        }
+    }
+    
     @IBAction private func newPlanningButton(_ sender: Any) {
         performSegue(withIdentifier: "item", sender: nil)
     }
     
     @IBAction private func cancelButton(_ sender: Any) {
+        modalHandlerDelegate?.modalDismissed()
         self.navigationController?.popViewController(animated: true)
     }
     
     @IBAction private func doneAction(_ sender: UIButton) {
         // TODO: Save new Template
-        modalHandlerDelegate?.modalDismissed()
+        createdTemplate?.templateIconName = selectedIcon
+        createdTemplate?.templateDescription = ""
+        createdTemplate?.templateID = UUID()
+        createdTemplate?.paymentMethod = selectedWallet
+        createdTemplate?.isExpense = segmentedControl.selectedSegmentIndex == 0 ? true : false
+        createdTemplate?.name = planningName
+        
+        do {
+            try context.save()
+            performSegue(withIdentifier: "additionOk", sender: nil)
+        } catch {
+            print(error.localizedDescription)
+            return
+        }
     }
     
     func fetchAllWallets() -> [Wallet] {
@@ -88,6 +114,22 @@ class AddNewPlanningViewController: UIViewController, UITableViewDelegate {
             print(error.localizedDescription)
         }
         return wallets
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "additionOk" {
+            let okAdditionViewController = segue.destination as? OkAdditionViewController
+            okAdditionViewController?.modalHandlerDelegate = self
+            okAdditionViewController?.allDoneText = NSLocalizedString("AllRight", comment: "")
+            okAdditionViewController?.allDoneDescriptionText = NSLocalizedString("NewPlanningCreated", comment: "")
+            
+        } else {
+            let itemViewController = segue.destination as? ItemViewController
+            itemViewController?.item = Item(context: context)
+            itemViewController?.item?.template = createdTemplate
+            itemViewController?.itemDelegate = self
+            itemViewController?.isEditingItem = false
+        }
     }
 }
 
@@ -101,12 +143,13 @@ extension AddNewPlanningViewController: UITableViewDataSource {
         
         switch newPlanningCategory {
         case .name:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "planningName", for: indexPath) as? PlanningNAmeTableViewCell
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "planningName", for: indexPath) as? PlanningNameTableViewCell
                     
             else {
                 return UITableViewCell()
             }
             cell.selectionStyle = .none
+            cell.descriptionDelegate = self
             return cell
             
         case .payment:
@@ -115,7 +158,7 @@ extension AddNewPlanningViewController: UITableViewDataSource {
                 return UITableViewCell()
             }
             cell.selectionStyle = .none
-
+            
             cell.planningPaymentWallet.text = selectedWallet?.name == nil ? NSLocalizedString("WalletName", comment: "") : selectedWallet?.name
             return cell
             
@@ -209,10 +252,28 @@ extension AddNewPlanningViewController: IconDelegate {
 }
 
 extension AddNewPlanningViewController: PlanningWalletSelectionDelegate {
-    
     func sendWallet(wallet: Wallet) {
         selectedWallet = wallet
         tableView.reloadData()
+    }
+}
+
+extension AddNewPlanningViewController: DescriptionDelegate {
+    func descriptionDidChanged(description: String) {
+        planningName = description
+    }
+}
+
+extension AddNewPlanningViewController: ItemDelegate {
+    func updateItem() {
+        // none
+    }
+}
+
+extension AddNewPlanningViewController: ModalHandlerDelegate {
+    func modalDismissed() {
+        modalHandlerDelegate?.modalDismissed()
+        self.navigationController?.popViewController(animated: true)
     }
 }
 //    swiftlint:enable line_length

@@ -80,12 +80,12 @@ extension PlanningSelectionWalletViewController: UICollectionViewDelegateFlowLay
         cell?.tintColor = .white
         
         if wallets.count < 1 {
-            cell?.categoryNameLabel.text = "aoiii"
-            cell?.categoryImage.image = UIImage(systemName: "eyebrow")
+            cell?.categoryNameLabel.text = "None"
+            cell?.categoryImage.image = UIImage(named: "Wallet")
         } else {
             let allWallets = wallets[indexPath.row]
             cell?.categoryNameLabel.text = allWallets.name
-            cell?.categoryImage.image = UIImage(systemName: "eyebrow")
+            cell?.categoryImage.image = UIImage(named: "Wallet")
         }
         
         return cell ?? UICollectionViewCell()

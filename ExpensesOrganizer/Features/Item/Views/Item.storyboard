@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -340,20 +341,20 @@
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalCompressionResistancePriority="757" verticalCompressionResistancePriority="757" text="Tudo certo por aqui!" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lEM-0M-LFy">
                                                                 <rect key="frame" x="0.0" y="0.0" width="338.5" height="40"/>
                                                                 <fontDescription key="fontDescription" name="WorkSans-Bold" family="Work Sans" pointSize="34"/>
-                                                                <nil key="textColor"/>
+                                                                <color key="textColor" name="TertiaryBrandColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalCompressionResistancePriority="753" verticalCompressionResistancePriority="754" text="Seu item foi atualizado com sucesso." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Plw-Kv-m3a">
                                                                 <rect key="frame" x="0.0" y="72" width="280" height="56.5"/>
                                                                 <fontDescription key="fontDescription" name="WorkSans-SemiBold" family="Work Sans" pointSize="24"/>
-                                                                <nil key="textColor"/>
+                                                                <color key="textColor" name="TertiaryBrandColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                         </subviews>
                                                     </stackView>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SmileyWink" translatesAutoresizingMaskIntoConstraints="NO" id="y9H-05-yn8">
                                                         <rect key="frame" x="103" y="192.5" width="160" height="160"/>
-                                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <color key="tintColor" name="TertiaryBrandColor"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="y9H-05-yn8" secondAttribute="height" multiplier="1:1" id="PuZ-m0-ONG"/>
                                                         </constraints>
@@ -362,7 +363,7 @@
                                             </stackView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1bF-d9-3S2">
                                                 <rect key="frame" x="31" y="537.5" width="352" height="40"/>
-                                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="backgroundColor" name="PrimaryBrandColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="gRf-qH-WP5"/>
                                                 </constraints>
@@ -424,70 +425,14 @@
                         <outlet property="readyConclusionButton" destination="1bF-d9-3S2" id="ix6-x4-yU7"/>
                         <outlet property="secondConclusionLabel" destination="Plw-Kv-m3a" id="Wlg-gi-eZU"/>
                         <outlet property="tableView" destination="WHk-LJ-awE" id="RQV-Hp-Xj0"/>
-                        <segue destination="7qf-rE-xTZ" kind="presentation" identifier="calendar" id="C1o-OY-XCq"/>
                         <segue destination="HKS-uo-azC" kind="presentation" identifier="recurrency" id="fet-Ks-5xs"/>
                         <segue destination="IV1-EU-dQa" kind="presentation" identifier="wallets" id="8fx-iK-U8h"/>
+                        <segue destination="UPi-9Z-zEd" kind="presentation" identifier="calendar" id="6L0-HH-p8a"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-23.188405797101453" y="88.392857142857139"/>
-        </scene>
-        <!--Calendar-->
-        <scene sceneID="oY3-SM-L1m">
-            <objects>
-                <viewController storyboardIdentifier="CalendarViewController" title="Calendar" id="7qf-rE-xTZ" customClass="CalendarViewController" customModule="ExpensesOrganizer" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="ZAd-GW-6s7">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Uh-Tc-i2c">
-                                <rect key="frame" x="173.5" y="20" width="67" height="5"/>
-                                <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="5" id="1Q1-rX-Yul"/>
-                                    <constraint firstAttribute="width" constant="67" id="xcC-zg-yJb"/>
-                                </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="5"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="NO"/>
-                                </userDefinedRuntimeAttributes>
-                            </view>
-                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" style="inline" translatesAutoresizingMaskIntoConstraints="NO" id="Jck-IC-9Wu">
-                                <rect key="frame" x="23.5" y="65" width="367.5" height="743"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </datePicker>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="NAN-XR-k6W"/>
-                        <color key="backgroundColor" systemColor="systemGray5Color"/>
-                        <gestureRecognizers/>
-                        <constraints>
-                            <constraint firstItem="0Uh-Tc-i2c" firstAttribute="centerX" secondItem="NAN-XR-k6W" secondAttribute="centerX" id="SN9-Fg-HCu"/>
-                            <constraint firstItem="Jck-IC-9Wu" firstAttribute="leading" secondItem="NAN-XR-k6W" secondAttribute="leading" constant="23.5" id="VrS-1b-v8B"/>
-                            <constraint firstItem="NAN-XR-k6W" firstAttribute="trailing" secondItem="Jck-IC-9Wu" secondAttribute="trailing" constant="23" id="aCp-17-va2"/>
-                            <constraint firstAttribute="bottomMargin" secondItem="Jck-IC-9Wu" secondAttribute="bottom" id="gVM-R3-FaD"/>
-                            <constraint firstItem="0Uh-Tc-i2c" firstAttribute="top" secondItem="NAN-XR-k6W" secondAttribute="top" constant="20" id="uXp-js-aVz"/>
-                            <constraint firstItem="Jck-IC-9Wu" firstAttribute="top" secondItem="0Uh-Tc-i2c" secondAttribute="bottom" constant="40" id="zLW-ZZ-nmG"/>
-                        </constraints>
-                        <connections>
-                            <outletCollection property="gestureRecognizers" destination="va7-KS-4le" appends="YES" id="28W-jp-zj7"/>
-                        </connections>
-                    </view>
-                    <connections>
-                        <outlet property="datePicker" destination="Jck-IC-9Wu" id="VAc-kH-HiQ"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="7zO-5c-mlP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <panGestureRecognizer minimumNumberOfTouches="1" id="va7-KS-4le">
-                    <connections>
-                        <action selector="handleGestureWithSender:" destination="7qf-rE-xTZ" id="u2P-jV-cjG"/>
-                    </connections>
-                </panGestureRecognizer>
-            </objects>
-            <point key="canvasLocation" x="1206" y="-55"/>
         </scene>
         <!--Recurrency-->
         <scene sceneID="ZHg-Rf-eEc">
@@ -530,15 +475,17 @@
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nunca" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YjW-eu-AQt">
                                                             <rect key="frame" x="0.0" y="0.0" width="49.5" height="28"/>
                                                             <fontDescription key="fontDescription" name="WorkSans-Regular" family="Work Sans" pointSize="16"/>
-                                                            <nil key="textColor"/>
+                                                            <color key="textColor" name="WhiteStateColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkmark" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="rWN-W1-ObU">
                                                             <rect key="frame" x="323.5" y="2" width="18.5" height="24.5"/>
+                                                            <color key="tintColor" name="WhiteStateColor"/>
                                                         </imageView>
                                                     </subviews>
                                                 </stackView>
                                             </subviews>
+                                            <color key="backgroundColor" red="0.40000000000000002" green="0.44705882352941173" blue="0.50196078431372548" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstAttribute="bottom" secondItem="PCx-W2-Lmn" secondAttribute="bottom" constant="13" id="b8y-4G-MQv"/>
@@ -556,7 +503,7 @@
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="8FJ-QI-sFG"/>
-                        <color key="backgroundColor" systemColor="systemGray5Color"/>
+                        <color key="backgroundColor" name="TertiaryBrandColor"/>
                         <constraints>
                             <constraint firstItem="A62-jH-JWZ" firstAttribute="centerX" secondItem="8FJ-QI-sFG" secondAttribute="centerX" id="1Mh-41-nYr"/>
                             <constraint firstItem="8FJ-QI-sFG" firstAttribute="trailing" secondItem="WmQ-48-IgN" secondAttribute="trailing" id="6PO-Fj-U5t"/>
@@ -618,7 +565,7 @@
                             </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Efb-HC-5mm"/>
-                        <color key="backgroundColor" systemColor="systemGray5Color"/>
+                        <color key="backgroundColor" name="TertiaryBrandColor"/>
                         <constraints>
                             <constraint firstItem="Efb-HC-5mm" firstAttribute="bottom" secondItem="Qlu-b4-lvB" secondAttribute="bottom" id="QLn-3k-WOO"/>
                             <constraint firstItem="Qlu-b4-lvB" firstAttribute="leading" secondItem="Efb-HC-5mm" secondAttribute="leading" id="YlS-B2-Ase"/>
@@ -636,6 +583,70 @@
             </objects>
             <point key="canvasLocation" x="1206" y="-759"/>
         </scene>
+        <!--Calendar-->
+        <scene sceneID="ecc-e7-ixU">
+            <objects>
+                <viewController storyboardIdentifier="CalendarViewController" title="Calendar" id="UPi-9Z-zEd" customClass="CalendarViewController" customModule="ExpensesOrganizer" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ylh-eg-bIz">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JAl-rO-gdT">
+                                <rect key="frame" x="173.5" y="20" width="67" height="5"/>
+                                <color key="backgroundColor" name="WhiteStateColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="67" id="8ed-Mc-WcH"/>
+                                    <constraint firstAttribute="height" constant="5" id="wZQ-qE-I01"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="NO"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H6E-R6-gek">
+                                <rect key="frame" x="24" y="35" width="366" height="380"/>
+                                <subviews>
+                                    <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" style="inline" translatesAutoresizingMaskIntoConstraints="NO" id="lOj-FG-CBD">
+                                        <rect key="frame" x="10" y="0.0" width="346" height="380"/>
+                                        <color key="tintColor" name="SecondaryBrandColor"/>
+                                    </datePicker>
+                                </subviews>
+                                <color key="backgroundColor" red="0.40342968699999998" green="0.44114786389999999" blue="0.48975789549999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="380" id="00z-DG-kev"/>
+                                    <constraint firstItem="lOj-FG-CBD" firstAttribute="leading" secondItem="H6E-R6-gek" secondAttribute="leading" constant="10" id="2vs-rF-x3r"/>
+                                    <constraint firstAttribute="trailing" secondItem="lOj-FG-CBD" secondAttribute="trailing" constant="10" id="Hba-7Q-ydo"/>
+                                    <constraint firstAttribute="bottom" secondItem="lOj-FG-CBD" secondAttribute="bottom" id="Ozo-5l-3iF"/>
+                                    <constraint firstItem="lOj-FG-CBD" firstAttribute="top" secondItem="H6E-R6-gek" secondAttribute="top" id="aZq-EZ-V9G"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="EJe-pw-oXK"/>
+                        <color key="backgroundColor" name="TertiaryBrandColor"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="JAl-rO-gdT" firstAttribute="centerX" secondItem="EJe-pw-oXK" secondAttribute="centerX" id="1jk-kL-KWv"/>
+                            <constraint firstItem="H6E-R6-gek" firstAttribute="leading" secondItem="EJe-pw-oXK" secondAttribute="leading" constant="24" id="8f4-2r-Pli"/>
+                            <constraint firstItem="EJe-pw-oXK" firstAttribute="trailing" secondItem="H6E-R6-gek" secondAttribute="trailing" constant="24" id="UVd-YQ-PBJ"/>
+                            <constraint firstItem="JAl-rO-gdT" firstAttribute="top" secondItem="EJe-pw-oXK" secondAttribute="top" constant="20" id="YSY-vf-9SF"/>
+                            <constraint firstItem="H6E-R6-gek" firstAttribute="top" secondItem="JAl-rO-gdT" secondAttribute="bottom" constant="10" id="csx-eu-0ll"/>
+                        </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="5fL-Nk-jnR" appends="YES" id="ysp-xX-oCv"/>
+                        </connections>
+                    </view>
+                    <connections>
+                        <outlet property="containerView" destination="H6E-R6-gek" id="Ch1-Ye-jZQ"/>
+                        <outlet property="datePicker" destination="lOj-FG-CBD" id="8Vr-za-mUV"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Uud-SC-5wg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="5fL-Nk-jnR"/>
+            </objects>
+            <point key="canvasLocation" x="1206" y="-54"/>
+        </scene>
     </scenes>
     <resources>
         <image name="ArrowsClockwise" width="24" height="25"/>
@@ -645,6 +656,18 @@
         <image name="SmileyWink" width="160" height="160"/>
         <image name="Wallet" width="25" height="24"/>
         <image name="checkmark" catalog="system" width="128" height="114"/>
+        <namedColor name="PrimaryBrandColor">
+            <color red="0.14509803921568629" green="0.16862745098039217" blue="0.39215686274509803" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="SecondaryBrandColor">
+            <color red="0.92156862745098034" green="0.0" blue="0.10588235294117647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="TertiaryBrandColor">
+            <color red="0.035294117647058823" green="0.094117647058823528" blue="0.1803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="WhiteStateColor">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="opaqueSeparatorColor">
             <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
@@ -653,9 +676,6 @@
         </systemColor>
         <systemColor name="systemGray4Color">
             <color red="0.81960784313725488" green="0.81960784313725488" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemGray5Color">
-            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

@@ -41,22 +41,22 @@ class ItemViewController: UIViewController {
         item?.paymentMethod = selectedWallet
         item?.recurrenceDate = selectedDate
         item?.value = itemValue
-        guard let context = self.context else {
-            return
+//        guard let context = self.context else {
+//            return
+//        }
+//        
+//        do {
+//            try context.save()
+//
+//        } catch {
+//            print(error.localizedDescription)
+//            return
+//        }
+        UIView.animate(withDuration: 1, delay: 0, options: [.beginFromCurrentState]) {
+            self.navigationBarStackView.alpha = 0
+            self.tableView.alpha = 0
+            self.conclusionView.alpha = 1
         }
-        
-        do {
-            try context.save()
-            UIView.animate(withDuration: 1, delay: 0, options: [.beginFromCurrentState]) {
-                self.navigationBarStackView.alpha = 0
-                self.tableView.alpha = 0
-                self.conclusionView.alpha = 1
-            }
-        } catch {
-            print(error.localizedDescription)
-            return
-        }
-
         itemDelegate?.updateItem()
     }
     
@@ -93,7 +93,7 @@ class ItemViewController: UIViewController {
             return
         }
         
-        itemNameLabel.text = item.name
+        itemNameLabel.text = isEditingItem ? item.name : NSLocalizedString("NewItem", comment: "")
         itemValue = item.value
         itemName = item.name ?? ""
         selectedDate = item.recurrenceDate ?? Date()
@@ -174,6 +174,7 @@ extension ItemViewController: UITableViewDataSource {
             }
             cell.descriptionLabel.text = NSLocalizedString("ItemName", comment: "")
             cell.descriptionTextField.text = itemName
+            cell.descriptionTextField.placeholder = NSLocalizedString("ItemName", comment: "")
             cell.descriptionDelegate = self
             return cell
         

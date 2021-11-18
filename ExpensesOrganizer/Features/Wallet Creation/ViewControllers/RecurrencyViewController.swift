@@ -76,6 +76,7 @@ extension RecurrencyViewController: UITableViewDataSource {
             return UITableViewCell()
         }
         
+        cell.recurrencyTypeLabel.textColor = UIColor(named: "WhiteStateColor")
         switch recurrencyType {
         case .never:
             cell.recurrencyTypeLabel.text = RecurrencyTypes.getTitleFor(title: recurrencyType)

@@ -30,7 +30,7 @@
 		16655641271A0ECA00DE83F4 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 16655643271A0ECA00DE83F4 /* Localizable.strings */; };
 		1690482E273C5A670011A11D /* AddNewPlanning.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1690482D273C5A670011A11D /* AddNewPlanning.storyboard */; };
 		16904830273C5C550011A11D /* AddNewPlanningViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1690482F273C5C550011A11D /* AddNewPlanningViewController.swift */; };
-		16904832273D80F20011A11D /* PlanningNAmeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16904831273D80F20011A11D /* PlanningNAmeTableViewCell.swift */; };
+		16904832273D80F20011A11D /* PlanningNameTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16904831273D80F20011A11D /* PlanningNameTableViewCell.swift */; };
 		16904834273DA0D30011A11D /* PlannimgPaymentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16904833273DA0D30011A11D /* PlannimgPaymentTableViewCell.swift */; };
 		16904836273DA1280011A11D /* PlanningIconTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16904835273DA1280011A11D /* PlanningIconTableViewCell.swift */; };
 		16904838273DB3C40011A11D /* NewPlanningButtonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16904837273DB3C40011A11D /* NewPlanningButtonTableViewCell.swift */; };
@@ -103,6 +103,7 @@
 		F1BBB940273C527700B5746D /* WalletSelectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BBB93F273C527700B5746D /* WalletSelectionTableViewCell.swift */; };
 		F1BBB942273C5FF300B5746D /* WalletSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BBB941273C5FF300B5746D /* WalletSelectionViewController.swift */; };
 		F1BBB9442745763D00B5746D /* Templates.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BBB9432745763D00B5746D /* Templates.swift */; };
+		F1BBB9462746259100B5746D /* OkAdditionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BBB9452746259100B5746D /* OkAdditionViewController.swift */; };
 		F1CE7149272C8647002D6020 /* CurrencyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CE7148272C8647002D6020 /* CurrencyTableViewCell.swift */; };
 		F1CE714B272C867C002D6020 /* DescriptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CE714A272C867C002D6020 /* DescriptionTableViewCell.swift */; };
 		F1CE714D272C8776002D6020 /* PlanningTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CE714C272C8776002D6020 /* PlanningTableViewCell.swift */; };
@@ -144,7 +145,7 @@
 		16655644271A0ECC00DE83F4 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		1690482D273C5A670011A11D /* AddNewPlanning.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddNewPlanning.storyboard; sourceTree = "<group>"; };
 		1690482F273C5C550011A11D /* AddNewPlanningViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewPlanningViewController.swift; sourceTree = "<group>"; };
-		16904831273D80F20011A11D /* PlanningNAmeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanningNAmeTableViewCell.swift; sourceTree = "<group>"; };
+		16904831273D80F20011A11D /* PlanningNameTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanningNameTableViewCell.swift; sourceTree = "<group>"; };
 		16904833273DA0D30011A11D /* PlannimgPaymentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlannimgPaymentTableViewCell.swift; sourceTree = "<group>"; };
 		16904835273DA1280011A11D /* PlanningIconTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanningIconTableViewCell.swift; sourceTree = "<group>"; };
 		16904837273DB3C40011A11D /* NewPlanningButtonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPlanningButtonTableViewCell.swift; sourceTree = "<group>"; };
@@ -215,6 +216,7 @@
 		F1BBB93F273C527700B5746D /* WalletSelectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletSelectionTableViewCell.swift; sourceTree = "<group>"; };
 		F1BBB941273C5FF300B5746D /* WalletSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletSelectionViewController.swift; sourceTree = "<group>"; };
 		F1BBB9432745763D00B5746D /* Templates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Templates.swift; sourceTree = "<group>"; };
+		F1BBB9452746259100B5746D /* OkAdditionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OkAdditionViewController.swift; sourceTree = "<group>"; };
 		F1CE7148272C8647002D6020 /* CurrencyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyTableViewCell.swift; sourceTree = "<group>"; };
 		F1CE714A272C867C002D6020 /* DescriptionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionTableViewCell.swift; sourceTree = "<group>"; };
 		F1CE714C272C8776002D6020 /* PlanningTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanningTableViewCell.swift; sourceTree = "<group>"; };
@@ -566,12 +568,13 @@
 				F1FA9978273B2B910034483E /* TotalPlanningBalanceTableViewCell.swift */,
 				F1FA997A273B2D5C0034483E /* PlanningItemTableViewCell.swift */,
 				1690482F273C5C550011A11D /* AddNewPlanningViewController.swift */,
-				16904831273D80F20011A11D /* PlanningNAmeTableViewCell.swift */,
+				16904831273D80F20011A11D /* PlanningNameTableViewCell.swift */,
 				16904833273DA0D30011A11D /* PlannimgPaymentTableViewCell.swift */,
 				16904835273DA1280011A11D /* PlanningIconTableViewCell.swift */,
 				16904837273DB3C40011A11D /* NewPlanningButtonTableViewCell.swift */,
 				16904839273EDBC30011A11D /* PlanningSelectionWalletViewController.swift */,
 				16279ACD273F03EE005A01B8 /* PlanningIconSelectionViewController.swift */,
+				F1BBB9452746259100B5746D /* OkAdditionViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -860,7 +863,7 @@
 				F138B88F2720A950009F0837 /* ProfileTableViewCell.swift in Sources */,
 				71FED8742733263500B90A5A /* AddIncomePlanningCell.swift in Sources */,
 				F19FF1AC2728890D0041F5E3 /* WalletDetailViewController.swift in Sources */,
-				16904832273D80F20011A11D /* PlanningNAmeTableViewCell.swift in Sources */,
+				16904832273D80F20011A11D /* PlanningNameTableViewCell.swift in Sources */,
 				16B2D717271E0EA800E7BB84 /* Item+CoreDataClass.swift in Sources */,
 				07E20F3227345B7E0087835E /* WalletsInsideTableViewCell.swift in Sources */,
 				F1BBB940273C527700B5746D /* WalletSelectionTableViewCell.swift in Sources */,
@@ -869,6 +872,7 @@
 				07E20F2E272C80F90087835E /* BalanceInsideTableViewCell.swift in Sources */,
 				16D0B25D27286CDA007BE30E /* TransactionsHeaderCell.swift in Sources */,
 				077CAFF827273759007D58C1 /* WalletsTableViewCell.swift in Sources */,
+				F1BBB9462746259100B5746D /* OkAdditionViewController.swift in Sources */,
 				07B88B76273C543900D484E5 /* OnboardingCollectionViewCell.swift in Sources */,
 				16904838273DB3C40011A11D /* NewPlanningButtonTableViewCell.swift in Sources */,
 				16B2D715271E0EA800E7BB84 /* Transaction+CoreDataClass.swift in Sources */,
@@ -1072,12 +1076,14 @@
 				DEVELOPMENT_TEAM = M7DG8QRAF9;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ExpensesOrganizer/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Expensee;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Dashboard;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1102,12 +1108,14 @@
 				DEVELOPMENT_TEAM = TA9GQL43ZA;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ExpensesOrganizer/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Expensee;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Dashboard;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
