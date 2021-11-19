@@ -12,6 +12,7 @@ class AddExpenseAllDoneViewController: UIViewController {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var bodyLabel: UILabel!
     @IBOutlet private weak var doneButton: UIButton!
+    weak var modalHandlerDelegate: ModalHandlerDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +29,7 @@ class AddExpenseAllDoneViewController: UIViewController {
     }
     
     @IBAction private func doneAction(_ sender: UIButton) {
+        modalHandlerDelegate?.modalDismissed()
         self.navigationController?.dismiss(animated: true, completion: nil)
     }
 }

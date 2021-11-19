@@ -7,12 +7,17 @@
 
 import UIKit
 
+enum CollectionType {
+    case templates, wallets
+}
+
 class AddExpenseCategoryCell: UITableViewCell {
     static var identifier: String = "add-expense-category-cell"
     weak var planningDelegate: CollectionDelegate?
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var selectionLabel: UILabel!
+    @IBOutlet weak var selectionImage: UIImageView!
     @IBOutlet weak var selectionStack: UIStackView!
     
     override func awakeFromNib() {
@@ -33,6 +38,6 @@ class AddExpenseCategoryCell: UITableViewCell {
 
     @objc
     func openTable(_ sender: UITapGestureRecognizer) {
-        planningDelegate?.openCollection()
+        planningDelegate?.openCollection(collectionType: .templates)
     }
 }

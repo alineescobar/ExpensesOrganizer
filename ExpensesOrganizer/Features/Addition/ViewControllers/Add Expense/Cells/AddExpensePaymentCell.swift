@@ -33,6 +33,6 @@ class AddExpensePaymentCell: UITableViewCell {
 
     @objc
     func openTable(_ sender: UITapGestureRecognizer) {
-        planningDelegate?.openCollection()
+        planningDelegate?.openCollection(collectionType: .wallets)
     }
 }

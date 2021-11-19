@@ -17,18 +17,16 @@ enum AddIncomeCells: CaseIterable {
 
 class AddIncomeViewController: UIViewController {
     
-    // swiftlint:disable force_cast
-    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-    // swiftlint:enable force_cast
-    
+    let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext
+    weak var modalHandlerDelegate: ModalHandlerDelegate?
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var cancellButton: UIButton!
     @IBOutlet weak var doneButton: UIButton!
     
     private var incomeValue: Double = 0.0
     private var incomeName: String = ""
+    private var selectedWallet: Wallet?
     private var incomeCategory: Template?
-    
     private var selectedRecurrencyType: RecurrencyTypes = .never
     private var selectedDate: Date = Date()
     private let interactor = Interactor()
@@ -42,7 +40,7 @@ class AddIncomeViewController: UIViewController {
         
         doneButton.layer.cornerRadius = 8
         doneButton.setTitle(NSLocalizedString("Done", comment: ""), for: .normal)
-
+        
         cancellButton.layer.cornerRadius = 8
         cancellButton.layer.borderColor = UIColor(named: "GraySuport1StateColor")?.cgColor
         cancellButton.layer.borderWidth = 2.0
@@ -56,9 +54,45 @@ class AddIncomeViewController: UIViewController {
     }
     
     @IBAction private func doneButton(_ sender: UIButton) {
+        if !incomeValue.isZero {
+            guard let context = self.context else {
+                return
+            }
+            
+            let newTransaction = Transaction(context: context)
+            newTransaction.name = incomeName
+            newTransaction.value = incomeValue
+            newTransaction.transactionDate = selectedDate
+            newTransaction.recurrenceType = selectedRecurrencyType.rawValue
+            newTransaction.category = incomeCategory
+            newTransaction.transactionDestination = selectedWallet?.walletID
+            newTransaction.origin = nil
+            newTransaction.income(objectID: selectedWallet?.walletID ?? UUID(), value: incomeValue)
+            
+            do {
+                try context.save()
+                performSegue(withIdentifier: "open-income-alldone-segue", sender: nil)
+            } catch {
+                print(error.localizedDescription)
+                return
+            }
+        } else {
+            showEmptyBalanceAlert()
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "open-income-alldone-segue" {
+            let addIncomeAllDoneViewController = segue.destination as? AddIncomeAllDoneViewController
+            addIncomeAllDoneViewController?.modalHandlerDelegate = self
+        }
     }
     
     func fetchAllCategories() -> [Template] {
+        guard let context = self.context else {
+            return []
+        }
+        
         var categories = [Template()]
         do {
             categories = try context.fetch(Template.fetchRequest())
@@ -66,6 +100,31 @@ class AddIncomeViewController: UIViewController {
             print(error.localizedDescription)
         }
         return categories
+    }
+    
+    func fetchAllWallets() -> [Wallet] {
+        guard let context = self.context else {
+            return []
+        }
+        
+        var wallets = [Wallet()]
+        do {
+            wallets = try context.fetch(Wallet.fetchRequest())
+        } catch {
+            print(error.localizedDescription)
+        }
+        return wallets
+    }
+    
+    func showEmptyBalanceAlert() {
+        let alert = UIAlertController(title: NSLocalizedString("EmptyBalanceAlertTitle", comment: ""),
+                                      message: NSLocalizedString("EmptyBalanceAlertDescription", comment: ""),
+                                      preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Ok", comment: ""), style: .default, handler: { _ in
+        }))
+        
+        self.present(alert, animated: true)
     }
 }
 
@@ -87,7 +146,8 @@ extension AddIncomeViewController: UITableViewDataSource {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: AddIncomeValueCell.identifier, for: indexPath) as? AddIncomeValueCell else {
                 return UITableViewCell()
             }
-            cell.valueDelegate = self
+            cell.currencyDelegate = self
+            cell.backgroundColor = UIColor(named: "GraySuport3StateColor")
             return cell
             
         case .name:
@@ -95,25 +155,27 @@ extension AddIncomeViewController: UITableViewDataSource {
                 return UITableViewCell()
             }
             
-            cell.incomeNameDelegate = self
+            cell.descriptionDelegate = self
+            cell.backgroundColor = UIColor(named: "GraySuport3StateColor")
             return cell
             
         case .category:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: AddIncomeCategoryCell.identifier, for: indexPath) as? AddIncomeCategoryCell else {
                 return UITableViewCell()
             }
-            
+            cell.selectionLabel.text = incomeCategory?.name ?? NSLocalizedString("Others", comment: "")
+            cell.selectionImage.image = UIImage(named: incomeCategory?.templateIconName ?? "Atom")
             cell.planningDelegate = self
-            
+            cell.backgroundColor = UIColor(named: "GraySuport3StateColor")
             return cell
             
         case .wallet:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: AddIncomeWalletCell.identifier, for: indexPath) as? AddIncomeWalletCell else {
                 return UITableViewCell()
             }
-            
+            cell.contentLabel.text = selectedWallet?.name ?? NSLocalizedString("WalletName", comment: "")
             cell.planningDelegate = self
-            
+            cell.backgroundColor = UIColor(named: "GraySuport3StateColor")
             return cell
             
         case .planning:
@@ -128,8 +190,8 @@ extension AddIncomeViewController: UITableViewDataSource {
             
             cell.dateLabel.text = date
             cell.planningDelegate = self
-            cell.recurrencyLabel.text = selectedRecurrencyType.rawValue
-            
+            cell.recurrencyLabel.text = RecurrencyTypes.getTitleFor(title: selectedRecurrencyType)
+            cell.backgroundColor = UIColor(named: "GraySuport3StateColor")
             return cell
             
         case .divider:
@@ -140,7 +202,7 @@ extension AddIncomeViewController: UITableViewDataSource {
 
 extension AddIncomeViewController: UIViewControllerTransitioningDelegate {
     func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {
-
+        
         let presentationController = CustomSizePresentationController(presentedViewController: presented, presenting: presentingViewController)
         
         if presented is AddIncomeColectionViewController {
@@ -157,47 +219,92 @@ extension AddIncomeViewController: UIViewControllerTransitioningDelegate {
     }
 }
 
-extension AddIncomeViewController: PlanningCellDelegate, RecurrencyTypeDelegate, CalendarDelegate, CollectionDelegate, IncomeCaterogyDelegate {
+extension AddIncomeViewController: PlanningCellDelegate, RecurrencyTypeDelegate, CalendarDelegate, CollectionDelegate,
+                                   ObjectSelectionDelegate, CurrencyDelegate, DescriptionDelegate, ModalHandlerDelegate {
     
-    func openCollection() {
-        let allTemplates = fetchAllCategories()
-        print(allTemplates.count)
-        if allTemplates.count < 1 {
-            let alert = UIAlertController(title: NSLocalizedString("title", comment: ""), message: NSLocalizedString("addIncoCategoriesMessage", comment: ""), preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "OK", style: .default))
-            self.present(alert, animated: true, completion: nil)
+    func modalDismissed() {
+        modalHandlerDelegate?.modalDismissed()
+        self.navigationController?.dismiss(animated: true, completion: nil)
+    }
+    
+    func descriptionDidChanged(description: String) {
+        incomeName = description
+    }
+    
+    func currencyValueHasChanged(currency: Double) {
+        incomeValue = currency
+    }
+    
+    func didSelectObject(object: Any) {
+        guard let wallet = object as? Wallet else {
+            guard let template = object as? Template else {
+                return
+            }
+            incomeCategory = template
+            tableView.reloadData()
+            return
+        }
+        selectedWallet = wallet
+        tableView.reloadData()
+    }
+    
+    func openCollection(collectionType: CollectionType) {
+        if collectionType == .templates {
+            let allTemplates = fetchAllCategories()
+            if allTemplates.count < 1 {
+                let alert = UIAlertController(title: NSLocalizedString("title", comment: ""), message: NSLocalizedString("addIncoCategoriesMessage", comment: ""), preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .default))
+                self.present(alert, animated: true, completion: nil)
+            } else {
+                let storyboard = UIStoryboard(name: "Addition", bundle: nil)
+                let pvc = storyboard.instantiateViewController(withIdentifier: "open-income-collection-segue") as? AddIncomeColectionViewController
+                
+                pvc?.collectionType = collectionType
+                pvc?.modalPresentationStyle = .custom
+                pvc?.transitioningDelegate = self
+                pvc?.objectSelectionDelegate = self
+                present(pvc ?? UIViewController(), animated: true)
+            }
         } else {
-            let storyboard = UIStoryboard(name: "Addition", bundle: nil)
-            let pvc = storyboard.instantiateViewController(withIdentifier: "open-income-collection-segue") as? AddIncomeColectionViewController
-            
-            pvc?.modalPresentationStyle = .custom
-            pvc?.transitioningDelegate = self
-            pvc?.incomeCategoryDelegate = self
-            present(pvc ?? UIViewController(), animated: true)
+            let allWallets = fetchAllWallets()
+            if allWallets.count < 1 {
+                let alert = UIAlertController(title: NSLocalizedString("title", comment: ""), message: NSLocalizedString("addIncoCategoriesMessage", comment: ""), preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .default))
+                self.present(alert, animated: true, completion: nil)
+            } else {
+                let storyboard = UIStoryboard(name: "Addition", bundle: nil)
+                let pvc = storyboard.instantiateViewController(withIdentifier: "open-income-collection-segue") as? AddIncomeColectionViewController
+                
+                pvc?.collectionType = collectionType
+                pvc?.modalPresentationStyle = .custom
+                pvc?.transitioningDelegate = self
+                pvc?.objectSelectionDelegate = self
+                present(pvc ?? UIViewController(), animated: true)
+            }
         }
     }
-
+    
     func didTapRecurrency() {
         let storyboard = UIStoryboard(name: "Addition", bundle: nil)
         let pvc = storyboard.instantiateViewController(withIdentifier: "AddIncomeRecurrencyViewController") as? AddIncomeRecurrencyViewController
-
+        
         pvc?.modalPresentationStyle = .custom
         pvc?.transitioningDelegate = self
         pvc?.recurrencyDelegate = self
         pvc?.selectedRecurrencyType = selectedRecurrencyType
-
+        
         present(pvc ?? UIViewController(), animated: true)
     }
-
+    
     func didTapCalendar() {
         let storyboard = UIStoryboard(name: "Addition", bundle: nil)
         let pvc = storyboard.instantiateViewController(withIdentifier: "AddIncomeCalendarViewController") as? AddIncomeCalendarViewController
-
+        
         pvc?.modalPresentationStyle = .custom
         pvc?.transitioningDelegate = self
         pvc?.calendarDelegate = self
         pvc?.selectedDate = selectedDate
-
+        
         present(pvc ?? UIViewController(), animated: true)
     }
     
@@ -209,10 +316,6 @@ extension AddIncomeViewController: PlanningCellDelegate, RecurrencyTypeDelegate,
     func sendRecurrencyType(recurrencyType: RecurrencyTypes) {
         selectedRecurrencyType = recurrencyType
         tableView.reloadData()
-    }
-    
-    func sendIncomeCategory(caterogy: Template) {
-        incomeCategory = caterogy
     }
 }
 
@@ -227,17 +330,5 @@ extension AddIncomeViewController: UIGestureRecognizerDelegate {
     @objc
     func dismissKeyboard() {
         view.endEditing(true)
-    }
-}
-
-extension AddIncomeViewController: ValueDelegate {
-    func sendValue(value: Double) {
-        incomeValue = value
-    }
-}
-
-extension AddIncomeViewController: IncomeNameDelegate {
-    func sendIncomeName(name: String) {
-        incomeName = name
     }
 }

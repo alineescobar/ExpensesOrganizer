@@ -13,6 +13,7 @@ class AdditionViewController: UIViewController {
     @IBOutlet weak var firstView: UIView!
     @IBOutlet weak var secondView: UIView!
     @IBOutlet weak var segmentedControl: UISegmentedControl!
+    weak var modalHandlerDelegate: ModalHandlerDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +25,11 @@ class AdditionViewController: UIViewController {
         
         segmentedControl.setTitleTextAttributes([NSAttributedString.Key.font: font,
                                                  NSAttributedString.Key.foregroundColor: UIColor(named: "TertiaryBrandColor") as Any], for: .normal)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        modalHandlerDelegate?.modalDismissed()
     }
     
     @IBAction private func switchViews(_ sender: UISegmentedControl) {
@@ -73,51 +79,50 @@ class AdditionViewController: UIViewController {
         }
     }
     
-    //    swiftlint:disable function_parameter_count
-    func createItem(name: String, value: Double, recurrence: Int16, template: Template?, itemID: UUID, recurrenceDate: Date) {
-        let newItem = Item(context: context)
-        newItem.name = name
-        newItem.value = value
-        newItem.recurrence = recurrence
-        newItem.template = template
-        newItem.itemID = itemID
-        newItem.itemRecurrenceDate = recurrenceDate
-        template?.addToItems(newItem)
-        
-        do {
-            try context.save()
-        } catch {
-            print(error.localizedDescription)
-        }
-    }
-    // swiftlint: enable function_parameter_count
-    func createTemplate(name: String, templateDescription: String?, item: Item?, templateID: UUID) {
-        let newTemplate = Template(context: context)
-        newTemplate.name = name
-        newTemplate.templateDescription = templateDescription
-        newTemplate.templateID = templateID
-        if let item = item {
-            newTemplate.addToItems(item)
-        }
-        
-        do {
-            try context.save()
-        } catch {
-            print(error.localizedDescription)
-        }
-    }
-    
-    func createTransaction(destination: UUID, value: Double, origem: UUID?) {
-        let newTransaction = Transaction(context: context)
-        newTransaction.destination = destination
-        newTransaction.value = value
-        newTransaction.origem = origem
-        newTransaction.transactionDate = Date()
-        
-        do {
-            try context.save()
-        } catch {
-            print(error.localizedDescription)
-        }
-    }
+//    func createItem(name: String, value: Double, recurrence: Int16, template: Template?, itemID: UUID, recurrenceDate: Date) {
+//        let newItem = Item(context: context)
+//        newItem.name = name
+//        newItem.value = value
+//        newItem.recurrence = recurrence
+//        newItem.template = template
+//        newItem.itemID = itemID
+//        newItem.itemRecurrenceDate = recurrenceDate
+//        template?.addToItems(newItem)
+//        
+//        do {
+//            try context.save()
+//        } catch {
+//            print(error.localizedDescription)
+//        }
+//    }
+//    // swiftlint: enable function_parameter_count
+//    func createTemplate(name: String, templateDescription: String?, item: Item?, templateID: UUID) {
+//        let newTemplate = Template(context: context)
+//        newTemplate.name = name
+//        newTemplate.templateDescription = templateDescription
+//        newTemplate.templateID = templateID
+//        if let item = item {
+//            newTemplate.addToItems(item)
+//        }
+//        
+//        do {
+//            try context.save()
+//        } catch {
+//            print(error.localizedDescription)
+//        }
+//    }
+//    
+//    func createTransaction(destination: UUID, value: Double, origem: UUID?) {
+//        let newTransaction = Transaction(context: context)
+//        newTransaction.destination = destination
+//        newTransaction.value = value
+//        newTransaction.origem = origem
+//        newTransaction.transactionDate = Date()
+//        
+//        do {
+//            try context.save()
+//        } catch {
+//            print(error.localizedDescription)
+//        }
+//    }
 }

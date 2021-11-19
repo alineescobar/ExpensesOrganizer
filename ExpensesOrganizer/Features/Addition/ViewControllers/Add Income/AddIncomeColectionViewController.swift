@@ -5,36 +5,24 @@
 //  Created by Anderson Sprenger on 09/11/21.
 //
 
+import CoreData
 import UIKit
 
-protocol IncomeCaterogyDelegate: AnyObject {
-    func sendIncomeCategory (caterogy: Template)
-}
-
 class AddIncomeColectionViewController: UIViewController {
-    // swiftlint:disable force_cast
-    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-    // swiftlint:enable force_cast
+    private let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext
     
     @IBOutlet weak var collectionView: UICollectionView!
     
+    var collectionType: CollectionType = .templates
     let roundButtonCollectionCellID: String = "RoundButtonCollectionViewCell"
-    weak var incomeCategoryDelegate: IncomeCaterogyDelegate?
+    private var templates: [Template] = []
+    private var wallets: [Wallet] = []
+    weak var objectSelectionDelegate: ObjectSelectionDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setUpCollection()
-    }
-    
-    func fetchAllCategories() -> [Template] {
-        var categories = [Template()]
-        do {
-            categories = try context.fetch(Template.fetchRequest())
-        } catch {
-            print(error.localizedDescription)
-        }
-        return categories
     }
     
     func setUpCollection() {
@@ -53,13 +41,50 @@ class AddIncomeColectionViewController: UIViewController {
         
         collectionView.register(UINib(nibName: roundButtonCollectionCellID, bundle: nil),
                                 forCellWithReuseIdentifier: roundButtonCollectionCellID)
+        
+        if collectionType == .wallets {
+            fetchWallets()
+        } else {
+            fetchTemplates()
+        }
     }
+    
+    func fetchTemplates() {
+        guard let context = self.context else {
+            return
+        }
+        
+        do {
+            let request = Template.fetchRequest() as NSFetchRequest<Template>
+            let incomePredicate = NSPredicate(format: "isExpense == %@", NSNumber(value: false))
+            
+            request.predicate = incomePredicate
+            templates = try context.fetch(request)
+            templates.swapAt(templates.firstIndex(where: { $0.templateIconName == "Atom" }) ?? 0, templates.endIndex - 1)
+            
+        } catch {
+            print("Erro ao carregar.")
+        }
+    }
+    
+    func fetchWallets() {
+        guard let context = self.context else {
+            return
+        }
+        
+        do {
+            wallets = try context.fetch(Wallet.fetchRequest())
+        } catch {
+            print("Erro ao carregar.")
+        }
+    }
+    
 }
 
 extension AddIncomeColectionViewController: UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return collectionType == .wallets ? wallets.count : templates.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -67,10 +92,10 @@ extension AddIncomeColectionViewController: UICollectionViewDataSource {
             return UICollectionViewCell()
         }
         
-        cell.categoryNameLabel.text = "Mirela"
+        cell.categoryNameLabel.text = collectionType == .wallets ? wallets[indexPath.row].name : templates[indexPath.row].name
         cell.categoryNameLabel.textColor = .white
         cell.background.backgroundColor = UIColor.white.withAlphaComponent(0.4)
-        cell.categoryImage.image = UIImage(systemName: "eyebrow")
+        cell.categoryImage.image = collectionType == .wallets ? UIImage(named: "Wallet") : UIImage(named: templates[indexPath.row].templateIconName ?? "Atom")
         cell.tintColor = .white
 
         return cell
@@ -91,9 +116,7 @@ extension AddIncomeColectionViewController: UICollectionViewDelegateFlowLayout {
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let categories = fetchAllCategories()
-        let category = categories[indexPath.item]
-        incomeCategoryDelegate?.sendIncomeCategory(caterogy: category)
-        dismiss(animated: true, completion: nil)
+        objectSelectionDelegate?.didSelectObject(object: collectionType == .wallets ? wallets[indexPath.row] : templates[indexPath.row])
+        self.dismiss(animated: true)
     }
 }

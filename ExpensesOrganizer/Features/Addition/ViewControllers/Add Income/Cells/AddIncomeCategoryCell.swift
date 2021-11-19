@@ -8,7 +8,7 @@
 import UIKit
 
 protocol CollectionDelegate: AnyObject {
-    func openCollection()
+    func openCollection(collectionType: CollectionType)
 }
 
 class AddIncomeCategoryCell: UITableViewCell {
@@ -17,6 +17,7 @@ class AddIncomeCategoryCell: UITableViewCell {
 
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var selectionLabel: UILabel!
+    @IBOutlet weak var selectionImage: UIImageView!
     @IBOutlet weak var categoryStackView: UIStackView!
 
     override func awakeFromNib() {
@@ -37,6 +38,6 @@ class AddIncomeCategoryCell: UITableViewCell {
 
     @objc
     func openTable(_ sender: UITapGestureRecognizer) {
-        planningDelegate?.openCollection()
+        planningDelegate?.openCollection(collectionType: .templates)
     }
 }

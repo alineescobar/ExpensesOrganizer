@@ -8,11 +8,10 @@
 import UIKit
 
 enum DashboardCategory: CaseIterable {
-    case profile, balance, graphics, buttons, wallets, actionableCell, transaction
+    case profile, balance, graphics, buttons, wallets, actionableCell
     
     static var allCases: [DashboardCategory] {
-        return [.profile, .balance, .graphics, .buttons, .wallets, .actionableCell, .transaction, .transaction, .transaction, .transaction, .transaction]
-//        TODO: create logic behind the transactions cells.
+        return [.profile, .balance, .graphics, .buttons, .wallets, .actionableCell]
     }
 }
 
@@ -27,8 +26,9 @@ class DashboardViewController: UIViewController {
     private var isShowingGraphics: Bool = false
     private var isShowingBalance: Bool = false
     private var isStatsBarHidden: Bool = false
-   
+    
     private let dashboardCategories: [DashboardCategory] = DashboardCategory.allCases
+    private var transactions: [Transaction] = []
     
     private let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext
     private var wallets: [Wallet] = []
@@ -50,9 +50,11 @@ class DashboardViewController: UIViewController {
         
         do {
             wallets = try context.fetch(Wallet.fetchRequest())
+            transactions = try context.fetch(Transaction.fetchRequest())
         } catch {
-            print("erro ao carregar as wallets")
+            print("erro ao carregar")
         }
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -65,7 +67,7 @@ class DashboardViewController: UIViewController {
     override var preferredStatusBarStyle: UIStatusBarStyle {
         .lightContent
     }
-
+    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         navigationController?.setNavigationBarHidden(false, animated: animated)
@@ -74,8 +76,14 @@ class DashboardViewController: UIViewController {
     override var prefersStatusBarHidden: Bool {
         return isStatsBarHidden
     }
-
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "add" {
+            let additionViewController = segue.destination as? AdditionViewController
+            additionViewController?.modalHandlerDelegate = self
+            return
+        }
         if segue.identifier == "wallets" {
             let walletsViewController = segue.destination as? WalletsViewController
             walletsViewController?.modalHandlerDelegate = self
@@ -97,157 +105,167 @@ class DashboardViewController: UIViewController {
 
 extension DashboardViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        let dashboardCategory = dashboardCategories[indexPath.row]
-        
-        switch dashboardCategory {
-        case .graphics:
-            return isShowingGraphics ? 150 : 0
-        case .wallets:
-            return 140
-        default:
-            break
+        if indexPath.section == 0 {
+            let dashboardCategory = dashboardCategories[indexPath.row]
+            
+            switch dashboardCategory {
+            case .graphics:
+                return isShowingGraphics ? 150 : 0
+            case .wallets:
+                return 140
+            default:
+                break
+            }
         }
         return UITableView.automaticDimension
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let dashboardCategory = dashboardCategories[indexPath.row]
-        
-        switch dashboardCategory {
-        case .balance:
-            isShowingGraphics.toggle()
-            let magnitude: Double = isShowingGraphics ? 1 : -1
-            let height: Double = 150.0
-            let heightOffset: Double = magnitude * height
-            var indexPathToReload = indexPath
-            indexPathToReload.row += 1
-            UIView.animate(withDuration: isShowingGraphics ? 0.1 : 0.3) {
-                self.backgroundViewHeightConstraint.constant += heightOffset
-                self.initialBackgroundViewHeight += heightOffset
-                self.view.layoutIfNeeded()
-            }
-            mainTableView.reloadRows(at: [indexPath], with: .automatic)
-            mainTableView.reloadRows(at: [indexPathToReload], with: .automatic)
-        
-        case .actionableCell:
-            performSegue(withIdentifier: "transactions", sender: nil)
+        if indexPath.section == 0 {
+            let dashboardCategory = dashboardCategories[indexPath.row]
             
-        default:
-            break
+            switch dashboardCategory {
+            case .balance:
+                isShowingGraphics.toggle()
+                let magnitude: Double = isShowingGraphics ? 1 : -1
+                let height: Double = 150.0
+                let heightOffset: Double = magnitude * height
+                var indexPathToReload = indexPath
+                indexPathToReload.row += 1
+                UIView.animate(withDuration: isShowingGraphics ? 0.1 : 0.3) {
+                    self.backgroundViewHeightConstraint.constant += heightOffset
+                    self.initialBackgroundViewHeight += heightOffset
+                    self.view.layoutIfNeeded()
+                }
+                mainTableView.reloadRows(at: [indexPath], with: .automatic)
+                mainTableView.reloadRows(at: [indexPathToReload], with: .automatic)
+                
+            case .actionableCell:
+                performSegue(withIdentifier: "transactions", sender: nil)
+                
+            default:
+                break
+            }
         }
     }
-}
-
-struct TransactionMock {
-    var name: String
-    var tag: String
-    var price: String
-    var date: String
-    var imageName: String
-    
-    static var mock = [
-        TransactionMock(name: "Netflix", tag: "Subscription", price: "-$50.00", date: "9:41 AM", imageName: "play.tv"),
-        TransactionMock(name: "Zaffari", tag: "Market", price: "-$400.00", date: "7 nov", imageName: "cart"),
-        TransactionMock(name: "College", tag: "Education", price: "-$2,800.00", date: "28 out", imageName: "graduationcap"),
-        TransactionMock(name: "Udemy", tag: "Education", price: "-$29.50", date: "20 out", imageName: "graduationcap"),
-        TransactionMock(name: "Alura", tag: "Education", price: "-$270.50", date: "20 out", imageName: "graduationcap")
-    ]
 }
 
 extension DashboardViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let dashboardCategory = dashboardCategories[indexPath.row]
-        
-        switch dashboardCategory {
-        case .profile:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "profileCell", for: indexPath) as? ProfileTableViewCell
-            else {
-                return UITableViewCell()
+        if indexPath.section == 0 {
+            let dashboardCategory = dashboardCategories[indexPath.row]
+            
+            switch dashboardCategory {
+            case .profile:
+                guard let cell = tableView.dequeueReusableCell(withIdentifier: "profileCell", for: indexPath) as? ProfileTableViewCell
+                else {
+                    return UITableViewCell()
+                }
+                cell.nameLabel.text = NSLocalizedString("GreetingsLabel", comment: "") + (OnboardingPersistence.getUserName())
+                return cell
+                
+            case .balance:
+                guard let cell = tableView.dequeueReusableCell(withIdentifier: "balanceCell", for: indexPath) as? BalanceTableViewCell else {
+                    return UITableViewCell()
+                }
+                
+                cell.balanceDelegate = self
+                cell.showGraphicsImage.image = isShowingGraphics ? UIImage(systemName: "chevron.up") : UIImage(systemName: "chevron.down")
+                cell.hideBalanceButton.setImage(isShowingBalance ? UIImage(named: "Eye") : UIImage(named: "EyeClosed"), for: .normal)
+                
+                cell.balanceLabel.alpha = isShowingBalance ? 1 : 0
+                cell.balanceStackView.setBackgroundColor(color: isShowingBalance ? UIColor.clear : UIColor.white.withAlphaComponent(0.5))
+                cell.balanceStackView.layer.cornerRadius = 4
+                
+                var balance = 0.0
+                for wallet in wallets {
+                    balance += wallet.value
+                }
+                cell.balanceLabel.attributedText = getFormattedBalance(balance: balance, smallTextSize: 13.6, type: .screen)
+                
+                return cell
+                
+            case .graphics:
+                guard let cell = tableView.dequeueReusableCell(withIdentifier: graphicsCellId, for: indexPath) as? GraphicsTableViewCell
+                else {
+                    return UITableViewCell()
+                }
+                return cell
+                
+            case .buttons:
+                guard let cell = tableView.dequeueReusableCell(withIdentifier: "buttonsCell", for: indexPath) as? ButtonsTableViewCell
+                else {
+                    return UITableViewCell()
+                }
+                cell.buttonsDelegate = self
+                
+                return cell
+                
+            case .wallets:
+                guard let cell = tableView.dequeueReusableCell(withIdentifier: "walletsCell", for: indexPath) as? WalletsTableViewCell
+                else {
+                    return UITableViewCell()
+                }
+                cell.walletsDelegate = self
+                cell.backgroundColor = UIColor(named: "GraySuport3StateColor")
+                cell.fetchWallets()
+                cell.walletsCollectionView.reloadData()
+                return cell
+                
+            case .actionableCell:
+                guard let cell = mainTableView.dequeueReusableCell(withIdentifier: customCellHeader, for: indexPath) as? TransactionsHeaderCell else {
+                    return UITableViewCell()
+                }
+                cell.selectionStyle = .none
+                cell.backgroundColor = UIColor(named: "GraySuport3StateColor")
+                
+                cell.transactionsDelegate = self
+                
+                return cell
+                
             }
-            cell.nameLabel.text = NSLocalizedString("GreetingsLabel", comment: "") + (OnboardingPersistence.getUserName())
-            return cell
-            
-        case .balance:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "balanceCell", for: indexPath) as? BalanceTableViewCell else {
-                return UITableViewCell()
-            }
-            
-            cell.balanceDelegate = self
-            cell.showGraphicsImage.image = isShowingGraphics ? UIImage(systemName: "chevron.up") : UIImage(systemName: "chevron.down")
-            cell.hideBalanceButton.setImage(isShowingBalance ? UIImage(named: "Eye") : UIImage(named: "EyeClosed"), for: .normal)
-            
-            cell.balanceLabel.alpha = isShowingBalance ? 1 : 0
-            cell.balanceStackView.setBackgroundColor(color: isShowingBalance ? UIColor.clear : UIColor.white.withAlphaComponent(0.5))
-            cell.balanceStackView.layer.cornerRadius = 4
-            
-            var balance = 0.0
-            for wallet in wallets {
-                balance += wallet.value
-            }
-            cell.balanceLabel.attributedText = getFormattedBalance(balance: balance, smallTextSize: 13.6, type: .screen)
-            
-            return cell
-            
-        case .graphics:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: graphicsCellId, for: indexPath) as? GraphicsTableViewCell
-            else {
-                return UITableViewCell()
-            }
-            return cell
-            
-        case .buttons:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "buttonsCell", for: indexPath) as? ButtonsTableViewCell
-            else {
-                return UITableViewCell()
-            }
-            cell.buttonsDelegate = self
-            
-            return cell
-        
-        case .wallets:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "walletsCell", for: indexPath) as? WalletsTableViewCell
-            else {
-                return UITableViewCell()
-            }
-            cell.walletsDelegate = self
-            cell.backgroundColor = UIColor(named: "GraySuport3StateColor")
-            cell.fetchWallets()
-            cell.walletsCollectionView.reloadData()
-            return cell
-
-        case .transaction:
+        } else {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: customCellId, for: indexPath) as? TransactionCell else {
                 return UITableViewCell()
             }
             
-            let mock = TransactionMock.mock[indexPath.row - 6]
+            var date: String
             
-            cell.selectionStyle = .none
-            cell.backgroundColor = UIColor(named: "GraySuport3StateColor")
-            cell.transactionName.text = mock.name
-            cell.transactionTag.text = mock.tag
-            cell.transactionDate.text = mock.date
-            cell.transactionPrice.text = mock.price
-            cell.transactionImage.image = UIImage(systemName: mock.imageName)
+            let today = Calendar.current.dateComponents([.day], from: Date())
+            let transactionDay = Calendar.current.dateComponents([.day], from: transactions[indexPath.row].transactionDate ?? Date())
             
-            return cell
-            
-        case .actionableCell:
-            guard let cell = mainTableView.dequeueReusableCell(withIdentifier: customCellHeader, for: indexPath) as? TransactionsHeaderCell else {
-                return UITableViewCell()
+            if today.day == transactionDay.day {
+                date = transactions[indexPath.row].transactionDate?.shortTime ?? Date().shortTime
+            } else {
+                let formatter = DateFormatter()
+                let format = DateFormatter.dateFormat(fromTemplate: "dMMM", options: 0, locale: Locale.current)
+                formatter.dateFormat = format
+                date = formatter.string(from: transactions[indexPath.row].transactionDate ?? Date())
             }
+            
             cell.selectionStyle = .none
             cell.backgroundColor = UIColor(named: "GraySuport3StateColor")
-            
-            cell.transactionsDelegate = self
+            cell.transactionName.text = transactions[indexPath.row].name
+            cell.transactionTag.text = transactions[indexPath.row].category?.name
+            cell.transactionDate.text = date
+            cell.transactionPrice.text = transactions[indexPath.row].category?.isExpense ?? false ? "+" + String(format: "%.2f", transactions[indexPath.row].value).currencyInputFormatting() :
+            "-" + String(format: "%.2f", transactions[indexPath.row].value).currencyInputFormatting()
+            cell.transactionImage.image = UIImage(named: transactions[indexPath.row].category?.templateIconName ?? "Atom")
             
             return cell
-            
         }
     }
     
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dashboardCategories.count
+        if section == 0 {
+            return dashboardCategories.count
+        } else {
+            return transactions.count
+        }
     }
     
 }
@@ -312,6 +330,7 @@ extension DashboardViewController: ModalHandlerDelegate {
         
         do {
             wallets = try context.fetch(Wallet.fetchRequest())
+            transactions = try context.fetch(Transaction.fetchRequest())
             DispatchQueue.main.async {
                 self.mainTableView.reloadData()
             }

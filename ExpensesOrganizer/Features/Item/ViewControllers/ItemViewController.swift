@@ -154,6 +154,7 @@ extension ItemViewController: UITableViewDataSource {
             }
             cell.currencyTextField.text = String(format: "%.2f", itemValue).currencyInputFormatting()
             cell.currencyDelegate = self
+            cell.backgroundColor = UIColor(named: "GraySuport3StateColor")
             return cell
             
         case .description:
@@ -165,6 +166,7 @@ extension ItemViewController: UITableViewDataSource {
             cell.descriptionTextField.text = itemName
             cell.descriptionTextField.placeholder = NSLocalizedString("ItemName", comment: "")
             cell.descriptionDelegate = self
+            cell.backgroundColor = UIColor(named: "GraySuport3StateColor")
             return cell
         
         case .wallets:
@@ -175,6 +177,7 @@ extension ItemViewController: UITableViewDataSource {
             cell.payWithLabel.text = NSLocalizedString("PayWith", comment: "")
             cell.walletSelectionDelegate = self
             cell.selectedWalletLabel.text = selectedWallet?.name ?? ""
+            cell.backgroundColor = UIColor(named: "GraySuport3StateColor")
             return cell
             
         case .planning:
@@ -192,7 +195,7 @@ extension ItemViewController: UITableViewDataSource {
             cell.planningDelegate = self
             cell.planningLabel.text = NSLocalizedString("Planning", comment: "")
             cell.recurrencyLabel.text = RecurrencyTypes.getTitleFor(title: selectedRecurrencyType)
-            
+            cell.backgroundColor = UIColor(named: "GraySuport3StateColor")
             return cell
         }
     }

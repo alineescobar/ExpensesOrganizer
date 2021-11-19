@@ -21,6 +21,12 @@ class AddExpenseViewController: UIViewController {
     @IBOutlet weak var cancellButton: UIButton!
     @IBOutlet weak var doneButton: UIButton!
     
+    private let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext
+    weak var modalHandlerDelegate: ModalHandlerDelegate?
+    private var expenseName: String = ""
+    private var expenseValue: Double = 0.0
+    private var selectedWallet: Wallet?
+    private var selectedTemplate: Template?
     private var selectedRecurrencyType: RecurrencyTypes = .never
     private var selectedDate: Date = Date()
     private let interactor = Interactor()
@@ -43,8 +49,54 @@ class AddExpenseViewController: UIViewController {
         hideKeyboardWhenTappedAround()
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "open-income-alldone-segue" {
+            let addExpenseDoneViewController = segue.destination as? AddExpenseAllDoneViewController
+            addExpenseDoneViewController?.modalHandlerDelegate = self
+        }
+    }
+    
     @IBAction private func cancellButton(_ sender: UIButton) {
         navigationController?.dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction private func doneAction(_ sender: UIButton) {
+        if !expenseValue.isZero {
+            guard let context = self.context else {
+                return
+            }
+            
+            let newTransaction = Transaction(context: context)
+            newTransaction.name = expenseName
+            newTransaction.value = expenseValue
+            newTransaction.transactionDate = selectedDate
+            newTransaction.recurrenceType = selectedRecurrencyType.rawValue
+            newTransaction.category = selectedTemplate
+            newTransaction.transactionDestination = selectedWallet?.walletID
+            newTransaction.origin = nil
+            newTransaction.outcome(objectID: selectedWallet?.walletID, value: expenseValue)
+            
+            do {
+                try context.save()
+                performSegue(withIdentifier: "open-expense-alldone-segue", sender: nil)
+            } catch {
+                print(error.localizedDescription)
+                return
+            }
+        } else {
+            showEmptyBalanceAlert()
+        }
+    }
+    
+    func showEmptyBalanceAlert() {
+        let alert = UIAlertController(title: NSLocalizedString("EmptyBalanceAlertTitle", comment: ""),
+                                      message: NSLocalizedString("EmptyBalanceAlertDescription", comment: ""),
+                                      preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Ok", comment: ""), style: .default, handler: { _ in
+        }))
+        
+        self.present(alert, animated: true)
     }
 }
 
@@ -66,6 +118,8 @@ extension AddExpenseViewController: UITableViewDataSource {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: AddExpenseValueCell.identifier, for: indexPath) as? AddExpenseValueCell else {
                 return UITableViewCell()
             }
+            cell.backgroundColor = UIColor(named: "GraySuport3StateColor")
+            cell.currencyDelegate = self
             
             return cell
             
@@ -73,25 +127,27 @@ extension AddExpenseViewController: UITableViewDataSource {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: AddExpenseNameCell.identifier, for: indexPath) as? AddExpenseNameCell else {
                 return UITableViewCell()
             }
-            
+            cell.backgroundColor = UIColor(named: "GraySuport3StateColor")
+            cell.descriptionDelegate = self
             return cell
             
         case .category:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: AddExpenseCategoryCell.identifier, for: indexPath) as? AddExpenseCategoryCell else {
                 return UITableViewCell()
             }
-            
+            cell.selectionLabel.text = selectedTemplate?.name ?? NSLocalizedString("Others", comment: "")
+            cell.selectionImage.image = UIImage(named: selectedTemplate?.templateIconName ?? "Atom")
             cell.planningDelegate = self
-            
+            cell.backgroundColor = UIColor(named: "GraySuport3StateColor")
             return cell
             
         case .paymentMethod:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: AddExpensePaymentCell.identifier, for: indexPath) as? AddExpensePaymentCell else {
                 return UITableViewCell()
             }
-            
+            cell.contentLabel.text = selectedWallet?.name ?? NSLocalizedString("WalletName", comment: "")
             cell.planningDelegate = self
-            
+            cell.backgroundColor = UIColor(named: "GraySuport3StateColor")
             return cell
             
         case .planning:
@@ -105,9 +161,8 @@ extension AddExpenseViewController: UITableViewDataSource {
             
             cell.dateLabel.text = date
             cell.planningDelegate = self
-            cell.recurrencyLabel.text = selectedRecurrencyType.rawValue
-            
-            
+            cell.recurrencyLabel.text = RecurrencyTypes.getTitleFor(title: selectedRecurrencyType)
+            cell.backgroundColor = UIColor(named: "GraySuport3StateColor")
             return cell
             
         case .divider:
@@ -136,14 +191,43 @@ extension AddExpenseViewController: UIViewControllerTransitioningDelegate {
     }
 }
 
-extension AddExpenseViewController: PlanningCellDelegate, RecurrencyTypeDelegate, CalendarDelegate, CollectionDelegate {
+extension AddExpenseViewController: PlanningCellDelegate, RecurrencyTypeDelegate, CalendarDelegate, CollectionDelegate,
+    ObjectSelectionDelegate, CurrencyDelegate, DescriptionDelegate, ModalHandlerDelegate {
     
-    func openCollection() {
+    func modalDismissed() {
+        modalHandlerDelegate?.modalDismissed()
+        self.navigationController?.dismiss(animated: true, completion: nil)
+    }
+    
+    func descriptionDidChanged(description: String) {
+        expenseName = description
+    }
+    
+    func currencyValueHasChanged(currency: Double) {
+        expenseValue = currency
+    }
+    
+    func didSelectObject(object: Any) {
+        guard let wallet = object as? Wallet else {
+            guard let template = object as? Template else {
+                return
+            }
+            selectedTemplate = template
+            tableView.reloadData()
+            return
+        }
+        selectedWallet = wallet
+        tableView.reloadData()
+    }
+    
+    func openCollection(collectionType: CollectionType) {
         let storyboard = UIStoryboard(name: "Addition", bundle: nil)
         let pvc = storyboard.instantiateViewController(withIdentifier: "open-expense-collection-segue") as? AddExpenseColectionViewController
         
         pvc?.modalPresentationStyle = .custom
         pvc?.transitioningDelegate = self
+        pvc?.collectionType = collectionType
+        pvc?.objectSelectionDelegate = self
 
         present(pvc ?? UIViewController(), animated: true)
     }
