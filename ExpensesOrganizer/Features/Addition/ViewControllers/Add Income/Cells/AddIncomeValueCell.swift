@@ -9,7 +9,7 @@ import UIKit
 
 class AddIncomeValueCell: UITableViewCell {
     static let identifier: String = "add-income-value-cell"
-    
+    weak var currencyDelegate: CurrencyDelegate?
     @IBOutlet private weak var currencyTextField: UITextField!
     @IBOutlet weak var backspaceButton: UIButton!
     
@@ -24,7 +24,8 @@ class AddIncomeValueCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-
+        currencyTextField.delegate = self
+        currencyTextField.placeholder = String(format: "%.2f", 10.0).currencyInputFormatting()
         currencyTextField.addTarget(self, action: #selector(myTextFieldDidChange), for: .editingChanged)
     }
     
@@ -32,6 +33,16 @@ class AddIncomeValueCell: UITableViewCell {
     func myTextFieldDidChange(_ textField: UITextField) {
         if let amountString = currencyTextField.text?.currencyInputFormatting() {
             currencyTextField.text = amountString
+            var currencyWithoutCommas: String = currencyTextField.text?.replacingOccurrences(of: Locale.current.groupingSeparator ?? ",", with: "") ?? ""
+            currencyWithoutCommas = currencyWithoutCommas.replacingOccurrences(of: Locale.current.decimalSeparator ?? ".", with: ".")
+            currencyDelegate?.currencyValueHasChanged(currency: Double(currencyWithoutCommas) ?? 0.0)
         }
+    }
+}
+
+extension AddIncomeValueCell: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
 }

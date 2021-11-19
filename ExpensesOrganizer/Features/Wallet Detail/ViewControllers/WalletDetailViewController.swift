@@ -5,6 +5,7 @@
 //  Created by Diego Henrique on 26/10/21.
 //
 
+import CoreData
 import UIKit
 
 enum WalletDetailCategory: CaseIterable {
@@ -73,6 +74,22 @@ class WalletDetailViewController: UIViewController {
         walletNameLabel.text = wallet.name
         selectedDate = wallet.recurrenceDate ?? Date()
         selectedRecurrencyType = RecurrencyTypes(rawValue: wallet.recurrencyType ?? "Never") ?? RecurrencyTypes.never
+        
+        guard let context = self.context else {
+            return
+        }
+        
+        do {
+            let request = Transaction.fetchRequest() as NSFetchRequest<Transaction>
+            
+            let predicate = NSPredicate(format: "transactionDestination == %@", wallet.walletID?.uuidString ?? "")
+            
+            request.predicate = predicate
+            
+            walletRecentTransactions = try context.fetch(request)
+        } catch {
+            print(error.localizedDescription)
+        }
         // Do any additional setup after loading the view.
     }
     
@@ -84,7 +101,6 @@ class WalletDetailViewController: UIViewController {
         }
         wallet.name = walletName
         wallet.value = walletBalance
-        wallet.walletID = UUID()
         wallet.recurrenceDate = selectedDate
         wallet.recurrencyType = selectedRecurrencyType.rawValue
         do {
@@ -134,18 +150,23 @@ class WalletDetailViewController: UIViewController {
 
 extension WalletDetailViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        let walletDetailCategory = walletDetailCategories[indexPath.row]
-        
-        switch walletDetailCategory {
-        case .currency:
-            return 81
-        case .description:
-            return 167
-        case .planning:
-            return 121
-        default:
-            return UITableView.automaticDimension
+        if indexPath.section == 0 {
+            let walletDetailCategory = walletDetailCategories[indexPath.row]
+            
+            switch walletDetailCategory {
+            case .currency:
+                return 81
+            case .description:
+                return 167
+            case .planning:
+                return 121
+            default:
+                return UITableView.automaticDimension
+            }
+        } else {
+            return 70
         }
+        
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -185,6 +206,7 @@ extension WalletDetailViewController: UITableViewDataSource {
                 }
                 cell.currencyDelegate = self
                 cell.currencyTextField.text = String(format: "%.2f", wallet.value).currencyInputFormatting()
+                cell.backgroundColor = UIColor(named: "GraySuport3StateColor")
                 return cell
                 
             case .description:
@@ -196,6 +218,7 @@ extension WalletDetailViewController: UITableViewDataSource {
                 cell.descriptionTextField.text = wallet.name
                 cell.descriptionTextField.placeholder = NSLocalizedString("WalletName", comment: "")
                 cell.descriptionLabel.text = NSLocalizedString("Description", comment: "")
+                cell.backgroundColor = UIColor(named: "GraySuport3StateColor")
                 return cell
                 
             case .planning:
@@ -212,6 +235,7 @@ extension WalletDetailViewController: UITableViewDataSource {
                 cell.planningLabel.text = NSLocalizedString("Planning", comment: "")
                 cell.planningDelegate = self
                 cell.recurrencyLabel.text = RecurrencyTypes.getTitleFor(title: selectedRecurrencyType)
+                cell.backgroundColor = UIColor(named: "GraySuport3StateColor")
                 
                 return cell
             case .actionableCell:
@@ -221,6 +245,7 @@ extension WalletDetailViewController: UITableViewDataSource {
                 cell.selectionStyle = .none
                 
                 cell.transactionsDelegate = self
+                cell.backgroundColor = UIColor(named: "GraySuport3StateColor")
                 return cell
             }
         } else {
@@ -228,11 +253,30 @@ extension WalletDetailViewController: UITableViewDataSource {
                 return UITableViewCell()
             }
             
+            var date: String
+            
+            let today = Calendar.current.dateComponents([.day], from: Date())
+            let transactionDay = Calendar.current.dateComponents([.day], from: walletRecentTransactions[indexPath.row].transactionDate ?? Date())
+            
+            if today.day == transactionDay.day {
+                date = walletRecentTransactions[indexPath.row].transactionDate?.shortTime ?? Date().shortTime
+            } else {
+                let formatter = DateFormatter()
+                let format = DateFormatter.dateFormat(fromTemplate: "dMMM", options: 0, locale: Locale.current)
+                formatter.dateFormat = format
+                date = formatter.string(from: walletRecentTransactions[indexPath.row].transactionDate ?? Date())
+            }
+            
             cell.selectionStyle = .none
-            cell.transactionName.text = "Netflix"
-            cell.transactionTag.text = "Assinatura"
-            cell.transactionDate.text = "20 out"
-            cell.transactionPrice.text = "-9,50"
+            cell.backgroundColor = UIColor(named: "GraySuport3StateColor")
+            cell.transactionName.text = walletRecentTransactions[indexPath.row].name
+            cell.transactionTag.text = walletRecentTransactions[indexPath.row].category?.name
+            cell.transactionDate.text = date
+            cell.transactionPrice.text = walletRecentTransactions[indexPath.row].category?.isExpense ?? false ? "+" +
+            String(format: "%.2f", walletRecentTransactions[indexPath.row].value).currencyInputFormatting() :
+            "-" + String(format: "%.2f", walletRecentTransactions[indexPath.row].value).currencyInputFormatting()
+            cell.transactionImage.image = UIImage(named: walletRecentTransactions[indexPath.row].category?.templateIconName ?? "Atom")
+            cell.backgroundColor = UIColor(named: "GraySuport3StateColor")
             
             return cell
         }
@@ -252,11 +296,12 @@ extension WalletDetailViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
+            guard let context = self.context else {
+                return
+            }
+            context.delete(walletRecentTransactions[indexPath.row])
             walletRecentTransactions.remove(at: indexPath.row)
-            // TODO: Update CoreData object
-            //            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
+            tableView.deleteRows(at: [indexPath], with: .fade)
         }
     }
 }

@@ -173,6 +173,7 @@ extension PlanningDetailViewController: UITableViewDataSource {
                 cell.planningTitleTextField.text = templateName
                 cell.planningDescriptionTextField.text = templateDescription.isEmpty ? NSLocalizedString("OptionalDescription", comment: "") : templateDescription
                 cell.planningEditionDelegate = self
+                cell.backgroundColor = UIColor(named: "GraySuport3StateColor")
                 return cell
                 
             case .planningTotalBalance:
@@ -181,8 +182,9 @@ extension PlanningDetailViewController: UITableViewDataSource {
                     return UITableViewCell()
                 }
                 getTotalBalance()
-                cell.balanceLabel.text = template.isExpense ? "- " + String(format: "%.2f", totalBalance).currencyInputFormatting()
-                : "+ " + String(format: "%.2f", totalBalance).currencyInputFormatting()
+                cell.balanceLabel.text = template.isExpense ? "-" + String(format: "%.2f", totalBalance).currencyInputFormatting()
+                : "+" + String(format: "%.2f", totalBalance).currencyInputFormatting()
+                cell.backgroundColor = UIColor(named: "GraySuport3StateColor")
                 return cell
             default:
                 return UITableViewCell()
@@ -195,10 +197,11 @@ extension PlanningDetailViewController: UITableViewDataSource {
             }
             cell.planningItemDelegate = self
             cell.itemNameLabel.text = item.name
-            cell.itemValueLabel.text = template.isExpense ? "- " + String(format: "%.2f", item.value).currencyInputFormatting() : "+ " + String(format: "%.2f", item.value).currencyInputFormatting()
+            cell.itemValueLabel.text = template.isExpense ? "-" + String(format: "%.2f", item.value).currencyInputFormatting() : "+" + String(format: "%.2f", item.value).currencyInputFormatting()
             cell.itemRecurrencyLabel.text = RecurrencyTypes.getTitleFor(title: RecurrencyTypes(rawValue: item.recurrenceType ?? "Never") ?? .never)
             cell.notificationSwitch.setOn(item.sendsNotification, animated: false)
             cell.item = item
+            cell.backgroundColor = UIColor(named: "GraySuport3StateColor")
             return cell
         }
         

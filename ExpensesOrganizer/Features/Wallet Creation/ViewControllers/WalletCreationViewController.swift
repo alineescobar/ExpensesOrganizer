@@ -140,6 +140,7 @@ extension WalletCreationViewController: UITableViewDataSource {
                 return UITableViewCell()
             }
             cell.currencyDelegate = self
+            cell.backgroundColor = UIColor(named: "GraySuport3StateColor")
             return cell
             
         case .description:
@@ -150,6 +151,7 @@ extension WalletCreationViewController: UITableViewDataSource {
             cell.descriptionDelegate = self
             cell.descriptionTextField.placeholder = NSLocalizedString("WalletName", comment: "")
             cell.descriptionLabel.text = NSLocalizedString("Description", comment: "")
+            cell.backgroundColor = UIColor(named: "GraySuport3StateColor")
             return cell
             
         case .planning:
@@ -166,8 +168,8 @@ extension WalletCreationViewController: UITableViewDataSource {
             formatter.dateFormat = format
             let date = formatter.string(from: selectedDate)
             cell.dateLabel.text = date
-            
             cell.planningLabel.text = NSLocalizedString("Planning", comment: "")
+            cell.backgroundColor = UIColor(named: "GraySuport3StateColor")
             
             return cell
         }

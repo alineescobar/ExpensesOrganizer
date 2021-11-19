@@ -90,7 +90,7 @@
 // MARK: alert section of this screen
 "title" = "Alert!";
 "message" = "Looks like you don't have any wallets to display.";
-
+"addIncoCategoriesMessage" = "Looks like you dont't have any templates to display.";
 
 // MARK: Addition Income
 "addition-income-segmented-title" = "Incomes";

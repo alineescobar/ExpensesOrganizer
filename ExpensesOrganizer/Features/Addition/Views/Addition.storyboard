@@ -59,7 +59,7 @@
                             </containerView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="GraySuport3StateColor"/>
                         <constraints>
                             <constraint firstItem="LHx-cE-JJv" firstAttribute="top" secondItem="os5-se-bgi" secondAttribute="bottom" constant="27" id="72V-QV-PvT"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="os5-se-bgi" secondAttribute="trailing" constant="24" id="DSO-rF-L4i"/>
@@ -94,7 +94,7 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Kxf-XT-KjO">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="671"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" name="GraySuport3StateColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="add-income-value-cell" rowHeight="127" id="52D-AG-hAU" customClass="AddIncomeValueCell" customModule="ExpensesOrganizer" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="44.5" width="414" height="127"/>
@@ -164,6 +164,7 @@
                                                 <constraint firstItem="Of4-b0-e1d" firstAttribute="centerY" secondItem="XyM-GT-fZA" secondAttribute="centerY" id="FNj-YS-RUx"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" name="GraySuport3StateColor"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="add-income-name-cell" rowHeight="90" id="5aN-Tu-ad4" customClass="AddIncomeNameCell" customModule="ExpensesOrganizer" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="172.5" width="414" height="90"/>
@@ -193,6 +194,9 @@
                                                             <rect key="frame" x="25" y="0.0" width="341" height="17"/>
                                                             <fontDescription key="fontDescription" name="WorkSans-Regular" family="Work Sans" pointSize="17"/>
                                                             <textInputTraits key="textInputTraits"/>
+                                                            <connections>
+                                                                <action selector="didTextFieldEditingChanged:" destination="5aN-Tu-ad4" eventType="editingDidEnd" id="xHc-qr-J8I"/>
+                                                            </connections>
                                                         </textField>
                                                     </subviews>
                                                 </stackView>
@@ -258,6 +262,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="categoryStackView" destination="fua-0p-Y9h" id="840-sb-d9O"/>
+                                            <outlet property="selectionImage" destination="7se-44-pDA" id="E4O-Q7-Gnr"/>
                                             <outlet property="selectionLabel" destination="cgz-ML-jcW" id="BII-tn-uhJ"/>
                                             <outlet property="titleLabel" destination="GH4-kv-5qS" id="ZfJ-Fh-Efm"/>
                                         </connections>
@@ -328,7 +333,7 @@
                                                     <rect key="frame" x="24" y="47" width="366" height="20"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="21" translatesAutoresizingMaskIntoConstraints="NO" id="y2g-ja-7am">
-                                                            <rect key="frame" x="0.0" y="0.0" width="181" height="20"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="179.5" height="20"/>
                                                             <subviews>
                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ArrowsClockwise" translatesAutoresizingMaskIntoConstraints="NO" id="gsb-yt-kFV">
                                                                     <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
@@ -339,7 +344,7 @@
                                                                     </constraints>
                                                                 </imageView>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nunca" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FUC-68-mEK">
-                                                                    <rect key="frame" x="41" y="0.0" width="140" height="20"/>
+                                                                    <rect key="frame" x="41" y="0.0" width="138.5" height="20"/>
                                                                     <fontDescription key="fontDescription" name="WorkSans-Regular" family="Work Sans" pointSize="17"/>
                                                                     <color key="textColor" name="TertiaryBrandColor"/>
                                                                     <nil key="highlightedColor"/>
@@ -347,7 +352,7 @@
                                                             </subviews>
                                                         </stackView>
                                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="21" translatesAutoresizingMaskIntoConstraints="NO" id="aVw-ew-hjA">
-                                                            <rect key="frame" x="189" y="0.0" width="177" height="20"/>
+                                                            <rect key="frame" x="187.5" y="0.0" width="178.5" height="20"/>
                                                             <subviews>
                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Calendar" translatesAutoresizingMaskIntoConstraints="NO" id="gIH-fs-gDm">
                                                                     <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
@@ -358,7 +363,7 @@
                                                                     </constraints>
                                                                 </imageView>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="247" verticalHuggingPriority="251" horizontalCompressionResistancePriority="752" text="25 Out" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TwH-h4-82z">
-                                                                    <rect key="frame" x="41" y="0.0" width="136" height="20"/>
+                                                                    <rect key="frame" x="41" y="0.0" width="137.5" height="20"/>
                                                                     <fontDescription key="fontDescription" name="WorkSans-Regular" family="Work Sans" pointSize="17"/>
                                                                     <nil key="textColor"/>
                                                                     <color key="highlightedColor" name="TertiaryBrandColor"/>
@@ -418,14 +423,14 @@
                                             <color key="titleColor" name="WhiteStateColor"/>
                                         </state>
                                         <connections>
-                                            <segue destination="F2A-pe-i2m" kind="show" identifier="open-income-alldone-segue" id="L7L-uy-mQF"/>
+                                            <action selector="doneButton:" destination="8fW-bf-dI9" eventType="touchUpInside" id="nPA-GM-Lek"/>
                                         </connections>
                                     </button>
                                 </subviews>
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="rYL-Np-cxZ"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="GraySuport3StateColor"/>
                         <constraints>
                             <constraint firstItem="Kxf-XT-KjO" firstAttribute="top" secondItem="t72-zN-741" secondAttribute="top" id="7Zw-ar-DRf"/>
                             <constraint firstItem="PxO-kU-dZf" firstAttribute="top" secondItem="Kxf-XT-KjO" secondAttribute="bottom" constant="12" id="CUn-eg-Av0"/>
@@ -444,6 +449,7 @@
                         <segue destination="TYP-sd-EKi" kind="presentation" identifier="open-income-calendar-segue" id="teK-vF-ogl"/>
                         <segue destination="QAS-by-xNX" kind="presentation" identifier="open-income-recurrency-segue" id="Yx8-YX-SWb"/>
                         <segue destination="hpB-9n-7FX" kind="presentation" identifier="open-income-collection-segue" id="zNL-vd-836"/>
+                        <segue destination="F2A-pe-i2m" kind="show" identifier="open-income-alldone-segue" id="Sju-P9-63Z"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uXc-4H-D13" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -598,19 +604,19 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="84" translatesAutoresizingMaskIntoConstraints="NO" id="aqu-md-59k">
-                                <rect key="frame" x="24" y="206" width="366" height="321"/>
+                                <rect key="frame" x="24" y="206" width="366" height="321.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="21" translatesAutoresizingMaskIntoConstraints="NO" id="wx3-ut-viV">
-                                        <rect key="frame" x="30" y="0.0" width="306.5" height="117"/>
+                                        <rect key="frame" x="14" y="0.0" width="338.5" height="117.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tudo certo por aqui!" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M9S-TU-2r0">
-                                                <rect key="frame" x="0.0" y="0.0" width="306.5" height="40"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="338.5" height="40"/>
                                                 <fontDescription key="fontDescription" name="WorkSans-Bold" family="Work Sans" pointSize="34"/>
                                                 <color key="textColor" name="TertiaryBrandColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Seu ganho foi adicionado com sucesso." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Nz-rY-hTk">
-                                                <rect key="frame" x="0.0" y="61" width="280.5" height="56"/>
+                                                <rect key="frame" x="0.0" y="61" width="303.5" height="56.5"/>
                                                 <fontDescription key="fontDescription" name="WorkSans-SemiBold" family="Work Sans" pointSize="24"/>
                                                 <color key="textColor" name="TertiaryBrandColor"/>
                                                 <nil key="highlightedColor"/>
@@ -618,7 +624,7 @@
                                         </subviews>
                                     </stackView>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SmileyWink" translatesAutoresizingMaskIntoConstraints="NO" id="vYI-i1-QCV">
-                                        <rect key="frame" x="123" y="201" width="120" height="120"/>
+                                        <rect key="frame" x="123" y="201.5" width="120" height="120"/>
                                         <color key="tintColor" name="TertiaryBrandColor"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="120" id="Eyo-Ju-DCb"/>
@@ -629,7 +635,7 @@
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ght-QX-Xms"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="GraySuport3StateColor"/>
                         <constraints>
                             <constraint firstItem="ght-QX-Xms" firstAttribute="trailing" secondItem="mD7-g4-8dZ" secondAttribute="trailing" constant="32" id="EZt-up-e1n"/>
                             <constraint firstItem="aqu-md-59k" firstAttribute="leading" secondItem="ght-QX-Xms" secondAttribute="leading" constant="24" id="EqB-7Y-KmW"/>
@@ -660,7 +666,7 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="49B-CL-pcO">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="671"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" name="GraySuport3StateColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="add-expense-value-cell" rowHeight="127" id="DdK-Yj-TL6" customClass="AddExpenseValueCell" customModule="ExpensesOrganizer" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="44.5" width="414" height="127"/>
@@ -737,6 +743,9 @@
                                                             <rect key="frame" x="25" y="0.0" width="341" height="17"/>
                                                             <fontDescription key="fontDescription" name="WorkSans-Regular" family="Work Sans" pointSize="17"/>
                                                             <textInputTraits key="textInputTraits"/>
+                                                            <connections>
+                                                                <action selector="didTextFieldEditingChanged:" destination="X9e-Cb-bgp" eventType="editingDidEnd" id="K9r-Yc-VKy"/>
+                                                            </connections>
                                                         </textField>
                                                     </subviews>
                                                 </stackView>
@@ -778,6 +787,7 @@
                                                 <constraint firstAttribute="trailing" secondItem="Ft7-hj-idf" secondAttribute="trailing" constant="24" id="xan-AM-v9V"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" name="GraySuport3StateColor"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="add-expense-category-cell" rowHeight="75" id="gcr-xn-2bk" customClass="AddExpenseCategoryCell" customModule="ExpensesOrganizer" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="262.5" width="414" height="75"/>
@@ -823,6 +833,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="selectionImage" destination="dEc-KH-NfX" id="hPO-Jg-cYq"/>
                                             <outlet property="selectionLabel" destination="pjk-j3-dHu" id="lk3-wa-fFl"/>
                                             <outlet property="selectionStack" destination="BRh-h8-MDc" id="gIt-xD-Xmk"/>
                                             <outlet property="titleLabel" destination="dx8-rd-hCn" id="CVx-CP-Cfo"/>
@@ -894,7 +905,7 @@
                                                     <rect key="frame" x="24" y="47" width="366" height="20"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="21" translatesAutoresizingMaskIntoConstraints="NO" id="kDs-dq-zf2">
-                                                            <rect key="frame" x="0.0" y="0.0" width="181" height="20"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="179.5" height="20"/>
                                                             <subviews>
                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ArrowsClockwise" translatesAutoresizingMaskIntoConstraints="NO" id="5qM-Mx-yue">
                                                                     <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
@@ -905,7 +916,7 @@
                                                                     </constraints>
                                                                 </imageView>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nunca" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NvS-U9-AGK">
-                                                                    <rect key="frame" x="41" y="0.0" width="140" height="20"/>
+                                                                    <rect key="frame" x="41" y="0.0" width="138.5" height="20"/>
                                                                     <fontDescription key="fontDescription" name="WorkSans-Regular" family="Work Sans" pointSize="17"/>
                                                                     <color key="textColor" name="TertiaryBrandColor"/>
                                                                     <nil key="highlightedColor"/>
@@ -913,7 +924,7 @@
                                                             </subviews>
                                                         </stackView>
                                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="21" translatesAutoresizingMaskIntoConstraints="NO" id="GbO-O7-jzv">
-                                                            <rect key="frame" x="189" y="0.0" width="177" height="20"/>
+                                                            <rect key="frame" x="187.5" y="0.0" width="178.5" height="20"/>
                                                             <subviews>
                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Calendar" translatesAutoresizingMaskIntoConstraints="NO" id="gvL-rj-gnj">
                                                                     <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
@@ -924,7 +935,7 @@
                                                                     </constraints>
                                                                 </imageView>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="247" verticalHuggingPriority="251" horizontalCompressionResistancePriority="752" text="25 Out" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="toK-pB-Vsh">
-                                                                    <rect key="frame" x="41" y="0.0" width="136" height="20"/>
+                                                                    <rect key="frame" x="41" y="0.0" width="137.5" height="20"/>
                                                                     <fontDescription key="fontDescription" name="WorkSans-Regular" family="Work Sans" pointSize="17"/>
                                                                     <color key="textColor" name="TertiaryBrandColor"/>
                                                                     <nil key="highlightedColor"/>
@@ -984,14 +995,14 @@
                                             <color key="titleColor" name="WhiteStateColor"/>
                                         </state>
                                         <connections>
-                                            <segue destination="Rfg-Jl-Vfa" kind="show" identifier="open-expense-alldone-segue" id="PU0-bf-dGv"/>
+                                            <action selector="doneAction:" destination="rbo-ha-FuY" eventType="touchUpInside" id="AmY-h9-0Eh"/>
                                         </connections>
                                     </button>
                                 </subviews>
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="pas-Pf-rGn"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="GraySuport3StateColor"/>
                         <constraints>
                             <constraint firstItem="49B-CL-pcO" firstAttribute="leading" secondItem="Fa2-9o-PgN" secondAttribute="leading" id="8Ic-Ju-OsK"/>
                             <constraint firstItem="pas-Pf-rGn" firstAttribute="bottom" secondItem="wJy-DP-8ZG" secondAttribute="bottom" constant="12" id="EGa-1a-Lwu"/>
@@ -1010,6 +1021,7 @@
                         <segue destination="R9A-fC-udx" kind="presentation" identifier="open-expense-calendar-segue" id="2ga-8p-aaZ"/>
                         <segue destination="xei-pb-Vro" kind="presentation" identifier="open-expense-recurrency-segue" id="E87-0Q-H7a"/>
                         <segue destination="KFw-cg-aea" kind="presentation" identifier="open-expense-collection-segue" id="HTW-b8-a4t"/>
+                        <segue destination="Rfg-Jl-Vfa" kind="show" identifier="open-expense-alldone-segue" id="4a1-f2-Wey"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TPL-6P-KfE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1040,19 +1052,19 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="84" translatesAutoresizingMaskIntoConstraints="NO" id="Rt4-8J-PKb">
-                                <rect key="frame" x="24" y="206" width="366" height="321"/>
+                                <rect key="frame" x="24" y="206" width="366" height="321.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="21" translatesAutoresizingMaskIntoConstraints="NO" id="rzZ-vi-JKI">
-                                        <rect key="frame" x="30" y="0.0" width="306.5" height="117"/>
+                                        <rect key="frame" x="14" y="0.0" width="338.5" height="117.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tudo certo por aqui!" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QOQ-Mr-XTt">
-                                                <rect key="frame" x="0.0" y="0.0" width="306.5" height="40"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="338.5" height="40"/>
                                                 <fontDescription key="fontDescription" name="WorkSans-Bold" family="Work Sans" pointSize="34"/>
                                                 <color key="textColor" name="TertiaryBrandColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sua despesa foi adicionada com sucesso." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZI3-IZ-yAN">
-                                                <rect key="frame" x="0.0" y="61" width="304" height="56"/>
+                                                <rect key="frame" x="0.0" y="61" width="328" height="56.5"/>
                                                 <fontDescription key="fontDescription" name="WorkSans-SemiBold" family="Work Sans" pointSize="24"/>
                                                 <color key="textColor" name="TertiaryBrandColor"/>
                                                 <nil key="highlightedColor"/>
@@ -1060,7 +1072,7 @@
                                         </subviews>
                                     </stackView>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SmileyWink" translatesAutoresizingMaskIntoConstraints="NO" id="ebg-dz-r7P">
-                                        <rect key="frame" x="123" y="201" width="120" height="120"/>
+                                        <rect key="frame" x="123" y="201.5" width="120" height="120"/>
                                         <color key="tintColor" name="TertiaryBrandColor"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="120" id="9mw-4o-cgv"/>
@@ -1071,7 +1083,7 @@
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Rs5-TH-9jv"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="GraySuport3StateColor"/>
                         <constraints>
                             <constraint firstItem="Rt4-8J-PKb" firstAttribute="leading" secondItem="Rs5-TH-9jv" secondAttribute="leading" constant="24" id="RzZ-k6-cf8"/>
                             <constraint firstItem="REn-9U-fqd" firstAttribute="leading" secondItem="Rs5-TH-9jv" secondAttribute="leading" constant="32" id="Vkx-36-zBd"/>
@@ -1081,6 +1093,7 @@
                             <constraint firstItem="Rs5-TH-9jv" firstAttribute="trailing" secondItem="REn-9U-fqd" secondAttribute="trailing" constant="32" id="iTb-dJ-xWV"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="tAF-bk-hBv"/>
                     <connections>
                         <outlet property="bodyLabel" destination="ZI3-IZ-yAN" id="R0s-Rn-cUi"/>
                         <outlet property="doneButton" destination="REn-9U-fqd" id="3ak-bo-Mxq"/>
@@ -1229,7 +1242,7 @@
                                                     <rect key="frame" x="16" y="13" width="342" height="28"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nunca" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KkS-z2-AVC">
-                                                            <rect key="frame" x="0.0" y="0.0" width="47" height="28"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="49.5" height="28"/>
                                                             <fontDescription key="fontDescription" name="WorkSans-Regular" family="Work Sans" pointSize="16"/>
                                                             <color key="textColor" name="WhiteStateColor"/>
                                                             <nil key="highlightedColor"/>
@@ -1316,7 +1329,7 @@
                                                     <rect key="frame" x="16" y="13" width="342" height="28"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nunca" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j0f-cV-lUE">
-                                                            <rect key="frame" x="0.0" y="0.0" width="47" height="28"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="49.5" height="28"/>
                                                             <fontDescription key="fontDescription" name="WorkSans-Regular" family="Work Sans" pointSize="16"/>
                                                             <color key="textColor" name="WhiteStateColor"/>
                                                             <color key="highlightedColor" name="WhiteStateColor"/>
@@ -1444,6 +1457,9 @@
         <namedColor name="GraySuport2StateColor">
             <color red="0.68627450980392157" green="0.71764705882352942" blue="0.74509803921568629" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <namedColor name="GraySuport3StateColor">
+            <color red="0.97254901960784312" green="0.97254901960784312" blue="0.97254901960784312" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="PrimaryBrandColor">
             <color red="0.14509803921568629" green="0.16862745098039217" blue="0.39215686274509803" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
@@ -1461,9 +1477,6 @@
         </systemColor>
         <systemColor name="opaqueSeparatorColor">
             <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
     </resources>
 </document>
