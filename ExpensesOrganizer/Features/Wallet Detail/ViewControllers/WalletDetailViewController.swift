@@ -272,9 +272,9 @@ extension WalletDetailViewController: UITableViewDataSource {
             cell.transactionName.text = walletRecentTransactions[indexPath.row].name
             cell.transactionTag.text = walletRecentTransactions[indexPath.row].category?.name
             cell.transactionDate.text = date
-            cell.transactionPrice.text = walletRecentTransactions[indexPath.row].category?.isExpense ?? false ? "+" +
+            cell.transactionPrice.text = walletRecentTransactions[indexPath.row].category?.isExpense ?? false ? "-" +
             String(format: "%.2f", walletRecentTransactions[indexPath.row].value).currencyInputFormatting() :
-            "-" + String(format: "%.2f", walletRecentTransactions[indexPath.row].value).currencyInputFormatting()
+            "+" + String(format: "%.2f", walletRecentTransactions[indexPath.row].value).currencyInputFormatting()
             cell.transactionImage.image = UIImage(named: walletRecentTransactions[indexPath.row].category?.templateIconName ?? "Atom")
             cell.backgroundColor = UIColor(named: "GraySuport3StateColor")
             

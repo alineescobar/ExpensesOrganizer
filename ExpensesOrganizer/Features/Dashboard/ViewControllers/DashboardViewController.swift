@@ -248,8 +248,8 @@ extension DashboardViewController: UITableViewDataSource {
             cell.transactionName.text = transactions[indexPath.row].name
             cell.transactionTag.text = transactions[indexPath.row].category?.name
             cell.transactionDate.text = date
-            cell.transactionPrice.text = transactions[indexPath.row].category?.isExpense ?? false ? "+" + String(format: "%.2f", transactions[indexPath.row].value).currencyInputFormatting() :
-            "-" + String(format: "%.2f", transactions[indexPath.row].value).currencyInputFormatting()
+            cell.transactionPrice.text = transactions[indexPath.row].category?.isExpense ?? false ? "-" + String(format: "%.2f", transactions[indexPath.row].value).currencyInputFormatting() :
+            "+" + String(format: "%.2f", transactions[indexPath.row].value).currencyInputFormatting()
             cell.transactionImage.image = UIImage(named: transactions[indexPath.row].category?.templateIconName ?? "Atom")
             
             return cell
