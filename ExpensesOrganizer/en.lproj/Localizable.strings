@@ -10,7 +10,7 @@
 
 "GreetingsLabel" = "Hi, ";
 "BalanceLabel" = "Current balance";
-"WalletLabel" = "Wallet";
+"WalletLabel" = "Wallets";
 "GoalsLabel" = "Goals";
 "PlanningLabel" = "Plan";
 "AddLabel" = "Add";
@@ -28,7 +28,8 @@
 "EmptyBalanceAlertDescription" = "You need to set a value to your wallet's balance!";
 "WalletSavingErrorAlertTitle" = "Error saving Wallet";
 "WalletSavingErrorAlertDescription" = "There was a problem saving your wallet, please try again.";
-"SecondEmptyStateWalletsText" = "Press the button button below to add a wallet.";
+"SecondEmptyStateWalletsText" = "Press the button below to add a wallet.";
+"CreateNewWallet" = "Create new wallet";
 
 // MARK: Wallet Detail
 "WalletDeleteAlertTitle" = "Delete Wallet";
@@ -119,6 +120,7 @@
 "NewItemCreated" = "Your new item was successfully added.";
 "ItemEditionCancelAlertTitle" = "Cancel Item edition";
 "ItemKeepEditingAction" = "Keep editing";
+"Notification" = "Notification";
 
 // MARK: Recurrency Types
 "Never" = "Never";

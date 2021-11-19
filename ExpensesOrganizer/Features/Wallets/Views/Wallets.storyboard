@@ -206,13 +206,13 @@
                                                     <rect key="frame" x="24" y="16" width="366" height="85"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nada aqui!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RfP-a9-IOX">
-                                                            <rect key="frame" x="0.0" y="0.0" width="104.5" height="35.5"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="97" height="50"/>
                                                             <fontDescription key="fontDescription" name="WorkSans-Bold" family="Work Sans" pointSize="20"/>
                                                             <color key="textColor" name="TertiaryBrandColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pressione o botão abaixo para adicionar uma carteira." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vqv-GD-ksW">
-                                                            <rect key="frame" x="0.0" y="35.5" width="278.5" height="49.5"/>
+                                                            <rect key="frame" x="0.0" y="50" width="338.5" height="35"/>
                                                             <fontDescription key="fontDescription" name="WorkSans-Regular" family="Work Sans" pointSize="14"/>
                                                             <color key="textColor" name="TertiaryBrandColor"/>
                                                             <nil key="highlightedColor"/>
@@ -267,7 +267,7 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
-                                            <outlet property="addWalletButton" destination="Nc7-oN-bxK" id="DJZ-iW-oSo"/>
+                                            <outlet property="addWalletButton" destination="Nc7-oN-bxK" id="NEy-1C-nvI"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

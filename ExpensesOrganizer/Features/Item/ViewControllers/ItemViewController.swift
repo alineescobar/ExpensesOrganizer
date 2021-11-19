@@ -41,17 +41,6 @@ class ItemViewController: UIViewController {
         item?.paymentMethod = selectedWallet
         item?.recurrenceDate = selectedDate
         item?.value = itemValue
-//        guard let context = self.context else {
-//            return
-//        }
-//        
-//        do {
-//            try context.save()
-//
-//        } catch {
-//            print(error.localizedDescription)
-//            return
-//        }
         UIView.animate(withDuration: 1, delay: 0, options: [.beginFromCurrentState]) {
             self.navigationBarStackView.alpha = 0
             self.tableView.alpha = 0
