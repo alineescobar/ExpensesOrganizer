@@ -15,6 +15,11 @@ class GraphicsTableViewCell: UITableViewCell, ChartViewDelegate {
     var yValues: [ChartDataEntry] = []
     let months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
     
+    private let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext
+    
+    private var transactions: [Transaction] = []
+    private var wallets: [Wallet] = []
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -43,12 +48,67 @@ class GraphicsTableViewCell: UITableViewCell, ChartViewDelegate {
         let marker = PillMarker(color: .white, font: UIFont.boldSystemFont(ofSize: 14), textColor: .white)
         chartView.marker = marker
         
-        // Mock
-        for i in 5..<12 {
-            yValues += [ChartDataEntry(x: Double(i), y: Double.random(in: 0..<50))]
-        }
+        loadData()
         
         setData()
+    }
+    
+    private func loadData() {
+        guard let context = self.context else {
+            return
+        }
+        
+        do {
+            wallets = try context.fetch(Wallet.fetchRequest())
+            transactions = try context.fetch(Transaction.fetchRequest())
+        } catch {
+            print("erro ao carregar")
+        }
+        
+        let today = Calendar.current.dateComponents([.month, .year], from: Date())
+        
+        var lastBalance: Double = wallets.reduce(0) { partial, wallet in
+            return partial + wallet.value
+        }
+        print(lastBalance, "\n\n\n\n\n\n")
+        
+        var lastMonth = today.month
+        
+        var balanceHistory: [(Double, Double)] = []
+        
+        for _ in 0..<6 {
+            let lastTransactions = transactions.filter { transaction in
+                if let date = transaction.transactionDate {
+                    return Calendar.current.dateComponents([.month], from: date).month == lastMonth
+                }
+                
+                return false
+            }
+            
+            if let lastMonth = lastMonth {
+                let monthBalance = lastTransactions.reduce(lastBalance) { partialResult, transaction in
+                    if transaction.category?.isExpense ?? true {
+                        return partialResult + transaction.value
+                    } else {
+                        return partialResult - transaction.value
+                    }
+                }
+                
+                lastBalance = monthBalance
+                balanceHistory = [(Double(lastMonth), monthBalance)] + balanceHistory
+                
+            }
+            
+            if lastMonth == 0 {
+                lastMonth = 11
+            } else {
+                lastMonth? -= 1
+            }
+        }
+        
+        for balance in balanceHistory {
+            yValues += [ChartDataEntry(x: balance.0, y: balance.1)]
+        }
     }
     
     func setData() {
