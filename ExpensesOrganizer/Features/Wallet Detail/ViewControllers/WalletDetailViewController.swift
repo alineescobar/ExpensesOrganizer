@@ -86,7 +86,7 @@ class WalletDetailViewController: UIViewController {
             
             request.predicate = predicate
             
-            walletRecentTransactions = try context.fetch(request)
+            walletRecentTransactions = try context.fetch(request).reversed()
         } catch {
             print(error.localizedDescription)
         }

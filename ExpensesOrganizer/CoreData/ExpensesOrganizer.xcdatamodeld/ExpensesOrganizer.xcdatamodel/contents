@@ -23,7 +23,7 @@
         <attribute name="templateDescription" optional="YES" attributeType="String"/>
         <attribute name="templateIconName" optional="YES" attributeType="String"/>
         <attribute name="templateID" attributeType="UUID" usesScalarValueType="NO"/>
-        <relationship name="items" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Item" inverseName="template" inverseEntity="Item"/>
+        <relationship name="items" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Item" inverseName="template" inverseEntity="Item"/>
         <relationship name="paymentMethod" optional="YES" maxCount="1" deletionRule="Nullify" ordered="YES" destinationEntity="Wallet" inverseName="template" inverseEntity="Wallet"/>
         <relationship name="transactions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Transaction" inverseName="category" inverseEntity="Transaction"/>
     </entity>

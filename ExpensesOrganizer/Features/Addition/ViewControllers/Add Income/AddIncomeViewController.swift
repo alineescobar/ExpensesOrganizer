@@ -5,6 +5,7 @@
 //  Created by Anderson Sprenger on 03/11/21.
 //
 
+import CoreData
 import UIKit
 
 enum AddIncomeCells: CaseIterable {
@@ -68,6 +69,43 @@ class AddIncomeViewController: UIViewController {
             newTransaction.transactionDestination = selectedWallet?.walletID
             newTransaction.origin = nil
             newTransaction.income(objectID: selectedWallet?.walletID ?? UUID(), value: incomeValue)
+            
+            do {
+                let request = Item.fetchRequest() as NSFetchRequest<Item>
+                let namePredicate = NSPredicate(format: "name == %@", incomeName)
+                let templateIDPredicate = NSPredicate(format: "template.templateID == %@", incomeCategory?.templateID?.uuidString ?? "")
+                
+                request.fetchLimit = 1
+                
+                request.predicate = NSCompoundPredicate(
+                    andPredicateWithSubpredicates: [
+                        namePredicate,
+                        templateIDPredicate
+                    ]
+                )
+                let items: [Item] = try context.fetch(request)
+                
+                if items.isEmpty {
+                    let newItem = Item(context: context)
+                    newItem.name = incomeName
+                    newItem.value = incomeValue
+                    newItem.paymentMethod = selectedWallet
+                    newItem.recurrenceDate = selectedDate
+                    newItem.template = incomeCategory
+                    
+                    newItem.sendsNotification = false
+                    newItem.recurrenceType = selectedRecurrencyType.rawValue
+                } else {
+                    let item: Item? = items.first
+                    item?.value = incomeValue
+                    item?.recurrenceDate = selectedDate
+                    item?.recurrenceType = selectedRecurrencyType.rawValue
+                    item?.paymentMethod = selectedWallet
+                }
+                
+            } catch {
+                print(error.localizedDescription)
+            }
             
             do {
                 try context.save()

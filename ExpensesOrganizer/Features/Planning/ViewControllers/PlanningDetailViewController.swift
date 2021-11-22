@@ -39,6 +39,7 @@ class PlanningDetailViewController: UIViewController {
         
         template?.name = templateName
         template?.templateDescription = templateDescription
+        template?.items = NSOrderedSet(array: items)
         
         do {
             try context.save()
@@ -70,7 +71,7 @@ class PlanningDetailViewController: UIViewController {
             return
         }
         planningNameLabel.text = template.name
-        items = template.items?.allObjects as? [Item] ?? []
+        items = template.items?.array as? [Item] ?? []
         templateName = template.name ?? ""
         templateDescription = template.templateDescription ?? ""
         // Do any additional setup after loading the view.
@@ -92,7 +93,6 @@ class PlanningDetailViewController: UIViewController {
                                       preferredStyle: .alert)
 
         alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .destructive, handler: { _ in
-            // TODO: Delete Wallet object from CoreData
             self.dismiss(animated: true)
         }))
         
@@ -139,6 +139,14 @@ extension PlanningDetailViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 1 {
             performSegue(withIdentifier: "planningItem", sender: indexPath)
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        if indexPath.section == 0 {
+            return false
+        } else {
+            return true
         }
     }
 }
@@ -207,6 +215,15 @@ extension PlanningDetailViewController: UITableViewDataSource {
         
     }
     
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            // TODO: Unschedule future Push Notifications
+            
+            items.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+    }
+    
     func getTotalBalance() {
         totalBalance = 0.0
         for item in items {
@@ -241,16 +258,16 @@ extension PlanningDetailViewController: PlanningItemDelegate {
         // TODO: Update item notification value
         item.sendsNotification.toggle()
         
-        guard let context = self.context else {
-            return
-        }
+//        guard let context = self.context else {
+//            return
+//        }
         
-        do {
-            try context.save()
-        } catch {
-            print(error.localizedDescription)
-            return
-        }
+//        do {
+//            try context.save()
+//        } catch {
+//            print(error.localizedDescription)
+//            return
+//        }
     }
 }
 

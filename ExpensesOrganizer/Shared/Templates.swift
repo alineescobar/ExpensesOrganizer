@@ -109,7 +109,7 @@ func setPropertyTemplate(context: NSManagedObjectContext) {
     propertyInsuranceItem.paymentMethod = nil
     mutableItems?.add(propertyInsuranceItem)
     
-    propertyTemplate.items = mutableItems?.copy() as? NSSet
+    propertyTemplate.items = mutableItems?.copy() as? NSOrderedSet
 }
 
 func setCarTemplate(context: NSManagedObjectContext) {
@@ -168,7 +168,7 @@ func setCarTemplate(context: NSManagedObjectContext) {
     garageItem.paymentMethod = nil
     mutableItems?.add(garageItem)
     
-    carTemplate.items = mutableItems?.copy() as? NSSet
+    carTemplate.items = mutableItems?.copy() as? NSOrderedSet
 }
 
 func setLeisureTemplate(context: NSManagedObjectContext) {
@@ -217,7 +217,7 @@ func setLeisureTemplate(context: NSManagedObjectContext) {
     gymItem.paymentMethod = nil
     mutableItems?.add(gymItem)
     
-    leisureTemplate.items = mutableItems?.copy() as? NSSet
+    leisureTemplate.items = mutableItems?.copy() as? NSOrderedSet
 }
 
 func setStudyTemplate(context: NSManagedObjectContext) {
@@ -257,7 +257,7 @@ func setStudyTemplate(context: NSManagedObjectContext) {
     courseItem.paymentMethod = nil
     mutableItems?.add(courseItem)
     
-    studyTemplate.items = mutableItems?.copy() as? NSSet
+    studyTemplate.items = mutableItems?.copy() as? NSOrderedSet
 }
 
 func setBusinessTemplate(context: NSManagedObjectContext) {
@@ -289,7 +289,7 @@ func setBusinessTemplate(context: NSManagedObjectContext) {
     employeeItem.paymentMethod = nil
     mutableItems?.add(employeeItem)
     
-    businessTemplate.items = mutableItems?.copy() as? NSSet
+    businessTemplate.items = mutableItems?.copy() as? NSOrderedSet
 }
 
 func setPetsTemplate(context: NSManagedObjectContext) {
@@ -347,7 +347,7 @@ func setPetsTemplate(context: NSManagedObjectContext) {
     medicineItem.paymentMethod = nil
     mutableItems?.add(medicineItem)
     
-    petsTemplate.items = mutableItems?.copy() as? NSSet
+    petsTemplate.items = mutableItems?.copy() as? NSOrderedSet
 }
 
 func setEmptyExpenseTemplate(context: NSManagedObjectContext) {
@@ -369,7 +369,7 @@ func setEmptyExpenseTemplate(context: NSManagedObjectContext) {
     emptyItem.paymentMethod = nil
     mutableItems?.add(emptyItem)
     
-    emptyTemplate.items = mutableItems?.copy() as? NSSet
+    emptyTemplate.items = mutableItems?.copy() as? NSOrderedSet
 }
 
 func setSalaryTemplate(context: NSManagedObjectContext) {
@@ -400,7 +400,7 @@ func setSalaryTemplate(context: NSManagedObjectContext) {
     fringeBenefitsItem.paymentMethod = nil
     mutableItems?.add(fringeBenefitsItem)
     
-    salaryTemplate.items = mutableItems?.copy() as? NSSet
+    salaryTemplate.items = mutableItems?.copy() as? NSOrderedSet
 }
 
 func setProfitTemplate(context: NSManagedObjectContext) {
@@ -440,7 +440,7 @@ func setProfitTemplate(context: NSManagedObjectContext) {
     variableIncomesItem.paymentMethod = nil
     mutableItems?.add(variableIncomesItem)
     
-    profitTemplate.items = mutableItems?.copy() as? NSSet
+    profitTemplate.items = mutableItems?.copy() as? NSOrderedSet
 }
 
 func setEmptyIncomeTemplate(context: NSManagedObjectContext) {
@@ -462,5 +462,5 @@ func setEmptyIncomeTemplate(context: NSManagedObjectContext) {
     emptyItem.paymentMethod = nil
     mutableItems?.add(emptyItem)
     
-    emptyTemplate.items = mutableItems?.copy() as? NSSet
+    emptyTemplate.items = mutableItems?.copy() as? NSOrderedSet
 }
