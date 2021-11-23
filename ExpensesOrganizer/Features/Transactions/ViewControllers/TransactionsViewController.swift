@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol TransactionDelegate: AnyObject {
+protocol TransactionAttDelegate: AnyObject {
     func reloadTransactions()
 }
 
@@ -16,7 +16,7 @@ class TransactionsViewController: UIViewController, UITableViewDataSource {
     @IBOutlet weak var mainTableView: UITableView!
     private let customCellId = "TransactionCell"
     private var transactions: [Transaction] = []
-    weak var transactionDelegate: TransactionDelegate?
+    weak var transactionDelegate: TransactionAttDelegate?
     
     private let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext
     
