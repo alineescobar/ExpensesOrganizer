@@ -215,7 +215,7 @@ extension ItemViewController: UIViewControllerTransitioningDelegate {
         let viewController = CustomSizePresentationController(presentedViewController: presented, presenting: presentingViewController)
         
         if viewTitle == "Calendar" || viewTitle == "Recurrency" {
-            viewController.heightMultiplier = 0.5
+            viewController.heightMultiplier = 0.6
         } else {
             // TODO: Make a logic that sets the height depending on the number of wallets
             viewController.heightMultiplier = 0.35

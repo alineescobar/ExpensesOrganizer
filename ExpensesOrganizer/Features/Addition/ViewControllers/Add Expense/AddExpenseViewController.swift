@@ -216,7 +216,7 @@ extension AddExpenseViewController: UIViewControllerTransitioningDelegate {
         if presented is AddExpenseColectionViewController {
             presentationController.heightMultiplier = 0.43
         } else {
-            presentationController.heightMultiplier = 0.5
+            presentationController.heightMultiplier = 0.6
         }
         
         return presentationController
