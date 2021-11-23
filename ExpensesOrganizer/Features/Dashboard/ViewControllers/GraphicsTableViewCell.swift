@@ -13,7 +13,30 @@ class GraphicsTableViewCell: UITableViewCell, ChartViewDelegate {
     @IBOutlet weak var chartView: LineChartView!
     
     var yValues: [ChartDataEntry] = []
-    let months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
+    let months = [NSLocalizedString("Jan", comment: ""),
+                  NSLocalizedString("Feb", comment: ""),
+                  NSLocalizedString("Mar", comment: ""),
+                  NSLocalizedString("Apr", comment: ""),
+                  NSLocalizedString("May", comment: ""),
+                  NSLocalizedString("Jun", comment: ""),
+                  NSLocalizedString("Jul", comment: ""),
+                  NSLocalizedString("Aug", comment: ""),
+                  NSLocalizedString("Sep", comment: ""),
+                  NSLocalizedString("Oct", comment: ""),
+                  NSLocalizedString("Nov", comment: ""),
+                  NSLocalizedString("Dec", comment: ""),
+                  NSLocalizedString("Jan", comment: ""),
+                  NSLocalizedString("Feb", comment: ""),
+                  NSLocalizedString("Mar", comment: ""),
+                  NSLocalizedString("Apr", comment: ""),
+                  NSLocalizedString("May", comment: ""),
+                  NSLocalizedString("Jun", comment: ""),
+                  NSLocalizedString("Jul", comment: ""),
+                  NSLocalizedString("Aug", comment: ""),
+                  NSLocalizedString("Sep", comment: ""),
+                  NSLocalizedString("Oct", comment: ""),
+                  NSLocalizedString("Nov", comment: ""),
+                  NSLocalizedString("Dec", comment: "")]
     
     private let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext
     
