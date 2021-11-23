@@ -149,7 +149,9 @@ extension DashboardViewController: UITableViewDelegate {
                 mainTableView.reloadRows(at: [indexPathToReload], with: .automatic)
                 
             case .actionableCell:
-                performSegue(withIdentifier: "transactions", sender: nil)
+                if !transactions.isEmpty {
+                    performSegue(withIdentifier: "transactions", sender: nil)
+                }
                 
             default:
                 break
