@@ -13,7 +13,7 @@ class GraphicsTableViewCell: UITableViewCell, ChartViewDelegate {
     @IBOutlet weak var chartView: LineChartView!
     
     var yValues: [ChartDataEntry] = []
-    let months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
+    let months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
     
     private let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext
     
@@ -65,28 +65,42 @@ class GraphicsTableViewCell: UITableViewCell, ChartViewDelegate {
             print("erro ao carregar")
         }
         
+        var lastBalance: Double = wallets.reduce(0) { $0 + $1.value }
+        
         let today = Calendar.current.dateComponents([.month, .year], from: Date())
+        var lastMonth = (month: today.month, year: today.year)
         
-        var lastBalance: Double = wallets.reduce(0) { partial, wallet in
-            return partial + wallet.value
+        var balanceHistory: [(x: Double, y: Double)] = []
+        
+        // !!!: Atualizar para computar recorrencias.
+        
+        var walletTransactions: [(date: Date, value: Double)] = []
+        
+        for wallet in wallets {
+            if let date: Date = wallet.recurrenceDate {
+                let value: Double = wallet.value
+                walletTransactions += [(date, value)]
+            }
         }
-        print(lastBalance, "\n\n\n\n\n\n")
-        
-        var lastMonth = today.month
-        
-        var balanceHistory: [(Double, Double)] = []
         
         for _ in 0..<6 {
             let lastTransactions = transactions.filter { transaction in
                 if let date = transaction.transactionDate {
-                    return Calendar.current.dateComponents([.month], from: date).month == lastMonth
+                    let transactionDate = Calendar.current.dateComponents([.month, .year], from: date)
+                    return transactionDate.month == lastMonth.month && transactionDate.year == lastMonth.year
                 }
                 
                 return false
             }
             
-            if let lastMonth = lastMonth {
-                let monthBalance = lastTransactions.reduce(lastBalance) { partialResult, transaction in
+            let lastWalletTransactions = walletTransactions.filter { transaction in
+                let transactionDate = Calendar.current.dateComponents([.month, .year], from: transaction.date)
+                
+                return transactionDate.month == lastMonth.month && transactionDate.year == lastMonth.year
+            }
+            
+            if let month = lastMonth.month {
+                var monthBalance = lastTransactions.reduce(lastBalance) { partialResult, transaction in
                     if transaction.category?.isExpense ?? true {
                         return partialResult + transaction.value
                     } else {
@@ -94,21 +108,37 @@ class GraphicsTableViewCell: UITableViewCell, ChartViewDelegate {
                     }
                 }
                 
-                lastBalance = monthBalance
-                balanceHistory = [(Double(lastMonth), monthBalance)] + balanceHistory
+                monthBalance = lastWalletTransactions.reduce(monthBalance) { $0 - $1.value }
                 
+                lastBalance = monthBalance
+                balanceHistory = [(Double(month), monthBalance)] + balanceHistory
             }
             
-            if lastMonth == 0 {
-                lastMonth = 11
+            if lastMonth.month == 1 {
+                lastMonth.month = 12
+                lastMonth.year? -= 1
             } else {
-                lastMonth? -= 1
+                lastMonth.month? -= 1
             }
         }
+        
+        balanceHistory = fixData(balanceHistory)
         
         for balance in balanceHistory {
             yValues += [ChartDataEntry(x: balance.0, y: balance.1)]
         }
+    }
+    
+    func fixData(_ data: [(Double, Double)]) -> [(Double, Double)] {
+        let month = data[0].0
+        
+        var fixedData = data
+        
+        for index in 0...5 {
+            fixedData[index].0 = month + Double(index) - 1
+        }
+        
+        return fixedData
     }
     
     func setData() {
