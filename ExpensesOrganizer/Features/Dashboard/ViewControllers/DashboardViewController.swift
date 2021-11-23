@@ -43,7 +43,6 @@ class DashboardViewController: UIViewController {
         mainTableView.register(UINib(nibName: customCellHeader, bundle: nil), forCellReuseIdentifier: customCellHeader)
         initialBackgroundViewHeight = backgroundViewHeightConstraint.constant
         mainTableView.register(UINib(nibName: graphicsCellId, bundle: nil), forCellReuseIdentifier: graphicsCellId)
-        
         guard let context = self.context else {
             return
         }
@@ -89,6 +88,12 @@ class DashboardViewController: UIViewController {
             walletsViewController?.modalHandlerDelegate = self
             return
         }
+        
+//        if segue.identifier == "transactions" {
+//            let transactionsViewController = segue.destination as? TransactionsViewController
+//            transactionsViewController?.transactionDelegate = self
+//            return
+//        }
         
         guard let index = sender as? Int else {
             let walletCreationViewController = segue.destination as? WalletCreationViewController
@@ -219,8 +224,6 @@ extension DashboardViewController: UITableViewDataSource {
                 cell.selectionStyle = .none
                 cell.backgroundColor = UIColor(named: "GraySuport3StateColor")
                 
-                cell.transactionsDelegate = self
-                
                 return cell
                 
             }
@@ -319,6 +322,13 @@ extension DashboardViewController: WalletsCellDelegate {
 extension DashboardViewController: TransactionsHeaderDelegate {
     func didTapButton() {
         performSegue(withIdentifier: "transactions", sender: nil)
+//        print("didTap")
+//        let storyboard = UIStoryboard(name: "Transactions", bundle: nil)
+//        let pvc = storyboard.instantiateViewController(withIdentifier: "TransactionsVIewController") as? TransactionsViewController
+//
+//        pvc?.transactionDelegate = self
+//        present(pvc ?? UIViewController(), animated: true)
+//        print("after present")
     }
 }
 
@@ -336,6 +346,23 @@ extension DashboardViewController: ModalHandlerDelegate {
             }
         } catch {
             print("error while loading table")
+        }
+    }
+}
+
+extension DashboardViewController: TransactionDelegate {
+    func reloadTransactions() {
+        guard let context = self.context else {
+            return
+        }
+        
+        do {
+            transactions = try context.fetch(Transaction.fetchRequest()).reversed()
+            DispatchQueue.main.async {
+                self.mainTableView.reloadData()
+            }
+        } catch {
+            print(error.localizedDescription)
         }
     }
 }
