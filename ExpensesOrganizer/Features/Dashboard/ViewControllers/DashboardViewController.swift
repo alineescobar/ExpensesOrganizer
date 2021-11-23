@@ -230,6 +230,8 @@ extension DashboardViewController: UITableViewDataSource {
                 cell.backgroundColor = UIColor(named: "GraySuport3StateColor")
                 if transactions.isEmpty {
                     cell.transactionHeaderButton.isHidden = true
+                } else {
+                    cell.transactionHeaderButton.isHidden = false
                 }
                 cell.transactionsDelegate = self
                 
