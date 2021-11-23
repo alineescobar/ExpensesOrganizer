@@ -5,6 +5,7 @@
 //  Created by Anderson Sprenger on 03/11/21.
 //
 
+import CoreData
 import UIKit
 
 enum AddExpenseCells: CaseIterable {
@@ -75,6 +76,41 @@ class AddExpenseViewController: UIViewController {
             newTransaction.transactionDestination = selectedWallet?.walletID
             newTransaction.origin = nil
             newTransaction.outcome(objectID: selectedWallet?.walletID, value: expenseValue)
+            
+            do {
+                let request = Item.fetchRequest() as NSFetchRequest<Item>
+                let namePredicate = NSPredicate(format: "name == %@", expenseName)
+                let templateIDPredicate = NSPredicate(format: "template.templateID == %@", selectedTemplate?.templateID?.uuidString ?? "")
+                
+                request.fetchLimit = 1
+                
+                request.predicate = NSCompoundPredicate(
+                    andPredicateWithSubpredicates: [
+                        namePredicate,
+                        templateIDPredicate
+                    ]
+                )
+                let items: [Item] = try context.fetch(request)
+                if items.isEmpty {
+                    let newItem = Item(context: context)
+                    newItem.name = expenseName
+                    newItem.value = expenseValue
+                    newItem.paymentMethod = selectedWallet
+                    newItem.recurrenceDate = selectedDate
+                    newItem.template = selectedTemplate
+                    newItem.sendsNotification = false
+                    newItem.recurrenceType = selectedRecurrencyType.rawValue
+                } else {
+                    let item: Item? = items.first
+                    item?.value = expenseValue
+                    item?.recurrenceDate = selectedDate
+                    item?.recurrenceType = selectedRecurrencyType.rawValue
+                    item?.paymentMethod = selectedWallet
+                }
+                
+            } catch {
+                print(error.localizedDescription)
+            }
             
             do {
                 try context.save()
@@ -174,7 +210,7 @@ extension AddExpenseViewController: UITableViewDataSource {
 extension AddExpenseViewController: UIViewControllerTransitioningDelegate {
     
     func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {
-
+        
         let presentationController = CustomSizePresentationController(presentedViewController: presented, presenting: presentingViewController)
         
         if presented is AddExpenseColectionViewController {
@@ -192,7 +228,7 @@ extension AddExpenseViewController: UIViewControllerTransitioningDelegate {
 }
 
 extension AddExpenseViewController: PlanningCellDelegate, RecurrencyTypeDelegate, CalendarDelegate, CollectionDelegate,
-    ObjectSelectionDelegate, CurrencyDelegate, DescriptionDelegate, ModalHandlerDelegate {
+                                    ObjectSelectionDelegate, CurrencyDelegate, DescriptionDelegate, ModalHandlerDelegate {
     
     func modalDismissed() {
         modalHandlerDelegate?.modalDismissed()
@@ -228,31 +264,31 @@ extension AddExpenseViewController: PlanningCellDelegate, RecurrencyTypeDelegate
         pvc?.transitioningDelegate = self
         pvc?.collectionType = collectionType
         pvc?.objectSelectionDelegate = self
-
+        
         present(pvc ?? UIViewController(), animated: true)
     }
     
     func didTapRecurrency() {
         let storyboard = UIStoryboard(name: "Addition", bundle: nil)
         let pvc = storyboard.instantiateViewController(withIdentifier: "AddExpenseRecurrencyViewController") as? AddExpenseRecurrencyViewController
-
+        
         pvc?.modalPresentationStyle = .custom
         pvc?.transitioningDelegate = self
         pvc?.recurrencyDelegate = self
         pvc?.selectedRecurrencyType = selectedRecurrencyType
-
+        
         present(pvc ?? UIViewController(), animated: true)
     }
-
+    
     func didTapCalendar() {
         let storyboard = UIStoryboard(name: "Addition", bundle: nil)
         let pvc = storyboard.instantiateViewController(withIdentifier: "AddExpenseCalendarViewController") as? AddExpenseCalendarViewController
-
+        
         pvc?.modalPresentationStyle = .custom
         pvc?.transitioningDelegate = self
         pvc?.calendarDelegate = self
         pvc?.selectedDate = selectedDate
-
+        
         present(pvc ?? UIViewController(), animated: true)
     }
     

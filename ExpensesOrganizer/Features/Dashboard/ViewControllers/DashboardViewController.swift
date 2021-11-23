@@ -50,7 +50,7 @@ class DashboardViewController: UIViewController {
         
         do {
             wallets = try context.fetch(Wallet.fetchRequest())
-            transactions = try context.fetch(Transaction.fetchRequest())
+            transactions = try context.fetch(Transaction.fetchRequest()).reversed()
         } catch {
             print("erro ao carregar")
         }
@@ -330,7 +330,7 @@ extension DashboardViewController: ModalHandlerDelegate {
         
         do {
             wallets = try context.fetch(Wallet.fetchRequest())
-            transactions = try context.fetch(Transaction.fetchRequest())
+            transactions = try context.fetch(Transaction.fetchRequest()).reversed()
             DispatchQueue.main.async {
                 self.mainTableView.reloadData()
             }
