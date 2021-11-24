@@ -81,7 +81,6 @@ class WalletCreationViewController: UIViewController {
                                       preferredStyle: .alert)
         
         alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .destructive, handler: { _ in
-            // TODO: Delete Wallet object from CoreData
             self.dismiss(animated: true)
         }))
         
@@ -112,6 +111,7 @@ class WalletCreationViewController: UIViewController {
         
         self.present(alert, animated: true)
     }
+    
 }
 
 extension WalletCreationViewController: UITableViewDelegate {

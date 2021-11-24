@@ -90,19 +90,29 @@ class AddNewPlanningViewController: UIViewController, UITableViewDelegate {
     
     @IBAction private func doneAction(_ sender: UIButton) {
         // TODO: Save new Template
-        createdTemplate?.templateIconName = selectedIcon
-        createdTemplate?.templateDescription = ""
-        createdTemplate?.templateID = UUID()
-        createdTemplate?.paymentMethod = selectedWallet
-        createdTemplate?.isExpense = segmentedControl.selectedSegmentIndex == 0 ? true : false
-        createdTemplate?.name = planningName
         
-        do {
-            try context.save()
-            performSegue(withIdentifier: "additionOk", sender: nil)
-        } catch {
-            print(error.localizedDescription)
-            return
+        if !planningName.isEmpty && selectedWallet != nil {
+            
+            createdTemplate?.templateIconName = selectedIcon
+            createdTemplate?.templateDescription = ""
+            createdTemplate?.templateID = UUID()
+            createdTemplate?.paymentMethod = selectedWallet
+            createdTemplate?.isExpense = segmentedControl.selectedSegmentIndex == 0 ? true : false
+            createdTemplate?.name = planningName
+            
+            do {
+                try context.save()
+                performSegue(withIdentifier: "additionOk", sender: nil)
+            } catch {
+                print(error.localizedDescription)
+                return
+            }
+        } else if planningName.isEmpty && selectedWallet == nil {
+            showEmptyWalletAndNameAlert()
+        } else if planningName.isEmpty {
+            showEmptyNameAlert()
+        } else {
+            showEmptyWalletAlert()
         }
     }
     
@@ -130,6 +140,39 @@ class AddNewPlanningViewController: UIViewController, UITableViewDelegate {
             itemViewController?.itemDelegate = self
             itemViewController?.isEditingItem = false
         }
+    }
+    
+    func showEmptyWalletAlert() {
+        let alert = UIAlertController(title: NSLocalizedString("EmptyTransactionWalletAlertTitle", comment: ""),
+                                      message: NSLocalizedString("EmptyPlanningWalletAlertDescription", comment: ""),
+                                      preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Ok", comment: ""), style: .default, handler: { _ in
+        }))
+        
+        self.present(alert, animated: true)
+    }
+    
+    func showEmptyNameAlert() {
+        let alert = UIAlertController(title: NSLocalizedString("EmptyPlanningNameAlertTitle", comment: ""),
+                                      message: NSLocalizedString("EmptyPlanningNameAlertDescription", comment: ""),
+                                      preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Ok", comment: ""), style: .default, handler: { _ in
+        }))
+        
+        self.present(alert, animated: true)
+    }
+    
+    func showEmptyWalletAndNameAlert() {
+        let alert = UIAlertController(title: NSLocalizedString("EmptyPlanningWalletNameAlertTitle", comment: ""),
+                                      message: NSLocalizedString("EmptyPlanningWalletNameAlertDescription", comment: ""),
+                                      preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Ok", comment: ""), style: .default, handler: { _ in
+        }))
+        
+        self.present(alert, animated: true)
     }
 }
 

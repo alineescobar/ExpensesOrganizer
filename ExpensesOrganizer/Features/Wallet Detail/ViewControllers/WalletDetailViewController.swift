@@ -82,9 +82,15 @@ class WalletDetailViewController: UIViewController {
         do {
             let request = Transaction.fetchRequest() as NSFetchRequest<Transaction>
             
-            let predicate = NSPredicate(format: "transactionDestination == %@", wallet.walletID?.uuidString ?? "")
+            let destinationPredicate = NSPredicate(format: "transactionDestination == %@", wallet.walletID?.uuidString ?? "")
+            let statePredicate = NSPredicate(format: "wasDeleted == %@", NSNumber(value: false))
             
-            request.predicate = predicate
+            request.predicate = NSCompoundPredicate(
+                andPredicateWithSubpredicates: [
+                    destinationPredicate,
+                    statePredicate
+                ]
+            )
             
             walletRecentTransactions = try context.fetch(request).reversed()
         } catch {
@@ -296,10 +302,7 @@ extension WalletDetailViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            guard let context = self.context else {
-                return
-            }
-            context.delete(walletRecentTransactions[indexPath.row])
+            walletRecentTransactions[indexPath.row].wasDeleted = true
             walletRecentTransactions.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
@@ -360,7 +363,7 @@ extension WalletDetailViewController: UIGestureRecognizerDelegate {
 
 extension WalletDetailViewController: DescriptionDelegate {
     func descriptionDidChanged(description: String) {
-        walletName = description.isEmpty ? "Principal" : description
+        walletName = description.isEmpty ? NSLocalizedString("Wallet", comment: "") : description
     }
 }
 
