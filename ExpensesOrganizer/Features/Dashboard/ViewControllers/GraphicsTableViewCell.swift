@@ -93,7 +93,7 @@ class GraphicsTableViewCell: UITableViewCell, ChartViewDelegate {
         let today = Calendar.current.dateComponents([.month, .year], from: Date())
         var lastMonth = (month: today.month, year: today.year)
         
-        var balanceHistory: [(x: Double, y: Double)] = []
+        var balanceHistory: [(x: Double, y: Double)] = [(Double(today.month ?? 0), lastBalance)]
         
         // !!!: Atualizar para computar recorrencias.
         
@@ -148,17 +148,17 @@ class GraphicsTableViewCell: UITableViewCell, ChartViewDelegate {
         balanceHistory = fixData(balanceHistory)
         
         for balance in balanceHistory {
-            yValues += [ChartDataEntry(x: balance.0, y: balance.1)]
+            yValues += [ChartDataEntry(x: balance.x, y: balance.y)]
         }
     }
     
     func fixData(_ data: [(Double, Double)]) -> [(Double, Double)] {
-        let month = data[0].0
+        let month = data[0].0 - 1
         
         var fixedData = data
         
         for index in 0...5 {
-            fixedData[index].0 = month + Double(index) - 1
+            fixedData[index].0 = month + Double(index)
         }
         
         return fixedData
