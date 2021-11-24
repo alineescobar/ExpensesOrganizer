@@ -184,7 +184,7 @@ extension WalletCreationViewController: UITableViewDataSource {
 extension WalletCreationViewController: UIViewControllerTransitioningDelegate {
     func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {
         let viewController = CustomSizePresentationController(presentedViewController: presented, presenting: presentingViewController)
-        viewController.heightMultiplier = 0.5
+        viewController.heightMultiplier = 0.6
         return viewController
     }
     

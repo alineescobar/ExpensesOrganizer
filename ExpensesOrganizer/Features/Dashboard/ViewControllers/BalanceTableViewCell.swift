@@ -28,8 +28,14 @@ class BalanceTableViewCell: UITableViewCell {
         hideBalanceButton.setTitle(NSLocalizedString("BalanceLabel", comment: ""), for: .normal)
         hideBalanceButton.semanticContentAttribute = UIApplication.shared
             .userInterfaceLayoutDirection == .rightToLeft ? .forceLeftToRight : .forceRightToLeft
-       
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.tapBalance(_:)))
+        balanceStackView.addGestureRecognizer(tapGesture)
         // Initialization code
+    }
+    
+    @objc
+    func tapBalance(_ sender: UITapGestureRecognizer) {
+        balanceDelegate?.didTapBalanceButton()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
