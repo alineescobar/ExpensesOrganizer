@@ -43,7 +43,6 @@ class DashboardViewController: UIViewController {
         mainTableView.register(UINib(nibName: customCellHeader, bundle: nil), forCellReuseIdentifier: customCellHeader)
         initialBackgroundViewHeight = backgroundViewHeightConstraint.constant
         mainTableView.register(UINib(nibName: graphicsCellId, bundle: nil), forCellReuseIdentifier: graphicsCellId)
-        
         guard let context = self.context else {
             return
         }
@@ -87,6 +86,12 @@ class DashboardViewController: UIViewController {
         if segue.identifier == "wallets" {
             let walletsViewController = segue.destination as? WalletsViewController
             walletsViewController?.modalHandlerDelegate = self
+            return
+        }
+        
+        if segue.identifier == "transactions" {
+            let transactionsViewController = segue.destination as? TransactionsViewController
+            transactionsViewController?.transactionDelegate = self
             return
         }
         
@@ -218,7 +223,6 @@ extension DashboardViewController: UITableViewDataSource {
                 }
                 cell.selectionStyle = .none
                 cell.backgroundColor = UIColor(named: "GraySuport3StateColor")
-                
                 cell.transactionsDelegate = self
                 
                 return cell
@@ -336,6 +340,23 @@ extension DashboardViewController: ModalHandlerDelegate {
             }
         } catch {
             print("error while loading table")
+        }
+    }
+}
+
+extension DashboardViewController: TransactionAttDelegate {
+    func reloadTransactions() {
+        guard let context = self.context else {
+            return
+        }
+        
+        do {
+            transactions = try context.fetch(Transaction.fetchRequest()).reversed()
+            DispatchQueue.main.async {
+                self.mainTableView.reloadData()
+            }
+        } catch {
+            print(error.localizedDescription)
         }
     }
 }
