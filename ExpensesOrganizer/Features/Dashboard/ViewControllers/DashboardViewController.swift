@@ -190,6 +190,10 @@ extension DashboardViewController: UITableViewDataSource {
                 else {
                     return UITableViewCell()
                 }
+                
+                cell.loadData()
+                cell.setData()
+                
                 return cell
                 
             case .buttons:

@@ -70,13 +70,9 @@ class GraphicsTableViewCell: UITableViewCell, ChartViewDelegate {
         
         let marker = PillMarker(color: .white, font: UIFont.boldSystemFont(ofSize: 14), textColor: .white)
         chartView.marker = marker
-        
-        loadData()
-        
-        setData()
     }
     
-    private func loadData() {
+    func loadData() {
         guard let context = self.context else {
             return
         }
@@ -93,18 +89,31 @@ class GraphicsTableViewCell: UITableViewCell, ChartViewDelegate {
         let today = Calendar.current.dateComponents([.month, .year], from: Date())
         var lastMonth = (month: today.month, year: today.year)
         
-        var balanceHistory: [(x: Double, y: Double)] = [(Double(today.month ?? 0), lastBalance)]
+        var balanceHistory: [(x: Double, y: Double)] = []
         
-        // !!!: Atualizar para computar recorrencias.
+        if let month = today.month {
+            balanceHistory += [(Double(month + 1), lastBalance)]
+        }
         
         var walletTransactions: [(date: Date, value: Double)] = []
         
         for wallet in wallets {
             if let date: Date = wallet.recurrenceDate {
-                let value: Double = wallet.value
+                var value: Double = wallet.value
+                
+                for transaction in transactions where transaction.transactionDestination == wallet.walletID {
+                    if transaction.category?.isExpense ?? true {
+                        value += transaction.value
+                    } else {
+                        value -= transaction.value
+                    }
+                }
+                
                 walletTransactions += [(date, value)]
             }
         }
+        
+        print(walletTransactions)
         
         for _ in 0..<6 {
             let lastTransactions = transactions.filter { transaction in
@@ -147,17 +156,19 @@ class GraphicsTableViewCell: UITableViewCell, ChartViewDelegate {
         
         balanceHistory = fixData(balanceHistory)
         
+        print(balanceHistory)
+        
         for balance in balanceHistory {
             yValues += [ChartDataEntry(x: balance.x, y: balance.y)]
         }
     }
     
-    func fixData(_ data: [(Double, Double)]) -> [(Double, Double)] {
+    private func fixData(_ data: [(Double, Double)]) -> [(Double, Double)] {
         let month = data[0].0 - 1
         
         var fixedData = data
         
-        for index in 0...5 {
+        for index in 0..<data.count {
             fixedData[index].0 = month + Double(index)
         }
         
@@ -175,6 +186,7 @@ class GraphicsTableViewCell: UITableViewCell, ChartViewDelegate {
         set1.drawHorizontalHighlightIndicatorEnabled = false
         set1.drawValuesEnabled = false
         let data = LineChartData(dataSet: set1)
+        chartView.clear()
         chartView.data = data
     }
 }
