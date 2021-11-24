@@ -18,6 +18,11 @@
 "FirstEmptyStateText" = "Nothing here!";
 "SecondEmptyStateText" = "Press the + button to add a wallet.";
 
+// MARK: Transactions
+"EmptyStateTransactionsTitle" = "Nothing here!";
+"EmptyStateTransactionsDescription" = "Once you've added a transaction, it will appear here.";
+
+
 // MARK: Wallet Creation
 "WalletName" = "Wallet name";
 "NewWallet" = "New wallet";

@@ -17,6 +17,10 @@
 "FirstEmptyStateText" = "Nada aqui!";
 "SecondEmptyStateText" = "Pressione o +, para adicionar uma carteira.";
 
+// MARK: Transactions
+"EmptyStateTransactionsTitle" = "Nada por aqui!";
+"EmptyStateTransactionsDescription" = "Assim que você adicionar uma transação, ela aparecerá aqui.";
+
 // MARK: Wallet Creation
 "WalletName" = "Nome da carteira";
 "NewWallet" = "Nova carteira";
