@@ -27,7 +27,14 @@ class BalanceInsideTableViewCell: UITableViewCell {
             .userInterfaceLayoutDirection == .rightToLeft ? .forceLeftToRight : .forceRightToLeft
         atualBalance.titleLabel?.font = UIFont(name: "Work Sans", size: 14)
         balanceLabel.font = UIFont(name: "WorkSans-Bold", size: 48)
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.tapBalance(_:)))
+        stackJustForBalance.addGestureRecognizer(tapGesture)
         
+    }
+    
+    @objc
+    func tapBalance(_ sender: UITapGestureRecognizer) {
+        balanceDelegate?.didTapBalanceButton()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

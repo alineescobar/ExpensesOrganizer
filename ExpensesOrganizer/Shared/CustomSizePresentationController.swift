@@ -71,7 +71,7 @@ class CustomSizePresentationController: UIPresentationController {
         self.blurEffectView.alpha = 0
         self.containerView?.addSubview(blurEffectView)
         self.presentedViewController.transitionCoordinator?.animate(alongsideTransition: { _ in
-            self.blurEffectView.alpha = 1
+            self.blurEffectView.alpha = 0.5
         }, completion: { _ in
         })
     }

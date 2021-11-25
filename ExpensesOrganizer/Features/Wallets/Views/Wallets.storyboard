@@ -170,6 +170,9 @@
                                                             <color key="tintColor" name="TertiaryBrandColor"/>
                                                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                             <state key="normal" title="" image="DotsThreeVertical"/>
+                                                            <connections>
+                                                                <action selector="insideWalletAction:" destination="a3g-Rc-fYU" eventType="touchUpInside" id="VQV-aj-o7c"/>
+                                                            </connections>
                                                         </button>
                                                     </subviews>
                                                     <color key="backgroundColor" name="WhiteStateColor"/>
@@ -206,13 +209,13 @@
                                                     <rect key="frame" x="24" y="16" width="366" height="85"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nada aqui!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RfP-a9-IOX">
-                                                            <rect key="frame" x="0.0" y="0.0" width="97" height="50"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="104.5" height="35.5"/>
                                                             <fontDescription key="fontDescription" name="WorkSans-Bold" family="Work Sans" pointSize="20"/>
                                                             <color key="textColor" name="TertiaryBrandColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pressione o botão abaixo para adicionar uma carteira." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vqv-GD-ksW">
-                                                            <rect key="frame" x="0.0" y="50" width="338.5" height="35"/>
+                                                            <rect key="frame" x="0.0" y="35.5" width="278.5" height="49.5"/>
                                                             <fontDescription key="fontDescription" name="WorkSans-Regular" family="Work Sans" pointSize="14"/>
                                                             <color key="textColor" name="TertiaryBrandColor"/>
                                                             <nil key="highlightedColor"/>

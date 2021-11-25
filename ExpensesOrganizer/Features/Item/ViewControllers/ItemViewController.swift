@@ -35,18 +35,25 @@ class ItemViewController: UIViewController {
         showCancelItemAlert()
     }
     @IBAction private func readyAction(_ sender: UIButton) {
-        
-        item?.name = itemName
-        item?.recurrenceType = selectedRecurrencyType.rawValue
-        item?.paymentMethod = selectedWallet
-        item?.recurrenceDate = selectedDate
-        item?.value = itemValue
-        UIView.animate(withDuration: 1, delay: 0, options: [.beginFromCurrentState]) {
-            self.navigationBarStackView.alpha = 0
-            self.tableView.alpha = 0
-            self.conclusionView.alpha = 1
+        if !itemName.isEmpty && selectedWallet != nil {
+            item?.name = itemName
+            item?.recurrenceType = selectedRecurrencyType.rawValue
+            item?.paymentMethod = selectedWallet
+            item?.recurrenceDate = selectedDate
+            item?.value = itemValue
+            UIView.animate(withDuration: 1, delay: 0, options: [.beginFromCurrentState]) {
+                self.navigationBarStackView.alpha = 0
+                self.tableView.alpha = 0
+                self.conclusionView.alpha = 1
+            }
+            itemDelegate?.updateItem()
+        } else if itemName.isEmpty && selectedWallet == nil {
+            showEmptyWalletAndNameAlert()
+        } else if itemName.isEmpty {
+            showEmptyNameAlert()
+        } else {
+            showEmptyWalletAlert()
         }
-        itemDelegate?.updateItem()
     }
     
     @IBAction private func readyConclusionAction(_ sender: UIButton) {
@@ -100,7 +107,7 @@ class ItemViewController: UIViewController {
         let alert = UIAlertController(title: NSLocalizedString("ItemEditionCancelAlertTitle", comment: ""),
                                       message: NSLocalizedString("PlanningCreationCancelAlertDescription", comment: ""),
                                       preferredStyle: .alert)
-
+        
         alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .destructive, handler: { _ in
             // TODO: Delete Wallet object from CoreData
             self.dismiss(animated: true)
@@ -108,26 +115,49 @@ class ItemViewController: UIViewController {
         
         alert.addAction(UIAlertAction(title: NSLocalizedString("ItemKeepEditingAction", comment: ""), style: .cancel, handler: { _ in
         }))
-
+        
         self.present(alert, animated: true)
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func showEmptyWalletAlert() {
+        let alert = UIAlertController(title: NSLocalizedString("EmptyTransactionWalletAlertTitle", comment: ""),
+                                      message: NSLocalizedString("EmptyItemWalletAlertDescription", comment: ""),
+                                      preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Ok", comment: ""), style: .default, handler: { _ in
+        }))
+        
+        self.present(alert, animated: true)
     }
-    */
-
+    
+    func showEmptyNameAlert() {
+        let alert = UIAlertController(title: NSLocalizedString("EmptyPlanningNameAlertTitle", comment: ""),
+                                      message: NSLocalizedString("EmptyItemNameAlertDescription", comment: ""),
+                                      preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Ok", comment: ""), style: .default, handler: { _ in
+        }))
+        
+        self.present(alert, animated: true)
+    }
+    
+    func showEmptyWalletAndNameAlert() {
+        let alert = UIAlertController(title: NSLocalizedString("EmptyPlanningWalletNameAlertTitle", comment: ""),
+                                      message: NSLocalizedString("EmptyItemWalletNameAlertDescription", comment: ""),
+                                      preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Ok", comment: ""), style: .default, handler: { _ in
+        }))
+        
+        self.present(alert, animated: true)
+    }
+    
 }
 
 extension ItemViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         let itemCategory = itemCategories[indexPath.row]
-
+        
         switch itemCategory {
         case .currency:
             return 81
@@ -168,7 +198,7 @@ extension ItemViewController: UITableViewDataSource {
             cell.descriptionDelegate = self
             cell.backgroundColor = UIColor(named: "GraySuport3StateColor")
             return cell
-        
+            
         case .wallets:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "walletCell", for: indexPath) as? WalletSelectionTableViewCell
             else {
@@ -176,7 +206,7 @@ extension ItemViewController: UITableViewDataSource {
             }
             cell.payWithLabel.text = NSLocalizedString("PayWith", comment: "")
             cell.walletSelectionDelegate = self
-            cell.selectedWalletLabel.text = selectedWallet?.name ?? ""
+            cell.selectedWalletLabel.text = selectedWallet?.name ?? NSLocalizedString("WalletName", comment: "")
             cell.backgroundColor = UIColor(named: "GraySuport3StateColor")
             return cell
             
@@ -185,7 +215,7 @@ extension ItemViewController: UITableViewDataSource {
             else {
                 return UITableViewCell()
             }
-
+            
             let formatter = DateFormatter()
             let format = DateFormatter.dateFormat(fromTemplate: "dMMM", options: 0, locale: Locale.current)
             formatter.dateFormat = format
@@ -215,12 +245,12 @@ extension ItemViewController: UIViewControllerTransitioningDelegate {
         let viewController = CustomSizePresentationController(presentedViewController: presented, presenting: presentingViewController)
         
         if viewTitle == "Calendar" || viewTitle == "Recurrency" {
-            viewController.heightMultiplier = 0.5
+            viewController.heightMultiplier = 0.6
         } else {
             // TODO: Make a logic that sets the height depending on the number of wallets
             viewController.heightMultiplier = 0.35
         }
-            return viewController
+        return viewController
     }
     
     func interactionControllerForDismissal(using animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {

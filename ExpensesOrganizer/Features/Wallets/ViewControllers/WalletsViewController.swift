@@ -217,6 +217,8 @@ extension WalletsViewController: UITableViewDataSource {
                 else {
                     return UITableViewCell()
                 }
+                cell.walletsInsideCellDelegate = self
+                cell.index = indexPath.row
                 cell.walletNameLabel.text = wallets[indexPath.row].name
                 cell.balanceInsideLabel.attributedText = getFormattedBalance(balance: wallets[indexPath.row].value, smallTextSize: 13.6, type: .card)
                 cell.selectionStyle = .none
@@ -259,5 +261,11 @@ extension WalletsViewController: ModalHandlerDelegate {
         } catch {
             showWalletsFetchFailedAlert()
         }
+    }
+}
+
+extension WalletsViewController: WalletsInsideCellDelegate {
+    func didTapWallet(index: Int) {
+        performSegue(withIdentifier: "walletDetailSegue", sender: index)
     }
 }

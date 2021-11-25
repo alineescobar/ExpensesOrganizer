@@ -5,6 +5,7 @@
 //  Created by Aline Osana Escobar on 15/10/21.
 //
 
+import CoreData
 import UIKit
 
 enum DashboardCategory: CaseIterable {
@@ -23,6 +24,7 @@ class DashboardViewController: UIViewController {
     private let customCellId = "TransactionCell"
     private let graphicsCellId = "GraphicsTableViewCell"
     private let customCellHeader = "TransactionsHeaderCell"
+    private let transactionsEmptyState = "TransactionEmptyStateTableViewCell"
     private var isShowingGraphics: Bool = false
     private var isShowingBalance: Bool = false
     private var isStatsBarHidden: Bool = false
@@ -41,6 +43,7 @@ class DashboardViewController: UIViewController {
         
         mainTableView.register(UINib(nibName: customCellId, bundle: nil), forCellReuseIdentifier: customCellId)
         mainTableView.register(UINib(nibName: customCellHeader, bundle: nil), forCellReuseIdentifier: customCellHeader)
+        mainTableView.register(UINib(nibName: transactionsEmptyState, bundle: nil), forCellReuseIdentifier: transactionsEmptyState)
         initialBackgroundViewHeight = backgroundViewHeightConstraint.constant
         mainTableView.register(UINib(nibName: graphicsCellId, bundle: nil), forCellReuseIdentifier: graphicsCellId)
         
@@ -50,7 +53,14 @@ class DashboardViewController: UIViewController {
         
         do {
             wallets = try context.fetch(Wallet.fetchRequest())
-            transactions = try context.fetch(Transaction.fetchRequest())
+            
+            let request = Transaction.fetchRequest() as NSFetchRequest<Transaction>
+
+            let statePredicate = NSPredicate(format: "wasDeleted == %@", NSNumber(value: false))
+            
+            request.predicate = statePredicate
+            
+            transactions = try context.fetch(request).reversed()
         } catch {
             print("erro ao carregar")
         }
@@ -87,6 +97,12 @@ class DashboardViewController: UIViewController {
         if segue.identifier == "wallets" {
             let walletsViewController = segue.destination as? WalletsViewController
             walletsViewController?.modalHandlerDelegate = self
+            return
+        }
+        
+        if segue.identifier == "transactions" {
+            let transactionsViewController = segue.destination as? TransactionsViewController
+            transactionsViewController?.transactionDelegate = self
             return
         }
         
@@ -141,7 +157,9 @@ extension DashboardViewController: UITableViewDelegate {
                 mainTableView.reloadRows(at: [indexPathToReload], with: .automatic)
                 
             case .actionableCell:
-                performSegue(withIdentifier: "transactions", sender: nil)
+                if !transactions.isEmpty {
+                    performSegue(withIdentifier: "transactions", sender: nil)
+                }
                 
             default:
                 break
@@ -222,41 +240,50 @@ extension DashboardViewController: UITableViewDataSource {
                 }
                 cell.selectionStyle = .none
                 cell.backgroundColor = UIColor(named: "GraySuport3StateColor")
-                
+                if transactions.isEmpty {
+                    cell.transactionHeaderButton.isHidden = true
+                } else {
+                    cell.transactionHeaderButton.isHidden = false
+                }
                 cell.transactionsDelegate = self
                 
                 return cell
-                
             }
         } else {
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: customCellId, for: indexPath) as? TransactionCell else {
-                return UITableViewCell()
-            }
-            
-            var date: String
-            
-            let today = Calendar.current.dateComponents([.day], from: Date())
-            let transactionDay = Calendar.current.dateComponents([.day], from: transactions[indexPath.row].transactionDate ?? Date())
-            
-            if today.day == transactionDay.day {
-                date = transactions[indexPath.row].transactionDate?.shortTime ?? Date().shortTime
+            if transactions.isEmpty {
+                guard let cell = tableView.dequeueReusableCell(withIdentifier: transactionsEmptyState, for: indexPath) as? TransactionEmptyStateTableViewCell else {
+                    return UITableViewCell()
+                }
+                cell.selectionStyle = .none
+                return cell
             } else {
-                let formatter = DateFormatter()
-                let format = DateFormatter.dateFormat(fromTemplate: "dMMM", options: 0, locale: Locale.current)
-                formatter.dateFormat = format
-                date = formatter.string(from: transactions[indexPath.row].transactionDate ?? Date())
+                guard let cell = tableView.dequeueReusableCell(withIdentifier: customCellId, for: indexPath) as? TransactionCell else {
+                    return UITableViewCell()
+                }
+                var date: String
+                
+                let today = Calendar.current.dateComponents([.day], from: Date())
+                let transactionDay = Calendar.current.dateComponents([.day], from: transactions[indexPath.row].transactionDate ?? Date())
+                
+                if today.day == transactionDay.day {
+                    date = transactions[indexPath.row].transactionDate?.shortTime ?? Date().shortTime
+                } else {
+                    let formatter = DateFormatter()
+                    let format = DateFormatter.dateFormat(fromTemplate: "dMMM", options: 0, locale: Locale.current)
+                    formatter.dateFormat = format
+                    date = formatter.string(from: transactions[indexPath.row].transactionDate ?? Date())
+                }
+                
+                cell.selectionStyle = .none
+                cell.backgroundColor = UIColor(named: "GraySuport3StateColor")
+                cell.transactionName.text = transactions[indexPath.row].name
+                cell.transactionTag.text = transactions[indexPath.row].category?.name
+                cell.transactionDate.text = date
+                cell.transactionPrice.text = transactions[indexPath.row].category?.isExpense ?? false ? "-" + String(format: "%.2f", transactions[indexPath.row].value).currencyInputFormatting() :
+                "+" + String(format: "%.2f", transactions[indexPath.row].value).currencyInputFormatting()
+                cell.transactionImage.image = UIImage(named: transactions[indexPath.row].category?.templateIconName ?? "Atom")
+                return cell
             }
-            
-            cell.selectionStyle = .none
-            cell.backgroundColor = UIColor(named: "GraySuport3StateColor")
-            cell.transactionName.text = transactions[indexPath.row].name
-            cell.transactionTag.text = transactions[indexPath.row].category?.name
-            cell.transactionDate.text = date
-            cell.transactionPrice.text = transactions[indexPath.row].category?.isExpense ?? false ? "-" + String(format: "%.2f", transactions[indexPath.row].value).currencyInputFormatting() :
-            "+" + String(format: "%.2f", transactions[indexPath.row].value).currencyInputFormatting()
-            cell.transactionImage.image = UIImage(named: transactions[indexPath.row].category?.templateIconName ?? "Atom")
-            
-            return cell
         }
     }
     
@@ -268,7 +295,7 @@ extension DashboardViewController: UITableViewDataSource {
         if section == 0 {
             return dashboardCategories.count
         } else {
-            return transactions.count
+            return transactions.count >= 1 ? transactions.count : 1
         }
     }
     
@@ -334,12 +361,43 @@ extension DashboardViewController: ModalHandlerDelegate {
         
         do {
             wallets = try context.fetch(Wallet.fetchRequest())
-            transactions = try context.fetch(Transaction.fetchRequest())
+            
+            let request = Transaction.fetchRequest() as NSFetchRequest<Transaction>
+
+            let statePredicate = NSPredicate(format: "wasDeleted == %@", NSNumber(value: false))
+            
+            request.predicate = statePredicate
+            
+            transactions = try context.fetch(request).reversed()
             DispatchQueue.main.async {
                 self.mainTableView.reloadData()
             }
         } catch {
             print("error while loading table")
+        }
+    }
+}
+
+extension DashboardViewController: TransactionAttDelegate {
+    func reloadTransactions() {
+        guard let context = self.context else {
+            return
+        }
+        
+        do {
+            let request = Transaction.fetchRequest() as NSFetchRequest<Transaction>
+
+            let statePredicate = NSPredicate(format: "wasDeleted == %@", NSNumber(value: false))
+            
+            request.predicate = statePredicate
+            
+            transactions = try context.fetch(request).reversed()
+            
+            DispatchQueue.main.async {
+                self.mainTableView.reloadData()
+            }
+        } catch {
+            print(error.localizedDescription)
         }
     }
 }

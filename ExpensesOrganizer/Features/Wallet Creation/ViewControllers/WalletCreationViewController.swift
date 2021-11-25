@@ -81,7 +81,6 @@ class WalletCreationViewController: UIViewController {
                                       preferredStyle: .alert)
         
         alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .destructive, handler: { _ in
-            // TODO: Delete Wallet object from CoreData
             self.dismiss(animated: true)
         }))
         
@@ -112,6 +111,7 @@ class WalletCreationViewController: UIViewController {
         
         self.present(alert, animated: true)
     }
+    
 }
 
 extension WalletCreationViewController: UITableViewDelegate {
@@ -184,7 +184,7 @@ extension WalletCreationViewController: UITableViewDataSource {
 extension WalletCreationViewController: UIViewControllerTransitioningDelegate {
     func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {
         let viewController = CustomSizePresentationController(presentedViewController: presented, presenting: presentingViewController)
-        viewController.heightMultiplier = 0.5
+        viewController.heightMultiplier = 0.6
         return viewController
     }
     

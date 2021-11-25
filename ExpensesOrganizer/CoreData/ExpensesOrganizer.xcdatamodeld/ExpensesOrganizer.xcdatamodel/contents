@@ -23,7 +23,7 @@
         <attribute name="templateDescription" optional="YES" attributeType="String"/>
         <attribute name="templateIconName" optional="YES" attributeType="String"/>
         <attribute name="templateID" attributeType="UUID" usesScalarValueType="NO"/>
-        <relationship name="items" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Item" inverseName="template" inverseEntity="Item"/>
+        <relationship name="items" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Item" inverseName="template" inverseEntity="Item"/>
         <relationship name="paymentMethod" optional="YES" maxCount="1" deletionRule="Nullify" ordered="YES" destinationEntity="Wallet" inverseName="template" inverseEntity="Wallet"/>
         <relationship name="transactions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Transaction" inverseName="category" inverseEntity="Transaction"/>
     </entity>
@@ -34,6 +34,7 @@
         <attribute name="transactionDate" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="transactionDestination" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="value" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="wasDeleted" optional="YES" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
         <relationship name="category" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Template" inverseName="transactions" inverseEntity="Template"/>
     </entity>
     <entity name="Wallet" representedClassName=".Wallet" syncable="YES" codeGenerationType="category">
@@ -49,7 +50,7 @@
         <element name="Goal" positionX="153.6805419921875" positionY="-194.7109985351562" width="128" height="133"/>
         <element name="Item" positionX="-18" positionY="81" width="128" height="134"/>
         <element name="Template" positionX="-36" positionY="72" width="128" height="149"/>
-        <element name="Transaction" positionX="0" positionY="99" width="128" height="134"/>
+        <element name="Transaction" positionX="0" positionY="99" width="128" height="149"/>
         <element name="Wallet" positionX="-63" positionY="-18" width="128" height="134"/>
     </elements>
 </model>

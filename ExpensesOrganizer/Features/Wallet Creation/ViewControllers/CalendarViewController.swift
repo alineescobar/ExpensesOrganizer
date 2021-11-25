@@ -32,3 +32,10 @@ class CalendarViewController: UIViewController {
     }
     
 }
+
+extension CalendarViewController: UIPickerViewDelegate {
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+       pickerView.subviews[0].subviews[0].subviews[2].backgroundColor = pickerView.tintColor
+        
+    }
+}

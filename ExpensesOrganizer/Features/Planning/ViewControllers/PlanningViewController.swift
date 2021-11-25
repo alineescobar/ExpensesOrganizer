@@ -108,7 +108,8 @@ class PlanningViewController: UIViewController, UICollectionViewDelegate, UIView
                 planningDetailViewController?.modalHandlerDelegate = self
             }
             
-        }
+    }
+    
 }
 
 extension PlanningViewController: UICollectionViewDataSource {

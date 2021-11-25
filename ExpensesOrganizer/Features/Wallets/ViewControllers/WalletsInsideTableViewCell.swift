@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol WalletsInsideCellDelegate: AnyObject {
+    func didTapWallet(index: Int)
+}
+
 class WalletsInsideTableViewCell: UITableViewCell {
 
     @IBOutlet weak var balanceInsideLabel: UILabel!
@@ -14,6 +18,13 @@ class WalletsInsideTableViewCell: UITableViewCell {
     @IBOutlet weak var insideWalletButton: UIButton!
     @IBOutlet weak var walletInside: UIStackView!
     @IBOutlet weak var walletAllContrains: UIStackView!
+    var index: Int = 0
+    
+    @IBAction private func insideWalletAction(_ sender: UIButton) {
+        walletsInsideCellDelegate?.didTapWallet(index: index)
+    }
+    
+    weak var walletsInsideCellDelegate: WalletsInsideCellDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()

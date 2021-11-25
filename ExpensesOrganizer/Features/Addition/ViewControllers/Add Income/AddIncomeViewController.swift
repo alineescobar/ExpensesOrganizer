@@ -5,6 +5,7 @@
 //  Created by Anderson Sprenger on 03/11/21.
 //
 
+import CoreData
 import UIKit
 
 enum AddIncomeCells: CaseIterable {
@@ -47,6 +48,18 @@ class AddIncomeViewController: UIViewController {
         cancellButton.setTitle(NSLocalizedString("Cancel", comment: ""), for: .normal)
         
         hideKeyboardWhenTappedAround()
+        
+        guard let context = self.context else {
+            return
+        }
+        
+        do {
+            var templates: [Template] = try context.fetch(Template.fetchRequest())
+            templates.swapAt(templates.firstIndex(where: { $0.templateIconName == "Atom" && $0.isExpense == false }) ?? 0, templates.endIndex - 1)
+            incomeCategory = templates.last
+        } catch {
+            print(error.localizedDescription)
+        }
     }
     
     @IBAction private func cancellButton(_ sender: UIButton) {
@@ -54,13 +67,13 @@ class AddIncomeViewController: UIViewController {
     }
     
     @IBAction private func doneButton(_ sender: UIButton) {
-        if !incomeValue.isZero {
+        if !incomeValue.isZero && selectedWallet != nil {
             guard let context = self.context else {
                 return
             }
             
             let newTransaction = Transaction(context: context)
-            newTransaction.name = incomeName
+            newTransaction.name = incomeName.isEmpty ? NSLocalizedString("Transaction", comment: "") : incomeName
             newTransaction.value = incomeValue
             newTransaction.transactionDate = selectedDate
             newTransaction.recurrenceType = selectedRecurrencyType.rawValue
@@ -70,14 +83,55 @@ class AddIncomeViewController: UIViewController {
             newTransaction.income(objectID: selectedWallet?.walletID ?? UUID(), value: incomeValue)
             
             do {
+                let request = Item.fetchRequest() as NSFetchRequest<Item>
+                let namePredicate = NSPredicate(format: "name == %@", incomeName)
+                let templateIDPredicate = NSPredicate(format: "template.templateID == %@", incomeCategory?.templateID?.uuidString ?? "")
+                
+                request.fetchLimit = 1
+                
+                request.predicate = NSCompoundPredicate(
+                    andPredicateWithSubpredicates: [
+                        namePredicate,
+                        templateIDPredicate
+                    ]
+                )
+                let items: [Item] = try context.fetch(request)
+                
+                if items.isEmpty {
+                    let newItem = Item(context: context)
+                    newItem.name = incomeName.isEmpty ? NSLocalizedString("Transaction", comment: "") : incomeName
+                    newItem.value = incomeValue
+                    newItem.paymentMethod = selectedWallet
+                    newItem.recurrenceDate = selectedDate
+                    newItem.template = incomeCategory
+                    
+                    newItem.sendsNotification = false
+                    newItem.recurrenceType = selectedRecurrencyType.rawValue
+                } else {
+                    let item: Item? = items.first
+                    item?.value = incomeValue
+                    item?.recurrenceDate = selectedDate
+                    item?.recurrenceType = selectedRecurrencyType.rawValue
+                    item?.paymentMethod = selectedWallet
+                }
+                
+            } catch {
+                print(error.localizedDescription)
+            }
+            
+            do {
                 try context.save()
                 performSegue(withIdentifier: "open-income-alldone-segue", sender: nil)
             } catch {
                 print(error.localizedDescription)
                 return
             }
-        } else {
+        } else if incomeValue.isZero && selectedWallet == nil {
+            showEmptyWalletAndBalanceAlert()
+        } else if incomeValue.isZero {
             showEmptyBalanceAlert()
+        } else {
+            showEmptyWalletAlert()
         }
     }
     
@@ -117,8 +171,8 @@ class AddIncomeViewController: UIViewController {
     }
     
     func showEmptyBalanceAlert() {
-        let alert = UIAlertController(title: NSLocalizedString("EmptyBalanceAlertTitle", comment: ""),
-                                      message: NSLocalizedString("EmptyBalanceAlertDescription", comment: ""),
+        let alert = UIAlertController(title: NSLocalizedString("EmptyTransactionBalanceAlertTitle", comment: ""),
+                                      message: NSLocalizedString("EmptyTransactionBalanceAlertDescription", comment: ""),
                                       preferredStyle: .alert)
         
         alert.addAction(UIAlertAction(title: NSLocalizedString("Ok", comment: ""), style: .default, handler: { _ in
@@ -126,6 +180,29 @@ class AddIncomeViewController: UIViewController {
         
         self.present(alert, animated: true)
     }
+    
+    func showEmptyWalletAlert() {
+        let alert = UIAlertController(title: NSLocalizedString("EmptyTransactionWalletAlertTitle", comment: ""),
+                                      message: NSLocalizedString("EmptyTransactionWalletAlertDescription", comment: ""),
+                                      preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Ok", comment: ""), style: .default, handler: { _ in
+        }))
+        
+        self.present(alert, animated: true)
+    }
+    
+    func showEmptyWalletAndBalanceAlert() {
+        let alert = UIAlertController(title: NSLocalizedString("EmptyTransactionWalletBalanceAlertTitle", comment: ""),
+                                      message: NSLocalizedString("EmptyTransactionWalletBalanceAlertDescription", comment: ""),
+                                      preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Ok", comment: ""), style: .default, handler: { _ in
+        }))
+        
+        self.present(alert, animated: true)
+    }
+    
 }
 
 extension AddIncomeViewController: UITableViewDataSource {
@@ -208,7 +285,7 @@ extension AddIncomeViewController: UIViewControllerTransitioningDelegate {
         if presented is AddIncomeColectionViewController {
             presentationController.heightMultiplier = 0.43
         } else {
-            presentationController.heightMultiplier = 0.5
+            presentationController.heightMultiplier = 0.6
         }
         
         return presentationController

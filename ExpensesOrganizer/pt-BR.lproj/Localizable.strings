@@ -17,6 +17,10 @@
 "FirstEmptyStateText" = "Nada aqui!";
 "SecondEmptyStateText" = "Pressione o +, para adicionar uma carteira.";
 
+// MARK: Transactions
+"EmptyStateTransactionsTitle" = "Nada por aqui!";
+"EmptyStateTransactionsDescription" = "Assim que você adicionar uma transação, ela aparecerá aqui.";
+
 // MARK: Wallet Creation
 "WalletName" = "Nome da carteira";
 "NewWallet" = "Nova carteira";
@@ -51,6 +55,7 @@
 "Ok" = "Certo";
 "WalletsFetchFailedAlertTitle" = "Erro ao encontrar Carteiras";
 "WalletsFetchFailedAlertDescription" = "Houve um problema ao procurar suas carteiras. Por favor, tente novamente mais tarde.";
+"Transaction" = "Transação";
 
 // MARK: Onboarding
 "Control" = "Controle";
@@ -72,6 +77,8 @@
 "PlanningCreationCancelAlertTitle" = "Cancelar novo Planejamento";
 "PlanningCreationCancelAlertDescription" = "Você tem certeza? Todos os dados inseridos serão perdidos.";
 "PlanningCreationKeepCreatingAction" = "Coninuar criando";
+"PlanningEditionCancelAlertTitle" = "Cancelar edição de Planejamento";
+"PlanningEditionKeepCreatingAction" = "Continuar editando";
 
 // MARK: Planning List
 "PlanningTitle" = "Planejar";
@@ -85,11 +92,16 @@
 "PlanningCreationIcon"= "Ícone do planejamento";
 "PlanningCreationButtonLabel" = "Criar novo item";
 "NewPlanningCreated" = "Seu novo planejamento foi adicionado com sucesso.";
+"EmptyPlanningWalletAlertDescription" = "Você precisa selecionar uma carteira de referência para a criação de seu planejamento!";
+"EmptyPlanningNameAlertTitle" = "Nome vazio";
+"EmptyPlanningNameAlertDescription" = "Você precisa definir um nome para seu planejamento!";
+"EmptyPlanningWalletNameAlertTitle" = "Nome e Carteira vazios";
+"EmptyPlanningWalletNameAlertDescription" = "Você precisa definir um nome e selecionar uma carteira de referência para a criação de seu planejamento!";
 
 // MARK: alert section of this screen
 "title" = "Aviso!";
 "message" = "Parece que você não tem nenhuma carteira.";
-"addIncoCategoriesMessage" = "Parece que você não tem nenhum template.";
+"addIncoCategoriesMessage" = "Parece que você não tem nenhum planejamento.";
  
 // MARK: Item
 "ItemName" = "Nome do item";
@@ -100,6 +112,9 @@
 "ItemEditionCancelAlertTitle" = "Cancelar edição de Item";
 "ItemKeepEditingAction" = "Continuar editando";
 "Notification" = "Notificação";
+"EmptyItemWalletAlertDescription" = "Você precisa selecionar uma carteira de referência para a criação de seu item!";
+"EmptyItemNameAlertDescription" = "Você precisa definir um nome para seu item!";
+"EmptyItemWalletNameAlertDescription" = "Você precisa definir um nome e selecionar uma carteira de referência para a criação de seu item!";
 
 // MARK: Recurrency Types
 "Never" = "Nunca";
@@ -118,6 +133,12 @@
 "addition-income-planning" = "Planejamento";
 "addition-income-done-header" = "Tudo certo por aqui!";
 "addition-income-done-body" = "Seu ganho foi adicionado com sucesso.";
+"EmptyTransactionBalanceAlertDescription" = "Você precisa definir um valor para sua transação!";
+"EmptyTransactionBalanceAlertTitle" = "Valor vazio";
+"EmptyTransactionWalletBalanceAlertTitle" = "Valor e Carteira vazios";
+"EmptyTransactionWalletBalanceAlertDescription" = "Você precisa definir um valor e selecionar uma carteira para efetuar sua transação!";
+"EmptyTransactionWalletAlertTitle" = "Carteira não selecionada";
+"EmptyTransactionWalletAlertDescription" = "Você precisa selecionar uma carteira para efetuar sua transação!";
 
 // MARK: Addition Expense
 "addition-expense-segmented-title" = "Despesas";
@@ -128,6 +149,8 @@
 "addition-expense-planning" = "Planejamento";
 "addition-expense-done-header" = "Tudo certo por aqui!";
 "addition-expense-done-body" = "Sua despesa foi adicionada com sucesso.";
+"InsufficientBalanceAlertTitle" = "Saldo insuficiente";
+"InsufficientBalanceAlertDescription" = "Você não possui saldo suficiente na sua carteira para efetuar essa transação.";
 
 // MARK: Templates
 "Property" = "Imóvel";
@@ -162,7 +185,7 @@
 "Pets" = "Animais";
 "Food" = "Comida";
 "Veterinary" = "Veterinário";
-"Neuteruing" = "Castração";
+"Neutering" = "Castração";
 "Toys" = "Brinquedos";
 "Medicine" = "Remédios";
 "Others" = "Outros";

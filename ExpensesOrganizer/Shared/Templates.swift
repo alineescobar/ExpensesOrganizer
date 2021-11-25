@@ -17,7 +17,7 @@ func setPropertyTemplate(context: NSManagedObjectContext) {
     propertyTemplate.templateIconName = "House"
     propertyTemplate.isExpense = true
     
-    let mutableItems = propertyTemplate.items?.mutableCopy() as? NSMutableSet
+    let mutableItems = propertyTemplate.items?.mutableCopy() as? NSMutableOrderedSet
     
     let rentItem = Item(context: context)
     rentItem.name = NSLocalizedString("Rent", comment: "")
@@ -109,7 +109,7 @@ func setPropertyTemplate(context: NSManagedObjectContext) {
     propertyInsuranceItem.paymentMethod = nil
     mutableItems?.add(propertyInsuranceItem)
     
-    propertyTemplate.items = mutableItems?.copy() as? NSSet
+    propertyTemplate.items = mutableItems?.copy() as? NSOrderedSet
 }
 
 func setCarTemplate(context: NSManagedObjectContext) {
@@ -121,7 +121,7 @@ func setCarTemplate(context: NSManagedObjectContext) {
     carTemplate.templateIconName = "Car"
     carTemplate.isExpense = true
     
-    let mutableItems = carTemplate.items?.mutableCopy() as? NSMutableSet
+    let mutableItems = carTemplate.items?.mutableCopy() as? NSMutableOrderedSet
     
     let insuranceItem = Item(context: context)
     insuranceItem.name = NSLocalizedString("Insurance", comment: "")
@@ -168,7 +168,7 @@ func setCarTemplate(context: NSManagedObjectContext) {
     garageItem.paymentMethod = nil
     mutableItems?.add(garageItem)
     
-    carTemplate.items = mutableItems?.copy() as? NSSet
+    carTemplate.items = mutableItems?.copy() as? NSOrderedSet
 }
 
 func setLeisureTemplate(context: NSManagedObjectContext) {
@@ -179,7 +179,7 @@ func setLeisureTemplate(context: NSManagedObjectContext) {
     leisureTemplate.templateIconName = "Martini"
     leisureTemplate.isExpense = true
     
-    let mutableItems = leisureTemplate.items?.mutableCopy() as? NSMutableSet
+    let mutableItems = leisureTemplate.items?.mutableCopy() as? NSMutableOrderedSet
     
     let streamingServicesItem = Item(context: context)
     streamingServicesItem.name = NSLocalizedString("StreamingServices", comment: "")
@@ -217,7 +217,7 @@ func setLeisureTemplate(context: NSManagedObjectContext) {
     gymItem.paymentMethod = nil
     mutableItems?.add(gymItem)
     
-    leisureTemplate.items = mutableItems?.copy() as? NSSet
+    leisureTemplate.items = mutableItems?.copy() as? NSOrderedSet
 }
 
 func setStudyTemplate(context: NSManagedObjectContext) {
@@ -228,7 +228,7 @@ func setStudyTemplate(context: NSManagedObjectContext) {
     studyTemplate.templateIconName = "GraduationCap"
     studyTemplate.isExpense = true
     
-    let mutableItems = studyTemplate.items?.mutableCopy() as? NSMutableSet
+    let mutableItems = studyTemplate.items?.mutableCopy() as? NSMutableOrderedSet
     
     let schoolItem = Item(context: context)
     schoolItem.name = NSLocalizedString("School", comment: "")
@@ -257,7 +257,7 @@ func setStudyTemplate(context: NSManagedObjectContext) {
     courseItem.paymentMethod = nil
     mutableItems?.add(courseItem)
     
-    studyTemplate.items = mutableItems?.copy() as? NSSet
+    studyTemplate.items = mutableItems?.copy() as? NSOrderedSet
 }
 
 func setBusinessTemplate(context: NSManagedObjectContext) {
@@ -269,7 +269,7 @@ func setBusinessTemplate(context: NSManagedObjectContext) {
     businessTemplate.templateIconName = "SuitcaseSimple"
     businessTemplate.isExpense = true
     
-    let mutableItems = businessTemplate.items?.mutableCopy() as? NSMutableSet
+    let mutableItems = businessTemplate.items?.mutableCopy() as? NSMutableOrderedSet
     
     let rentItem = Item(context: context)
     rentItem.name = NSLocalizedString("Rent", comment: "")
@@ -289,7 +289,7 @@ func setBusinessTemplate(context: NSManagedObjectContext) {
     employeeItem.paymentMethod = nil
     mutableItems?.add(employeeItem)
     
-    businessTemplate.items = mutableItems?.copy() as? NSSet
+    businessTemplate.items = mutableItems?.copy() as? NSOrderedSet
 }
 
 func setPetsTemplate(context: NSManagedObjectContext) {
@@ -300,7 +300,7 @@ func setPetsTemplate(context: NSManagedObjectContext) {
     petsTemplate.templateIconName = "Bug"
     petsTemplate.isExpense = true
     
-    let mutableItems = petsTemplate.items?.mutableCopy() as? NSMutableSet
+    let mutableItems = petsTemplate.items?.mutableCopy() as? NSMutableOrderedSet
     
     let foodItem = Item(context: context)
     foodItem.name = NSLocalizedString("Food", comment: "")
@@ -347,7 +347,7 @@ func setPetsTemplate(context: NSManagedObjectContext) {
     medicineItem.paymentMethod = nil
     mutableItems?.add(medicineItem)
     
-    petsTemplate.items = mutableItems?.copy() as? NSSet
+    petsTemplate.items = mutableItems?.copy() as? NSOrderedSet
 }
 
 func setEmptyExpenseTemplate(context: NSManagedObjectContext) {
@@ -358,7 +358,7 @@ func setEmptyExpenseTemplate(context: NSManagedObjectContext) {
     emptyTemplate.templateIconName = "Atom"
     emptyTemplate.isExpense = true
     
-    let mutableItems = emptyTemplate.items?.mutableCopy() as? NSMutableSet
+    let mutableItems = emptyTemplate.items?.mutableCopy() as? NSMutableOrderedSet
     
     let emptyItem = Item(context: context)
     emptyItem.name = NSLocalizedString("iCloudStoragePlan", comment: "")
@@ -369,7 +369,7 @@ func setEmptyExpenseTemplate(context: NSManagedObjectContext) {
     emptyItem.paymentMethod = nil
     mutableItems?.add(emptyItem)
     
-    emptyTemplate.items = mutableItems?.copy() as? NSSet
+    emptyTemplate.items = mutableItems?.copy() as? NSOrderedSet
 }
 
 func setSalaryTemplate(context: NSManagedObjectContext) {
@@ -380,7 +380,7 @@ func setSalaryTemplate(context: NSManagedObjectContext) {
     salaryTemplate.templateIconName = "Money"
     salaryTemplate.isExpense = false
     
-    let mutableItems = salaryTemplate.items?.mutableCopy() as? NSMutableSet
+    let mutableItems = salaryTemplate.items?.mutableCopy() as? NSMutableOrderedSet
     
     let salaryItem = Item(context: context)
     salaryItem.name = NSLocalizedString("Salary", comment: "")
@@ -400,7 +400,7 @@ func setSalaryTemplate(context: NSManagedObjectContext) {
     fringeBenefitsItem.paymentMethod = nil
     mutableItems?.add(fringeBenefitsItem)
     
-    salaryTemplate.items = mutableItems?.copy() as? NSSet
+    salaryTemplate.items = mutableItems?.copy() as? NSOrderedSet
 }
 
 func setProfitTemplate(context: NSManagedObjectContext) {
@@ -411,7 +411,7 @@ func setProfitTemplate(context: NSManagedObjectContext) {
     profitTemplate.templateIconName = "TrendUp"
     profitTemplate.isExpense = false
     
-    let mutableItems = profitTemplate.items?.mutableCopy() as? NSMutableSet
+    let mutableItems = profitTemplate.items?.mutableCopy() as? NSMutableOrderedSet
     
     let stocksItem = Item(context: context)
     stocksItem.name = NSLocalizedString("Stocks", comment: "")
@@ -440,7 +440,7 @@ func setProfitTemplate(context: NSManagedObjectContext) {
     variableIncomesItem.paymentMethod = nil
     mutableItems?.add(variableIncomesItem)
     
-    profitTemplate.items = mutableItems?.copy() as? NSSet
+    profitTemplate.items = mutableItems?.copy() as? NSOrderedSet
 }
 
 func setEmptyIncomeTemplate(context: NSManagedObjectContext) {
@@ -451,7 +451,7 @@ func setEmptyIncomeTemplate(context: NSManagedObjectContext) {
     emptyTemplate.templateIconName = "Atom"
     emptyTemplate.isExpense = false
 
-    let mutableItems = emptyTemplate.items?.mutableCopy() as? NSMutableSet
+    let mutableItems = emptyTemplate.items?.mutableCopy() as? NSMutableOrderedSet
     
     let emptyItem = Item(context: context)
     emptyItem.name = NSLocalizedString("Cashback", comment: "")
@@ -462,5 +462,5 @@ func setEmptyIncomeTemplate(context: NSManagedObjectContext) {
     emptyItem.paymentMethod = nil
     mutableItems?.add(emptyItem)
     
-    emptyTemplate.items = mutableItems?.copy() as? NSSet
+    emptyTemplate.items = mutableItems?.copy() as? NSOrderedSet
 }

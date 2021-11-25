@@ -587,7 +587,7 @@
         <scene sceneID="ecc-e7-ixU">
             <objects>
                 <viewController storyboardIdentifier="CalendarViewController" title="Calendar" id="UPi-9Z-zEd" customClass="CalendarViewController" customModule="ExpensesOrganizer" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="ylh-eg-bIz">
+                    <view key="view" contentMode="scaleToFill" ambiguous="YES" id="ylh-eg-bIz">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -606,11 +606,11 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H6E-R6-gek">
-                                <rect key="frame" x="24" y="35" width="366" height="380"/>
+                                <rect key="frame" x="24" y="65" width="366" height="380"/>
                                 <subviews>
                                     <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" style="inline" translatesAutoresizingMaskIntoConstraints="NO" id="lOj-FG-CBD">
-                                        <rect key="frame" x="10" y="0.0" width="346" height="380"/>
-                                        <color key="tintColor" name="SecondaryBrandColor"/>
+                                        <rect key="frame" x="10" y="20" width="346" height="360"/>
+                                        <color key="tintColor" name="TertiaryBrandColor"/>
                                     </datePicker>
                                 </subviews>
                                 <color key="backgroundColor" red="0.40342968699999998" green="0.44114786389999999" blue="0.48975789549999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -619,7 +619,7 @@
                                     <constraint firstItem="lOj-FG-CBD" firstAttribute="leading" secondItem="H6E-R6-gek" secondAttribute="leading" constant="10" id="2vs-rF-x3r"/>
                                     <constraint firstAttribute="trailing" secondItem="lOj-FG-CBD" secondAttribute="trailing" constant="10" id="Hba-7Q-ydo"/>
                                     <constraint firstAttribute="bottom" secondItem="lOj-FG-CBD" secondAttribute="bottom" id="Ozo-5l-3iF"/>
-                                    <constraint firstItem="lOj-FG-CBD" firstAttribute="top" secondItem="H6E-R6-gek" secondAttribute="top" id="aZq-EZ-V9G"/>
+                                    <constraint firstItem="lOj-FG-CBD" firstAttribute="top" secondItem="H6E-R6-gek" secondAttribute="top" constant="20" id="aZq-EZ-V9G"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -629,9 +629,10 @@
                         <constraints>
                             <constraint firstItem="JAl-rO-gdT" firstAttribute="centerX" secondItem="EJe-pw-oXK" secondAttribute="centerX" id="1jk-kL-KWv"/>
                             <constraint firstItem="H6E-R6-gek" firstAttribute="leading" secondItem="EJe-pw-oXK" secondAttribute="leading" constant="24" id="8f4-2r-Pli"/>
+                            <constraint firstAttribute="bottom" secondItem="H6E-R6-gek" secondAttribute="bottom" constant="50" id="AGX-ah-JUN"/>
                             <constraint firstItem="EJe-pw-oXK" firstAttribute="trailing" secondItem="H6E-R6-gek" secondAttribute="trailing" constant="24" id="UVd-YQ-PBJ"/>
                             <constraint firstItem="JAl-rO-gdT" firstAttribute="top" secondItem="EJe-pw-oXK" secondAttribute="top" constant="20" id="YSY-vf-9SF"/>
-                            <constraint firstItem="H6E-R6-gek" firstAttribute="top" secondItem="JAl-rO-gdT" secondAttribute="bottom" constant="10" id="csx-eu-0ll"/>
+                            <constraint firstItem="H6E-R6-gek" firstAttribute="top" secondItem="JAl-rO-gdT" secondAttribute="bottom" constant="40" id="csx-eu-0ll"/>
                         </constraints>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="5fL-Nk-jnR" appends="YES" id="ysp-xX-oCv"/>
@@ -661,9 +662,6 @@
         </namedColor>
         <namedColor name="PrimaryBrandColor">
             <color red="0.14509803921568629" green="0.16862745098039217" blue="0.39215686274509803" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="SecondaryBrandColor">
-            <color red="0.92156862745098034" green="0.0" blue="0.10588235294117647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="TertiaryBrandColor">
             <color red="0.035294117647058823" green="0.094117647058823528" blue="0.1803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

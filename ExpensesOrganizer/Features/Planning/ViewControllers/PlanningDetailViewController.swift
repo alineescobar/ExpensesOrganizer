@@ -32,22 +32,28 @@ class PlanningDetailViewController: UIViewController {
         showCancelPlanningAlert()
     }
     @IBAction private func readyAction(_ sender: UIButton) {
-        // TODO: Set notifications
-        guard let context = self.context else {
-            return
+        if !templateName.isEmpty {
+            // TODO: Set notifications
+            guard let context = self.context else {
+                return
+            }
+            
+            template?.name = templateName
+            template?.templateDescription = templateDescription
+            template?.items = NSOrderedSet(array: items)
+            
+            do {
+                try context.save()
+                modalHandlerDelegate?.modalDismissed()
+                self.dismiss(animated: true)
+            } catch {
+                print(error.localizedDescription)
+                return
+            }
+        } else {
+            showEmptyNameAlert()
         }
         
-        template?.name = templateName
-        template?.templateDescription = templateDescription
-        
-        do {
-            try context.save()
-            modalHandlerDelegate?.modalDismissed()
-            self.dismiss(animated: true)
-        } catch {
-            print(error.localizedDescription)
-            return
-        }
     }
     
     weak var modalHandlerDelegate: ModalHandlerDelegate?
@@ -70,35 +76,45 @@ class PlanningDetailViewController: UIViewController {
             return
         }
         planningNameLabel.text = template.name
-        items = template.items?.allObjects as? [Item] ?? []
+        items = template.items?.array as? [Item] ?? []
         templateName = template.name ?? ""
         templateDescription = template.templateDescription ?? ""
         // Do any additional setup after loading the view.
     }
     
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-         guard let indexPath = sender as? IndexPath else {
-             return
-         }
-         let itemViewController = segue.destination as? ItemViewController
-         itemViewController?.item = items[indexPath.row]
-         itemViewController?.itemDelegate = self
-         itemViewController?.isEditingItem = true
-     }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let indexPath = sender as? IndexPath else {
+            return
+        }
+        let itemViewController = segue.destination as? ItemViewController
+        itemViewController?.item = items[indexPath.row]
+        itemViewController?.itemDelegate = self
+        itemViewController?.isEditingItem = true
+    }
     
     func showCancelPlanningAlert() {
-        let alert = UIAlertController(title: NSLocalizedString("PlanningCreationCancelAlertTitle", comment: ""),
+        let alert = UIAlertController(title: NSLocalizedString("PlanningEditionCancelAlertTitle", comment: ""),
                                       message: NSLocalizedString("PlanningCreationCancelAlertDescription", comment: ""),
                                       preferredStyle: .alert)
-
+        
         alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .destructive, handler: { _ in
-            // TODO: Delete Wallet object from CoreData
             self.dismiss(animated: true)
         }))
         
-        alert.addAction(UIAlertAction(title: NSLocalizedString("PlanningCreationKeepCreatingAction", comment: ""), style: .cancel, handler: { _ in
+        alert.addAction(UIAlertAction(title: NSLocalizedString("PlanningEditionKeepCreatingAction", comment: ""), style: .cancel, handler: { _ in
         }))
-
+        
+        self.present(alert, animated: true)
+    }
+    
+    func showEmptyNameAlert() {
+        let alert = UIAlertController(title: NSLocalizedString("EmptyPlanningNameAlertTitle", comment: ""),
+                                      message: NSLocalizedString("EmptyPlanningNameAlertDescription", comment: ""),
+                                      preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Ok", comment: ""), style: .default, handler: { _ in
+        }))
+        
         self.present(alert, animated: true)
     }
     
@@ -139,6 +155,14 @@ extension PlanningDetailViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 1 {
             performSegue(withIdentifier: "planningItem", sender: indexPath)
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        if indexPath.section == 0 {
+            return false
+        } else {
+            return true
         }
     }
 }
@@ -193,7 +217,7 @@ extension PlanningDetailViewController: UITableViewDataSource {
             let item = items[indexPath.row]
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "planningItemCell", for: indexPath) as? PlanningItemTableViewCell
             else {
-                    return UITableViewCell()
+                return UITableViewCell()
             }
             cell.planningItemDelegate = self
             cell.itemNameLabel.text = item.name
@@ -205,6 +229,15 @@ extension PlanningDetailViewController: UITableViewDataSource {
             return cell
         }
         
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            // TODO: Unschedule future Push Notifications
+            
+            items.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
     }
     
     func getTotalBalance() {
@@ -241,16 +274,16 @@ extension PlanningDetailViewController: PlanningItemDelegate {
         // TODO: Update item notification value
         item.sendsNotification.toggle()
         
-        guard let context = self.context else {
-            return
-        }
+        //        guard let context = self.context else {
+        //            return
+        //        }
         
-        do {
-            try context.save()
-        } catch {
-            print(error.localizedDescription)
-            return
-        }
+        //        do {
+        //            try context.save()
+        //        } catch {
+        //            print(error.localizedDescription)
+        //            return
+        //        }
     }
 }
 
