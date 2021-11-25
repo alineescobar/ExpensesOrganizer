@@ -131,6 +131,8 @@
 "addition-expense-planning" = "Planning";
 "addition-expense-done-header" = "Everything is fine!";
 "addition-expense-done-body" = "Your expense has been successfully added.";
+"InsufficientBalanceAlertTitle" = "Insufficient balance";
+"InsufficientBalanceAlertDescription" = "You don't have enough balance in your wallet to do this transaction.";
 
 // MARK: Item
 "ItemName" = "Item name";

@@ -80,39 +80,45 @@ public class Transaction: NSManagedObject, Operable {
     }
 
 // MARK: - Outcome function
-    func outcome(objectID: UUID?, value: Double) {
+    func outcome(objectID: UUID?, value: Double) -> Bool {
         if let objectID = objectID {
             if let goal = fetchGoal(objectID: objectID) {
                 if value > 0.0 && value < goal.value {
                     goal.value -= value
                     do {
                         try context.save()
+                        return true
                     } catch {
                         print(error.localizedDescription)
                     }
                 } else {
                     print("valor insuficiente POBRE")
+                    return false
                 }
             } else if let wallet = fetchWallet(objectID: objectID) {
                 if value > 0.0 && value < wallet.value {
                     wallet.value -= value
                     do {
                         try context.save()
+                        return true
                     } catch {
                         print(error.localizedDescription)
                     }
                 } else {
-                    print("valor inválido")
+                    print("valor insuficiente POBRE")
+                    return false
                 }
             }
         } else {
             print("sem object id")
+            return false
         }
+        return false
     }
     
 }
 
 protocol Operable {
     func income(objectID: UUID, value: Double)
-    func outcome(objectID: UUID?, value: Double)
+    func outcome(objectID: UUID?, value: Double) -> Bool
 }

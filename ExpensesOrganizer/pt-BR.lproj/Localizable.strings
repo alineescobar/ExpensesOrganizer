@@ -149,6 +149,8 @@
 "addition-expense-planning" = "Planejamento";
 "addition-expense-done-header" = "Tudo certo por aqui!";
 "addition-expense-done-body" = "Sua despesa foi adicionada com sucesso.";
+"InsufficientBalanceAlertTitle" = "Saldo insuficiente";
+"InsufficientBalanceAlertDescription" = "Você não possui saldo suficiente na sua carteira para efetuar essa transação.";
 
 // MARK: Templates
 "Property" = "Imóvel";

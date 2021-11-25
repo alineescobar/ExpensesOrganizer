@@ -55,7 +55,7 @@ class AddIncomeViewController: UIViewController {
         
         do {
             var templates: [Template] = try context.fetch(Template.fetchRequest())
-            templates.swapAt(templates.firstIndex(where: { $0.templateIconName == "Atom" }) ?? 0, templates.endIndex - 1)
+            templates.swapAt(templates.firstIndex(where: { $0.templateIconName == "Atom" && $0.isExpense == false }) ?? 0, templates.endIndex - 1)
             incomeCategory = templates.last
         } catch {
             print(error.localizedDescription)
@@ -99,7 +99,7 @@ class AddIncomeViewController: UIViewController {
                 
                 if items.isEmpty {
                     let newItem = Item(context: context)
-                    newItem.name = incomeName
+                    newItem.name = incomeName.isEmpty ? NSLocalizedString("Transaction", comment: "") : incomeName
                     newItem.value = incomeValue
                     newItem.paymentMethod = selectedWallet
                     newItem.recurrenceDate = selectedDate
