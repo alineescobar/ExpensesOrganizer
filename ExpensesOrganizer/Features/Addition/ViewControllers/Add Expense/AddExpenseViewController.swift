@@ -48,6 +48,19 @@ class AddExpenseViewController: UIViewController {
         cancellButton.setTitle(NSLocalizedString("Cancel", comment: ""), for: .normal)
         
         hideKeyboardWhenTappedAround()
+        
+        guard let context = self.context else {
+            return
+        }
+        
+        do {
+            var templates: [Template] = try context.fetch(Template.fetchRequest())
+            templates.swapAt(templates.firstIndex(where: { $0.templateIconName == "Atom" && $0.isExpense }) ?? 0, templates.endIndex - 1)
+            selectedTemplate = templates.last
+        } catch {
+            print(error.localizedDescription)
+        }
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -62,71 +75,111 @@ class AddExpenseViewController: UIViewController {
     }
     
     @IBAction private func doneAction(_ sender: UIButton) {
-        if !expenseValue.isZero {
+        if !expenseValue.isZero && selectedWallet != nil {
             guard let context = self.context else {
                 return
             }
             
             let newTransaction = Transaction(context: context)
-            newTransaction.name = expenseName
+            newTransaction.name = expenseName.isEmpty ? NSLocalizedString("Transaction", comment: "") : expenseName
             newTransaction.value = expenseValue
             newTransaction.transactionDate = selectedDate
             newTransaction.recurrenceType = selectedRecurrencyType.rawValue
             newTransaction.category = selectedTemplate
             newTransaction.transactionDestination = selectedWallet?.walletID
             newTransaction.origin = nil
-            newTransaction.outcome(objectID: selectedWallet?.walletID, value: expenseValue)
-            
-            do {
-                let request = Item.fetchRequest() as NSFetchRequest<Item>
-                let namePredicate = NSPredicate(format: "name == %@", expenseName)
-                let templateIDPredicate = NSPredicate(format: "template.templateID == %@", selectedTemplate?.templateID?.uuidString ?? "")
-                
-                request.fetchLimit = 1
-                
-                request.predicate = NSCompoundPredicate(
-                    andPredicateWithSubpredicates: [
-                        namePredicate,
-                        templateIDPredicate
-                    ]
-                )
-                let items: [Item] = try context.fetch(request)
-                if items.isEmpty {
-                    let newItem = Item(context: context)
-                    newItem.name = expenseName
-                    newItem.value = expenseValue
-                    newItem.paymentMethod = selectedWallet
-                    newItem.recurrenceDate = selectedDate
-                    newItem.template = selectedTemplate
-                    newItem.sendsNotification = false
-                    newItem.recurrenceType = selectedRecurrencyType.rawValue
-                } else {
-                    let item: Item? = items.first
-                    item?.value = expenseValue
-                    item?.recurrenceDate = selectedDate
-                    item?.recurrenceType = selectedRecurrencyType.rawValue
-                    item?.paymentMethod = selectedWallet
+            if newTransaction.outcome(objectID: selectedWallet?.walletID, value: expenseValue) {
+                do {
+                    let request = Item.fetchRequest() as NSFetchRequest<Item>
+                    let namePredicate = NSPredicate(format: "name == %@", expenseName)
+                    let templateIDPredicate = NSPredicate(format: "template.templateID == %@", selectedTemplate?.templateID?.uuidString ?? "")
+                    
+                    request.fetchLimit = 1
+                    
+                    request.predicate = NSCompoundPredicate(
+                        andPredicateWithSubpredicates: [
+                            namePredicate,
+                            templateIDPredicate
+                        ]
+                    )
+                    let items: [Item] = try context.fetch(request)
+                    if items.isEmpty {
+                        let newItem = Item(context: context)
+                        newItem.name = expenseName.isEmpty ? NSLocalizedString("Transaction", comment: "") : expenseName
+                        newItem.value = expenseValue
+                        newItem.paymentMethod = selectedWallet
+                        newItem.recurrenceDate = selectedDate
+                        newItem.template = selectedTemplate
+                        newItem.sendsNotification = false
+                        newItem.recurrenceType = selectedRecurrencyType.rawValue
+                    } else {
+                        let item: Item? = items.first
+                        item?.value = expenseValue
+                        item?.recurrenceDate = selectedDate
+                        item?.recurrenceType = selectedRecurrencyType.rawValue
+                        item?.paymentMethod = selectedWallet
+                    }
+                    
+                } catch {
+                    print(error.localizedDescription)
                 }
                 
-            } catch {
-                print(error.localizedDescription)
+                do {
+                    try context.save()
+                    performSegue(withIdentifier: "open-expense-alldone-segue", sender: nil)
+                } catch {
+                    print(error.localizedDescription)
+                    return
+                }
+            } else {
+                showInsufficientBalanceAlert()
             }
             
-            do {
-                try context.save()
-                performSegue(withIdentifier: "open-expense-alldone-segue", sender: nil)
-            } catch {
-                print(error.localizedDescription)
-                return
-            }
-        } else {
+        } else if expenseValue.isZero && selectedWallet == nil {
+            showEmptyWalletAndBalanceAlert()
+        } else if expenseValue.isZero {
             showEmptyBalanceAlert()
+        } else {
+            showEmptyWalletAlert()
         }
     }
     
     func showEmptyBalanceAlert() {
-        let alert = UIAlertController(title: NSLocalizedString("EmptyBalanceAlertTitle", comment: ""),
-                                      message: NSLocalizedString("EmptyBalanceAlertDescription", comment: ""),
+        let alert = UIAlertController(title: NSLocalizedString("EmptyTransactionBalanceAlertTitle", comment: ""),
+                                      message: NSLocalizedString("EmptyTransactionBalanceAlertDescription", comment: ""),
+                                      preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Ok", comment: ""), style: .default, handler: { _ in
+        }))
+        
+        self.present(alert, animated: true)
+    }
+    
+    func showEmptyWalletAlert() {
+        let alert = UIAlertController(title: NSLocalizedString("EmptyTransactionWalletAlertTitle", comment: ""),
+                                      message: NSLocalizedString("EmptyTransactionWalletAlertDescription", comment: ""),
+                                      preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Ok", comment: ""), style: .default, handler: { _ in
+        }))
+        
+        self.present(alert, animated: true)
+    }
+    
+    func showEmptyWalletAndBalanceAlert() {
+        let alert = UIAlertController(title: NSLocalizedString("EmptyTransactionWalletBalanceAlertTitle", comment: ""),
+                                      message: NSLocalizedString("EmptyTransactionWalletBalanceAlertDescription", comment: ""),
+                                      preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Ok", comment: ""), style: .default, handler: { _ in
+        }))
+        
+        self.present(alert, animated: true)
+    }
+    
+    func showInsufficientBalanceAlert() {
+        let alert = UIAlertController(title: NSLocalizedString("InsufficientBalanceAlertTitle", comment: ""),
+                                      message: NSLocalizedString("InsufficientBalanceAlertDescription", comment: ""),
                                       preferredStyle: .alert)
         
         alert.addAction(UIAlertAction(title: NSLocalizedString("Ok", comment: ""), style: .default, handler: { _ in

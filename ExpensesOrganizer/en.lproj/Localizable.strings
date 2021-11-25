@@ -57,6 +57,7 @@
 "Ok" = "OK";
 "WalletsFetchFailedAlertTitle" = "Error finding Wallets";
 "WalletsFetchFailedAlertDescription" = "There was a problem finding your wallets. Please, try again later.";
+"Transaction" = "Transaction";
 
 // MARK: Onboarding
 "Control" = "Control";
@@ -77,7 +78,9 @@
 "OptionalDescription" = "Description is optional";
 "PlanningCreationCancelAlertTitle" = "Cancel Planning";
 "PlanningCreationCancelAlertDescription" = "Are you sure? All inserted data will be lost.";
-"PlanningCreationKeepCreatingAction" = "Keep creating";
+"PlanningEditionKeepCreatingAction" = "Keep creating";
+"PlanningEditionCancelAlertTitle" = "Cancel Planning edition";
+"PlanningEditionKeepCreatingAction" = "Keep editing";
 
 // MARK: Planning List
 "PlanningTitle" = "Planning";
@@ -91,6 +94,12 @@
 "PlanningCreationIcon"= "Planning icon";
 "PlanningCreationButtonLabel" = "Create a new item";
 "NewPlanningCreated" = "Your new planning was successfully added.";
+"EmptyPlanningWalletAlertDescription" = "You need to select a reference wallet in order to create your planning!";
+"EmptyPlanningNameAlertTitle" = "Empty name";
+"EmptyPlanningNameAlertDescription" = "You need to set a name to your planning!";
+"EmptyPlanningWalletNameAlertTitle" = "Empty name and Wallet";
+"EmptyPlanningWalletNameAlertDescription" = "You need to set a name and select a reference Wallet in order to create your planning!";
+
 
 // MARK: alert section of this screen
 "title" = "Alert!";
@@ -106,6 +115,12 @@
 "addition-income-planning" = "Planning";
 "addition-income-done-header" = "Everything is fine!";
 "addition-income-done-body" = "Your income has been successfully added.";
+"EmptyTransactionBalanceAlertDescription" = "You need to set a value to your transaction!";
+"EmptyTransactionBalanceAlertTitle" = "Empty value";
+"EmptyTransactionWalletBalanceAlertTitle" = "Empty value and Wallet";
+"EmptyTransactionWalletBalanceAlertDescription" = "You need to set a value and select a Wallet in order to make your transaction!";
+"EmptyTransactionWalletAlertTitle" = "Wallet not selected";
+"EmptyTransactionWalletAlertDescription" = "You need to select a Wallet in order to make your transaction!";
 
 // MARK: Addition Expense
 "addition-expense-segmented-title" = "Expenses";
@@ -116,6 +131,8 @@
 "addition-expense-planning" = "Planning";
 "addition-expense-done-header" = "Everything is fine!";
 "addition-expense-done-body" = "Your expense has been successfully added.";
+"InsufficientBalanceAlertTitle" = "Insufficient balance";
+"InsufficientBalanceAlertDescription" = "You don't have enough balance in your wallet to do this transaction.";
 
 // MARK: Item
 "ItemName" = "Item name";
@@ -126,6 +143,9 @@
 "ItemEditionCancelAlertTitle" = "Cancel Item edition";
 "ItemKeepEditingAction" = "Keep editing";
 "Notification" = "Notification";
+"EmptyItemWalletAlertDescription" = "You need to select a reference wallet in order to create your item!";
+"EmptyItemNameAlertDescription" = "You need to set a name to your item!";
+"EmptyItemWalletNameAlertDescription" = "You need to set a name and select a reference Wallet in order to create your item!";
 
 // MARK: Recurrency Types
 "Never" = "Never";

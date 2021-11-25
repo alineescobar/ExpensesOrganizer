@@ -5,6 +5,7 @@
 //  Created by Aline Osana Escobar on 15/10/21.
 //
 
+import CoreData
 import UIKit
 
 enum DashboardCategory: CaseIterable {
@@ -52,7 +53,14 @@ class DashboardViewController: UIViewController {
         
         do {
             wallets = try context.fetch(Wallet.fetchRequest())
-            transactions = try context.fetch(Transaction.fetchRequest()).reversed()
+            
+            let request = Transaction.fetchRequest() as NSFetchRequest<Transaction>
+
+            let statePredicate = NSPredicate(format: "wasDeleted == %@", NSNumber(value: false))
+            
+            request.predicate = statePredicate
+            
+            transactions = try context.fetch(request).reversed()
         } catch {
             print("erro ao carregar")
         }
@@ -236,7 +244,6 @@ extension DashboardViewController: UITableViewDataSource {
                 cell.transactionsDelegate = self
                 
                 return cell
-                
             }
         } else {
             if transactions.isEmpty {
@@ -350,7 +357,14 @@ extension DashboardViewController: ModalHandlerDelegate {
         
         do {
             wallets = try context.fetch(Wallet.fetchRequest())
-            transactions = try context.fetch(Transaction.fetchRequest()).reversed()
+            
+            let request = Transaction.fetchRequest() as NSFetchRequest<Transaction>
+
+            let statePredicate = NSPredicate(format: "wasDeleted == %@", NSNumber(value: false))
+            
+            request.predicate = statePredicate
+            
+            transactions = try context.fetch(request).reversed()
             DispatchQueue.main.async {
                 self.mainTableView.reloadData()
             }
@@ -367,7 +381,14 @@ extension DashboardViewController: TransactionAttDelegate {
         }
         
         do {
-            transactions = try context.fetch(Transaction.fetchRequest()).reversed()
+            let request = Transaction.fetchRequest() as NSFetchRequest<Transaction>
+
+            let statePredicate = NSPredicate(format: "wasDeleted == %@", NSNumber(value: false))
+            
+            request.predicate = statePredicate
+            
+            transactions = try context.fetch(request).reversed()
+            
             DispatchQueue.main.async {
                 self.mainTableView.reloadData()
             }

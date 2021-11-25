@@ -48,6 +48,18 @@ class AddIncomeViewController: UIViewController {
         cancellButton.setTitle(NSLocalizedString("Cancel", comment: ""), for: .normal)
         
         hideKeyboardWhenTappedAround()
+        
+        guard let context = self.context else {
+            return
+        }
+        
+        do {
+            var templates: [Template] = try context.fetch(Template.fetchRequest())
+            templates.swapAt(templates.firstIndex(where: { $0.templateIconName == "Atom" && $0.isExpense == false }) ?? 0, templates.endIndex - 1)
+            incomeCategory = templates.last
+        } catch {
+            print(error.localizedDescription)
+        }
     }
     
     @IBAction private func cancellButton(_ sender: UIButton) {
@@ -55,13 +67,13 @@ class AddIncomeViewController: UIViewController {
     }
     
     @IBAction private func doneButton(_ sender: UIButton) {
-        if !incomeValue.isZero {
+        if !incomeValue.isZero && selectedWallet != nil {
             guard let context = self.context else {
                 return
             }
             
             let newTransaction = Transaction(context: context)
-            newTransaction.name = incomeName
+            newTransaction.name = incomeName.isEmpty ? NSLocalizedString("Transaction", comment: "") : incomeName
             newTransaction.value = incomeValue
             newTransaction.transactionDate = selectedDate
             newTransaction.recurrenceType = selectedRecurrencyType.rawValue
@@ -87,7 +99,7 @@ class AddIncomeViewController: UIViewController {
                 
                 if items.isEmpty {
                     let newItem = Item(context: context)
-                    newItem.name = incomeName
+                    newItem.name = incomeName.isEmpty ? NSLocalizedString("Transaction", comment: "") : incomeName
                     newItem.value = incomeValue
                     newItem.paymentMethod = selectedWallet
                     newItem.recurrenceDate = selectedDate
@@ -114,8 +126,12 @@ class AddIncomeViewController: UIViewController {
                 print(error.localizedDescription)
                 return
             }
-        } else {
+        } else if incomeValue.isZero && selectedWallet == nil {
+            showEmptyWalletAndBalanceAlert()
+        } else if incomeValue.isZero {
             showEmptyBalanceAlert()
+        } else {
+            showEmptyWalletAlert()
         }
     }
     
@@ -155,8 +171,8 @@ class AddIncomeViewController: UIViewController {
     }
     
     func showEmptyBalanceAlert() {
-        let alert = UIAlertController(title: NSLocalizedString("EmptyBalanceAlertTitle", comment: ""),
-                                      message: NSLocalizedString("EmptyBalanceAlertDescription", comment: ""),
+        let alert = UIAlertController(title: NSLocalizedString("EmptyTransactionBalanceAlertTitle", comment: ""),
+                                      message: NSLocalizedString("EmptyTransactionBalanceAlertDescription", comment: ""),
                                       preferredStyle: .alert)
         
         alert.addAction(UIAlertAction(title: NSLocalizedString("Ok", comment: ""), style: .default, handler: { _ in
@@ -164,6 +180,29 @@ class AddIncomeViewController: UIViewController {
         
         self.present(alert, animated: true)
     }
+    
+    func showEmptyWalletAlert() {
+        let alert = UIAlertController(title: NSLocalizedString("EmptyTransactionWalletAlertTitle", comment: ""),
+                                      message: NSLocalizedString("EmptyTransactionWalletAlertDescription", comment: ""),
+                                      preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Ok", comment: ""), style: .default, handler: { _ in
+        }))
+        
+        self.present(alert, animated: true)
+    }
+    
+    func showEmptyWalletAndBalanceAlert() {
+        let alert = UIAlertController(title: NSLocalizedString("EmptyTransactionWalletBalanceAlertTitle", comment: ""),
+                                      message: NSLocalizedString("EmptyTransactionWalletBalanceAlertDescription", comment: ""),
+                                      preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Ok", comment: ""), style: .default, handler: { _ in
+        }))
+        
+        self.present(alert, animated: true)
+    }
+    
 }
 
 extension AddIncomeViewController: UITableViewDataSource {
