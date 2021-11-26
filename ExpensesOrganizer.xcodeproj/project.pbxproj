@@ -14,6 +14,7 @@
 		07B88B72273C391600D484E5 /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07B88B71273C391600D484E5 /* Onboarding.storyboard */; };
 		07B88B74273C397300D484E5 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B88B73273C397300D484E5 /* OnboardingViewController.swift */; };
 		07B88B76273C543900D484E5 /* OnboardingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B88B75273C543900D484E5 /* OnboardingCollectionViewCell.swift */; };
+		07D636752751750900FC567F /* Recurrence.swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D636742751750900FC567F /* Recurrence.swift.swift */; };
 		07E20F2E272C80F90087835E /* BalanceInsideTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E20F2D272C80F90087835E /* BalanceInsideTableViewCell.swift */; };
 		07E20F3027345B370087835E /* AddWalletInsideTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E20F2F27345B370087835E /* AddWalletInsideTableViewCell.swift */; };
 		07E20F3227345B7E0087835E /* WalletsInsideTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E20F3127345B7E0087835E /* WalletsInsideTableViewCell.swift */; };
@@ -128,6 +129,7 @@
 		07B88B71273C391600D484E5 /* Onboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
 		07B88B73273C397300D484E5 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		07B88B75273C543900D484E5 /* OnboardingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCollectionViewCell.swift; sourceTree = "<group>"; };
+		07D636742751750900FC567F /* Recurrence.swift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recurrence.swift.swift; sourceTree = "<group>"; };
 		07E20F2D272C80F90087835E /* BalanceInsideTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalanceInsideTableViewCell.swift; sourceTree = "<group>"; };
 		07E20F2F27345B370087835E /* AddWalletInsideTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWalletInsideTableViewCell.swift; sourceTree = "<group>"; };
 		07E20F3127345B7E0087835E /* WalletsInsideTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletsInsideTableViewCell.swift; sourceTree = "<group>"; };
@@ -285,6 +287,14 @@
 				71D21EDE27441FDD0042AAED /* OnboardingPersistence.swift */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		07D63673275174D700FC567F /* Recurrence */ = {
+			isa = PBXGroup;
+			children = (
+				07D636742751750900FC567F /* Recurrence.swift.swift */,
+			);
+			path = Recurrence;
 			sourceTree = "<group>";
 		};
 		1665561A271A0E0000DE83F4 = {
@@ -450,6 +460,7 @@
 		F138B8872720A032009F0837 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				07D63673275174D700FC567F /* Recurrence */,
 				F1FA997C273B447A0034483E /* Item */,
 				07B88B6E273C389400D484E5 /* Onboarding */,
 				16D0B25F27287A0D007BE30E /* Transactions */,
@@ -905,6 +916,7 @@
 				71737920273AEAE2007D83CC /* AddIncomeColectionViewController.swift in Sources */,
 				16655631271A0E0000DE83F4 /* ExpensesOrganizer.xcdatamodeld in Sources */,
 				F1BBB942273C5FF300B5746D /* WalletSelectionViewController.swift in Sources */,
+				07D636752751750900FC567F /* Recurrence.swift.swift in Sources */,
 				F1FA9979273B2B910034483E /* TotalPlanningBalanceTableViewCell.swift in Sources */,
 				F1FA9977273B20230034483E /* PlanningEditionTableViewCell.swift in Sources */,
 				F1CE714B272C867C002D6020 /* DescriptionTableViewCell.swift in Sources */,
