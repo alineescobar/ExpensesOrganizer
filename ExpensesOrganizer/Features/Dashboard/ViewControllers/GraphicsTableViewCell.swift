@@ -13,6 +13,7 @@ class GraphicsTableViewCell: UITableViewCell, ChartViewDelegate {
     @IBOutlet weak var chartView: LineChartView!
     
     var yValues: [ChartDataEntry] = []
+    var dataset = LineChartDataSet(entries: [], label: "Amount")
     let months = [NSLocalizedString("Jan", comment: ""),
                   NSLocalizedString("Feb", comment: ""),
                   NSLocalizedString("Mar", comment: ""),
@@ -72,6 +73,24 @@ class GraphicsTableViewCell: UITableViewCell, ChartViewDelegate {
         
         let marker = PillMarker(color: .white, font: UIFont.boldSystemFont(ofSize: 14), textColor: .white)
         chartView.marker = marker
+        
+        loadData()
+        
+        dataset = LineChartDataSet(entries: yValues, label: "Amount")
+        
+        //dataset.mode = .cubicBezier
+        dataset.lineWidth = 3
+        dataset.drawCirclesEnabled = false
+        dataset.setColor(.white)
+        dataset.circleColors = [.white]
+        dataset.drawVerticalHighlightIndicatorEnabled = false
+        dataset.drawHorizontalHighlightIndicatorEnabled = false
+        dataset.drawValuesEnabled = false
+        let data = LineChartData(dataSet: dataset)
+        
+//        chartView?.data?.dataSets.removeAll(keepingCapacity: false)
+        chartView?.data = data
+//        chartView?.notifyDataSetChanged()
     }
     
     func loadData() {
@@ -177,20 +196,21 @@ class GraphicsTableViewCell: UITableViewCell, ChartViewDelegate {
         return fixedData
     }
     
-    func setData() {
-        let set1 = LineChartDataSet(entries: yValues, label: "Rendimento")
-        set1.mode = .cubicBezier
-        set1.lineWidth = 3
-        set1.drawCirclesEnabled = false
-        set1.setColor(.white)
-        set1.circleColors = [.white]
-        set1.drawVerticalHighlightIndicatorEnabled = false
-        set1.drawHorizontalHighlightIndicatorEnabled = false
-        set1.drawValuesEnabled = false
-        let data = LineChartData(dataSet: set1)
+//    func setData() {
+//        let set1 = LineChartDataSet(entries: yValues, label: "Rendimento")
+//
+//    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
         
-        chartView.data?.dataSets.removeAll(keepingCapacity: false)
-        chartView.data = data
+        loadData()
+        dataset.removeAll(keepingCapacity: true)
+        for index in dataset.count..<yValues.count {
+            print(#function, dataset.count..<yValues.count, yValues.count, yValues[index])
+            _ = dataset.addEntryOrdered(yValues[index])
+        }
         chartView.notifyDataSetChanged()
+//        chartView.clear()
     }
 }
