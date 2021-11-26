@@ -7,6 +7,7 @@
 
 import CoreData
 import UIKit
+import Charts
 
 enum DashboardCategory: CaseIterable {
     case profile, balance, graphics, buttons, wallets, actionableCell
@@ -16,7 +17,7 @@ enum DashboardCategory: CaseIterable {
     }
 }
 
-class DashboardViewController: UIViewController {
+class DashboardViewController: UIViewController, ChartViewDelegate {
     @IBOutlet weak var backgroundViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var backgroundView: UIView!
     @IBOutlet weak var mainTableView: UITableView!
@@ -208,6 +209,7 @@ extension DashboardViewController: UITableViewDataSource {
                 else {
                     return UITableViewCell()
                 }
+                
                 return cell
                 
             case .buttons:

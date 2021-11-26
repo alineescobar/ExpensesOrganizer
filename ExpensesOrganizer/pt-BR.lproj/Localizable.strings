@@ -197,3 +197,17 @@
 "FixedIncomes" = "Renda fixa";
 "VariableIncomes" = "Renda variável";
 "Cashback" = "Cashback";
+
+// MARK: Months
+"Jan" = "Jan";
+"Feb" = "Fev";
+"Mar" = "Mar";
+"Apr" = "Abr";
+"May" = "Maio";
+"Jun" = "Jun";
+"Jul" = "Jul";
+"Aug" = "Ago";
+"Sep" = "Set";
+"Oct" = "Out";
+"Nov" = "Nov";
+"Dec" = "Dez";
