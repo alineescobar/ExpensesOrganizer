@@ -175,8 +175,6 @@ class GraphicsTableViewCell: UITableViewCell, ChartViewDelegate {
         
         balanceHistory = fixData(balanceHistory)
         
-        print(balanceHistory)
-        
         for balance in balanceHistory {
             yValues += [ChartDataEntry(x: balance.x, y: balance.y)]
         }
