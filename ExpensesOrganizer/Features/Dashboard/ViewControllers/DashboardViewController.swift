@@ -291,7 +291,7 @@ extension DashboardViewController: UITableViewDataSource {
         if section == 0 {
             return dashboardCategories.count
         } else {
-            return transactions.count >= 1 ? transactions.count : 1
+            return transactions.isEmpty ? 1 : transactions.count
         }
     }
     
@@ -304,7 +304,6 @@ extension DashboardViewController: UIScrollViewDelegate {
         setNeedsStatusBarAppearanceUpdate()
         backgroundViewHeightConstraint.constant = initialBackgroundViewHeight - yOffset
         view.layoutIfNeeded()
-        
     }
 }
 

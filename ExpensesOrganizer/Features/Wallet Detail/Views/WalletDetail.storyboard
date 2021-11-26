@@ -265,7 +265,7 @@
                         <outlet property="deleteWallet" destination="rbX-79-pd7" id="XAR-S8-cyw"/>
                         <outlet property="tableView" destination="gcQ-I8-q8w" id="WXq-bV-2Tj"/>
                         <outlet property="walletNameLabel" destination="JLu-73-BI1" id="Mjc-ga-KEK"/>
-                        <segue destination="y0R-cK-H5o" kind="presentation" identifier="transactions" id="3mh-6y-kcX"/>
+                        <segue destination="y0R-cK-H5o" kind="show" identifier="transactions" id="3mh-6y-kcX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bNd-mg-qfH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -275,7 +275,9 @@
         <!--Transactions-->
         <scene sceneID="cip-9D-zyD">
             <objects>
-                <viewControllerPlaceholder storyboardName="Transactions" id="y0R-cK-H5o" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="Transactions" id="y0R-cK-H5o" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="ECa-hl-pnB"/>
+                </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GXr-gy-hDd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="725" y="-36"/>
