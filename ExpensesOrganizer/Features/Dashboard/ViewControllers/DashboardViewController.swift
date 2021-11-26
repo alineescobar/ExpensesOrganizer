@@ -209,10 +209,6 @@ extension DashboardViewController: UITableViewDataSource {
                 else {
                     return UITableViewCell()
                 }
-//                let cell = GraphicsTableViewCell(style: .default, reuseIdentifier: graphicsCellId)
-                
-//                cell.loadData()
-//                cell.setData()
                 
                 return cell
                 

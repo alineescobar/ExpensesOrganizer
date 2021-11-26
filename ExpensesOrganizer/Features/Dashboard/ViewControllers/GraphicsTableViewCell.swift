@@ -78,7 +78,7 @@ class GraphicsTableViewCell: UITableViewCell, ChartViewDelegate {
         
         dataset = LineChartDataSet(entries: yValues, label: "Amount")
         
-        //dataset.mode = .cubicBezier
+        dataset.mode = .cubicBezier
         dataset.lineWidth = 3
         dataset.drawCirclesEnabled = false
         dataset.setColor(.white)
@@ -88,12 +88,12 @@ class GraphicsTableViewCell: UITableViewCell, ChartViewDelegate {
         dataset.drawValuesEnabled = false
         let data = LineChartData(dataSet: dataset)
         
-//        chartView?.data?.dataSets.removeAll(keepingCapacity: false)
         chartView?.data = data
-//        chartView?.notifyDataSetChanged()
     }
     
     func loadData() {
+        yValues = []
+        
         guard let context = self.context else {
             return
         }
@@ -133,8 +133,6 @@ class GraphicsTableViewCell: UITableViewCell, ChartViewDelegate {
                 walletTransactions += [(date, value)]
             }
         }
-        
-        print(walletTransactions)
         
         for _ in 0..<6 {
             let lastTransactions = transactions.filter { transaction in
@@ -196,21 +194,14 @@ class GraphicsTableViewCell: UITableViewCell, ChartViewDelegate {
         return fixedData
     }
     
-//    func setData() {
-//        let set1 = LineChartDataSet(entries: yValues, label: "Rendimento")
-//
-//    }
-    
     override func prepareForReuse() {
         super.prepareForReuse()
         
         loadData()
         dataset.removeAll(keepingCapacity: true)
-        for index in dataset.count..<yValues.count {
-            print(#function, dataset.count..<yValues.count, yValues.count, yValues[index])
+        for index in 0..<yValues.count {
             _ = dataset.addEntryOrdered(yValues[index])
         }
         chartView.notifyDataSetChanged()
-//        chartView.clear()
     }
 }
