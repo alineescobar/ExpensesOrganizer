@@ -53,13 +53,13 @@
 		710269142735D3F500D62DEE /* AddIncomeRecurrencyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 710269132735D3F500D62DEE /* AddIncomeRecurrencyViewController.swift */; };
 		710269162735D40700D62DEE /* AddIncomeCalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 710269152735D40700D62DEE /* AddIncomeCalendarViewController.swift */; };
 		710269182737325F00D62DEE /* AddExpenseCategoriesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 710269172737325F00D62DEE /* AddExpenseCategoriesCell.swift */; };
-		710F1DC52729C55F005C06E1 /* Charts in Frameworks */ = {isa = PBXBuildFile; productRef = 710F1DC42729C55F005C06E1 /* Charts */; };
 		710F1DC82729C8D6005C06E1 /* GraphicsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 710F1DC62729C8D6005C06E1 /* GraphicsTableViewCell.swift */; };
 		710F1DC92729C8D6005C06E1 /* GraphicsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 710F1DC72729C8D6005C06E1 /* GraphicsTableViewCell.xib */; };
 		710F1DD0272B2743005C06E1 /* PillMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 710F1DCF272B2743005C06E1 /* PillMarker.swift */; };
 		7140E5B52735101800685927 /* AddExpenseAllDoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7140E5B42735101800685927 /* AddExpenseAllDoneViewController.swift */; };
 		7140E5B72735102C00685927 /* AddIncomeAllDoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7140E5B62735102C00685927 /* AddIncomeAllDoneViewController.swift */; };
 		71737920273AEAE2007D83CC /* AddIncomeColectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7173791F273AEAE2007D83CC /* AddIncomeColectionViewController.swift */; };
+		7195859F27507F32009865F4 /* Charts in Frameworks */ = {isa = PBXBuildFile; productRef = 7195859E27507F32009865F4 /* Charts */; };
 		71CD631427359B8B007A3D75 /* AddExpenseRecurrencyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71CD631327359B8B007A3D75 /* AddExpenseRecurrencyViewController.swift */; };
 		71CD631627359B9C007A3D75 /* AddExpenseCalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71CD631527359B9C007A3D75 /* AddExpenseCalendarViewController.swift */; };
 		71D21EDF27441FDD0042AAED /* OnboardingPersistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71D21EDE27441FDD0042AAED /* OnboardingPersistence.swift */; };
@@ -242,8 +242,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				710F1DC52729C55F005C06E1 /* Charts in Frameworks */,
 				71D21EE2274449870042AAED /* IQKeyboardManagerSwift in Frameworks */,
+				7195859F27507F32009865F4 /* Charts in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -737,8 +737,8 @@
 			);
 			name = ExpensesOrganizer;
 			packageProductDependencies = (
-				710F1DC42729C55F005C06E1 /* Charts */,
 				71D21EE1274449870042AAED /* IQKeyboardManagerSwift */,
+				7195859E27507F32009865F4 /* Charts */,
 			);
 			productName = ExpensesOrganizer;
 			productReference = 16655623271A0E0000DE83F4 /* ExpensesOrganizer.app */;
@@ -770,8 +770,8 @@
 			);
 			mainGroup = 1665561A271A0E0000DE83F4;
 			packageReferences = (
-				710F1DC32729C55F005C06E1 /* XCRemoteSwiftPackageReference "charts" */,
 				71D21EE0274449870042AAED /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
+				7195859D27507F32009865F4 /* XCRemoteSwiftPackageReference "Charts" */,
 			);
 			productRefGroup = 16655624271A0E0000DE83F4 /* Products */;
 			projectDirPath = "";
@@ -1090,7 +1090,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = KSCMH866UD;
+				DEVELOPMENT_TEAM = M7DG8QRAF9;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ExpensesOrganizer/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Expensee;
@@ -1122,7 +1122,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = KSCMH866UD;
+				DEVELOPMENT_TEAM = M7DG8QRAF9;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ExpensesOrganizer/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Expensee;
@@ -1171,12 +1171,12 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		710F1DC32729C55F005C06E1 /* XCRemoteSwiftPackageReference "charts" */ = {
+		7195859D27507F32009865F4 /* XCRemoteSwiftPackageReference "Charts" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/danielgindi/charts";
+			repositoryURL = "https://github.com/andersprenger/Charts";
 			requirement = {
-				kind = exactVersion;
-				version = 3.5.0;
+				branch = master;
+				kind = branch;
 			};
 		};
 		71D21EE0274449870042AAED /* XCRemoteSwiftPackageReference "IQKeyboardManager" */ = {
@@ -1190,9 +1190,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		710F1DC42729C55F005C06E1 /* Charts */ = {
+		7195859E27507F32009865F4 /* Charts */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 710F1DC32729C55F005C06E1 /* XCRemoteSwiftPackageReference "charts" */;
+			package = 7195859D27507F32009865F4 /* XCRemoteSwiftPackageReference "Charts" */;
 			productName = Charts;
 		};
 		71D21EE1274449870042AAED /* IQKeyboardManagerSwift */ = {

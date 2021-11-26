@@ -52,6 +52,8 @@ class GraphicsTableViewCell: UITableViewCell, ChartViewDelegate {
         chartView.backgroundColor = .clear
         chartView.gridBackgroundColor = .clear
         
+        chartView.doubleTapToZoomEnabled = false
+        chartView.pinchZoomEnabled = false
         chartView.rightAxis.enabled = false
         chartView.leftAxis.enabled = false
         chartView.rightAxis.enabled = false
@@ -81,7 +83,7 @@ class GraphicsTableViewCell: UITableViewCell, ChartViewDelegate {
             wallets = try context.fetch(Wallet.fetchRequest())
             transactions = try context.fetch(Transaction.fetchRequest())
         } catch {
-            print("erro ao carregar")
+            print("Erro ao carregar dados do Core Data.", error.localizedDescription)
         }
         
         var lastBalance: Double = wallets.reduce(0) { $0 + $1.value }
@@ -186,7 +188,9 @@ class GraphicsTableViewCell: UITableViewCell, ChartViewDelegate {
         set1.drawHorizontalHighlightIndicatorEnabled = false
         set1.drawValuesEnabled = false
         let data = LineChartData(dataSet: set1)
-        chartView.clear()
+        
+        chartView.data?.dataSets.removeAll(keepingCapacity: false)
         chartView.data = data
+        chartView.notifyDataSetChanged()
     }
 }
