@@ -34,7 +34,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SZU-Pl-Jp3">
-                        <rect key="frame" x="94" y="39" width="202" height="51"/>
+                        <rect key="frame" x="94" y="31" width="202" height="47"/>
                         <fontDescription key="fontDescription" name="WorkSans-Regular" family="Work Sans" pointSize="16"/>
                         <color key="textColor" name="GraySuport1StateColor"/>
                         <nil key="highlightedColor"/>
@@ -62,10 +62,10 @@
                     <constraint firstItem="M1P-LB-MHj" firstAttribute="leading" secondItem="Cdd-yF-Yhg" secondAttribute="trailing" constant="20" id="9sL-bu-JRL"/>
                     <constraint firstItem="Cdd-yF-Yhg" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="12" id="KJW-CO-vRT"/>
                     <constraint firstItem="M1P-LB-MHj" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="12" id="Mjc-vz-c2W"/>
-                    <constraint firstAttribute="bottom" secondItem="SZU-Pl-Jp3" secondAttribute="bottom" id="MoM-au-3Xk"/>
+                    <constraint firstAttribute="bottom" secondItem="SZU-Pl-Jp3" secondAttribute="bottom" constant="12" id="MoM-au-3Xk"/>
                     <constraint firstItem="Cdd-yF-Yhg" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="24" id="RuX-jN-sed"/>
                     <constraint firstAttribute="trailing" secondItem="SZU-Pl-Jp3" secondAttribute="trailing" constant="24" id="dQr-5N-Zsn"/>
-                    <constraint firstItem="SZU-Pl-Jp3" firstAttribute="top" secondItem="M1P-LB-MHj" secondAttribute="bottom" constant="8" id="dY2-Ks-rRT"/>
+                    <constraint firstItem="SZU-Pl-Jp3" firstAttribute="top" secondItem="M1P-LB-MHj" secondAttribute="bottom" id="dY2-Ks-rRT"/>
                     <constraint firstAttribute="trailing" secondItem="M1P-LB-MHj" secondAttribute="trailing" constant="24" id="fqp-P4-ob7"/>
                 </constraints>
             </tableViewCellContentView>
