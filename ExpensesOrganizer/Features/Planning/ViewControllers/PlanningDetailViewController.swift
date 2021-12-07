@@ -50,6 +50,8 @@ class PlanningDetailViewController: UIViewController {
                             
                             let notNowAction = UIAlertAction(title: NSLocalizedString("AccessDeniedNotificationsNotNow", comment: ""),
                                                              style: .cancel) {  _ in
+                                self.modalHandlerDelegate?.modalDismissed()
+                                self.dismiss(animated: true)
                             }
                             alert.addAction(notNowAction)
                             
@@ -102,11 +104,11 @@ class PlanningDetailViewController: UIViewController {
                                     NotificationManager.shared.cancel(identifier: item.itemID?.uuidString ?? "Item")
                                 }
                             }
+                            self.modalHandlerDelegate?.modalDismissed()
+                            self.dismiss(animated: true)
                         }
                     }
                 }
-                modalHandlerDelegate?.modalDismissed()
-                self.dismiss(animated: true)
             } catch {
                 print(error.localizedDescription)
                 return
@@ -140,8 +142,6 @@ class PlanningDetailViewController: UIViewController {
         items = template.items?.array as? [Item] ?? []
         templateName = template.name ?? ""
         templateDescription = template.templateDescription ?? ""
-        
-        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { _, _ in }
         
         /* Use for Scheduled Notifications debuging
         let center = UNUserNotificationCenter.current()
