@@ -52,20 +52,20 @@ class Recurrence {
             }
         }
     }
-    
-    func recurrenceCounterDec(recurrenceType: wallet.recurrencyType, transactionDate: wallet.recurrenceDate.shortDate) {
+    // olhar no user defults se foi aberto, p apenas fazer uma vez por dia.
+    func recurrenceCounterDec(recurrenceType: RecurrencyTypes, transactionDate: Date) {
         let calendar = Calendar.current
         let currentDate = Date()
         
-        if transactionDate == currentDate {
-            switch RecurrencyTypes(rawValue: recurrenceType) {
+        if transactionDate == currentDate { //comparar só o dia/mes/ano, tranformar com date components
+            switch recurrenceType {
             case .never:
                 print("Never")
                 
             case .everyDay:
                 wallet?.value = wallet!.value - (wallet?.item!.value)!
                 let date = calendar.date(byAdding: .day, value: 1, to: transactionDate)
-                transactionDate = date
+                transactionDate = date //criar uma nova despesa, para o prox dia
                 
             case .everyWeek:
                 let date = calendar.date(byAdding: .day, value: 7, to: transactionDate)
@@ -77,12 +77,12 @@ class Recurrence {
                 wallet?.value = wallet!.value - (wallet?.item!.value)!
                 
             case .eachMonth:
-                let date = calendar.date(byAdding: .day, value: 30, to: transactionDate)
+                let date = calendar.date(byAdding: .month, value: 1, to: transactionDate)
                 wallet?.value = wallet!.value - (wallet?.item!.value)!
                 
             case .eachYear:
                 //Ano bissexto?
-                let date = calendar.date(byAdding: .day, value: 365, to: transactionDate)
+                let date = calendar.date(byAdding: .year, value: 1, to: transactionDate)
                 wallet?.value = wallet!.value - (wallet?.item!.value)!
                 
             default:
