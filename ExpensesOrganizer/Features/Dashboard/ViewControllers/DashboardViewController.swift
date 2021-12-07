@@ -5,9 +5,9 @@
 //  Created by Aline Osana Escobar on 15/10/21.
 //
 
+import Charts
 import CoreData
 import UIKit
-import Charts
 
 enum DashboardCategory: CaseIterable {
     case profile, balance, graphics, buttons, wallets, actionableCell

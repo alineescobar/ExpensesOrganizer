@@ -58,6 +58,7 @@
 "WalletsFetchFailedAlertTitle" = "Error finding Wallets";
 "WalletsFetchFailedAlertDescription" = "There was a problem finding your wallets. Please, try again later.";
 "Transaction" = "Transaction";
+"Tomorrow" = " tomorrow!";
 
 // MARK: Onboarding
 "Control" = "Control";
@@ -99,7 +100,6 @@
 "EmptyPlanningNameAlertDescription" = "You need to set a name to your planning!";
 "EmptyPlanningWalletNameAlertTitle" = "Empty name and Wallet";
 "EmptyPlanningWalletNameAlertDescription" = "You need to set a name and select a reference Wallet in order to create your planning!";
-
 
 // MARK: alert section of this screen
 "title" = "Alert!";
@@ -214,3 +214,16 @@
 "Oct" = "Oct";
 "Nov" = "Nov";
 "Dec" = "Dec";
+
+// MARK: Notification Access Denied Alert
+"AccessDeniedNotificationsTitle" = "Allow Notifications";
+"AccessDeniedNotificationsMessage" = "This lets us notify you when your item's payment date is closer. Go to your settings and tap \"Notifications\" to give access.";
+"AccessDeniedNotificationsNotNow" = "Save items without notifications";
+"AccessDeniedOpenSettings" = "Open Settings";
+
+// MARK: Day Before Item Payment Notification
+"NotificationTodayTitle" = "It's time to pay ";
+"NotificationTomorrowTitle" = "It's almost time to pay ";
+"NotificationDescription1" = "Remember to pay ";
+"NotificationDescription2" = " will be charged from the wallet ";
+"NoName" = "unamed";

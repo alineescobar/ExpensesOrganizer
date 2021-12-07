@@ -118,6 +118,7 @@
 		F1FA997B273B2D5C0034483E /* PlanningItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FA997A273B2D5C0034483E /* PlanningItemTableViewCell.swift */; };
 		F1FA997E273B44850034483E /* Item.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1FA997D273B44850034483E /* Item.storyboard */; };
 		F1FA9982273B44D20034483E /* ItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FA9981273B44D20034483E /* ItemViewController.swift */; };
+		F1FF7020275E63D500755675 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FF701F275E63D500755675 /* NotificationManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -235,6 +236,8 @@
 		F1FA997A273B2D5C0034483E /* PlanningItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanningItemTableViewCell.swift; sourceTree = "<group>"; };
 		F1FA997D273B44850034483E /* Item.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Item.storyboard; sourceTree = "<group>"; };
 		F1FA9981273B44D20034483E /* ItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemViewController.swift; sourceTree = "<group>"; };
+		F1FF701F275E63D500755675 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
+		F1FF7021275EC65200755675 /* ExpensesOrganizer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ExpensesOrganizer.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -306,6 +309,7 @@
 		16655625271A0E0000DE83F4 /* ExpensesOrganizer */ = {
 			isa = PBXGroup;
 			children = (
+				F1FF7021275EC65200755675 /* ExpensesOrganizer.entitlements */,
 				F138B8882720A054009F0837 /* CoreData */,
 				F138B8872720A032009F0837 /* Features */,
 				F138B8862720A028009F0837 /* Shared */,
@@ -443,6 +447,7 @@
 				F153F46527344630004F06CC /* CustomSizePresentationController.swift */,
 				71FED87727345CEB00B90A5A /* Fonts */,
 				F1BBB9432745763D00B5746D /* Templates.swift */,
+				F1FF701F275E63D500755675 /* NotificationManager.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -870,6 +875,7 @@
 				077626EF273D8D7C002B691E /* OnboardingSlide.swift in Sources */,
 				F196D500272201F300CCAF81 /* ButtonsTableViewCell.swift in Sources */,
 				16B2D71B271E0EA800E7BB84 /* Template+CoreDataClass.swift in Sources */,
+				F1FF7020275E63D500755675 /* NotificationManager.swift in Sources */,
 				710F1DD0272B2743005C06E1 /* PillMarker.swift in Sources */,
 				71FED860273314DF00B90A5A /* AddExpenseNameCell.swift in Sources */,
 				F153F4622733BF20004F06CC /* CalendarViewController.swift in Sources */,
@@ -1120,6 +1126,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = ExpensesOrganizer/ExpensesOrganizer.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = M7DG8QRAF9;

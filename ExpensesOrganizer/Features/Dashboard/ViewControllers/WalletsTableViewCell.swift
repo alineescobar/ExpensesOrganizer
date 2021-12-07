@@ -84,7 +84,7 @@ extension WalletsTableViewCell: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if indexPath.section == 0 {
-            return CGSize(width: 168, height: 104)
+            return wallets.isEmpty ? CGSize(width: 195, height: 104) : CGSize(width: 168, height: 104)
         } else {
             return CGSize(width: 34, height: 50)
         }
