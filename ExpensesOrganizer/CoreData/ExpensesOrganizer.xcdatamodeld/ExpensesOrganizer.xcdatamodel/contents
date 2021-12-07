@@ -9,6 +9,7 @@
         <attribute name="value" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
     </entity>
     <entity name="Item" representedClassName=".Item" syncable="YES" codeGenerationType="category">
+        <attribute name="itemID" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="name" attributeType="String"/>
         <attribute name="recurrenceDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="recurrenceType" optional="YES" attributeType="String"/>
@@ -48,7 +49,7 @@
     </entity>
     <elements>
         <element name="Goal" positionX="153.6805419921875" positionY="-194.7109985351562" width="128" height="133"/>
-        <element name="Item" positionX="-18" positionY="81" width="128" height="134"/>
+        <element name="Item" positionX="-18" positionY="81" width="128" height="149"/>
         <element name="Template" positionX="-36" positionY="72" width="128" height="149"/>
         <element name="Transaction" positionX="0" positionY="99" width="128" height="149"/>
         <element name="Wallet" positionX="-63" positionY="-18" width="128" height="134"/>

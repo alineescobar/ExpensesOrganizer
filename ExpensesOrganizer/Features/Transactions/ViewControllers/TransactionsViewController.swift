@@ -28,7 +28,8 @@ class TransactionsViewController: UIViewController, UITableViewDataSource {
         mainTableView.register(UINib(nibName: customCellId, bundle: nil), forCellReuseIdentifier: customCellId)
         
         self.navigationItem.title = NSLocalizedString("TransactionsHeader", comment: "")
-        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "WorkSans-Bold", size: 20) as Any, NSAttributedString.Key.foregroundColor: UIColor(named: "TertiaryBrandColor") as Any]
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "WorkSans-Bold", size: 20) as Any,
+                                                                        NSAttributedString.Key.foregroundColor: UIColor(named: "TertiaryBrandColor") as Any]
         self.navigationController?.navigationBar.topItem?.title = " "
         self.navigationController?.navigationBar.tintColor = UIColor(named: "TertiaryBrandColor")
         self.navigationController?.navigationBar.backIndicatorImage = UIImage(systemName: "chevron.left")?.withInsets(UIEdgeInsets(top: 0, left: 15, bottom: 3, right: 0))

@@ -15,7 +15,7 @@
 "AddLabel" = "Adicionar";
 "TransactionsHeader" = "Transações recentes";
 "FirstEmptyStateText" = "Nada aqui!";
-"SecondEmptyStateText" = "Pressione o +, para adicionar uma carteira.";
+"SecondEmptyStateText" = "Pressione o + para adicionar uma carteira.";
 
 // MARK: Transactions
 "EmptyStateTransactionsTitle" = "Nada por aqui!";
@@ -56,6 +56,7 @@
 "WalletsFetchFailedAlertTitle" = "Erro ao encontrar Carteiras";
 "WalletsFetchFailedAlertDescription" = "Houve um problema ao procurar suas carteiras. Por favor, tente novamente mais tarde.";
 "Transaction" = "Transação";
+"Tomorrow" = " amanhã! ";
 
 // MARK: Onboarding
 "Control" = "Controle";
@@ -211,3 +212,16 @@
 "Oct" = "Out";
 "Nov" = "Nov";
 "Dec" = "Dez";
+
+// MARK: Notification Access Denied Alert
+"AccessDeniedNotificationsTitle" = "Permitir envio de Notificações";
+"AccessDeniedNotificationsMessage" = "Ao permitir o envio de notificações, nós poderemos avisar a você quando estiver próximo da data de pagamento do seu item. Vá em Ajustes e toque em \"Notificações\" para liberar o envio.";
+"AccessDeniedNotificationsNotNow" = "Salvar items sem notificações";
+"AccessDeniedOpenSettings" = "Abrir Ajustes";
+
+// MARK: Day Before Item Payment Notification
+"NotificationTodayTitle" = "É hora de pagar ";
+"NotificationTomorrowTitle" = "É quase hora de pagar ";
+"NotificationDescription1" = "Lembre-se de pagar ";
+"NotificationDescription2" = " serão cobrados da carteira ";
+"NoName" = "sem nome";

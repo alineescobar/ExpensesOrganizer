@@ -26,6 +26,7 @@ func setPropertyTemplate(context: NSManagedObjectContext) {
     rentItem.template = propertyTemplate
     rentItem.recurrenceDate = Date()
     rentItem.paymentMethod = nil
+    rentItem.itemID = UUID()
     mutableItems?.add(rentItem)
     
     let condoFeeItem = Item(context: context)
@@ -35,6 +36,7 @@ func setPropertyTemplate(context: NSManagedObjectContext) {
     condoFeeItem.template = propertyTemplate
     condoFeeItem.recurrenceDate = Date()
     condoFeeItem.paymentMethod = nil
+    condoFeeItem.itemID = UUID()
     mutableItems?.add(condoFeeItem)
     
     let internetItem = Item(context: context)
@@ -44,6 +46,7 @@ func setPropertyTemplate(context: NSManagedObjectContext) {
     internetItem.template = propertyTemplate
     internetItem.recurrenceDate = Date()
     internetItem.paymentMethod = nil
+    internetItem.itemID = UUID()
     mutableItems?.add(internetItem)
     
     let powerItem = Item(context: context)
@@ -53,6 +56,7 @@ func setPropertyTemplate(context: NSManagedObjectContext) {
     powerItem.template = propertyTemplate
     powerItem.recurrenceDate = Date()
     powerItem.paymentMethod = nil
+    powerItem.itemID = UUID()
     mutableItems?.add(powerItem)
     
     let waterItem = Item(context: context)
@@ -62,6 +66,7 @@ func setPropertyTemplate(context: NSManagedObjectContext) {
     waterItem.template = propertyTemplate
     waterItem.recurrenceDate = Date()
     waterItem.paymentMethod = nil
+    waterItem.itemID = UUID()
     mutableItems?.add(waterItem)
     
     let gasItem = Item(context: context)
@@ -71,6 +76,7 @@ func setPropertyTemplate(context: NSManagedObjectContext) {
     gasItem.template = propertyTemplate
     gasItem.recurrenceDate = Date()
     gasItem.paymentMethod = nil
+    gasItem.itemID = UUID()
     mutableItems?.add(gasItem)
     
     let phoneItem = Item(context: context)
@@ -80,6 +86,7 @@ func setPropertyTemplate(context: NSManagedObjectContext) {
     phoneItem.template = propertyTemplate
     phoneItem.recurrenceDate = Date()
     phoneItem.paymentMethod = nil
+    phoneItem.itemID = UUID()
     mutableItems?.add(phoneItem)
     
     let marketItem = Item(context: context)
@@ -89,6 +96,7 @@ func setPropertyTemplate(context: NSManagedObjectContext) {
     marketItem.template = propertyTemplate
     marketItem.recurrenceDate = Date()
     marketItem.paymentMethod = nil
+    marketItem.itemID = UUID()
     mutableItems?.add(marketItem)
 
     let propertyTaxItem = Item(context: context)
@@ -98,6 +106,7 @@ func setPropertyTemplate(context: NSManagedObjectContext) {
     propertyTaxItem.template = propertyTemplate
     propertyTaxItem.recurrenceDate = Date()
     propertyTaxItem.paymentMethod = nil
+    propertyTaxItem.itemID = UUID()
     mutableItems?.add(propertyTaxItem)
     
     let propertyInsuranceItem = Item(context: context)
@@ -107,6 +116,7 @@ func setPropertyTemplate(context: NSManagedObjectContext) {
     propertyInsuranceItem.template = propertyTemplate
     propertyInsuranceItem.recurrenceDate = Date()
     propertyInsuranceItem.paymentMethod = nil
+    propertyInsuranceItem.itemID = UUID()
     mutableItems?.add(propertyInsuranceItem)
     
     propertyTemplate.items = mutableItems?.copy() as? NSOrderedSet
@@ -130,6 +140,7 @@ func setCarTemplate(context: NSManagedObjectContext) {
     insuranceItem.template = carTemplate
     insuranceItem.recurrenceDate = Date()
     insuranceItem.paymentMethod = nil
+    insuranceItem.itemID = UUID()
     mutableItems?.add(insuranceItem)
     
     let vehiclePropertyTaxItem = Item(context: context)
@@ -139,6 +150,7 @@ func setCarTemplate(context: NSManagedObjectContext) {
     vehiclePropertyTaxItem.template = carTemplate
     vehiclePropertyTaxItem.recurrenceDate = Date()
     vehiclePropertyTaxItem.paymentMethod = nil
+    vehiclePropertyTaxItem.itemID = UUID()
     mutableItems?.add(vehiclePropertyTaxItem)
     
     let gasolineItem = Item(context: context)
@@ -148,6 +160,7 @@ func setCarTemplate(context: NSManagedObjectContext) {
     gasolineItem.template = carTemplate
     gasolineItem.recurrenceDate = Date()
     gasolineItem.paymentMethod = nil
+    gasolineItem.itemID = UUID()
     mutableItems?.add(gasolineItem)
     
     let tuneUpItem = Item(context: context)
@@ -157,6 +170,7 @@ func setCarTemplate(context: NSManagedObjectContext) {
     tuneUpItem.template = carTemplate
     tuneUpItem.recurrenceDate = Date()
     tuneUpItem.paymentMethod = nil
+    tuneUpItem.itemID = UUID()
     mutableItems?.add(tuneUpItem)
     
     let garageItem = Item(context: context)
@@ -166,6 +180,7 @@ func setCarTemplate(context: NSManagedObjectContext) {
     garageItem.template = carTemplate
     garageItem.recurrenceDate = Date()
     garageItem.paymentMethod = nil
+    garageItem.itemID = UUID()
     mutableItems?.add(garageItem)
     
     carTemplate.items = mutableItems?.copy() as? NSOrderedSet
@@ -188,6 +203,7 @@ func setLeisureTemplate(context: NSManagedObjectContext) {
     streamingServicesItem.template = leisureTemplate
     streamingServicesItem.recurrenceDate = Date()
     streamingServicesItem.paymentMethod = nil
+    streamingServicesItem.itemID = UUID()
     mutableItems?.add(streamingServicesItem)
     
     let deliveryItem = Item(context: context)
@@ -197,6 +213,7 @@ func setLeisureTemplate(context: NSManagedObjectContext) {
     deliveryItem.template = leisureTemplate
     deliveryItem.recurrenceDate = Date()
     deliveryItem.paymentMethod = nil
+    deliveryItem.itemID = UUID()
     mutableItems?.add(deliveryItem)
     
     let dinnerItem = Item(context: context)
@@ -206,6 +223,7 @@ func setLeisureTemplate(context: NSManagedObjectContext) {
     dinnerItem.template = leisureTemplate
     dinnerItem.recurrenceDate = Date()
     dinnerItem.paymentMethod = nil
+    dinnerItem.itemID = UUID()
     mutableItems?.add(dinnerItem)
     
     let gymItem = Item(context: context)
@@ -215,6 +233,7 @@ func setLeisureTemplate(context: NSManagedObjectContext) {
     gymItem.template = leisureTemplate
     gymItem.recurrenceDate = Date()
     gymItem.paymentMethod = nil
+    gymItem.itemID = UUID()
     mutableItems?.add(gymItem)
     
     leisureTemplate.items = mutableItems?.copy() as? NSOrderedSet
@@ -237,6 +256,7 @@ func setStudyTemplate(context: NSManagedObjectContext) {
     schoolItem.template = studyTemplate
     schoolItem.recurrenceDate = Date()
     schoolItem.paymentMethod = nil
+    schoolItem.itemID = UUID()
     mutableItems?.add(schoolItem)
     
     let collegeItem = Item(context: context)
@@ -246,6 +266,7 @@ func setStudyTemplate(context: NSManagedObjectContext) {
     collegeItem.template = studyTemplate
     collegeItem.recurrenceDate = Date()
     collegeItem.paymentMethod = nil
+    collegeItem.itemID = UUID()
     mutableItems?.add(collegeItem)
     
     let courseItem = Item(context: context)
@@ -255,6 +276,7 @@ func setStudyTemplate(context: NSManagedObjectContext) {
     courseItem.template = studyTemplate
     courseItem.recurrenceDate = Date()
     courseItem.paymentMethod = nil
+    courseItem.itemID = UUID()
     mutableItems?.add(courseItem)
     
     studyTemplate.items = mutableItems?.copy() as? NSOrderedSet
@@ -278,6 +300,7 @@ func setBusinessTemplate(context: NSManagedObjectContext) {
     rentItem.template = businessTemplate
     rentItem.recurrenceDate = Date()
     rentItem.paymentMethod = nil
+    rentItem.itemID = UUID()
     mutableItems?.add(rentItem)
     
     let employeeItem = Item(context: context)
@@ -287,6 +310,7 @@ func setBusinessTemplate(context: NSManagedObjectContext) {
     employeeItem.template = businessTemplate
     employeeItem.recurrenceDate = Date()
     employeeItem.paymentMethod = nil
+    employeeItem.itemID = UUID()
     mutableItems?.add(employeeItem)
     
     businessTemplate.items = mutableItems?.copy() as? NSOrderedSet
@@ -309,6 +333,7 @@ func setPetsTemplate(context: NSManagedObjectContext) {
     foodItem.template = petsTemplate
     foodItem.recurrenceDate = Date()
     foodItem.paymentMethod = nil
+    foodItem.itemID = UUID()
     mutableItems?.add(foodItem)
     
     let veterinaryItem = Item(context: context)
@@ -318,6 +343,7 @@ func setPetsTemplate(context: NSManagedObjectContext) {
     veterinaryItem.template = petsTemplate
     veterinaryItem.recurrenceDate = Date()
     veterinaryItem.paymentMethod = nil
+    veterinaryItem.itemID = UUID()
     mutableItems?.add(veterinaryItem)
     
     let neuteringItem = Item(context: context)
@@ -327,6 +353,7 @@ func setPetsTemplate(context: NSManagedObjectContext) {
     neuteringItem.template = petsTemplate
     neuteringItem.recurrenceDate = Date()
     neuteringItem.paymentMethod = nil
+    neuteringItem.itemID = UUID()
     mutableItems?.add(neuteringItem)
     
     let toysItem = Item(context: context)
@@ -336,6 +363,7 @@ func setPetsTemplate(context: NSManagedObjectContext) {
     toysItem.template = petsTemplate
     toysItem.recurrenceDate = Date()
     toysItem.paymentMethod = nil
+    toysItem.itemID = UUID()
     mutableItems?.add(toysItem)
     
     let medicineItem = Item(context: context)
@@ -345,6 +373,7 @@ func setPetsTemplate(context: NSManagedObjectContext) {
     medicineItem.template = petsTemplate
     medicineItem.recurrenceDate = Date()
     medicineItem.paymentMethod = nil
+    medicineItem.itemID = UUID()
     mutableItems?.add(medicineItem)
     
     petsTemplate.items = mutableItems?.copy() as? NSOrderedSet
@@ -367,6 +396,7 @@ func setEmptyExpenseTemplate(context: NSManagedObjectContext) {
     emptyItem.template = emptyTemplate
     emptyItem.recurrenceDate = Date()
     emptyItem.paymentMethod = nil
+    emptyItem.itemID = UUID()
     mutableItems?.add(emptyItem)
     
     emptyTemplate.items = mutableItems?.copy() as? NSOrderedSet
@@ -389,6 +419,7 @@ func setSalaryTemplate(context: NSManagedObjectContext) {
     salaryItem.template = salaryTemplate
     salaryItem.recurrenceDate = Date()
     salaryItem.paymentMethod = nil
+    salaryItem.itemID = UUID()
     mutableItems?.add(salaryItem)
     
     let fringeBenefitsItem = Item(context: context)
@@ -398,6 +429,7 @@ func setSalaryTemplate(context: NSManagedObjectContext) {
     fringeBenefitsItem.template = salaryTemplate
     fringeBenefitsItem.recurrenceDate = Date()
     fringeBenefitsItem.paymentMethod = nil
+    fringeBenefitsItem.itemID = UUID()
     mutableItems?.add(fringeBenefitsItem)
     
     salaryTemplate.items = mutableItems?.copy() as? NSOrderedSet
@@ -420,6 +452,7 @@ func setProfitTemplate(context: NSManagedObjectContext) {
     stocksItem.template = profitTemplate
     stocksItem.recurrenceDate = Date()
     stocksItem.paymentMethod = nil
+    stocksItem.itemID = UUID()
     mutableItems?.add(stocksItem)
     
     let fixedIncomesItem = Item(context: context)
@@ -429,6 +462,7 @@ func setProfitTemplate(context: NSManagedObjectContext) {
     fixedIncomesItem.template = profitTemplate
     fixedIncomesItem.recurrenceDate = Date()
     fixedIncomesItem.paymentMethod = nil
+    fixedIncomesItem.itemID = UUID()
     mutableItems?.add(fixedIncomesItem)
     
     let variableIncomesItem = Item(context: context)
@@ -438,6 +472,7 @@ func setProfitTemplate(context: NSManagedObjectContext) {
     variableIncomesItem.template = profitTemplate
     variableIncomesItem.recurrenceDate = Date()
     variableIncomesItem.paymentMethod = nil
+    variableIncomesItem.itemID = UUID()
     mutableItems?.add(variableIncomesItem)
     
     profitTemplate.items = mutableItems?.copy() as? NSOrderedSet
@@ -460,6 +495,7 @@ func setEmptyIncomeTemplate(context: NSManagedObjectContext) {
     emptyItem.template = emptyTemplate
     emptyItem.recurrenceDate = Date()
     emptyItem.paymentMethod = nil
+    emptyItem.itemID = UUID()
     mutableItems?.add(emptyItem)
     
     emptyTemplate.items = mutableItems?.copy() as? NSOrderedSet

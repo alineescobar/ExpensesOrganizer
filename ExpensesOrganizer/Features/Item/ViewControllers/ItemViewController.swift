@@ -36,6 +36,9 @@ class ItemViewController: UIViewController {
     }
     @IBAction private func readyAction(_ sender: UIButton) {
         if !itemName.isEmpty && selectedWallet != nil {
+            if !isEditingItem {
+                item?.itemID = UUID()
+            }
             item?.name = itemName
             item?.recurrenceType = selectedRecurrencyType.rawValue
             item?.paymentMethod = selectedWallet
