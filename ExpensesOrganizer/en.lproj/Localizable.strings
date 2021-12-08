@@ -59,6 +59,7 @@
 "WalletsFetchFailedAlertDescription" = "There was a problem finding your wallets. Please, try again later.";
 "Transaction" = "Transaction";
 "Tomorrow" = " tomorrow!";
+"NoName" = "unamed";
 
 // MARK: Onboarding
 "Control" = "Control";
@@ -226,4 +227,10 @@
 "NotificationTomorrowTitle" = "It's almost time to pay ";
 "NotificationDescription1" = "Remember to pay ";
 "NotificationDescription2" = " will be charged from the wallet ";
-"NoName" = "unamed";
+
+// MARK: Day Before Item Addition Notification
+"NotificationAdditionTodayTitle1" = "Yay! ";
+"NotificationAdditionTodayTitle2" = " is on your wallet.";
+"NotificationAdditionTodayDescription" = " was added on the wallet ";
+"NotificationAdditionTomorrowTitle" = "Hey! Tomorrow you'll earn ";
+"NotificationAdditionTomorrowDescription1" = " will be added to the wallet ";

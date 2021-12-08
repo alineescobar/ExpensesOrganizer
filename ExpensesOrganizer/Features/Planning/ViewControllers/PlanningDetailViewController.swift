@@ -70,38 +70,73 @@ class PlanningDetailViewController: UIViewController {
                             
                             for item in self.items {
                                 let recurrencyType: RecurrencyTypes = RecurrencyTypes(rawValue: item.recurrenceType ?? "Never") ?? .never
-                                if item.sendsNotification {
-                                    if recurrencyType == .everyDay {
-                                        let itemValue: String = String(format: "%.2f", item.value).currencyInputFormatting()
-                                        let itemName: String = item.name ?? "item"
-                                        let paymentMethodName: String = item.paymentMethod?.name ?? NSLocalizedString("NoName", comment: "")
-                                        
-                                        let notificationBody: String = NSLocalizedString("NotificationDescription1", comment: "") +
-                                        itemName + "! " + (Locale.current.currencySymbol ?? "$") +
-                                        " " + itemValue + NSLocalizedString("NotificationDescription2", comment: "") + paymentMethodName + "."
-                                        
-                                        NotificationManager.shared.send(identifier: item.itemID?.uuidString ?? "Item",
-                                                                        title: NSLocalizedString("NotificationTodayTitle", comment: "") + (item.name ?? "item") + "!",
-                                                                        body: notificationBody,
-                                                                        selectedDate: item.recurrenceDate ?? Date(),
-                                                                        frequency: RecurrencyTypes(rawValue: item.recurrenceType ?? "Never") ?? .never)
+                                guard let template = item.template else {
+                                    return
+                                }
+                                if !(template.isExpense) {
+                                    if item.sendsNotification {
+                                        if recurrencyType == .everyDay {
+                                            let itemValue: String = String(format: "%.2f", item.value).currencyInputFormatting()
+                                            let paymentMethodName: String = item.paymentMethod?.name ?? NSLocalizedString("NoName", comment: "")
+                                            
+                                            let notificationBody: String = (Locale.current.currencySymbol ?? "$") +
+                                            " " + itemValue + NSLocalizedString("NotificationAdditionTodayDescription", comment: "") + paymentMethodName + "."
+                                            
+                                            NotificationManager.shared.send(identifier: item.itemID?.uuidString ?? "Item",
+                                                                            title: NSLocalizedString("NotificationAdditionTodayTitle1", comment: "") + (item.name ?? "item") + NSLocalizedString("NotificationAdditionTodayTitle2", comment: ""),
+                                                                            body: notificationBody,
+                                                                            selectedDate: item.recurrenceDate ?? Date(),
+                                                                            frequency: RecurrencyTypes(rawValue: item.recurrenceType ?? "Never") ?? .never)
+                                        } else {
+                                            let itemValue: String = String(format: "%.2f", item.value).currencyInputFormatting()
+                                            let paymentMethodName: String = item.paymentMethod?.name ?? NSLocalizedString("NoName", comment: "")
+                                            
+                                            let notificationBody: String = (Locale.current.currencySymbol ?? "$") +
+                                            " " + itemValue + NSLocalizedString("NotificationAdditionTomorrowDescription", comment: "") + paymentMethodName + "."
+                                            
+                                            NotificationManager.shared.send(identifier: item.itemID?.uuidString ?? "Item",
+                                                                            title: NSLocalizedString("NotificationAdditionTomorrowTitle", comment: "") + (item.name ?? "item") + ".",
+                                                                            body: notificationBody,
+                                                                            selectedDate: item.recurrenceDate ?? Date(),
+                                                                            frequency: RecurrencyTypes(rawValue: item.recurrenceType ?? "Never") ?? .never)
+                                        }
                                     } else {
-                                    let itemValue: String = String(format: "%.2f", item.value).currencyInputFormatting()
-                                    let itemName: String = item.name ?? "item"
-                                    let paymentMethodName: String = item.paymentMethod?.name ?? NSLocalizedString("NoName", comment: "")
-                                    
-                                    let notificationBody: String = NSLocalizedString("NotificationDescription1", comment: "") +
-                                    itemName + NSLocalizedString("Tomorrow", comment: "") + (Locale.current.currencySymbol ?? "$") +
-                                    " " + itemValue + NSLocalizedString("NotificationDescription2", comment: "") + paymentMethodName + "."
-                                    
-                                    NotificationManager.shared.send(identifier: item.itemID?.uuidString ?? "Item",
-                                                                    title: NSLocalizedString("NotificationTomorrowTitle", comment: "") + (item.name ?? "item") + "!",
-                                                                    body: notificationBody,
-                                                                    selectedDate: item.recurrenceDate ?? Date(),
-                                                                    frequency: RecurrencyTypes(rawValue: item.recurrenceType ?? "Never") ?? .never)
+                                        NotificationManager.shared.cancel(identifier: item.itemID?.uuidString ?? "Item")
                                     }
                                 } else {
-                                    NotificationManager.shared.cancel(identifier: item.itemID?.uuidString ?? "Item")
+                                    if item.sendsNotification {
+                                        if recurrencyType == .everyDay {
+                                            let itemValue: String = String(format: "%.2f", item.value).currencyInputFormatting()
+                                            let itemName: String = item.name ?? "item"
+                                            let paymentMethodName: String = item.paymentMethod?.name ?? NSLocalizedString("NoName", comment: "")
+                                            
+                                            let notificationBody: String = NSLocalizedString("NotificationDescription1", comment: "") +
+                                            itemName + "! " + (Locale.current.currencySymbol ?? "$") +
+                                            " " + itemValue + NSLocalizedString("NotificationDescription2", comment: "") + paymentMethodName + "."
+                                            
+                                            NotificationManager.shared.send(identifier: item.itemID?.uuidString ?? "Item",
+                                                                            title: NSLocalizedString("NotificationTodayTitle", comment: "") + (item.name ?? "item") + "!",
+                                                                            body: notificationBody,
+                                                                            selectedDate: item.recurrenceDate ?? Date(),
+                                                                            frequency: RecurrencyTypes(rawValue: item.recurrenceType ?? "Never") ?? .never)
+                                        } else {
+                                            let itemValue: String = String(format: "%.2f", item.value).currencyInputFormatting()
+                                            let itemName: String = item.name ?? "item"
+                                            let paymentMethodName: String = item.paymentMethod?.name ?? NSLocalizedString("NoName", comment: "")
+                                            
+                                            let notificationBody: String = NSLocalizedString("NotificationDescription1", comment: "") +
+                                            itemName + NSLocalizedString("Tomorrow", comment: "") + (Locale.current.currencySymbol ?? "$") +
+                                            " " + itemValue + NSLocalizedString("NotificationDescription2", comment: "") + paymentMethodName + "."
+                                            
+                                            NotificationManager.shared.send(identifier: item.itemID?.uuidString ?? "Item",
+                                                                            title: NSLocalizedString("NotificationTomorrowTitle", comment: "") + (item.name ?? "item") + "!",
+                                                                            body: notificationBody,
+                                                                            selectedDate: item.recurrenceDate ?? Date(),
+                                                                            frequency: RecurrencyTypes(rawValue: item.recurrenceType ?? "Never") ?? .never)
+                                        }
+                                    } else {
+                                        NotificationManager.shared.cancel(identifier: item.itemID?.uuidString ?? "Item")
+                                    }
                                 }
                             }
                             self.modalHandlerDelegate?.modalDismissed()
@@ -144,15 +179,15 @@ class PlanningDetailViewController: UIViewController {
         templateDescription = template.templateDescription ?? ""
         
         /* Use for Scheduled Notifications debuging
-        let center = UNUserNotificationCenter.current()
-        center.getPendingNotificationRequests { notifications in
-            print("Count: \(notifications.count)")
-            for item in notifications {
-                print("Title: " + item.content.title + ", Body: " + item.content.body)
-                print(item.trigger)
-            }
-        }
-        */
+         let center = UNUserNotificationCenter.current()
+         center.getPendingNotificationRequests { notifications in
+         print("Count: \(notifications.count)")
+         for item in notifications {
+         print("Title: " + item.content.title + ", Body: " + item.content.body)
+         print(item.trigger)
+         }
+         }
+         */
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

@@ -57,6 +57,7 @@
 "WalletsFetchFailedAlertDescription" = "Houve um problema ao procurar suas carteiras. Por favor, tente novamente mais tarde.";
 "Transaction" = "Transação";
 "Tomorrow" = " amanhã! ";
+"NoName" = "sem nome";
 
 // MARK: Onboarding
 "Control" = "Controle";
@@ -224,4 +225,10 @@
 "NotificationTomorrowTitle" = "É quase hora de pagar ";
 "NotificationDescription1" = "Lembre-se de pagar ";
 "NotificationDescription2" = " serão cobrados da carteira ";
-"NoName" = "sem nome";
+
+// MARK: Day Before Item Addition Notification
+"NotificationAdditionTodayTitle1" = "Eba! ";
+"NotificationAdditionTodayTitle2" = " está na sua carteira.";
+"NotificationAdditionTodayDescription" = " foram adicionados à carteira ";
+"NotificationAdditionTomorrowTitle" = "Ei! Amanhã você receberá ";
+"NotificationAdditionTomorrowDescription" = " serão adicionados à carteira ";
