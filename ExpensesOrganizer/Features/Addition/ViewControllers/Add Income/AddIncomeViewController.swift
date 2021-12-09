@@ -104,9 +104,9 @@ class AddIncomeViewController: UIViewController {
                     newItem.paymentMethod = selectedWallet
                     newItem.recurrenceDate = selectedDate
                     newItem.template = incomeCategory
-                    
                     newItem.sendsNotification = false
                     newItem.recurrenceType = selectedRecurrencyType.rawValue
+                    newItem.itemID = UUID()
                 } else {
                     let item: Item? = items.first
                     item?.value = incomeValue
