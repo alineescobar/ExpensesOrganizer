@@ -52,45 +52,47 @@ class Recurrence {
         
         let transactionDateParce = Calendar.current.dateComponents([.day, .month, .year], from: transactionDate)
         
-        if transactionDateParce == calendar {// comparar só o dia/mes/ano, tranformar com date components -> ok
-            switch recurrenceType {// fazer validacao de a carteira tem saldo -> ok
-            case .never:
-                print("Never")
-                
-            case .everyDay:
-                if item.value > 0.0 && item.value < wallet.value {
-                    wallet.value -= item.value
-                    let date = Calendar.current.date(byAdding: .day, value: 1, to: currentDate)
-                    item.recurrenceDate = date // criar uma nova despesa, para o prox dia -> ok
+        //if transactionDateParce == calendar {// comparar só o dia/mes/ano, tranformar com date components -> ok
+        switch recurrenceType {// fazer validacao de a carteira tem saldo -> ok
+        case .never:
+            print("Never")
+            
+        case .everyDay:
+            if transactionDateParce.day == calendar.day {
+                if transactionDateParce == calendar {
+                    if item.value > 0.0 && item.value < wallet.value {
+                        wallet.value -= item.value
+                        let date = Calendar.current.date(byAdding: .day, value: 1, to: currentDate)
+                        item.recurrenceDate = date // criar uma nova despesa, para o prox dia -> ok
+                    }
                 }
-                
-            case .everyWeek:
-                if item.value > 0.0 && item.value < wallet.value {
-                    wallet.value -= item.value
-                    let date = Calendar.current.date(byAdding: .day, value: 7, to: currentDate)
-                    item.recurrenceDate = date
-                }
-                
-            case .eachTwoWeeks:
-                if item.value > 0.0 && item.value < wallet.value {
-                    wallet.value -= item.value
-                    let date = Calendar.current.date(byAdding: .day, value: 14, to: currentDate)
-                    item.recurrenceDate = date
-                }
-                
-            case .eachMonth:
-                if item.value > 0.0 && item.value < wallet.value {
-                    wallet.value -= item.value
-                    let date = Calendar.current.date(byAdding: .month, value: 1, to: currentDate)
-                    item.recurrenceDate = date
-                }
-                
-            case .eachYear:
-                if item.value > 0.0 && item.value < wallet.value {
-                    wallet.value -= item.value
-                    let date = Calendar.current.date(byAdding: .year, value: 1, to: currentDate)
-                    item.recurrenceDate = date
-                }
+            }
+        case .everyWeek:
+            if item.value > 0.0 && item.value < wallet.value {
+                wallet.value -= item.value
+                let date = Calendar.current.date(byAdding: .day, value: 7, to: currentDate)
+                item.recurrenceDate = date
+            }
+            
+        case .eachTwoWeeks:
+            if item.value > 0.0 && item.value < wallet.value {
+                wallet.value -= item.value
+                let date = Calendar.current.date(byAdding: .day, value: 14, to: currentDate)
+                item.recurrenceDate = date
+            }
+            
+        case .eachMonth:
+            if item.value > 0.0 && item.value < wallet.value {
+                wallet.value -= item.value
+                let date = Calendar.current.date(byAdding: .month, value: 1, to: currentDate)
+                item.recurrenceDate = date
+            }
+            
+        case .eachYear:
+            if item.value > 0.0 && item.value < wallet.value {
+                wallet.value -= item.value
+                let date = Calendar.current.date(byAdding: .year, value: 1, to: currentDate)
+                item.recurrenceDate = date
             }
         }
         
@@ -134,29 +136,29 @@ class Recurrence {
                 print("Never")
                 
             case .everyDay:
-                    wallet.value -= item.value
-                    let date = Calendar.current.date(byAdding: .day, value: 1, to: currentDate)
-                    item.recurrenceDate = date // criar uma nova despesa, para o prox dia -> ok
+                wallet.value -= item.value
+                let date = Calendar.current.date(byAdding: .day, value: 1, to: currentDate)
+                item.recurrenceDate = date // criar uma nova despesa, para o prox dia -> ok
                 
             case .everyWeek:
-                    wallet.value -= item.value
-                    let date = Calendar.current.date(byAdding: .day, value: 7, to: currentDate)
-                    item.recurrenceDate = date
+                wallet.value -= item.value
+                let date = Calendar.current.date(byAdding: .day, value: 7, to: currentDate)
+                item.recurrenceDate = date
                 
             case .eachTwoWeeks:
-                    wallet.value -= item.value
-                    let date = Calendar.current.date(byAdding: .day, value: 14, to: currentDate)
-                    item.recurrenceDate = date
+                wallet.value -= item.value
+                let date = Calendar.current.date(byAdding: .day, value: 14, to: currentDate)
+                item.recurrenceDate = date
                 
             case .eachMonth:
-                    wallet.value -= item.value
-                    let date = Calendar.current.date(byAdding: .month, value: 1, to: currentDate)
-                    item.recurrenceDate = date
+                wallet.value -= item.value
+                let date = Calendar.current.date(byAdding: .month, value: 1, to: currentDate)
+                item.recurrenceDate = date
                 
             case .eachYear:
-                    wallet.value -= item.value
-                    let date = Calendar.current.date(byAdding: .year, value: 1, to: currentDate)
-                    item.recurrenceDate = date
+                wallet.value -= item.value
+                let date = Calendar.current.date(byAdding: .year, value: 1, to: currentDate)
+                item.recurrenceDate = date
                 
             }
             
