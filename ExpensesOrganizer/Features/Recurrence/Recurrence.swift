@@ -9,9 +9,9 @@ import CoreData
 import UIKit
 
 class Recurrence {
-    
     var wallet: Wallet?
     var transaction: Transaction?
+    var walletDetailViewController: WalletDetailViewController?
     
     func reloadTransactions() {
         do {
@@ -26,10 +26,6 @@ class Recurrence {
                     transactionDate
                 ]
             )
-            
-            DispatchQueue.main.async {
-                // self.mainTableView.reloadData()
-            }
         }
     }
     
@@ -46,49 +42,152 @@ class Recurrence {
                     transactionDate
                 ]
             )
-            
-            DispatchQueue.main.async {
-                // self.mainTableView.reloadData()
-            }
         }
     }
+    
     // olhar no user defults se foi aberto, p apenas fazer uma vez por dia.
-    func recurrenceCounterDec(recurrenceType: RecurrencyTypes, transactionDate: Date) {
-        let calendar = Calendar.current
-        let currentDate = Date()
+    func recurrenceCounterDec(recurrenceType: RecurrencyTypes, transactionDate: Date, wallet: Wallet, item: Item) {
+        let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext
+        let expenseName: String = ""
+        let expenseValue: Double = 0.0
+        let selectedDate: Date = Date()
+        let selectedRecurrencyType: RecurrencyTypes = .never
         
-        if transactionDate == currentDate { //comparar só o dia/mes/ano, tranformar com date components
-            switch recurrenceType {
+        let currentDate = Date()
+        let calendar = Calendar.current.dateComponents([.day, .month, .year], from: currentDate)
+        
+        let transactionDateParce = Calendar.current.dateComponents([.day, .month, .year], from: transactionDate)
+        
+        if transactionDateParce == calendar {// comparar só o dia/mes/ano, tranformar com date components -> ok
+            switch recurrenceType {// fazer validacao de a carteira tem saldo -> ok
             case .never:
                 print("Never")
                 
             case .everyDay:
-                wallet?.value = wallet!.value - (wallet?.item!.value)!
-                let date = calendar.date(byAdding: .day, value: 1, to: transactionDate)
-                transactionDate = date //criar uma nova despesa, para o prox dia
+                if item.value > 0.0 && item.value < wallet.value {
+                    wallet.value -= item.value
+                    let date = Calendar.current.date(byAdding: .day, value: 1, to: currentDate)
+                    item.recurrenceDate = date // criar uma nova despesa, para o prox dia -> ok
+                }
                 
             case .everyWeek:
-                let date = calendar.date(byAdding: .day, value: 7, to: transactionDate)
-                wallet?.value = wallet!.value - (wallet?.item!.value)!
-                transactionDate = date
+                if item.value > 0.0 && item.value < wallet.value {
+                    wallet.value -= item.value
+                    let date = Calendar.current.date(byAdding: .day, value: 7, to: currentDate)
+                    item.recurrenceDate = date
+                }
                 
             case .eachTwoWeeks:
-                let date = calendar.date(byAdding: .day, value: 14, to: transactionDate)
-                wallet?.value = wallet!.value - (wallet?.item!.value)!
+                if item.value > 0.0 && item.value < wallet.value {
+                    wallet.value -= item.value
+                    let date = Calendar.current.date(byAdding: .day, value: 14, to: currentDate)
+                    item.recurrenceDate = date
+                }
                 
             case .eachMonth:
-                let date = calendar.date(byAdding: .month, value: 1, to: transactionDate)
-                wallet?.value = wallet!.value - (wallet?.item!.value)!
+                if item.value > 0.0 && item.value < wallet.value {
+                    wallet.value -= item.value
+                    let date = Calendar.current.date(byAdding: .month, value: 1, to: currentDate)
+                    item.recurrenceDate = date
+                }
                 
             case .eachYear:
-                //Ano bissexto?
-                let date = calendar.date(byAdding: .year, value: 1, to: transactionDate)
-                wallet?.value = wallet!.value - (wallet?.item!.value)!
+                if item.value > 0.0 && item.value < wallet.value {
+                    wallet.value -= item.value
+                    let date = Calendar.current.date(byAdding: .year, value: 1, to: currentDate)
+                    item.recurrenceDate = date
+                }
                 
-            default:
-                print("default")
             }
+            
         }
+        guard let newContext = context else {
+            return
+        }
+        
+        let newTransaction = Transaction(context: newContext)
+        newTransaction.name = expenseName.isEmpty ? NSLocalizedString("Transaction", comment: "") : expenseName
+        newTransaction.value = expenseValue
+        newTransaction.transactionDate = selectedDate
+        newTransaction.recurrenceType = selectedRecurrencyType.rawValue
+        newTransaction.category = item.template
+        newTransaction.transactionDestination = wallet.walletID
+        newTransaction.origin = nil
+        do {
+            try newContext.save()
+        } catch {
+            walletDetailViewController?.showWalletSavingErrorAlert()
+            return
+        }
+        
+    }
+    
+    func recurrenceCounterInc(recurrenceType: RecurrencyTypes, transactionDate: Date, wallet: Wallet, item: Item) {
+        let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext
+        let expenseName: String = ""
+        let expenseValue: Double = 0.0
+        let selectedDate: Date = Date()
+        let selectedRecurrencyType: RecurrencyTypes = .never
+        
+        let currentDate = Date()
+        let calendar = Calendar.current.dateComponents([.day, .month, .year], from: currentDate)
+        
+        let transactionDateParce = Calendar.current.dateComponents([.day, .month, .year], from: transactionDate)
+        
+        if transactionDateParce == calendar {// comparar só o dia/mes/ano, tranformar com date components -> ok
+            switch recurrenceType {// fazer validacao de a carteira tem saldo -> ok
+            case .never:
+                print("Never")
+                
+            case .everyDay:
+                    wallet.value -= item.value
+                    let date = Calendar.current.date(byAdding: .day, value: 1, to: currentDate)
+                    item.recurrenceDate = date // criar uma nova despesa, para o prox dia -> ok
+                
+                
+            case .everyWeek:
+                    wallet.value -= item.value
+                    let date = Calendar.current.date(byAdding: .day, value: 7, to: currentDate)
+                    item.recurrenceDate = date
+                
+                
+            case .eachTwoWeeks:
+                    wallet.value -= item.value
+                    let date = Calendar.current.date(byAdding: .day, value: 14, to: currentDate)
+                    item.recurrenceDate = date
+                
+            case .eachMonth:
+                    wallet.value -= item.value
+                    let date = Calendar.current.date(byAdding: .month, value: 1, to: currentDate)
+                    item.recurrenceDate = date
+                
+            case .eachYear:
+                    wallet.value -= item.value
+                    let date = Calendar.current.date(byAdding: .year, value: 1, to: currentDate)
+                    item.recurrenceDate = date
+                
+            }
+            
+        }
+        guard let newContext = context else {
+            return
+        }
+        
+        let newTransaction = Transaction(context: newContext)
+        newTransaction.name = expenseName.isEmpty ? NSLocalizedString("Transaction", comment: "") : expenseName
+        newTransaction.value = expenseValue
+        newTransaction.transactionDate = selectedDate
+        newTransaction.recurrenceType = selectedRecurrencyType.rawValue
+        newTransaction.category = item.template
+        newTransaction.transactionDestination = wallet.walletID
+        newTransaction.origin = nil
+        do {
+            try newContext.save()
+        } catch {
+            walletDetailViewController?.showWalletSavingErrorAlert()
+            return
+        }
+        
     }
     
 }
