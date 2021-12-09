@@ -11,7 +11,7 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     var window: UIWindow?
-    var recurrence: Recurrence?
+    var recurrence: Recurrence = Recurrence()
     var templates: [Template] = []
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
@@ -53,10 +53,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 
                 for items in items {
                     guard let itemsTemplate = items.template else { return }
+                    guard let walletItem = items.paymentMethod else { continue }
                     if itemsTemplate.isExpense { //ver se é decrementar ou incrementar na carteira, isExpense
-                        recurrence?.recurrenceCounterDec(recurrenceType: RecurrencyTypes(rawValue: items.recurrenceType ?? "Never") ?? .never, transactionDate: items.recurrenceDate ?? Date(), wallet: items.paymentMethod ?? Wallet(), item: items)
+                        recurrence.recurrenceCounterDec(recurrenceType: RecurrencyTypes(rawValue: items.recurrenceType ?? "Never") ?? .never, transactionDate: items.recurrenceDate ?? Date(), wallet: walletItem, item: items)
                     } else {
-                        recurrence?.recurrenceCounterInc(recurrenceType: RecurrencyTypes(rawValue: items.recurrenceType ?? "Never") ?? .never, transactionDate: items.recurrenceDate ?? Date(), wallet: items.paymentMethod ?? Wallet(), item: items)
+                        recurrence.recurrenceCounterInc(recurrenceType: RecurrencyTypes(rawValue: items.recurrenceType ?? "Never") ?? .never, transactionDate: items.recurrenceDate ?? Date(), wallet: walletItem, item: items)
                     }
                 }
             }

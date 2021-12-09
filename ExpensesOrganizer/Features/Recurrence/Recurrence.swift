@@ -11,6 +11,7 @@ import UIKit
 class Recurrence {
     var wallet: Wallet?
     var transaction: Transaction?
+    let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext
     
     func reloadTransactions() {
         do {
@@ -46,12 +47,6 @@ class Recurrence {
     
     // olhar no user defults se foi aberto, p apenas fazer uma vez por dia.
     func recurrenceCounterDec(recurrenceType: RecurrencyTypes, transactionDate: Date, wallet: Wallet, item: Item) {
-        let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext
-        let expenseName: String = ""
-        let expenseValue: Double = 0.0
-        let selectedDate: Date = Date()
-        let selectedRecurrencyType: RecurrencyTypes = .never
-        
         let currentDate = Date()
         let calendar = Calendar.current.dateComponents([.day, .month, .year], from: currentDate)
         
@@ -96,22 +91,22 @@ class Recurrence {
                     let date = Calendar.current.date(byAdding: .year, value: 1, to: currentDate)
                     item.recurrenceDate = date
                 }
-                
             }
-            
-        }
-        guard let newContext = context else {
-            return
         }
         
+        guard let newContext = context else { return }
+        guard let name = item.name else { return }
+        //fazer a transacao apenas quando descontar do saldo
+        
         let newTransaction = Transaction(context: newContext)
-        newTransaction.name = expenseName.isEmpty ? NSLocalizedString("Transaction", comment: "") : expenseName
-        newTransaction.value = expenseValue
-        newTransaction.transactionDate = selectedDate
-        newTransaction.recurrenceType = selectedRecurrencyType.rawValue
+        newTransaction.name = name.isEmpty ? NSLocalizedString("Transaction", comment: "") : name
+        newTransaction.value = item.value
+        newTransaction.transactionDate = item.recurrenceDate
+        newTransaction.recurrenceType = item.recurrenceType
         newTransaction.category = item.template
         newTransaction.transactionDestination = wallet.walletID
         newTransaction.origin = nil
+        
         do {
             try newContext.save()
         } catch {
