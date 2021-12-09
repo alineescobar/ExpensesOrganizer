@@ -24,6 +24,7 @@ class WalletDetailViewController: UIViewController {
     var wallet: Wallet?
     private let customCellId = "TransactionCell"
     private let customCellHeader = "TransactionsHeaderCell"
+    private let transactionsEmptyState = "TransactionEmptyStateTableViewCell"
     private var selectedRecurrencyType: RecurrencyTypes = .never
     private var selectedDate: Date = Date()
     private let interactor = Interactor()
@@ -69,6 +70,9 @@ class WalletDetailViewController: UIViewController {
         guard let wallet = self.wallet else {
             return
         }
+        
+        tableView.register(UINib(nibName: transactionsEmptyState, bundle: nil), forCellReuseIdentifier: transactionsEmptyState)
+        
         walletName = wallet.name ?? ""
         walletBalance = wallet.value
         walletNameLabel.text = wallet.name
@@ -96,9 +100,9 @@ class WalletDetailViewController: UIViewController {
         } catch {
             print(error.localizedDescription)
         }
-        // Do any additional setup after loading the view.
+        
     }
-    
+
     override func viewWillDisappear(_ animated: Bool) {
         // TODO: Make alert to make user know all inserted data will be lost
         super.viewWillDisappear(animated)
@@ -117,6 +121,14 @@ class WalletDetailViewController: UIViewController {
         }
         self.dismiss(animated: true) {
             self.modalHandlerDelegate?.modalDismissed()
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "transactions" {
+            let transactionsViewController = segue.destination as? TransactionsViewController
+            transactionsViewController?.transactionDelegate = self
+            return
         }
     }
     
@@ -170,7 +182,7 @@ extension WalletDetailViewController: UITableViewDelegate {
                 return UITableView.automaticDimension
             }
         } else {
-            return 70
+            return walletRecentTransactions.isEmpty ? 90 : 70
         }
         
     }
@@ -180,7 +192,9 @@ extension WalletDetailViewController: UITableViewDelegate {
         
         switch walletDetailCategory {
         case .actionableCell:
-            performSegue(withIdentifier: "transactions", sender: nil)
+            if !walletRecentTransactions.isEmpty {
+                performSegue(withIdentifier: "transactions", sender: nil)
+            }
         default:
             return
         }
@@ -250,41 +264,56 @@ extension WalletDetailViewController: UITableViewDataSource {
                 }
                 cell.selectionStyle = .none
                 
+                if walletRecentTransactions.isEmpty {
+                    cell.transactionHeaderButton.isHidden = true
+                } else {
+                    cell.transactionHeaderButton.isHidden = false
+                }
+                
                 cell.transactionsDelegate = self
                 cell.backgroundColor = UIColor(named: "GraySuport3StateColor")
                 return cell
             }
         } else {
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: customCellId, for: indexPath) as? TransactionCell else {
-                return UITableViewCell()
-            }
-            
-            var date: String
-            
-            let today = Calendar.current.dateComponents([.day], from: Date())
-            let transactionDay = Calendar.current.dateComponents([.day], from: walletRecentTransactions[indexPath.row].transactionDate ?? Date())
-            
-            if today.day == transactionDay.day {
-                date = walletRecentTransactions[indexPath.row].transactionDate?.shortTime ?? Date().shortTime
+            if walletRecentTransactions.isEmpty {
+                guard let cell = tableView.dequeueReusableCell(withIdentifier: transactionsEmptyState, for: indexPath) as? TransactionEmptyStateTableViewCell else {
+                    return UITableViewCell()
+                }
+                cell.selectionStyle = .none
+                return cell
+                
             } else {
-                let formatter = DateFormatter()
-                let format = DateFormatter.dateFormat(fromTemplate: "dMMM", options: 0, locale: Locale.current)
-                formatter.dateFormat = format
-                date = formatter.string(from: walletRecentTransactions[indexPath.row].transactionDate ?? Date())
+                guard let cell = tableView.dequeueReusableCell(withIdentifier: customCellId, for: indexPath) as? TransactionCell else {
+                    return UITableViewCell()
+                }
+                
+                var date: String
+                
+                let today = Calendar.current.dateComponents([.day], from: Date())
+                let transactionDay = Calendar.current.dateComponents([.day], from: walletRecentTransactions[indexPath.row].transactionDate ?? Date())
+                
+                if today.day == transactionDay.day {
+                    date = walletRecentTransactions[indexPath.row].transactionDate?.shortTime ?? Date().shortTime
+                } else {
+                    let formatter = DateFormatter()
+                    let format = DateFormatter.dateFormat(fromTemplate: "dMMM", options: 0, locale: Locale.current)
+                    formatter.dateFormat = format
+                    date = formatter.string(from: walletRecentTransactions[indexPath.row].transactionDate ?? Date())
+                }
+                
+                cell.selectionStyle = .none
+                cell.backgroundColor = UIColor(named: "GraySuport3StateColor")
+                cell.transactionName.text = walletRecentTransactions[indexPath.row].name
+                cell.transactionTag.text = walletRecentTransactions[indexPath.row].category?.name
+                cell.transactionDate.text = date
+                cell.transactionPrice.text = walletRecentTransactions[indexPath.row].category?.isExpense ?? false ? "-" +
+                String(format: "%.2f", walletRecentTransactions[indexPath.row].value).currencyInputFormatting() :
+                "+" + String(format: "%.2f", walletRecentTransactions[indexPath.row].value).currencyInputFormatting()
+                cell.transactionImage.image = UIImage(named: walletRecentTransactions[indexPath.row].category?.templateIconName ?? "Atom")
+                cell.backgroundColor = UIColor(named: "GraySuport3StateColor")
+                
+                return cell
             }
-            
-            cell.selectionStyle = .none
-            cell.backgroundColor = UIColor(named: "GraySuport3StateColor")
-            cell.transactionName.text = walletRecentTransactions[indexPath.row].name
-            cell.transactionTag.text = walletRecentTransactions[indexPath.row].category?.name
-            cell.transactionDate.text = date
-            cell.transactionPrice.text = walletRecentTransactions[indexPath.row].category?.isExpense ?? false ? "-" +
-            String(format: "%.2f", walletRecentTransactions[indexPath.row].value).currencyInputFormatting() :
-            "+" + String(format: "%.2f", walletRecentTransactions[indexPath.row].value).currencyInputFormatting()
-            cell.transactionImage.image = UIImage(named: walletRecentTransactions[indexPath.row].category?.templateIconName ?? "Atom")
-            cell.backgroundColor = UIColor(named: "GraySuport3StateColor")
-            
-            return cell
         }
     }
     
@@ -296,7 +325,7 @@ extension WalletDetailViewController: UITableViewDataSource {
         if section == 0 {
             return walletDetailCategories.count
         } else {
-            return walletRecentTransactions.count
+            return walletRecentTransactions.isEmpty ? 1 : walletRecentTransactions.count
         }
     }
     
@@ -389,6 +418,25 @@ extension WalletDetailViewController: CalendarDelegate {
 
 extension WalletDetailViewController: TransactionsHeaderDelegate {
     func didTapButton() {
-        performSegue(withIdentifier: "transactions", sender: nil)
+        if !walletRecentTransactions.isEmpty {
+            performSegue(withIdentifier: "transactions", sender: nil)
+        }
+    }
+}
+
+extension WalletDetailViewController: TransactionAttDelegate {
+    func reloadTransactions() {
+        guard let context = self.context else {
+            return
+        }
+        
+        do {
+            walletRecentTransactions = try context.fetch(Transaction.fetchRequest()).reversed()
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        } catch {
+            print(error.localizedDescription)
+        }
     }
 }

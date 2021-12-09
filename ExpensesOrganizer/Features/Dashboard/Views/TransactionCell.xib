@@ -27,7 +27,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Netflix" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WeS-kZ-CA6">
-                        <rect key="frame" x="94" y="12" width="53" height="19"/>
+                        <rect key="frame" x="94" y="12" width="152" height="19"/>
                         <fontDescription key="fontDescription" name="WorkSans-SemiBold" family="Work Sans" pointSize="16"/>
                         <color key="textColor" name="TertiaryBrandColor"/>
                         <nil key="highlightedColor"/>
@@ -38,7 +38,7 @@
                         <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="-9,50" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IQT-nf-G8k">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="-9,50" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IQT-nf-G8k">
                         <rect key="frame" x="254" y="12" width="42" height="19"/>
                         <fontDescription key="fontDescription" name="WorkSans-SemiBold" family="Work Sans" pointSize="16"/>
                         <color key="textColor" name="TertiaryBrandColor"/>
@@ -74,15 +74,16 @@
                     <constraint firstAttribute="bottom" secondItem="MAm-b5-A2e" secondAttribute="bottom" constant="12" id="4IN-tD-kVv"/>
                     <constraint firstItem="DiL-0c-bXW" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="12" id="FJq-Vk-Rur"/>
                     <constraint firstItem="DiL-0c-bXW" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="24" id="I2h-jz-cC2"/>
+                    <constraint firstItem="WeS-kZ-CA6" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="12" id="Im7-QQ-xO3"/>
+                    <constraint firstItem="WeS-kZ-CA6" firstAttribute="leading" secondItem="DiL-0c-bXW" secondAttribute="trailing" constant="20" id="J10-du-J3x"/>
                     <constraint firstItem="IQT-nf-G8k" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="12" id="Krr-Bw-gXW"/>
                     <constraint firstAttribute="trailing" secondItem="MAm-b5-A2e" secondAttribute="trailing" constant="24" id="MRI-5K-NYu"/>
                     <constraint firstAttribute="trailing" secondItem="IQT-nf-G8k" secondAttribute="trailing" constant="24" id="PWW-Uj-WXb"/>
                     <constraint firstItem="L5A-dB-DZg" firstAttribute="leading" secondItem="DiL-0c-bXW" secondAttribute="trailing" constant="20" id="QXu-Z0-i4C"/>
                     <constraint firstAttribute="bottom" secondItem="L5A-dB-DZg" secondAttribute="bottom" constant="12" id="RB2-bV-I91"/>
                     <constraint firstItem="MAm-b5-A2e" firstAttribute="top" secondItem="IQT-nf-G8k" secondAttribute="bottom" constant="8" id="RaZ-Yi-qkC"/>
-                    <constraint firstItem="WeS-kZ-CA6" firstAttribute="leading" secondItem="DiL-0c-bXW" secondAttribute="trailing" constant="20" id="T6y-VR-ZsJ"/>
                     <constraint firstAttribute="bottom" secondItem="DiL-0c-bXW" secondAttribute="bottom" constant="12" id="UE5-cp-dco"/>
-                    <constraint firstItem="WeS-kZ-CA6" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="12" id="WOh-JP-xkq"/>
+                    <constraint firstItem="IQT-nf-G8k" firstAttribute="leading" secondItem="WeS-kZ-CA6" secondAttribute="trailing" constant="8" id="xYM-B1-G47"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>

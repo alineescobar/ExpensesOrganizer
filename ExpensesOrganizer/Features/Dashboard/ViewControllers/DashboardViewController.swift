@@ -5,6 +5,7 @@
 //  Created by Aline Osana Escobar on 15/10/21.
 //
 
+import Charts
 import CoreData
 import UIKit
 
@@ -16,7 +17,7 @@ enum DashboardCategory: CaseIterable {
     }
 }
 
-class DashboardViewController: UIViewController {
+class DashboardViewController: UIViewController, ChartViewDelegate {
     @IBOutlet weak var backgroundViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var backgroundView: UIView!
     @IBOutlet weak var mainTableView: UITableView!
@@ -208,6 +209,7 @@ extension DashboardViewController: UITableViewDataSource {
                 else {
                     return UITableViewCell()
                 }
+                
                 return cell
                 
             case .buttons:
@@ -291,7 +293,7 @@ extension DashboardViewController: UITableViewDataSource {
         if section == 0 {
             return dashboardCategories.count
         } else {
-            return transactions.count >= 1 ? transactions.count : 1
+            return transactions.isEmpty ? 1 : transactions.count
         }
     }
     
@@ -304,7 +306,6 @@ extension DashboardViewController: UIScrollViewDelegate {
         setNeedsStatusBarAppearanceUpdate()
         backgroundViewHeightConstraint.constant = initialBackgroundViewHeight - yOffset
         view.layoutIfNeeded()
-        
     }
 }
 

@@ -13,10 +13,6 @@ enum PlanningDetailCategory: CaseIterable {
     static var allCases: [PlanningDetailCategory] {
         return [.planningDetails, .planningTotalBalance]
     }
-    
-    static var items: [PlanningDetailCategory] {
-        return [.planningItem, .planningItem, .planningItem, .planningItem, .planningItem]
-    }
 }
 
 class PlanningDetailViewController: UIViewController {
@@ -44,8 +40,110 @@ class PlanningDetailViewController: UIViewController {
             
             do {
                 try context.save()
-                modalHandlerDelegate?.modalDismissed()
-                self.dismiss(animated: true)
+                UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { success, _ in
+                    DispatchQueue.main.async {
+                        if !success {
+                            print("Request Authorization Failed")
+                            let alert = UIAlertController(title: NSLocalizedString("AccessDeniedNotificationsTitle", comment: ""),
+                                                          message: NSLocalizedString("AccessDeniedNotificationsMessage", comment: ""),
+                                                          preferredStyle: .alert)
+                            
+                            let notNowAction = UIAlertAction(title: NSLocalizedString("AccessDeniedNotificationsNotNow", comment: ""),
+                                                             style: .cancel) {  _ in
+                                self.modalHandlerDelegate?.modalDismissed()
+                                self.dismiss(animated: true)
+                            }
+                            alert.addAction(notNowAction)
+                            
+                            let openSettingsAction = UIAlertAction(title: NSLocalizedString("AccessDeniedOpenSettings", comment: ""),
+                                                                   style: .default) { _ in
+                                // Open app privacy settings
+                                self.gotoAppPrivacySettings()
+                            }
+                            alert.addAction(openSettingsAction)
+                            
+                            self.present(alert, animated: true)
+                        } else {
+                            for item in self.deletedItems {
+                                NotificationManager.shared.cancel(identifier: item.itemID?.uuidString ?? "Item")
+                            }
+                            
+                            for item in self.items {
+                                let recurrencyType: RecurrencyTypes = RecurrencyTypes(rawValue: item.recurrenceType ?? "Never") ?? .never
+                                guard let template = item.template else {
+                                    return
+                                }
+                                if !(template.isExpense) {
+                                    if item.sendsNotification {
+                                        if recurrencyType == .everyDay {
+                                            let itemValue: String = String(format: "%.2f", item.value).currencyInputFormatting()
+                                            let paymentMethodName: String = item.paymentMethod?.name ?? NSLocalizedString("NoName", comment: "")
+                                            
+                                            let notificationBody: String = (Locale.current.currencySymbol ?? "$") +
+                                            " " + itemValue + NSLocalizedString("NotificationAdditionTodayDescription", comment: "") + paymentMethodName + "."
+                                            
+                                            NotificationManager.shared.send(identifier: item.itemID?.uuidString ?? "Item",
+                                                                            title: NSLocalizedString("NotificationAdditionTodayTitle1", comment: "") + (item.name ?? "item") + NSLocalizedString("NotificationAdditionTodayTitle2", comment: ""),
+                                                                            body: notificationBody,
+                                                                            selectedDate: item.recurrenceDate ?? Date(),
+                                                                            frequency: RecurrencyTypes(rawValue: item.recurrenceType ?? "Never") ?? .never)
+                                        } else {
+                                            let itemValue: String = String(format: "%.2f", item.value).currencyInputFormatting()
+                                            let paymentMethodName: String = item.paymentMethod?.name ?? NSLocalizedString("NoName", comment: "")
+                                            
+                                            let notificationBody: String = (Locale.current.currencySymbol ?? "$") +
+                                            " " + itemValue + NSLocalizedString("NotificationAdditionTomorrowDescription", comment: "") + paymentMethodName + "."
+                                            
+                                            NotificationManager.shared.send(identifier: item.itemID?.uuidString ?? "Item",
+                                                                            title: NSLocalizedString("NotificationAdditionTomorrowTitle", comment: "") + (item.name ?? "item") + ".",
+                                                                            body: notificationBody,
+                                                                            selectedDate: item.recurrenceDate ?? Date(),
+                                                                            frequency: RecurrencyTypes(rawValue: item.recurrenceType ?? "Never") ?? .never)
+                                        }
+                                    } else {
+                                        NotificationManager.shared.cancel(identifier: item.itemID?.uuidString ?? "Item")
+                                    }
+                                } else {
+                                    if item.sendsNotification {
+                                        if recurrencyType == .everyDay {
+                                            let itemValue: String = String(format: "%.2f", item.value).currencyInputFormatting()
+                                            let itemName: String = item.name ?? "item"
+                                            let paymentMethodName: String = item.paymentMethod?.name ?? NSLocalizedString("NoName", comment: "")
+                                            
+                                            let notificationBody: String = NSLocalizedString("NotificationDescription1", comment: "") +
+                                            itemName + "! " + (Locale.current.currencySymbol ?? "$") +
+                                            " " + itemValue + NSLocalizedString("NotificationDescription2", comment: "") + paymentMethodName + "."
+                                            
+                                            NotificationManager.shared.send(identifier: item.itemID?.uuidString ?? "Item",
+                                                                            title: NSLocalizedString("NotificationTodayTitle", comment: "") + (item.name ?? "item") + "!",
+                                                                            body: notificationBody,
+                                                                            selectedDate: item.recurrenceDate ?? Date(),
+                                                                            frequency: RecurrencyTypes(rawValue: item.recurrenceType ?? "Never") ?? .never)
+                                        } else {
+                                            let itemValue: String = String(format: "%.2f", item.value).currencyInputFormatting()
+                                            let itemName: String = item.name ?? "item"
+                                            let paymentMethodName: String = item.paymentMethod?.name ?? NSLocalizedString("NoName", comment: "")
+                                            
+                                            let notificationBody: String = NSLocalizedString("NotificationDescription1", comment: "") +
+                                            itemName + NSLocalizedString("Tomorrow", comment: "") + (Locale.current.currencySymbol ?? "$") +
+                                            " " + itemValue + NSLocalizedString("NotificationDescription2", comment: "") + paymentMethodName + "."
+                                            
+                                            NotificationManager.shared.send(identifier: item.itemID?.uuidString ?? "Item",
+                                                                            title: NSLocalizedString("NotificationTomorrowTitle", comment: "") + (item.name ?? "item") + "!",
+                                                                            body: notificationBody,
+                                                                            selectedDate: item.recurrenceDate ?? Date(),
+                                                                            frequency: RecurrencyTypes(rawValue: item.recurrenceType ?? "Never") ?? .never)
+                                        }
+                                    } else {
+                                        NotificationManager.shared.cancel(identifier: item.itemID?.uuidString ?? "Item")
+                                    }
+                                }
+                            }
+                            self.modalHandlerDelegate?.modalDismissed()
+                            self.dismiss(animated: true)
+                        }
+                    }
+                }
             } catch {
                 print(error.localizedDescription)
                 return
@@ -59,8 +157,8 @@ class PlanningDetailViewController: UIViewController {
     weak var modalHandlerDelegate: ModalHandlerDelegate?
     var template: Template?
     private let planningDetailCategories: [PlanningDetailCategory] = PlanningDetailCategory.allCases
-    private let planningItems: [PlanningDetailCategory] = PlanningDetailCategory.items
     private var items: [Item] = []
+    private var deletedItems: [Item] = []
     private var totalBalance: Double = 0.0
     
     override func viewDidLoad() {
@@ -79,7 +177,17 @@ class PlanningDetailViewController: UIViewController {
         items = template.items?.array as? [Item] ?? []
         templateName = template.name ?? ""
         templateDescription = template.templateDescription ?? ""
-        // Do any additional setup after loading the view.
+        
+        /* Use for Scheduled Notifications debuging
+         let center = UNUserNotificationCenter.current()
+         center.getPendingNotificationRequests { notifications in
+         print("Count: \(notifications.count)")
+         for item in notifications {
+         print("Title: " + item.content.title + ", Body: " + item.content.body)
+         print(item.trigger)
+         }
+         }
+         */
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -234,7 +342,7 @@ extension PlanningDetailViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // TODO: Unschedule future Push Notifications
-            
+            deletedItems.append(items[indexPath.row])
             items.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
@@ -300,5 +408,17 @@ extension PlanningDetailViewController: PlanningEditionDelegate {
     
     func didChangePlanningDescription(description: String) {
         templateDescription = description
+    }
+}
+
+extension PlanningDetailViewController {
+    func gotoAppPrivacySettings() {
+        guard let url = URL(string: UIApplication.openSettingsURLString),
+              UIApplication.shared.canOpenURL(url) else {
+                  assertionFailure("Not able to open App privacy settings")
+                  return
+              }
+        
+        UIApplication.shared.open(url, options: [:], completionHandler: nil)
     }
 }

@@ -54,13 +54,13 @@
 		710269142735D3F500D62DEE /* AddIncomeRecurrencyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 710269132735D3F500D62DEE /* AddIncomeRecurrencyViewController.swift */; };
 		710269162735D40700D62DEE /* AddIncomeCalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 710269152735D40700D62DEE /* AddIncomeCalendarViewController.swift */; };
 		710269182737325F00D62DEE /* AddExpenseCategoriesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 710269172737325F00D62DEE /* AddExpenseCategoriesCell.swift */; };
-		710F1DC52729C55F005C06E1 /* Charts in Frameworks */ = {isa = PBXBuildFile; productRef = 710F1DC42729C55F005C06E1 /* Charts */; };
 		710F1DC82729C8D6005C06E1 /* GraphicsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 710F1DC62729C8D6005C06E1 /* GraphicsTableViewCell.swift */; };
 		710F1DC92729C8D6005C06E1 /* GraphicsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 710F1DC72729C8D6005C06E1 /* GraphicsTableViewCell.xib */; };
 		710F1DD0272B2743005C06E1 /* PillMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 710F1DCF272B2743005C06E1 /* PillMarker.swift */; };
 		7140E5B52735101800685927 /* AddExpenseAllDoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7140E5B42735101800685927 /* AddExpenseAllDoneViewController.swift */; };
 		7140E5B72735102C00685927 /* AddIncomeAllDoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7140E5B62735102C00685927 /* AddIncomeAllDoneViewController.swift */; };
 		71737920273AEAE2007D83CC /* AddIncomeColectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7173791F273AEAE2007D83CC /* AddIncomeColectionViewController.swift */; };
+		7195859F27507F32009865F4 /* Charts in Frameworks */ = {isa = PBXBuildFile; productRef = 7195859E27507F32009865F4 /* Charts */; };
 		71CD631427359B8B007A3D75 /* AddExpenseRecurrencyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71CD631327359B8B007A3D75 /* AddExpenseRecurrencyViewController.swift */; };
 		71CD631627359B9C007A3D75 /* AddExpenseCalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71CD631527359B9C007A3D75 /* AddExpenseCalendarViewController.swift */; };
 		71D21EDF27441FDD0042AAED /* OnboardingPersistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71D21EDE27441FDD0042AAED /* OnboardingPersistence.swift */; };
@@ -119,6 +119,7 @@
 		F1FA997B273B2D5C0034483E /* PlanningItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FA997A273B2D5C0034483E /* PlanningItemTableViewCell.swift */; };
 		F1FA997E273B44850034483E /* Item.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1FA997D273B44850034483E /* Item.storyboard */; };
 		F1FA9982273B44D20034483E /* ItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FA9981273B44D20034483E /* ItemViewController.swift */; };
+		F1FF7020275E63D500755675 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FF701F275E63D500755675 /* NotificationManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -237,6 +238,8 @@
 		F1FA997A273B2D5C0034483E /* PlanningItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanningItemTableViewCell.swift; sourceTree = "<group>"; };
 		F1FA997D273B44850034483E /* Item.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Item.storyboard; sourceTree = "<group>"; };
 		F1FA9981273B44D20034483E /* ItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemViewController.swift; sourceTree = "<group>"; };
+		F1FF701F275E63D500755675 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
+		F1FF7021275EC65200755675 /* ExpensesOrganizer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ExpensesOrganizer.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -244,8 +247,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				710F1DC52729C55F005C06E1 /* Charts in Frameworks */,
 				71D21EE2274449870042AAED /* IQKeyboardManagerSwift in Frameworks */,
+				7195859F27507F32009865F4 /* Charts in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -316,6 +319,7 @@
 		16655625271A0E0000DE83F4 /* ExpensesOrganizer */ = {
 			isa = PBXGroup;
 			children = (
+				F1FF7021275EC65200755675 /* ExpensesOrganizer.entitlements */,
 				F138B8882720A054009F0837 /* CoreData */,
 				F138B8872720A032009F0837 /* Features */,
 				F138B8862720A028009F0837 /* Shared */,
@@ -453,6 +457,7 @@
 				F153F46527344630004F06CC /* CustomSizePresentationController.swift */,
 				71FED87727345CEB00B90A5A /* Fonts */,
 				F1BBB9432745763D00B5746D /* Templates.swift */,
+				F1FF701F275E63D500755675 /* NotificationManager.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -748,8 +753,8 @@
 			);
 			name = ExpensesOrganizer;
 			packageProductDependencies = (
-				710F1DC42729C55F005C06E1 /* Charts */,
 				71D21EE1274449870042AAED /* IQKeyboardManagerSwift */,
+				7195859E27507F32009865F4 /* Charts */,
 			);
 			productName = ExpensesOrganizer;
 			productReference = 16655623271A0E0000DE83F4 /* ExpensesOrganizer.app */;
@@ -781,8 +786,8 @@
 			);
 			mainGroup = 1665561A271A0E0000DE83F4;
 			packageReferences = (
-				710F1DC32729C55F005C06E1 /* XCRemoteSwiftPackageReference "charts" */,
 				71D21EE0274449870042AAED /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
+				7195859D27507F32009865F4 /* XCRemoteSwiftPackageReference "Charts" */,
 			);
 			productRefGroup = 16655624271A0E0000DE83F4 /* Products */;
 			projectDirPath = "";
@@ -881,6 +886,7 @@
 				077626EF273D8D7C002B691E /* OnboardingSlide.swift in Sources */,
 				F196D500272201F300CCAF81 /* ButtonsTableViewCell.swift in Sources */,
 				16B2D71B271E0EA800E7BB84 /* Template+CoreDataClass.swift in Sources */,
+				F1FF7020275E63D500755675 /* NotificationManager.swift in Sources */,
 				710F1DD0272B2743005C06E1 /* PillMarker.swift in Sources */,
 				71FED860273314DF00B90A5A /* AddExpenseNameCell.swift in Sources */,
 				F153F4622733BF20004F06CC /* CalendarViewController.swift in Sources */,
@@ -1100,9 +1106,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = ExpensesOrganizer/ExpensesOrganizer.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = KSCMH866UD;
+				DEVELOPMENT_TEAM = M7DG8QRAF9;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ExpensesOrganizer/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Expensee;
@@ -1132,9 +1139,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = ExpensesOrganizer/ExpensesOrganizer.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = KSCMH866UD;
+				DEVELOPMENT_TEAM = M7DG8QRAF9;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ExpensesOrganizer/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Expensee;
@@ -1183,12 +1191,12 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		710F1DC32729C55F005C06E1 /* XCRemoteSwiftPackageReference "charts" */ = {
+		7195859D27507F32009865F4 /* XCRemoteSwiftPackageReference "Charts" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/danielgindi/charts";
+			repositoryURL = "https://github.com/andersprenger/Charts";
 			requirement = {
-				kind = exactVersion;
-				version = 3.5.0;
+				branch = master;
+				kind = branch;
 			};
 		};
 		71D21EE0274449870042AAED /* XCRemoteSwiftPackageReference "IQKeyboardManager" */ = {
@@ -1202,9 +1210,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		710F1DC42729C55F005C06E1 /* Charts */ = {
+		7195859E27507F32009865F4 /* Charts */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 710F1DC32729C55F005C06E1 /* XCRemoteSwiftPackageReference "charts" */;
+			package = 7195859D27507F32009865F4 /* XCRemoteSwiftPackageReference "Charts" */;
 			productName = Charts;
 		};
 		71D21EE1274449870042AAED /* IQKeyboardManagerSwift */ = {

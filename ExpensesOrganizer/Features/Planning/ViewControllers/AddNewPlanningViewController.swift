@@ -40,6 +40,7 @@ class AddNewPlanningViewController: UIViewController, UITableViewDelegate {
         tableView.dataSource = self
         
         createdTemplate = Template(context: context)
+        tableView.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 0.001))
         
         // MARK: Navigation Visuals
         self.navigationItem.title = NSLocalizedString("AddPlanningTitle", comment: "")
@@ -72,8 +73,21 @@ class AddNewPlanningViewController: UIViewController, UITableViewDelegate {
         doneButton.tintColor = .white
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        navigationController?.navigationBar.shadowImage = UIImage()
+        navigationController?.navigationBar.isTranslucent = true
+        navigationController?.navigationBar.barStyle = .black
+    }
+    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        
+        // Restore the navigation bar to default
+        navigationController?.navigationBar.setBackgroundImage(nil, for: .default)
+        navigationController?.navigationBar.shadowImage = nil
         if self.isMovingFromParent {
             modalHandlerDelegate?.modalDismissed()
         }
@@ -220,7 +234,8 @@ extension AddNewPlanningViewController: UITableViewDataSource {
             else {
                 return UITableViewCell()
             }
-            cell.separatorInset = UIEdgeInsets(top: 0, left: 10000, bottom: 0, right: 0)
+//            cell.separatorInset = UIEdgeInsets(top: 0, left: 10000, bottom: 0, right: 0)
+//            cell.separatorInset.right = .greatestFiniteMagnitude
             cell.selectionStyle = .none
             return cell
         }
