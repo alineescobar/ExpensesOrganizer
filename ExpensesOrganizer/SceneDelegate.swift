@@ -5,14 +5,14 @@
 //  Created by Aline Osana Escobar on 15/10/21.
 //
 
+import CoreData
 import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     var window: UIWindow?
     var recurrence: Recurrence?
-    var template: Template?
-    
+    var templates: [Template] = []
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
@@ -32,6 +32,44 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             window.rootViewController = storyboard.instantiateInitialViewController()
         }
         window.makeKeyAndVisible()
+        
+        var currentDate = Date()
+        let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext
+        guard let context = context else {
+            return
+        }
+        
+        if UserDefaults.standard.bool(forKey: "firstTimeOpenTheAppToday") == false {
+            var items: [Item] = []
+            do {
+                let request = Template.fetchRequest() as NSFetchRequest<Template>
+                templates = try context.fetch(request)
+            } catch {
+                print("caiu no erro")
+            }
+            
+            for template in templates {
+                items = template.items?.array as? [Item] ?? []
+                
+                for items in items {
+                    guard let itemsTemplate = items.template else { return }
+                    if itemsTemplate.isExpense { //ver se é decrementar ou incrementar na carteira, isExpense
+                        recurrence?.recurrenceCounterDec(recurrenceType: RecurrencyTypes(rawValue: items.recurrenceType ?? "Never") ?? .never, transactionDate: items.recurrenceDate ?? Date(), wallet: items.paymentMethod ?? Wallet(), item: items)
+                    } else {
+                        recurrence?.recurrenceCounterInc(recurrenceType: RecurrencyTypes(rawValue: items.recurrenceType ?? "Never") ?? .never, transactionDate: items.recurrenceDate ?? Date(), wallet: items.paymentMethod ?? Wallet(), item: items)
+                    }
+                }
+            }
+            UserDefaults.standard.set(true, forKey: "firstTimeOpenTheAppToday")
+        }
+        let lastCurrentDate = currentDate
+        currentDate = Calendar.current.date(byAdding: .day, value: 1, to: currentDate) ?? Date()
+        
+        if currentDate == lastCurrentDate {
+            UserDefaults.standard.set(true, forKey: "firstTimeOpenTheAppToday")
+        } else {
+            UserDefaults.standard.set(false, forKey: "firstTimeOpenTheAppToday")
+        }
     }
     
     func sceneDidDisconnect(_ scene: UIScene) {
@@ -44,31 +82,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func sceneDidBecomeActive(_ scene: UIScene) {
         // Called when the scene has moved from an inactive state to an active state.
         // Use this method to restart any tasks that were paused (or not yet started) when the scene was inactive.
-        var currentDate = Date()
         
-        if UserDefaults.standard.bool(forKey: "firstTimeOpenTheAppToday") == false {
-            var items: [Item] = []
-            items = template?.items?.array as? [Item] ?? []
-            
-            for items in items {
-                guard let itemsTemplate = items.template else { return }
-                if itemsTemplate.isExpense { //ver se é decrementar ou incrementar na carteira, isExpense
-                recurrence?.recurrenceCounterDec(recurrenceType: RecurrencyTypes(rawValue: items.recurrenceType ?? "Never") ?? .never, transactionDate: items.recurrenceDate ?? Date(), wallet: items.paymentMethod ?? Wallet(), item: items)
-                } else {
-                    recurrence?.recurrenceCounterInc(recurrenceType: RecurrencyTypes(rawValue: items.recurrenceType ?? "Never") ?? .never, transactionDate: items.recurrenceDate ?? Date(), wallet: items.paymentMethod ?? Wallet(), item: items)
-                }
-                
-            }
-            UserDefaults.standard.set(true, forKey: "firstTimeOpenTheAppToday")
-        }
-        let lastCurrentDate = currentDate
-        currentDate = Calendar.current.date(byAdding: .day, value: 1, to: currentDate) ?? Date()
-        
-        if currentDate == lastCurrentDate {
-            UserDefaults.standard.set(true, forKey: "firstTimeOpenTheAppToday")
-        } else {
-            UserDefaults.standard.set(false, forKey: "firstTimeOpenTheAppToday")
-        }
     }
     
     func sceneWillResignActive(_ scene: UIScene) {

@@ -11,7 +11,6 @@ import UIKit
 class Recurrence {
     var wallet: Wallet?
     var transaction: Transaction?
-    var walletDetailViewController: WalletDetailViewController?
     
     func reloadTransactions() {
         do {
@@ -116,7 +115,7 @@ class Recurrence {
         do {
             try newContext.save()
         } catch {
-            walletDetailViewController?.showWalletSavingErrorAlert()
+            print("erro")
             return
         }
         
@@ -144,12 +143,10 @@ class Recurrence {
                     let date = Calendar.current.date(byAdding: .day, value: 1, to: currentDate)
                     item.recurrenceDate = date // criar uma nova despesa, para o prox dia -> ok
                 
-                
             case .everyWeek:
                     wallet.value -= item.value
                     let date = Calendar.current.date(byAdding: .day, value: 7, to: currentDate)
                     item.recurrenceDate = date
-                
                 
             case .eachTwoWeeks:
                     wallet.value -= item.value
@@ -184,7 +181,7 @@ class Recurrence {
         do {
             try newContext.save()
         } catch {
-            walletDetailViewController?.showWalletSavingErrorAlert()
+            print("erro")
             return
         }
         
