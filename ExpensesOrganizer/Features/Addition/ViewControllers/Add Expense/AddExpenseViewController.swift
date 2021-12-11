@@ -112,6 +112,7 @@ class AddExpenseViewController: UIViewController {
                         newItem.template = selectedTemplate
                         newItem.sendsNotification = false
                         newItem.recurrenceType = selectedRecurrencyType.rawValue
+                        newItem.itemID = UUID()
                     } else {
                         let item: Item? = items.first
                         item?.value = expenseValue
