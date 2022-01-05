@@ -275,7 +275,7 @@ extension DashboardViewController: UITableViewDataSource {
                 cell.selectionStyle = .none
                 cell.backgroundColor = UIColor(named: "GraySuport3StateColor")
                 cell.transactionName.text = transactions[indexPath.row].name
-                cell.transactionTag.text = transactions[indexPath.row].category?.name
+                cell.transactionTag.text = transactions[indexPath.row].category?.name ?? NSLocalizedString("Others", comment: "")
                 cell.transactionDate.text = date
                 cell.transactionPrice.text = transactions[indexPath.row].category?.isExpense ?? false ? "-" + String(format: "%.2f", transactions[indexPath.row].value).currencyInputFormatting() :
                 "+" + String(format: "%.2f", transactions[indexPath.row].value).currencyInputFormatting()
