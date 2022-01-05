@@ -122,6 +122,7 @@
 "EmptyTransactionWalletBalanceAlertDescription" = "You need to set a value and select a Wallet in order to make your transaction!";
 "EmptyTransactionWalletAlertTitle" = "Wallet not selected";
 "EmptyTransactionWalletAlertDescription" = "You need to select a Wallet in order to make your transaction!";
+"ProgrammedAddition" = ": programmed income";
 
 // MARK: Addition Expense
 "addition-expense-segmented-title" = "Expenses";
@@ -134,6 +135,10 @@
 "addition-expense-done-body" = "Your expense has been successfully added.";
 "InsufficientBalanceAlertTitle" = "Insufficient balance";
 "InsufficientBalanceAlertDescription" = "You don't have enough balance in your wallet to do this transaction.";
+"InsufficientBalanceAlertDescriptionDetailed1" = "You don't have enough balance in your wallet to charge \"";
+"InsufficientBalanceAlertDescriptionDetailed2" = "\". It has the cost of ";
+"InsufficientBalanceAlertDescriptionDetailed3" = " and you only have ";
+"InsufficientBalanceAlertDescriptionDetailed4" = " of balance avaliable on \"";
 
 // MARK: Item
 "ItemName" = "Item name";

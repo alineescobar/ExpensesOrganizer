@@ -11,8 +11,6 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     var window: UIWindow?
-    var recurrence: Recurrence = Recurrence()
-    var templates: [Template] = []
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
@@ -26,24 +24,35 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             let storyboard = UIStoryboard(name: "Dashboard", bundle: .main)
             window.rootViewController = storyboard.instantiateInitialViewController()
         } else {
-            UserDefaults.standard.bool(forKey: "firstTimeOpenTheAppToday")
-            UserDefaults.standard.set(false, forKey: "firstTimeOpenTheAppToday")
+            UserDefaults.standard.set(Date(), forKey: "lastOpeningDate")
             let storyboard = UIStoryboard(name: "Onboarding", bundle: .main)
             window.rootViewController = storyboard.instantiateInitialViewController()
         }
         window.makeKeyAndVisible()
         
-        var currentDate = Date()
-        let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext
-        guard let context = context else {
-            return
-        }
+        let lastOpeningDate = UserDefaults.standard.object(forKey: "lastOpeningDate") as! Date
+        let lastOpeningDay = Calendar.current.dateComponents([.day, .month, .year], from: lastOpeningDate).day ?? 0
+        let today = Calendar.current.dateComponents([.day, .month, .year], from: Date()).day ?? 0
         
-        if UserDefaults.standard.bool(forKey: "firstTimeOpenTheAppToday") == false {
+        if lastOpeningDay < today {
+            UserDefaults.standard.set(Date(), forKey: "lastOpeningDate")
+            let recurrence: Recurrence = Recurrence()
+            var templates: [Template] = []
+            var wallets: [Wallet] = []
+            var alertMessages: [String] = []
+            let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext
+            guard let context = context else {
+                return
+            }
+            
+            //            if UserDefaults.standard.bool(forKey: "firstTimeOpenTheAppToday") == false {
             var items: [Item] = []
             do {
-                let request = Template.fetchRequest() as NSFetchRequest<Template>
-                templates = try context.fetch(request)
+                let templatesRequest = Template.fetchRequest() as NSFetchRequest<Template>
+                templates = try context.fetch(templatesRequest)
+                
+                let walletsRequest = Wallet.fetchRequest() as NSFetchRequest<Wallet>
+                wallets = try context.fetch(walletsRequest)
             } catch {
                 print("caiu no erro")
             }
@@ -51,27 +60,62 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             for template in templates {
                 items = template.items?.array as? [Item] ?? []
                 
-                for items in items {
-                    guard let itemsTemplate = items.template else { return }
-                    guard let walletItem = items.paymentMethod else { continue }
-                    if itemsTemplate.isExpense { //ver se é decrementar ou incrementar na carteira, isExpense
-                        recurrence.recurrenceCounterDec(recurrenceType: RecurrencyTypes(rawValue: items.recurrenceType ?? "Never") ?? .never, transactionDate: items.recurrenceDate ?? Date(), wallet: walletItem, item: items)
+                for item in items {
+                    //                    guard let itemsTemplate = items.template else { return }
+                    guard let walletItem = item.paymentMethod else { continue }
+                    if template.isExpense { //ver se é decrementar ou incrementar na carteira, isExpense
+                        if !(recurrence.recurrenceCounterDec(recurrenceType: RecurrencyTypes(rawValue: item.recurrenceType ?? "Never") ?? .never, transactionDate: item.recurrenceDate ?? Date(), wallet: walletItem, item: item)) {
+                            let transactionName: String = NSLocalizedString("InsufficientBalanceAlertDescriptionDetailed1", comment: "") + (item.name ?? NSLocalizedString("NoName", comment: ""))
+                            let transactionValue: String = NSLocalizedString("InsufficientBalanceAlertDescriptionDetailed2", comment: "") + String(format: "%.2f", item.value).currencyInputFormatting()
+                            let walletValue: String = NSLocalizedString("InsufficientBalanceAlertDescriptionDetailed3", comment: "") + String(format: "%.2f", walletItem.value).currencyInputFormatting() + NSLocalizedString("InsufficientBalanceAlertDescriptionDetailed4", comment: "") + String(walletItem.name ?? NSLocalizedString("NoName", comment: "")) + "\"."
+                            let alertMessage: String = transactionName + transactionValue + walletValue
+                            alertMessages.append(alertMessage)
+                        }
                     } else {
-                        recurrence.recurrenceCounterInc(recurrenceType: RecurrencyTypes(rawValue: items.recurrenceType ?? "Never") ?? .never, transactionDate: items.recurrenceDate ?? Date(), wallet: walletItem, item: items)
+                        recurrence.recurrenceCounterInc(recurrenceType: RecurrencyTypes(rawValue: item.recurrenceType ?? "Never") ?? .never, transactionDate: item.recurrenceDate ?? Date(), wallet: walletItem, item: item)
                     }
                 }
             }
-            UserDefaults.standard.set(true, forKey: "firstTimeOpenTheAppToday")
-        }
-        let lastCurrentDate = currentDate
-        currentDate = Calendar.current.date(byAdding: .day, value: 1, to: currentDate) ?? Date()
-        
-        if currentDate == lastCurrentDate {
-            UserDefaults.standard.set(true, forKey: "firstTimeOpenTheAppToday")
-        } else {
-            UserDefaults.standard.set(false, forKey: "firstTimeOpenTheAppToday")
+            
+            for wallet in wallets {
+                if RecurrencyTypes(rawValue: wallet.recurrencyType ?? "Never") ?? .never != .never {
+                    recurrence.recurrenceCounterIncWallets(recurrenceType: RecurrencyTypes(rawValue: wallet.recurrencyType ?? "Never") ?? .never, transactionDate: wallet.recurrenceDate ?? Date(), wallet: wallet)
+                }
+            }
+            
+            do {
+                try context.save()
+            } catch {
+                print("erro")
+                return
+            }
+            
+            showAlert(receivedMessages: alertMessages)
         }
     }
+    
+    private func showAlert(receivedMessages: [String]) {
+        var messages = receivedMessages
+        guard messages.count > 0 else { return }
+        
+        let message = messages.first
+        
+        func removeAndShowNextMessage() {
+            messages.removeFirst()
+            showAlert(receivedMessages: messages)
+        }
+        
+        let alert = UIAlertController(title: NSLocalizedString("InsufficientBalanceAlertTitle", comment: ""), message: message, preferredStyle: .alert)
+        alert.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Ok", comment: ""), style: .default){ (action) in
+            print("pressed yes")
+            removeAndShowNextMessage()
+            
+        })
+        
+        self.window?.rootViewController?.present(alert, animated: true, completion: nil)
+    }
+    
     
     func sceneDidDisconnect(_ scene: UIScene) {
         // Called as the scene is being released by the system.
