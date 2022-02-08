@@ -111,6 +111,7 @@ class WalletDetailViewController: UIViewController {
         }
         wallet.name = walletName
         wallet.value = walletBalance
+        wallet.recurrenceValue = walletBalance
         wallet.recurrenceDate = selectedDate
         wallet.recurrencyType = selectedRecurrencyType.rawValue
         do {
@@ -304,7 +305,7 @@ extension WalletDetailViewController: UITableViewDataSource {
                 cell.selectionStyle = .none
                 cell.backgroundColor = UIColor(named: "GraySuport3StateColor")
                 cell.transactionName.text = walletRecentTransactions[indexPath.row].name
-                cell.transactionTag.text = walletRecentTransactions[indexPath.row].category?.name
+                cell.transactionTag.text = walletRecentTransactions[indexPath.row].category?.name ?? NSLocalizedString("Others", comment: "")
                 cell.transactionDate.text = date
                 cell.transactionPrice.text = walletRecentTransactions[indexPath.row].category?.isExpense ?? false ? "-" +
                 String(format: "%.2f", walletRecentTransactions[indexPath.row].value).currencyInputFormatting() :

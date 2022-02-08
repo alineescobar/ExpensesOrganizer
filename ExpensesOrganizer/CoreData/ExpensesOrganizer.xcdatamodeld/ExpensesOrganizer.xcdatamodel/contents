@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="19461" systemVersion="21A559" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="19574" systemVersion="21C52" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Goal" representedClassName=".Goal" syncable="YES" codeGenerationType="category">
         <attribute name="endDate" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="goalDescription" optional="YES" attributeType="String"/>
@@ -41,10 +41,11 @@
     <entity name="Wallet" representedClassName=".Wallet" syncable="YES" codeGenerationType="category">
         <attribute name="name" attributeType="String"/>
         <attribute name="recurrenceDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="recurrenceValue" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="recurrencyType" optional="YES" attributeType="String"/>
         <attribute name="value" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="walletID" attributeType="UUID" usesScalarValueType="NO"/>
-        <relationship name="item" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Item" inverseName="paymentMethod" inverseEntity="Item"/>
+        <relationship name="item" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Item" inverseName="paymentMethod" inverseEntity="Item"/>
         <relationship name="template" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Template" inverseName="paymentMethod" inverseEntity="Template"/>
     </entity>
     <elements>
@@ -52,6 +53,6 @@
         <element name="Item" positionX="-18" positionY="81" width="128" height="149"/>
         <element name="Template" positionX="-36" positionY="72" width="128" height="149"/>
         <element name="Transaction" positionX="0" positionY="99" width="128" height="149"/>
-        <element name="Wallet" positionX="-63" positionY="-18" width="128" height="134"/>
+        <element name="Wallet" positionX="-63" positionY="-18" width="128" height="149"/>
     </elements>
 </model>

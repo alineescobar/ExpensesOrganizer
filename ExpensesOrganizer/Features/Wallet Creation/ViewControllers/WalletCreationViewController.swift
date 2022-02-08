@@ -42,6 +42,7 @@ class WalletCreationViewController: UIViewController {
             let newWallet = Wallet(context: context)
             newWallet.name = walletName
             newWallet.value = walletBalance
+            newWallet.recurrenceValue = walletBalance
             newWallet.walletID = UUID()
             newWallet.recurrenceDate = selectedDate
             newWallet.recurrencyType = selectedRecurrencyType.rawValue

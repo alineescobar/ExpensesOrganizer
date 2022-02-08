@@ -141,6 +141,7 @@
 "EmptyTransactionWalletBalanceAlertDescription" = "Você precisa definir um valor e selecionar uma carteira para efetuar sua transação!";
 "EmptyTransactionWalletAlertTitle" = "Carteira não selecionada";
 "EmptyTransactionWalletAlertDescription" = "Você precisa selecionar uma carteira para efetuar sua transação!";
+"ProgrammedAddition" = ": ganho programado";
 
 // MARK: Addition Expense
 "addition-expense-segmented-title" = "Despesas";
@@ -153,6 +154,10 @@
 "addition-expense-done-body" = "Sua despesa foi adicionada com sucesso.";
 "InsufficientBalanceAlertTitle" = "Saldo insuficiente";
 "InsufficientBalanceAlertDescription" = "Você não possui saldo suficiente na sua carteira para efetuar essa transação.";
+"InsufficientBalanceAlertDescriptionDetailed1" = "Você não possui saldo suficiente em sua carteira para que \"";
+"InsufficientBalanceAlertDescriptionDetailed2" = "\" seja cobrado. Essa transação tem o custo de ";
+"InsufficientBalanceAlertDescriptionDetailed3" = " e você tem apenas ";
+"InsufficientBalanceAlertDescriptionDetailed4" = " de saldo disponível em \"";
 
 // MARK: Templates
 "Property" = "Imóvel";

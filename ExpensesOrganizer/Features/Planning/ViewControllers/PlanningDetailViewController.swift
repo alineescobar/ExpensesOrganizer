@@ -83,7 +83,9 @@ class PlanningDetailViewController: UIViewController {
                                             " " + itemValue + NSLocalizedString("NotificationAdditionTodayDescription", comment: "") + paymentMethodName + "."
                                             
                                             NotificationManager.shared.send(identifier: item.itemID?.uuidString ?? "Item",
-                                                                            title: NSLocalizedString("NotificationAdditionTodayTitle1", comment: "") + (item.name ?? "item") + NSLocalizedString("NotificationAdditionTodayTitle2", comment: ""),
+                                                                            title: NSLocalizedString("NotificationAdditionTodayTitle1", comment: "") +
+                                                                            (item.name ?? "item") +
+                                                                            NSLocalizedString("NotificationAdditionTodayTitle2", comment: ""),
                                                                             body: notificationBody,
                                                                             selectedDate: item.recurrenceDate ?? Date(),
                                                                             frequency: RecurrencyTypes(rawValue: item.recurrenceType ?? "Never") ?? .never)
